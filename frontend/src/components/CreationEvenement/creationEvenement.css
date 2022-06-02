@@ -1,0 +1,10 @@
+#creationEvenement {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+input,
+textarea,
+select {
+  margin-top: 15px;
+}
