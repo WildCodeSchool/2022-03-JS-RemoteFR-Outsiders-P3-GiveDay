@@ -22,5 +22,5 @@ select {
 }
 
 input[type="submit"] {
-  margin: 20px auto 0;
+  margin: 20px 0 0 auto;
 }
