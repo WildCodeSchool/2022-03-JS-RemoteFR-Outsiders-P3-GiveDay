@@ -3,8 +3,24 @@
   flex-direction: column;
   width: 500px;
 }
+
+div .line {
+  display: flex;
+  flex-direction: row;
+}
+
+label {
+  width: 500px;
+  margin-top: 15px;
+}
+
 input,
 textarea,
 select {
-  margin-top: 15px;
+  width: 350px;
+  float: right;
+}
+
+input[type="submit"] {
+  margin: 20px auto 0;
 }
