@@ -1,6 +1,6 @@
 import Home from "@pages/Home/Home";
 import Login from "@components/Login/Login";
-
+import "./assets/root.css";
 import "./App.css";
 
 function App() {
@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <Login />
       <Home />
-      <p>coucou</p>
     </div>
   );
 }
