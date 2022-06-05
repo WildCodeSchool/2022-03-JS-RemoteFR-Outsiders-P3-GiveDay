@@ -1,5 +1,6 @@
 import React from "react";
-import "./creationEvenement.css";
+import "@components/CreationEvenement/creationEvenement.css";
+import "@components/CreationEvenement/Cadeau";
 
 function CreationEvenement() {
   const handleChange = (event) => {
@@ -119,13 +120,6 @@ function CreationEvenement() {
             placeholder="Entrez votre numero exemple : 06 99 33 22 11"
             required
           />
-        </label>
-
-        <label htmlFor="input_eve_present">
-          Vos cadeaux
-          <textarea id="input_eve_present" name="cadeaux" rows="5">
-            entrez vos souhaits de cadeaux
-          </textarea>
         </label>
 
         <label htmlFor="select_eve_theme">
