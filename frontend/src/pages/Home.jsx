@@ -1,5 +1,6 @@
 import Counter from "@components/Counter";
 import logo from "@assets/logo.svg";
+import Tempback from "../components/Tempback";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <p>Hello Vite + React !</p>
 
       <Counter />
+      <Tempback />
 
       <p>
         Edit <code>App.jsx</code> and save to test HMR updates.
