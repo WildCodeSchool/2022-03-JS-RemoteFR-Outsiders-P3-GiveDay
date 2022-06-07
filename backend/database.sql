@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `item`
+-- Structure de la table `user`
 --
 
 CREATE TABLE `user` (
@@ -33,6 +33,22 @@ CREATE TABLE `user` (
   `email` varchar(180) NOT NULL UNIQUE,
   `password` varchar(255) NOT NULL,
   `role` varchar(80) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `evenement` (
+  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `code` varchar(255) NOT NULL,
+  `theme` varchar(255) NOT NULL,
+  `prenom` varchar(180) NOT NULL UNIQUE,
+  `age` INT NOT NULL,
+  `date_evenement` DATETIME,
+  `heure_début`  DATETIME,
+  `heure_fin` DATETIME,
+  `lieu` varchar(255),
+  `telephone` varchar(255),
+  `mail` varchar(255) NOT NULL,
+  `cadeau` varchar(255) NOT NULL,
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
