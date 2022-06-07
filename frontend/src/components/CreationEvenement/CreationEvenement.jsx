@@ -33,6 +33,7 @@ function CreationEvenement() {
         <label htmlFor="input_eve_mail">
           Email de l'organisateur
           <input
+            className="inputForm"
             id="input_eve_mail"
             type="mail"
             onChange={handleChange}
@@ -43,9 +44,10 @@ function CreationEvenement() {
           />
         </label>
 
-        <label htmlFor="input_eve_lastname">
+        <label htmlFor="input_eve_age">
           Age de la personne célébrée
           <input
+            className="inputForm"
             id="input_eve_age"
             onChange={handleChange}
             type="text"
@@ -58,6 +60,7 @@ function CreationEvenement() {
         <label htmlFor="input_eve_firstname">
           Prénom de la personne célébrée
           <input
+            className="inputForm"
             id="input_eve_firstname"
             onChange={handleChange}
             type="text"
@@ -66,10 +69,12 @@ function CreationEvenement() {
             required
           />
         </label>
-        <label htmlFor="input_eve_firstname">
+
+        <label htmlFor="input_eve_date">
           Date de l'évènement
           <input
             id="input_eve_date"
+            className="inputForm"
             type="date"
             name="date"
             onChange={handleChange}
@@ -79,10 +84,12 @@ function CreationEvenement() {
             required
           />
         </label>
+
         <label htmlFor="input_eve_hour_start">
           Heure de début
           <input
             id="input_eve_hour_start"
+            className="inputForm"
             type="time"
             onChange={handleChange}
             name="heure_debut"
@@ -91,10 +98,12 @@ function CreationEvenement() {
             required
           />
         </label>
+
         <label htmlFor="input_eve_hour_end">
           Heure de fin
           <input
             id="input_eve_hour_end"
+            className="inputForm"
             type="time"
             onChange={handleChange}
             name="heure_fin"
@@ -103,11 +112,11 @@ function CreationEvenement() {
             required
           />
         </label>
-
         <label htmlFor="input_eve_place">
           Lieu du rendez-vous
           <input
             id="input_eve_place"
+            className="inputForm"
             onChange={handleChange}
             type="text"
             name="lieu_rendez_vous"
@@ -120,6 +129,7 @@ function CreationEvenement() {
           N° Téléphone de l'organisateur
           <input
             id="input_eve_phone"
+            className="inputForm"
             type="tel"
             onChange={handleChange}
             name="Numero_telephone"
@@ -128,18 +138,18 @@ function CreationEvenement() {
             required
           />
         </label>
-
         <span className="title">LISTE DES CADEAUX SOUHAITES</span>
         <div className="cadeauxList">
           <Cadeau name="lego" />
           {cadeauxList}
         </div>
 
-        <button className="button-add-cadeau" type="button" onClick={handleAdd}>
+        <button className="buttonStyle" type="button" onClick={handleAdd}>
           🎁 Ajouter un cadeau
         </button>
 
         <button
+          className="buttonStyle"
           type="submit"
           form="creationEvenement"
           value="Submit"
