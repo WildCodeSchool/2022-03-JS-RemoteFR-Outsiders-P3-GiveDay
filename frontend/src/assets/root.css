@@ -1,0 +1,56 @@
+@font-face {
+  font-family: aloja;
+  src: url("../assets/fonts/AlojaLight400.otf") format("opentype");
+}
+
+@font-face {
+  font-family: leagueSpartan;
+  src: url("../assets/fonts/LeagueSpartan-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../assets/fonts/Montserrat-Light.otf") format("opentype");
+}
+
+:root {
+  --color_1: #ffe200;
+  --color_2: #ec5f5d;
+  --color_3: #ff3333;
+  --color_3: #6fceb4;
+  --color_4: #5a94d2;
+  --color_dark: #000000;
+  --color_light: #ffffff;
+  --font-size-h1: 3.5rem;
+  --font-size-h2: 2.8rem;
+  --font-size-h3: 2.2rem;
+  --font-size-p: 1.4rem;
+  --border-radius: 5px;
+  --font-logo: aloja;
+  --font-titre_small-text: leagueSpartan;
+  --font-big-text: Montserrat;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: var(--font-big-text);
+}
+
+.buttonStyle {
+  width: clamp(8rem, 10rem, 12rem);
+  height: clamp(2rem, 2.5rem, 3rem);
+  margin: 0.2rem;
+  border: 2px solid var(--color_3);
+  border-radius: 5px;
+  background-color: var(--color_light);
+  color: var(--color_3);
+}
+
+.buttonStyle:hover {
+  background-color: var(--color_3);
+  color: var(--color_light);
+  border: 2px solid var(--color_light);
+}
