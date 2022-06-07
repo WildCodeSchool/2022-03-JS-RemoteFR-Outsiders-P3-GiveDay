@@ -1,6 +1,6 @@
 @font-face {
   font-family: aloja;
-  src: url("../assets/fonts/AlojaLight400.otf") format("opentype");
+  src: url("../assets/fonts/Aloja-Light.otf") format("opentype");
 }
 
 @font-face {
@@ -38,11 +38,12 @@
   text-decoration: none;
   font-family: var(--font-big-text);
 }
-
+h1, h2, h3{
+  font-family: var(--font-titre_small-text);
+}
 .buttonStyle {
   width: clamp(8rem, 10rem, 12rem);
   height: clamp(2rem, 2.5rem, 3rem);
-  margin: 0.2rem;
   border: 2px solid var(--color_3);
   border-radius: 5px;
   background-color: var(--color_light);
@@ -53,4 +54,5 @@
   background-color: var(--color_3);
   color: var(--color_light);
   border: 2px solid var(--color_light);
+  cursor:pointer;
 }

@@ -1,6 +1,12 @@
 .loginContainer {
   display: flex;
+  width: 100%;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: start;
+  position: absolute;
+  right:0;
+  top: 0;
 }
 
 .buttonContainer {
@@ -8,8 +14,14 @@
   flex-direction: column;
   width: 100%;
   align-items: flex-end;
+  justify-content: center;
+  height:10.25rem;
 }
-
+.buttonStyleLogin{
+  margin-right: 2.5%;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
 .formContainer {
   width: 75vw;
   height: 75vh;
@@ -20,7 +32,7 @@
   right: 0;
   bottom: 0;
   margin: auto;
-  margin-top: 7rem;
+  margin-top: 10.25rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,6 +58,7 @@
   background-color: var(--color_3);
   color: var(--color_light);
   border: 2px solid var(--color_light);
+  cursor:pointer;
 }
 
 .form {
@@ -55,6 +68,9 @@
   align-items: center;
   color: var(--color_light);
   text-align: center;
+}
+.form p {
+  margin-bottom:1rem;
 }
 
 @keyframes newShowScreen {
@@ -73,6 +89,9 @@
   align-items: center;
   text-align: center;
   width: 100%;
+}
+.inputForm{
+  margin-top:0.5rem;
 }
 .inputForm:valid,
 .inputForm:invalid {
@@ -113,7 +132,9 @@
   text-decoration: none;
   color: var(--color_1);
   font-size: 0.8rem;
+  border-radius: 5px;
 }
+
 .errorLogin {
   display: none;
 }
