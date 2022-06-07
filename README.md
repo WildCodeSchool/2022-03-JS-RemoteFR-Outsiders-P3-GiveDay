@@ -32,3 +32,10 @@ It's pre-configured with a set of tools which'll help students produce industry-
 - _Prettier_ : "Quality of code" tool as well, focuses on the styleguide
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
 - _Nodemon_ : Allows to restart the server everytime a .js file is udated
+
+
+
+Package à installer: 
+
+npm i swiper : pour le carousel de la page associations partenaires (valérie)
+npm i sass : pour le style du carousel (valérie)
