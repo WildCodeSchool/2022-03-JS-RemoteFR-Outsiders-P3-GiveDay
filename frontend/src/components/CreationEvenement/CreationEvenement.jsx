@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
-import "@components/CreationEvenement/Cadeau";
+import Cadeau from "@components/CreationEvenement/Cadeau";
 
 function CreationEvenement() {
+  const [cadeauxList, setcadeauxList] = useState([]);
+
   const handleChange = (event) => {
     event.preventDefault();
   };
@@ -13,9 +15,14 @@ function CreationEvenement() {
     console.warn(Array.from(data.entries()));
   };
 
+  const handleAdd = () => {
+    setcadeauxList(cadeauxList.concat(<Cadeau name="lego" />));
+  };
+
   return (
     <div>
       <h1>CreationEvenement</h1>
+      <h2>CODE : 202204-KV-01</h2>
       <form
         id="creationEvenement"
         className="giveForm"
@@ -24,38 +31,38 @@ function CreationEvenement() {
         onSubmit={onSubmit}
       >
         <label htmlFor="input_eve_mail">
-          Email
+          Email de l'organisateur
           <input
             id="input_eve_mail"
             type="mail"
             onChange={handleChange}
             name="adresse_mail"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-            placeholder="Entrez votre email exemple :john.doe@email.fr"
+            placeholder="john.doe@email.fr"
             required
           />
         </label>
 
         <label htmlFor="input_eve_lastname">
-          Nom
+          Age de la personne célébrée
           <input
-            id="input_eve_lastname"
+            id="input_eve_age"
             onChange={handleChange}
             type="text"
-            name="lastname"
-            placeholder="Entrez votre nom"
+            name="age"
+            placeholder="8"
             required
           />
         </label>
 
         <label htmlFor="input_eve_firstname">
-          Prénom
+          Prénom de la personne célébrée
           <input
             id="input_eve_firstname"
             onChange={handleChange}
             type="text"
             name="firstname"
-            placeholder="Entrez votre prénom"
+            placeholder="Gabriel"
             required
           />
         </label>
@@ -104,36 +111,42 @@ function CreationEvenement() {
             onChange={handleChange}
             type="text"
             name="lieu_rendez_vous"
-            placeholder="Lieu du rendez-vous"
+            placeholder="Parc de la tête d'or, Lyon"
             required
           />
         </label>
 
         <label htmlFor="input_eve_phone">
-          N° Téléphone
+          N° Téléphone de l'organisateur
           <input
             id="input_eve_phone"
             type="tel"
             onChange={handleChange}
             name="Numero_telephone"
             pattern="^(\+33 |0)[1-9]( \d\d){4}$"
-            placeholder="Entrez votre numero exemple : 06 99 33 22 11"
+            placeholder="06 00 00 00 00"
             required
           />
         </label>
 
-        <label htmlFor="select_eve_theme">
-          Le thème de la carte
-          <select id="select_eve_theme" name="theme">
-            <option value="1" selected="selected">
-              Panda
-            </option>
-            <option value="2">starwars</option>
-            <option value="3">chats</option>
-          </select>
-        </label>
+        <span className="title">LISTE DES CADEAUX SOUHAITES</span>
+        <div className="cadeauxList">
+          <Cadeau name="lego" />
+          {cadeauxList}
+        </div>
 
-        <input type="submit" value="Envoyer le formulaire" />
+        <button className="button-add-cadeau" type="button" onClick={handleAdd}>
+          🎁 Ajouter un cadeau
+        </button>
+
+        <button
+          type="submit"
+          form="creationEvenement"
+          value="Submit"
+          onClick={handleAdd}
+        >
+          🎉 Créer l'évènement
+        </button>
       </form>
     </div>
   );

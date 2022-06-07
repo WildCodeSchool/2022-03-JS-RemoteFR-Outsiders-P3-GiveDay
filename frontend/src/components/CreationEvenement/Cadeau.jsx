@@ -3,20 +3,19 @@ import "@components/CreationEvenement/creationEvenement.css";
 
 function Cadeau() {
   return (
-    <>
-      <img src="https://picsum.photos/200" alt="picsum" />
-      <input type="text" name="cadeau_nom" placeholder="Titre du cadeau" />
-      <input
-        type="text"
-        name="cadeau_url"
-        placeholder="Optionnel : URL du cadeau"
-      />
-      <input
-        type="text"
-        name="cadeau_somme"
-        placeholder="Somme participation au cadeau"
-      />
-    </>
+    <div className="cadeau">
+      {/* <div className="image" /> */}
+      <div className="inputs">
+        <input type="text" name="cadeau_nom" placeholder="Cadeau souhaité" />
+        {/* <input
+          type="text"
+          name="cadeau_url_image"
+          placeholder="Option : copiez/collez URL image du cadeau"
+  /> */}
+        <input type="text" name="cadeau_url_amazon" placeholder="Lien" />
+      </div>
+      <div className="remove">❌</div>
+    </div>
   );
 }
 
