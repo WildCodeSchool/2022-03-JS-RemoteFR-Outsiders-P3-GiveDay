@@ -27,33 +27,55 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `user` (
-  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `id` int NOT NULL AUTO_INCREMENT,
   `prenom` varchar(255) NOT NULL,
   `nom` varchar(255) NOT NULL,
-  `email` varchar(180) NOT NULL UNIQUE,
+  `email` varchar(180) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `role` varchar(80) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `role` varchar(80) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `email` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
 
 CREATE TABLE `evenement` (
-  `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `code` varchar(255) NOT NULL,
-  `theme` varchar(255) NOT NULL,
-  `prenom` varchar(180) NOT NULL UNIQUE,
-  `age` INT NOT NULL,
-  `date_evenement` DATETIME,
-  `heure_début`  DATETIME,
-  `heure_fin` DATETIME,
-  `lieu` varchar(255),
-  `telephone` varchar(255),
-  `mail` varchar(255) NOT NULL,
+  `idevenement` int NOT NULL AUTO_INCREMENT,
+  `code` varchar(45) NOT NULL,
+  `prenom` varchar(45) DEFAULT NULL,
+  `age` int DEFAULT NULL,
+  `date` varchar(45) DEFAULT NULL,
+  `heure_de_debut` varchar(45) DEFAULT NULL,
+  `heure_de_fin` varchar(45) DEFAULT NULL,
+  `lieu` varchar(255) DEFAULT NULL,
+  `telephone` varchar(45) DEFAULT NULL,
+  `mail` varchar(45) NOT NULL,
   `cadeau` varchar(255) NOT NULL,
-  
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `asso_event_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  PRIMARY KEY (`idevenement`),
+  UNIQUE KEY `code_UNIQUE` (`code`),
+  KEY `user_id_idx` (`user_id`),
+  KEY `asso_event_id_idx` (`asso_event_id`),
+  CONSTRAINT `asso_event_id` FOREIGN KEY (`asso_event_id`) REFERENCES `association` (`id`),
+  CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Contenu de la table `item`
---
+
+CREATE TABLE `association` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nom` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `user_asso_id` int NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id_idx` (`user_asso_id`),
+  CONSTRAINT `user_asso_id` FOREIGN KEY (`user_asso_id`) REFERENCES `user` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
 
 INSERT INTO `user` (`prenom`, `nom`,`email`,`password`,`role`) VALUES
 ("guillaume", "caliez","caliezguillaume@live.fr","guigui0685","admin"),
