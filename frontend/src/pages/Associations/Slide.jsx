@@ -7,10 +7,12 @@ function Slide({ props, current, index }) {
         <div id="carousel">
           <img src={props.photo} alt="asso" className="photo" />
           <div className="content">
-            <img src={props.logo} alt="logo" />
+            <img src={props.logo} alt="logo" className="logoAsso" />
             <p>{props.description}</p>
-            <a href={props.url}>Visiter le site {props.nom}</a>{" "}
           </div>
+          <a href={props.url} target="_blank" rel="noreferrer">
+            Visiter le site {props.nom}{" "}
+          </a>{" "}
         </div>
       )}
     </div>

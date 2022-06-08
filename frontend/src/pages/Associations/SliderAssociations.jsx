@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./associations.css";
+import "./sliderAssociations.css";
 import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIos,

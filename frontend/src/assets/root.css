@@ -29,6 +29,8 @@
   --font-logo: aloja;
   --font-titre_small-text: leagueSpartan;
   --font-big-text: Montserrat;
+
+  --transition: all 400ms ease;
 }
 
 * {
@@ -50,6 +52,7 @@ h3 {
   border-radius: 5px;
   background-color: var(--color_light);
   color: var(--color_3);
+  transition: var(--transition);
 }
 
 .buttonStyle:hover {
@@ -57,4 +60,8 @@ h3 {
   color: var(--color_light);
   border: 2px solid var(--color_light);
   cursor: pointer;
+}
+
+a {
+  transition: var(--transition);
 }

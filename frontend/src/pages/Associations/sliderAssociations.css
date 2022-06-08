@@ -1,0 +1,92 @@
+#slider {
+  background: white;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 1rem;
+}
+div #carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+}
+
+.logoAsso {
+  max-height: clamp(2rem, 10vw, 10rem);
+}
+#carousel .photo {
+  border-radius: var(--border-radius);
+  max-width: 43%;
+  margin: auto;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  font-size: clamp(0.7rem, 2vw, 15px);
+  padding: 1rem 12rem;
+}
+.content p {
+  line-height: 1.4rem;
+  padding: 1rem;
+}
+#carousel a {
+  color: white;
+  background-color: var(--color_3);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+}
+#carousel a:hover {
+  font-size: 120%;
+}
+
+.icons {
+  position: absolute;
+  top: 47%;
+  right: 10%;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--color_3);
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.icon-left {
+  left: 10%;
+}
+.slide {
+  opacity: 0.3;
+  transition-duration: 1s;
+}
+
+.slide.active {
+  opacity: 1;
+  transition-duration: 2s;
+  transform: scale(1.01);
+}
+
+@media screen and (max-width: 1000px) {
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+
+    text-align: center;
+  }
+  .photo {
+    min-width: 70%;
+  }
+
+  #slider {
+    margin: 1rem 0;
+  }
+  .icons {
+    right: 1px;
+  }
+  .icon-left {
+    left: 1px;
+  }
+}
