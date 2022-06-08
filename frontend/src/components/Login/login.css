@@ -5,8 +5,9 @@
   align-items: flex-start;
   justify-content: start;
   position: absolute;
-  right:0;
+  right: 0;
   top: 0;
+  z-index: 1;
 }
 
 .buttonContainer {
@@ -15,9 +16,9 @@
   width: 100%;
   align-items: flex-end;
   justify-content: center;
-  height:10.25rem;
+  height: 10.25rem;
 }
-.buttonStyleLogin{
+.buttonStyleLogin {
   margin-right: 2.5%;
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
@@ -37,7 +38,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  animation: newShowScreen 2s;
+  animation: newShowScreen 1s;
 }
 
 .exitFormContainer {
@@ -58,7 +59,7 @@
   background-color: var(--color_3);
   color: var(--color_light);
   border: 2px solid var(--color_light);
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .form {
@@ -70,7 +71,7 @@
   text-align: center;
 }
 .form p {
-  margin-bottom:1rem;
+  margin-bottom: 1rem;
 }
 
 @keyframes newShowScreen {
@@ -90,8 +91,8 @@
   text-align: center;
   width: 100%;
 }
-.inputForm{
-  margin-top:0.5rem;
+.inputForm {
+  margin-top: 0.5rem;
 }
 .inputForm:valid,
 .inputForm:invalid {
