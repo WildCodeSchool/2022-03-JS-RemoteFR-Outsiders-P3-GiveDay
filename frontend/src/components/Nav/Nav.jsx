@@ -25,7 +25,7 @@ function Nav() {
     setAssociations(true);
   };
   return (
-    <div className="containerContain">
+    <div className="navAndContain">
       <div className="navContainer">
         <nav>
           <button
@@ -53,19 +53,19 @@ function Nav() {
       </div>
 
       {accueil ? (
-        <div className="showHomeContainer">
+        <div className="containerContain">
           <Home />
         </div>
       ) : null}
 
       {associations ? (
-        <div className="showHomeContainer">
+        <div className="containerContain">
           <Associations />
         </div>
       ) : null}
 
       {histoire ? (
-        <div className="showHomeContainer">
+        <div className="containerContain">
           <NotreBelleHistoire />
         </div>
       ) : null}
