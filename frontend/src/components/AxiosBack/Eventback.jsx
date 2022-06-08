@@ -1,26 +1,27 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function Tempback() {
-  const [user, setuser] = useState("");
-  const API = `http://localhost:5000/api/user`;
+
+function Eventback() {
+  const [event, setevent] = useState("");
+  const API = `http://localhost:5000/api/event`;
   useEffect(() => {
     axios
       .get(API)
       .then((res) => res.data)
       .then((data) => {
-        setuser(data);
+        setevent(data);
       })
       .catch((e) => console.error(e));
   }, []);
 
   return (
     <p>
-      coucou
+     
       {/* test de user */}
-      {console.warn(user)}
+      {console.warn(event)}
     </p>
   );
 }
 
-export default Tempback;
+export default  Eventback;
