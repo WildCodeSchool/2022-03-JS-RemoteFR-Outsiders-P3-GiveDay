@@ -1,0 +1,52 @@
+.containerContain{
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+  width: 100%;
+  height: 100%;
+}
+.navContainer{
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content:center;
+  width: 100%;
+  height:5rem;
+  border-top: 0.5rem solid var(--color_1);
+  border-bottom: 0.5rem solid var(--color_1);
+}
+.navContainer nav{
+  display:flex;
+  flex-direction:row;
+  align-items: center;
+  justify-content:space-between;
+  width: 70%;
+  height: 100%;
+}
+.navLinkOn{
+  background-color:transparent;
+  border: 0;
+  color:var(--color_2);
+}
+.navLinkOn:hover, .navLinkOff:hover{
+  color:var(--color_2);
+  cursor:pointer;
+}
+.navLinkOff{
+  background-color:transparent;
+  border: 0;
+  color:var(--color_dark);
+  animation:changeColor 1s;
+}
+@keyframes changeColor {
+  from {
+    color:var(--color_2);
+  }
+
+  to {
+    color:var(--color_dark);
+  }
+}
+.showHomeContainer{
+}
