@@ -6,11 +6,11 @@
   background-color: #6fceb4;
   color: var(--color_light);
 }
+
 #creationEvenement h1, #creationEvenement h2{
   font-family: var(--font-logo);
   margin: 0.2rem;
   color:#232323;
-    
 }
 
 #creationEvenement .qrcode{
