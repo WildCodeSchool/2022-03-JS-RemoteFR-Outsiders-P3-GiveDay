@@ -40,7 +40,6 @@ function CreationEvenement() {
             name="adresse_mail"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             placeholder="john.doe@email.fr"
-            required
           />
         </label>
 
@@ -53,7 +52,6 @@ function CreationEvenement() {
             type="text"
             name="age"
             placeholder="8"
-            required
           />
         </label>
 
@@ -66,7 +64,6 @@ function CreationEvenement() {
             type="text"
             name="firstname"
             placeholder="Gabriel"
-            required
           />
         </label>
 
@@ -81,7 +78,6 @@ function CreationEvenement() {
             value="2018-07-22"
             min="2018-01-01"
             max="2018-12-31"
-            required
           />
         </label>
 
@@ -95,7 +91,6 @@ function CreationEvenement() {
             name="heure_debut"
             min="09:00"
             max="22:00"
-            required
           />
         </label>
 
@@ -109,7 +104,6 @@ function CreationEvenement() {
             name="heure_fin"
             min="11:00"
             max="00:00"
-            required
           />
         </label>
         <label htmlFor="input_eve_place">
@@ -121,7 +115,6 @@ function CreationEvenement() {
             type="text"
             name="lieu_rendez_vous"
             placeholder="Parc de la tête d'or, Lyon"
-            required
           />
         </label>
 
@@ -135,7 +128,6 @@ function CreationEvenement() {
             name="Numero_telephone"
             pattern="^(\+33 |0)[1-9]( \d\d){4}$"
             placeholder="06 00 00 00 00"
-            required
           />
         </label>
         <span className="title">LISTE DES CADEAUX SOUHAITES</span>
