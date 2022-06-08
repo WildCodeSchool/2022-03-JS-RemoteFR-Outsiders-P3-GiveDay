@@ -6,11 +6,11 @@
   background-color: #6fceb4;
   color: var(--color_light);
 }
-#creationEvenement h1,h2{
+
+#creationEvenement h1, #creationEvenement h2{
   font-family: var(--font-logo);
   margin: 0.2rem;
   color:#232323;
-    
 }
 
 #creationEvenement .qrcode{
@@ -46,7 +46,7 @@
   font-size: 20px;
 }
 
-.titre {
+#creationEvenement .titre {
   font-family: var(--font-titre_small-text);
 }
 
@@ -73,12 +73,12 @@
   color: red;
 }
 
-#creationEvenement.inputForm:hover {
+#creationEvenement .inputForm:hover {
   opacity: 50%;
   position: relative;
 }
 
-.inputForm:focus {
+#creationEvenement .inputForm:focus {
   outline: none;
   border: 1px solid var(--color_3);
   opacity: 55%;

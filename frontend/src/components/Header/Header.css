@@ -1,0 +1,12 @@
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.logoGiveday{
+  width:14rem;
+  height:10.25rem;
+  padding:1rem;
+}

@@ -17,5 +17,10 @@
   "devDependencies": {
     "concurrently": "^7.0.0",
     "husky": "^7.0.0"
+  },
+  "dependencies": {
+    "swiper": "^8.2.2",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5"
   }
 }

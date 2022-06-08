@@ -41,6 +41,7 @@ function Login() {
   const hundleOpenLogin = () => {
     setOpenLogin(!openLogin);
     setOpenNewAccount(false);
+    setErrorLogin(false);
   };
   const hundleOpenNewAccount = () => {
     setOpenNewAccount(!openNewAccount);
@@ -70,14 +71,14 @@ function Login() {
         <div className="buttonContainer">
           <button
             type="button"
-            className="buttonStyle"
+            className="buttonStyle buttonStyleLogin"
             onClick={hundleMyAccount}
           >
             Mon compte
           </button>
           <button
             type="button"
-            className="buttonStyle"
+            className="buttonStyle buttonStyleLogin"
             onClick={hundleMyEvents}
           >
             Mes événements
@@ -94,10 +95,8 @@ function Login() {
             </button>
             <form className="form" onSubmit={handleSubmit}>
               <p>Mon compte</p>
-              <br /> <br />
               <label>
                 Mail
-                <br />
                 <input
                   className="inputForm"
                   type="text"
@@ -109,7 +108,6 @@ function Login() {
               </label>
               <label>
                 Mot de passe
-                <br />
                 <input
                   className="inputForm"
                   type="password"
@@ -145,20 +143,16 @@ function Login() {
                 Mes événements avec <span className="styleLogo"> Giveday </span>
                 ?
               </p>
-              <br /> <br />
               <label>
                 Nom
-                <br />
                 <input className="inputForm" type="text" />
               </label>
               <label>
                 Prénom
-                <br />
                 <input className="inputForm" type="name" />
               </label>
               <label>
                 Mail
-                <br />
                 <input
                   className="inputForm"
                   type="email"
@@ -167,7 +161,6 @@ function Login() {
               </label>
               <label>
                 Mot de passe
-                <br />
                 <input
                   className="inputForm"
                   type="password"
@@ -178,7 +171,7 @@ function Login() {
                   (majuscule + minuscule + nombre + caractère spéciaux)
                 </span>
               </label>
-              <input type="submit" value="Valider" className="buttonStyle" />
+              <input type="submit" value="Valider" className="buttonStyle " />
             </form>
           </div>
         ) : null}
@@ -188,12 +181,16 @@ function Login() {
   return (
     <div className="loginContainer">
       <div className="buttonContainer">
-        <button type="button" className="buttonStyle" onClick={hundleOpenLogin}>
+        <button
+          type="button"
+          className="buttonStyle buttonStyleLogin"
+          onClick={hundleOpenLogin}
+        >
           Se connecter
         </button>
         <button
           type="button"
-          className="buttonStyle"
+          className="buttonStyle buttonStyleLogin"
           onClick={hundleOpenNewAccount}
         >
           Créer un compte
@@ -210,10 +207,8 @@ function Login() {
           </button>
           <form className="form" onSubmit={handleSubmit}>
             <p>Vous avez déjà un compte ?</p>
-            <br /> <br />
             <label>
               Mail
-              <br />
               <input
                 className="inputForm"
                 type="text"
@@ -225,7 +220,6 @@ function Login() {
             </label>
             <label>
               Mot de passe
-              <br />
               <input
                 className="inputForm"
                 type="password"
@@ -260,20 +254,16 @@ function Login() {
             <p>
               Nouveau sur <span className="styleLogo"> Giveday </span>?
             </p>
-            <br /> <br />
             <label>
               Nom
-              <br />
               <input className="inputForm" type="text" />
             </label>
             <label>
               Prénom
-              <br />
               <input className="inputForm" type="name" />
             </label>
             <label>
               Mail
-              <br />
               <input
                 className="inputForm"
                 type="email"
@@ -282,7 +272,6 @@ function Login() {
             </label>
             <label>
               Mot de passe
-              <br />
               <input
                 className="inputForm"
                 type="password"

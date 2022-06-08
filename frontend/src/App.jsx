@@ -1,15 +1,12 @@
-import Home from "@pages/Home/Home";
-import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
-import Login from "@components/Login/Login";
+import React from "react";
 import "./assets/root.css";
 import "./App.css";
+import Header from "@components/Header/Header";
 
 function App() {
   return (
     <div className="App">
-      <CreationEvenement />
-      <Login />
-      <Home />
+      <Header />
     </div>
   );
 }

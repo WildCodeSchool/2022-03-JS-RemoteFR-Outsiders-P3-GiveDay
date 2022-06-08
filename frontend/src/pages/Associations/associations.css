@@ -1,0 +1,39 @@
+.swiper {
+  width: 80%;
+  position: relative;
+}
+
+.photo {
+  width: 100%;
+}
+.description {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translate(-10%, -50%);
+  background-color: rgba(57, 53, 53, 0.887);
+  color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.description a {
+  text-decoration: none;
+  color: white;
+}
+.description a:hover {
+  font-size: 1.5rem;
+}
+.swiperslide .description .logo img {
+  max-width: 10rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+}
+
+@media screen and (max-width: 1500px) {
+  .myswiper {
+    width: 100%;
+  }
+}
