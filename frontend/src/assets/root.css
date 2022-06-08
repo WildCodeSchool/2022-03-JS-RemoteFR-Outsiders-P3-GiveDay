@@ -16,9 +16,9 @@
 :root {
   --color_1: #ffe200;
   --color_2: #ec5f5d;
-  --color_3: #ff3333;
   --color_3: #6fceb4;
   --color_4: #5a94d2;
+  --color_5: #ff3333;
   --color_dark: #000000;
   --color_light: #ffffff;
   --font-size-h1: 3.5rem;
@@ -60,8 +60,10 @@ h3 {
   color: var(--color_light);
   border: 2px solid var(--color_light);
   cursor: pointer;
+
 }
 
 a {
   transition: var(--transition);
+
 }

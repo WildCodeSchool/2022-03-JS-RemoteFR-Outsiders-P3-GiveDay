@@ -23,7 +23,7 @@ function Nav() {
   //   setAssociations(true);
   // };
   return (
-    <div className="containerContain">
+    <div className="navAndContain">
       <div className="navContainer">
         <nav>
           <ul>
@@ -61,20 +61,30 @@ function Nav() {
         </nav>
       </div>
 
+
+      {accueil ? (
+        <div className="containerContain">
+
       {/* {accueil ? (
         <div className="showHomeContainer">
+
           <Home />
         </div>
       ) : null}
 
       {associations ? (
+
+        <div className="containerContain">
+          <Associations />
+
         <div className="showHomeContainer">
           <SliderAssociations slides={slides}/>
+
         </div>
       ) : null}
 
       {histoire ? (
-        <div className="showHomeContainer">
+        <div className="containerContain">
           <NotreBelleHistoire />
         </div>
       ) : null} */}
