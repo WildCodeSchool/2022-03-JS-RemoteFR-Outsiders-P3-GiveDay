@@ -30,6 +30,7 @@ div #carousel {
 .content p {
   line-height: 1.4rem;
   padding: 1rem;
+  text-align: justify;
 }
 #carousel a {
   color: white;
@@ -43,7 +44,7 @@ div #carousel {
 
 .icons {
   position: absolute;
-  top: 47%;
+  top: 20%;
   right: 0;
   font-size: clamp(2rem, 4vw, 3rem);
   color: var(--color_3);
@@ -83,6 +84,7 @@ div #carousel {
   }
   .icons {
     right: 1px;
+    top: 15%;
   }
   .icon-left {
     left: 1px;
