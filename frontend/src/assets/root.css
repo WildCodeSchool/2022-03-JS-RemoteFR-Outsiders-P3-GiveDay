@@ -16,9 +16,9 @@
 :root {
   --color_1: #ffe200;
   --color_2: #ec5f5d;
-  --color_3: #ff3333;
   --color_3: #6fceb4;
   --color_4: #5a94d2;
+  --color_5: #ff3333;
   --color_dark: #000000;
   --color_light: #ffffff;
   --font-size-h1: 3.5rem;
@@ -29,6 +29,8 @@
   --font-logo: aloja;
   --font-titre_small-text: leagueSpartan;
   --font-big-text: Montserrat;
+
+  --transition: all 400ms ease;
 }
 
 * {
@@ -38,7 +40,9 @@
   text-decoration: none;
   font-family: var(--font-big-text);
 }
-h1, h2, h3{
+h1,
+h2,
+h3 {
   font-family: var(--font-titre_small-text);
 }
 .buttonStyle {
@@ -48,11 +52,16 @@ h1, h2, h3{
   border-radius: 5px;
   background-color: var(--color_light);
   color: var(--color_3);
+  transition: var(--transition);
 }
 
 .buttonStyle:hover {
   background-color: var(--color_3);
   color: var(--color_light);
   border: 2px solid var(--color_light);
-  cursor:pointer;
+  cursor: pointer;
+}
+
+a {
+  transition: var(--transition);
 }
