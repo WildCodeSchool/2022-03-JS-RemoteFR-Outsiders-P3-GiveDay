@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import Cadeau from "@components/CreationEvenement/Cadeau";
+// import axios from "axios";
 
 function CreationEvenement() {
   const [cadeauxList, setcadeauxList] = useState([]);
@@ -13,6 +14,25 @@ function CreationEvenement() {
     event.preventDefault();
     const data = new FormData(event.target);
     console.warn(Array.from(data.entries()));
+    // console.warn(input_eve_firstname.value);
+    /** guigui axios post pour mettre en bdd l event  *************************** */
+    // axios
+    //   .post("http://localhost:5000/api/event", {
+    //     code: 1 /** VALEUR EN DUR POUR L INSTANT */,
+    //     prenom: input_eve_firstname.value,
+    //     age: input_eve_age.value,
+    //     date: input_eve_date.value,
+    //     heure_de_debut: input_eve_hour_start.value,
+    //     heure_de_fin: input_eve_hour_end.value,
+    //     lieu: input_eve_place.value,
+    //     telephone: input_eve_phone.value,
+    //     mail: input_eve_mail.value,
+    //     asso_event_id: 1 /** VALEUR EN DUR POUR L INSTANT */,
+    //     user_id: 1 /** VALEUR EN DUR POUR L INSTANT */,
+    //   })
+    //   .then((res) => res.data);
+
+    /** ************************************************************** */
   };
 
   const handleAdd = () => {
