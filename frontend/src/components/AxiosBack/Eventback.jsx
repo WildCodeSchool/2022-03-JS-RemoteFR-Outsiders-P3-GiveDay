@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-
 function Eventback() {
   const [event, setevent] = useState("");
   const API = `http://localhost:5000/api/event`;
@@ -17,11 +16,10 @@ function Eventback() {
 
   return (
     <p>
-     
       {/* test de user */}
       {console.warn(event)}
     </p>
   );
 }
 
-export default  Eventback;
+export default Eventback;

@@ -16,13 +16,10 @@ function Userback() {
 
   return (
     <p>
-      
       {/* test de user */}
       {console.warn(user)}
     </p>
   );
 }
-
-
 
 export default Userback;
