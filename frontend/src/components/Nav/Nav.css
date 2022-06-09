@@ -15,15 +15,15 @@
   height: 5rem;
   border-top: 0.5rem solid var(--color_1);
   border-bottom: 0.5rem solid var(--color_1);
-  margin-bottom: 2rem;
 }
-.navContainer nav {
+.navContainer ul {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   width: 70%;
   height: 100%;
+  list-style: none;
 }
 .navLinkOn {
   background-color: transparent;
@@ -48,19 +48,5 @@
 
   to {
     color: var(--color_dark);
-  }
-}
-
-.containerContain {
-  width: 70%;
-  animation: transition 1s;
-}
-@keyframes transition {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 100;
   }
 }

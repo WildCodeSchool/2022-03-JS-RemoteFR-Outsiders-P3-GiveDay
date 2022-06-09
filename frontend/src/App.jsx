@@ -13,11 +13,29 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/accueil" element={<Home />} />
-        <Route path="/histoire" element={<NotreBelleHistoire />} />
+        <Route
+          path="/accueil"
+          element={
+            <div className="containerContainWebsite">
+              <Home />
+            </div>
+          }
+        />
+        <Route
+          path="/histoire"
+          element={
+            <div className="containerContainWebsite">
+              <NotreBelleHistoire />
+            </div>
+          }
+        />
         <Route
           path="/associations"
-          element={<SliderAssociations dataAsso={dataAsso} />}
+          element={
+            <div className="containerContainWebsite">
+              <SliderAssociations dataAsso={dataAsso} />
+            </div>
+          }
         />
       </Routes>
     </div>
