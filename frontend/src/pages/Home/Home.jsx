@@ -1,12 +1,11 @@
 import React from "react";
 import "./home.css";
-import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
+import Contact from "@components/Contact/Contact";
 
 function Home() {
   return (
     <div>
-      Home
-      <CreationEvenement />
+      <Contact />
     </div>
   );
 }
