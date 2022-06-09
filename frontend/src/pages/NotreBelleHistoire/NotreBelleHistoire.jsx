@@ -19,8 +19,8 @@ function NotreBelleHistoire() {
       </p>
       <h2 className="aboutUs">Qui sommes nous?</h2>
       <p className="textNotreHistoire">
-        <spam className="fondatrices">Tania</spam> Exploratrice des tendances
-        éco-cool et <spam className="fondatrices">MYRIAM</spam> Amoureuse du
+        <span className="fondatrices">Tania</span> Exploratrice des tendances
+        éco-cool et <span className="fondatrices">MYRIAM</span> Amoureuse du
         digital-éthique
       </p>
       <div className="videoPresentationContainer">
@@ -29,10 +29,9 @@ function NotreBelleHistoire() {
           src="https://www.youtube.com/embed/L3_0ztMEY5o"
           title="YouTube video player"
           frameBorder="0"
-          allow="autoPlay"
           allowFullScreen
           autoPlay
-          muted="true"
+          muted
         />
       </div>
     </div>

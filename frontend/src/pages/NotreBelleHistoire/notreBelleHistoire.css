@@ -30,6 +30,8 @@
 
 .aboutUs {
   margin-top: 2rem;
+  text-align: center;
+  width: 100%;
   color: var(--color_5);
   animation: transition2 1s;
 }
@@ -64,6 +66,7 @@
   overflow: hidden;
   width: 80%;
   padding-top: 45.8%;
+  z-index: 50;
 }
 
 .videoPresentation {
