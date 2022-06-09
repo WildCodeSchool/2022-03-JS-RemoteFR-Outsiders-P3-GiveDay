@@ -33,9 +33,6 @@ It's pre-configured with a set of tools which'll help students produce industry-
 - _ Airbnb Standard_ : One of the most known "standards", even though it's not officially linked to ES/JS
 - _Nodemon_ : Allows to restart the server everytime a .js file is udated
 
-
-
-Package à installer: 
-
-npm i swiper : pour le carousel de la page associations partenaires (valérie)
-npm i sass : pour le style du carousel (valérie)
+Package à installer: dans frontend et root????
+npm install react-router-dom
+npm i react-icons

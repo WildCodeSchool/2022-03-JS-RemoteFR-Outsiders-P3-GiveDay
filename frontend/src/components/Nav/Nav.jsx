@@ -1,34 +1,43 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import React from "react";
 import "./Nav.css";
-import Home from "@pages/Home/Home";
-import Associations from "@pages/Associations/Associations";
-import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
+import { Link } from "react-router-dom";
 
 function Nav() {
-  const [accueil, setAcceuil] = useState(true);
-  const [histoire, setHistoire] = useState(false);
-  const [associations, setAssociations] = useState(false);
-  const goToAccueil = () => {
-    setAcceuil(true);
-    setHistoire(false);
-    setAssociations(false);
-  };
-  const goToHistoire = () => {
-    setAcceuil(false);
-    setHistoire(true);
-    setAssociations(false);
-  };
-  const goToAssociations = () => {
-    setAcceuil(false);
-    setHistoire(false);
-    setAssociations(true);
-  };
+  // const [accueil, setAcceuil] = useState(true);
+  // const [histoire, setHistoire] = useState(false);
+  // const [associations, setAssociations] = useState(false);
+  // const goToAccueil = () => {
+  //   setAcceuil(true);
+  //   setHistoire(false);
+  //   setAssociations(false);
+  // };
+  // const goToHistoire = () => {
+  //   setAcceuil(false);
+  //   setHistoire(true);
+  //   setAssociations(false);
+  // };
+  // const goToAssociations = () => {
+  //   setAcceuil(false);
+  //   setHistoire(false);
+  //   setAssociations(true);
+  // };
   return (
-    <div className="containerContain">
+    <div className="navAndContain">
       <div className="navContainer">
         <nav>
-          <button
+          <ul>
+            <li>
+              <Link to="/accueil">Accueil</Link>
+            </li>
+            <li>
+              <Link to="/histoire"> Notre Belle Histoire</Link>
+            </li>
+            <li>
+              <Link to="/associations">Associations partenaire</Link>
+            </li>
+          </ul>
+          {/* <button
             type="button"
             className={accueil ? "navLinkOn" : "navLinkOff"}
             onClick={goToAccueil}
@@ -48,27 +57,36 @@ function Nav() {
             onClick={goToAssociations}
           >
             <h2>ASSOCIATIONS</h2>
-          </button>
+          </button> */}
         </nav>
       </div>
 
+      {/* {accueil ? (
+        <div className="containerContain">
+
       {accueil ? (
         <div className="showHomeContainer">
+
           <Home />
         </div>
       ) : null}
 
       {associations ? (
-        <div className="showHomeContainer">
+
+        <div className="containerContain">
           <Associations />
+
+        <div className="showHomeContainer">
+          <SliderAssociations slides={slides}/>
+
         </div>
       ) : null}
 
       {histoire ? (
-        <div className="showHomeContainer">
+        <div className="containerContain">
           <NotreBelleHistoire />
         </div>
-      ) : null}
+      ) : null} */}
     </div>
   );
 }

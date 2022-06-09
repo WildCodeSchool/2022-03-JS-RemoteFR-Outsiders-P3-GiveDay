@@ -1,4 +1,4 @@
-.containerContain {
+.navAndContain {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +15,7 @@
   height: 5rem;
   border-top: 0.5rem solid var(--color_1);
   border-bottom: 0.5rem solid var(--color_1);
+  margin-bottom: 2rem;
 }
 .navContainer nav {
   display: flex;
@@ -49,5 +50,17 @@
     color: var(--color_dark);
   }
 }
-.showHomeContainer {
+
+.containerContain {
+  width: 70%;
+  animation: transition 1s;
+}
+@keyframes transition {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 100;
+  }
 }
