@@ -60,10 +60,8 @@ h3 {
   color: var(--color_light);
   border: 2px solid var(--color_light);
   cursor: pointer;
-
 }
 
 a {
   transition: var(--transition);
-
 }

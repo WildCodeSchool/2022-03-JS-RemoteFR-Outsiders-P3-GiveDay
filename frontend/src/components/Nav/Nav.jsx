@@ -61,11 +61,10 @@ function Nav() {
         </nav>
       </div>
 
-
-      {accueil ? (
+      {/* {accueil ? (
         <div className="containerContain">
 
-      {/* {accueil ? (
+      {accueil ? (
         <div className="showHomeContainer">
 
           <Home />
