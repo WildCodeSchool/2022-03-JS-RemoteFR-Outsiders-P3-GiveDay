@@ -35,19 +35,19 @@
 
 #contact .inputForm {
   margin-top: 0.5rem;
-  width: 300px;
 }
 
 #contact .inputForm:valid,
 #contact .inputForm:invalid,
 #input_message {
+  width: 300px;
   background-color: var(--color_light);
   border: 0;
   border-radius: 5px;
   margin: 0.3rem auto;
   color: var(--color_dark);
   padding: 0.2rem;
-  text-align: center;
+  text-align: left;
 }
 
 #contact .inputForm:invalid {

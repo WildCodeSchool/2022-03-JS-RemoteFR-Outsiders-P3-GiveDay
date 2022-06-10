@@ -33,7 +33,7 @@ function Contact() {
 
         <label htmlFor="input_message">
           Votre message
-          <textarea id="input_message" defaultValue="" />
+          <textarea id="input_message" defaultValue="" rows="12" />
         </label>
 
         <button
