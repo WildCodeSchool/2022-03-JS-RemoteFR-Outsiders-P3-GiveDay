@@ -19,8 +19,14 @@
     "husky": "^7.0.0"
   },
   "dependencies": {
-    "swiper": "^8.2.2",
     "axios": "^0.27.2",
-    "cors": "^2.8.5"
+    "cors": "^2.8.5",
+    "dom": "^0.0.3",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0",
+    "router": "^1.3.7",
+    "swiper": "^8.2.2"
   }
 }

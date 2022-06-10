@@ -7,16 +7,17 @@
   color: var(--color_light);
 }
 
-#creationEvenement h1, #creationEvenement h2{
+#creationEvenement h1,
+#creationEvenement h2 {
   font-family: var(--font-logo);
   margin: 0.2rem;
-  color:#232323;
+  color: #232323;
 }
 
-#creationEvenement .qrcode{
-  width:100px;
+#creationEvenement .qrcode {
+  width: 100px;
   height: 100px;
-  margin:0 auto 20px auto;
+  margin: 0 auto 20px auto;
 }
 
 #creationEvenement label {
@@ -92,7 +93,7 @@
   border-radius: 5px 50px / 50px 15px;
   background-color: rgb(149, 218, 159);
   margin: 20px 0 20px 0;
-  padding:10px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
 }
