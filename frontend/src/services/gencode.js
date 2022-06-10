@@ -1,7 +1,7 @@
 const crypto = require("crypto");
 
-const genCode = (len) => {
-  return crypto.randomBytes(len).toString("hex");
+const genCode = (prenom, len) => {
+  return `${prenom}-${crypto.randomBytes(len).toString("hex")}`;
 };
 
 export default genCode;
