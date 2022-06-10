@@ -1,18 +1,18 @@
 .App {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
 }
 
 .containerContainWebsite {
-    margin-top: 2rem;
-    width: 70%;
+  margin-top: 2rem;
+  width: 70%;
 }
 
 @media screen and (max-width: 750px) {
-    .containerContainWebsite {
-        margin-top: 1rem;
-        width: 100%;
-    }
+  .containerContainWebsite {
+    margin-top: 1rem;
+    width: 100%;
+  }
 }

@@ -17,11 +17,5 @@
   "devDependencies": {
     "concurrently": "^7.0.0",
     "husky": "^7.0.0"
-  },
-  "dependencies": {
-    "axios": "^0.27.2",
-    "cors": "^2.8.5",
-    "react-icons": "^4.4.0",
-    "react-router-dom": "^6.3.0"
   }
 }
