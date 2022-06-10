@@ -62,7 +62,7 @@ CREATE TABLE `event` (
 
 --
 
-CREATE TABLE `association` (
+CREATE TABLE `asso` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
