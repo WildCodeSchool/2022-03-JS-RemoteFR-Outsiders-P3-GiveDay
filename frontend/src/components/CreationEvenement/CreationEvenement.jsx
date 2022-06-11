@@ -1,18 +1,35 @@
 import React, { useState } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import Cadeau from "@components/CreationEvenement/Cadeau";
+import axios from "axios";
 
 function CreationEvenement() {
   const [cadeauxList, setcadeauxList] = useState([]);
-
-  const handleChange = (event) => {
-    event.preventDefault();
+  const [form, setform] = useState({
+    code: 2140 /** VALEUR EN DUR POUR L INSTANT attention valeur unique pour la bdd */,
+    prenom: "",
+    age: "",
+    date: "",
+    heure_de_debut: "",
+    heure_de_fin: "",
+    lieu: "",
+    telephone: "",
+    mail: "",
+    asso_event_id: 1 /** VALEUR EN DUR POUR L INSTANT */,
+    user_id: 1 /** VALEUR EN DUR POUR L INSTANT */,
+  });
+  const handleChange = (e) => {
+    setform({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const onSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.target);
     console.warn(Array.from(data.entries()));
+    axios.post("http://localhost:5000/api/event", form).then((res) => res.data);
   };
 
   const handleAdd = () => {
@@ -37,7 +54,7 @@ function CreationEvenement() {
             id="input_eve_mail"
             type="mail"
             onChange={handleChange}
-            name="adresse_mail"
+            name="mail"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             placeholder="john.doe@email.fr"
           />
@@ -62,7 +79,7 @@ function CreationEvenement() {
             id="input_eve_firstname"
             onChange={handleChange}
             type="text"
-            name="firstname"
+            name="prenom"
             placeholder="Gabriel"
           />
         </label>
@@ -88,7 +105,7 @@ function CreationEvenement() {
             className="inputForm"
             type="time"
             onChange={handleChange}
-            name="heure_debut"
+            name="heure_de_debut"
             min="09:00"
             max="22:00"
           />
@@ -101,7 +118,7 @@ function CreationEvenement() {
             className="inputForm"
             type="time"
             onChange={handleChange}
-            name="heure_fin"
+            name="heure_de_fin"
             min="11:00"
             max="00:00"
           />
@@ -113,7 +130,7 @@ function CreationEvenement() {
             className="inputForm"
             onChange={handleChange}
             type="text"
-            name="lieu_rendez_vous"
+            name="lieu"
             placeholder="Parc de la tête d'or, Lyon"
           />
         </label>
@@ -125,7 +142,7 @@ function CreationEvenement() {
             className="inputForm"
             type="tel"
             onChange={handleChange}
-            name="Numero_telephone"
+            name="telephone"
             pattern="^(\+33 |0)[1-9]( \d\d){4}$"
             placeholder="06 00 00 00 00"
           />

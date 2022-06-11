@@ -1,9 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";
 import "./Nav.css";
-import Home from "@pages/Home/Home";
-import Associations from "@pages/Associations/Associations";
-import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
+import { Link } from "react-router-dom";
 
 function Nav() {
   const [accueil, setAcceuil] = useState(true);
@@ -25,10 +23,44 @@ function Nav() {
     setAssociations(true);
   };
   return (
-    <div className="containerContain">
-      <div className="navContainer">
-        <nav>
-          <button
+    <div className="navAndContain">
+      <nav className="navContainer">
+        <ul>
+          <li>
+            <Link to="/accueil">
+              <button
+                type="button"
+                className={accueil ? "navLinkOn" : "navLinkOff"}
+                onClick={goToAccueil}
+              >
+                <h2>ACCUEIL</h2>
+              </button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/histoire">
+              <button
+                type="button"
+                className={histoire ? "navLinkOn" : "navLinkOff"}
+                onClick={goToHistoire}
+              >
+                <h2>NOTRE HISTORE</h2>
+              </button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/associations">
+              <button
+                type="button"
+                className={associations ? "navLinkOn" : "navLinkOff"}
+                onClick={goToAssociations}
+              >
+                <h2>ASSOCIATIONS</h2>
+              </button>
+            </Link>
+          </li>
+        </ul>
+        {/* <button
             type="button"
             className={accueil ? "navLinkOn" : "navLinkOff"}
             onClick={goToAccueil}
@@ -49,26 +81,33 @@ function Nav() {
           >
             <h2>ASSOCIATIONS</h2>
           </button>
-        </nav>
-      </div>
+          {accueil ? (
+        <div className="containerContain">
 
       {accueil ? (
         <div className="showHomeContainer">
+
           <Home />
         </div>
       ) : null}
 
       {associations ? (
-        <div className="showHomeContainer">
+
+        <div className="containerContain">
           <Associations />
+
+        <div className="showHomeContainer">
+          <SliderAssociations slides={slides}/>
+
         </div>
       ) : null}
 
       {histoire ? (
-        <div className="showHomeContainer">
+        <div className="containerContain">
           <NotreBelleHistoire />
         </div>
-      ) : null}
+      ) : null} */}
+      </nav>
     </div>
   );
 }

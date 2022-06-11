@@ -1,22 +1,44 @@
 import React from "react";
+import { Route, Routes } from "react-router-dom";
 import "./assets/root.css";
 import "./App.css";
 import Header from "@components/Header/Header";
-import { Routes, Route } from "react-router-dom";
-import Contact from "@components/Contact/Contact";
+import { dataAsso } from "@pages/Associations/dataAsso";
+import SliderAssociations from "@pages/Associations/SliderAssociations";
+import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
+import Home from "@pages/Home/Home";
 
 function App() {
   return (
-    <>
-      <div className="App">
-        <Header />
-      </div>
-      <div>
-        <Routes>
-          <Route path="/Contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </>
+    <div className="App">
+      <Header />
+      <Routes>
+        <Route
+          path="/accueil"
+          element={
+            <div className="containerContainWebsite">
+              <Home />
+            </div>
+          }
+        />
+        <Route
+          path="/histoire"
+          element={
+            <div className="containerContainWebsite">
+              <NotreBelleHistoire />
+            </div>
+          }
+        />
+        <Route
+          path="/associations"
+          element={
+            <div className="containerContainWebsite">
+              <SliderAssociations dataAsso={dataAsso} />
+            </div>
+          }
+        />
+      </Routes>
+    </div>
   );
 }
 

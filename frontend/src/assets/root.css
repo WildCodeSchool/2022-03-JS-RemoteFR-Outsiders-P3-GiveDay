@@ -16,9 +16,9 @@
 :root {
   --color_1: #ffe200;
   --color_2: #ec5f5d;
-  --color_3: #ff3333;
   --color_3: #6fceb4;
   --color_4: #5a94d2;
+  --color_5: #ff3333;
   --color_dark: #000000;
   --color_light: #ffffff;
   --font-size-h1: 3.5rem;
@@ -29,6 +29,8 @@
   --font-logo: aloja;
   --font-titre_small-text: leagueSpartan;
   --font-big-text: Montserrat;
+
+  --transition: all 400ms ease;
 }
 
 * {
@@ -37,6 +39,7 @@
   box-sizing: border-box;
   text-decoration: none;
   font-family: var(--font-big-text);
+  scrollbar-width: none;
 }
 h1,
 h2,
@@ -50,6 +53,7 @@ h3 {
   border-radius: 5px;
   background-color: var(--color_light);
   color: var(--color_3);
+  transition: var(--transition);
 }
 
 .buttonStyle:hover {
@@ -57,4 +61,43 @@ h3 {
   color: var(--color_light);
   border: 2px solid var(--color_light);
   cursor: pointer;
+}
+
+a {
+  transition: var(--transition);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=MuseoModerno:wght@400;700&display=swap");
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
