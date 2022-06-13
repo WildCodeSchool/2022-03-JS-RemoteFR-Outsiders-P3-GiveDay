@@ -1,0 +1,100 @@
+.acceuilContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1.3fr 1.1fr 0.7fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "CCM creation blog"
+    "CCM rejoindre article"
+    "Philan atelier news";
+}
+
+.CCM {
+  grid-area: CCM;
+}
+
+.Philan {
+  grid-area: Philan;
+}
+
+.creation {
+  grid-area: creation;
+}
+
+.rejoindre {
+  grid-area: rejoindre;
+}
+
+.atelier {
+  grid-area: atelier;
+}
+
+.blog {
+  grid-area: blog;
+}
+
+.news {
+  grid-area: news;
+}
+
+.article {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "article1"
+    "article2";
+  grid-area: article;
+}
+
+.article1 {
+  grid-area: article1;
+}
+
+.article2 {
+  grid-area: article2;
+}
+
+div.acceuilContainer > div > p:nth-child(n) {
+  width: 98%;
+  margin: 10px;
+  height: 98%;
+}
+div.acceuilContainer > div:nth-child(n) {
+  border: 1px solid;
+}
+
+.article1 > a:nth-child(n) {
+  width: 98%;
+  margin: 10px;
+  height: 98%;
+}
+.article2 > a:nth-child(n) {
+  width: 98%;
+  margin: 10px;
+  height: 98%;
+}
+
+#newsletter > div:nth-child(2) > p:nth-child(1) {
+  width: 98%;
+  margin: 10px;
+}
+#newsletter {
+  margin: 10px;
+  border-radius: 5px;
+}
+.acceuilContainer > div {
+  margin: 3px;
+}
+.news {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+.prenomMail {
+  display: flex;
+  flex-direction: wrap;
+}
