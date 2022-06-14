@@ -7,8 +7,10 @@ import { dataAsso } from "@pages/Associations/dataAsso";
 import SliderAssociations from "@pages/Associations/SliderAssociations";
 import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
 import Home from "@pages/Home/Home";
+
+import Footer from "@components/Footer/Footer";
+
 import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
-import Contact from "@components/Contact/Contact";
 
 function App() {
   return (
@@ -42,8 +44,11 @@ function App() {
         <Route path="/CreationEvenement" element={<CreationEvenement />} />
         <Route path="/Contact" element={<Contact />} />
       </Routes>
-      <Contact />
+
+      <Footer />
+
     </div>
+
   );
 }
 
