@@ -46,9 +46,9 @@ function CreationEvenement() {
   }
 
   useEffect(() => {
-    const cd = genCode("Gabriel", 7);
+    const cd = genCode(form.prenom, 7);
     console.warn(`useEffect newCode ${cd}`);
-  }, []);
+  }, [form]);
 
   return (
     <div>
@@ -60,7 +60,7 @@ function CreationEvenement() {
         onSubmit={onSubmit}
       >
         <h1>Créez votre évènement</h1>
-        <p>CODE : {code} </p>
+        <p className="codeEvenement">CODE : {code} </p>
         <label htmlFor="input_eve_mail">
           Email de l'organisateur
           <input
