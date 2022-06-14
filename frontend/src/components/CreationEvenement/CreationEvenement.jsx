@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import Cadeau from "@components/CreationEvenement/Cadeau";
 import axios from "axios";
 
 function CreationEvenement() {
   const [cadeauxList, setcadeauxList] = useState([]);
+  const [code, setNewCode] = useState();
   const [form, setform] = useState({
     code: 2140 /** VALEUR EN DUR POUR L INSTANT attention valeur unique pour la bdd */,
     prenom: "",
@@ -36,10 +37,21 @@ function CreationEvenement() {
     setcadeauxList(cadeauxList.concat(<Cadeau name="lego" />));
   };
 
+  function genCode(firstname, len) {
+    const r = (Math.random() + 1).toString(36).substring(len);
+    const cd = `${firstname}-${r}`;
+    setNewCode(cd);
+    console.warn(code);
+    return code;
+  }
+
+  useEffect(() => {
+    const cd = genCode("Gabriel", 7);
+    console.warn(`useEffect newCode ${cd}`);
+  }, []);
+
   return (
     <div>
-      <h1>CreationEvenement</h1>
-      <h2>CODE : 202204-KV-01</h2>
       <form
         id="creationEvenement"
         className="giveForm"
@@ -47,6 +59,8 @@ function CreationEvenement() {
         method="post"
         onSubmit={onSubmit}
       >
+        <h1>Créez votre évènement</h1>
+        <p>CODE : {code} </p>
         <label htmlFor="input_eve_mail">
           Email de l'organisateur
           <input
