@@ -42,6 +42,7 @@ function App() {
         <Route path="/CreationEvenement" element={<CreationEvenement />} />
         <Route path="/Contact" element={<Contact />} />
       </Routes>
+      <Contact />
     </div>
   );
 }
