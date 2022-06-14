@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=MuseoModerno:wght@400;700&display=swap");
+
 @font-face {
   font-family: aloja;
   src: url("../assets/fonts/Aloja-Light.otf") format("opentype");
@@ -67,7 +69,6 @@ a {
   transition: var(--transition);
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=MuseoModerno:wght@400;700&display=swap");
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
