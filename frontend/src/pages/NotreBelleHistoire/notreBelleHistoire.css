@@ -1,0 +1,85 @@
+.containerNotreHistoire {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+.textNotreHistoire {
+  margin-top: 1rem;
+  line-height: 1.3rem;
+  text-align: center;
+  width: 75%;
+  animation: transition2 2s;
+}
+
+@keyframes transition2 {
+  from {
+    margin-right: 200rem;
+  }
+
+  to {
+    margin-right: 0rem;
+  }
+}
+
+.gabriel {
+  color: var(--color_4);
+  animation: transition2 1s;
+}
+
+.aboutUs {
+  margin-top: 2rem;
+  text-align: center;
+  width: 100%;
+  color: var(--color_5);
+  animation: transition2 1s;
+}
+
+.fondatrices {
+  font-family: var(--font-logo);
+  color: var(--color_1);
+}
+
+/* .videoPresentation{
+    margin-top: 1rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    border: 0.5rem solid var(--color_3);
+    overflow: hidden;
+    animation: comeRight 3s;
+} */
+
+@keyframes comeRight {
+  from {
+    margin-left: 200%;
+  }
+
+  to {
+    margin-left: 20%;
+  }
+}
+
+.videoPresentationContainer {
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+  padding-top: 45.8%;
+  z-index: 50;
+}
+
+.videoPresentation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 60%;
+  margin: 1rem auto 0 auto;
+  animation: comeRight 3s;
+  border-radius: 10px;
+  border: 0.5rem solid var(--color_3);
+  z-index: 50;
+}

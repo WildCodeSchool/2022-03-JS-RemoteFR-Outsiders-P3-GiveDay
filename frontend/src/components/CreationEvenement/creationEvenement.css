@@ -1,0 +1,133 @@
+#creationEvenement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: #6fceb4;
+  color: var(--color_light);
+}
+
+#creationEvenement h1,
+#creationEvenement h2 {
+  font-family: var(--font-big-text);
+  font-size: 1.7rem;
+  margin: 0.5rem;
+  color: #232323;
+}
+
+p.codeEvenement {
+  color: black;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-family: var(--font-titre_small-text);
+}
+
+#creationEvenement .qrcode {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 20px auto;
+}
+
+#creationEvenement label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#creationEvenement input,
+#creationEvenement textarea,
+#creationEvenement select {
+  width: 275px;
+  height: 22px;
+  float: right;
+}
+
+#creationEvenement button[type="submit"],
+#creationEvenement button[type="button"] {
+  margin: 20px auto;
+  padding: 10px 10px;
+  width: 300px;
+}
+
+#creationEvenement span.title {
+  text-align: center;
+  margin: 25px auto 5px auto;
+  font-size: 20px;
+}
+
+#creationEvenement .titre {
+  font-family: var(--font-titre_small-text);
+}
+
+#creationEvenement label {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+#creationEvenement .inputForm:valid,
+#creationEvenement .inputForm:invalid {
+  background-color: var(--color_light);
+  border: 0;
+  margin-bottom: 0.8rem;
+  color: var(--color_dark);
+  padding: 0.2rem;
+  text-align: center;
+}
+#creationEvenement .inputForm:invalid {
+  border: 1px solid red;
+  color: red;
+}
+
+#creationEvenement .inputForm:hover {
+  opacity: 50%;
+  position: relative;
+}
+
+#creationEvenement .inputForm:focus {
+  outline: none;
+  border: 1px solid var(--color_3);
+  opacity: 55%;
+}
+
+/* COMPOSANT CADEAU */
+#creationEvenement div.cadeau {
+  width: 100%;
+  height: 100px;
+  border: 1px solid rgb(149, 218, 159);
+  border-radius: 5px 50px / 50px 15px;
+  background-color: rgb(149, 218, 159);
+  margin: 20px 0 20px 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+#creationEvenement div.cadeau > div.image {
+  width: 150px;
+  height: 150px;
+  background-image: url("https://picsum.photos/200");
+  margin: 5px;
+  background-size: cover;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+#creationEvenement div.cadeau > div.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#creationEvenement div.cadeau input {
+  margin-top: 10px;
+}
+
+#creationEvenement div.cadeau .remove {
+  width: 30px;
+  margin: auto 5px;
+}

@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@0;1&family=MuseoModerno:wght@400;700&display=swap");
+
+@font-face {
+  font-family: aloja;
+  src: url("../assets/fonts/Aloja-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: leagueSpartan;
+  src: url("../assets/fonts/LeagueSpartan-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("../assets/fonts/Montserrat-Light.otf") format("opentype");
+}
+
+:root {
+  --color_1: #ffe200;
+  --color_2: #ec5f5d;
+  --color_3: #6fceb4;
+  --color_4: #5a94d2;
+  --color_5: #ff3333;
+  --color_dark: #000000;
+  --color_light: #ffffff;
+  --font-size-h1: 3.5rem;
+  --font-size-h2: 2.8rem;
+  --font-size-h3: 2.2rem;
+  --font-size-p: 1.4rem;
+  --border-radius: 5px;
+  --font-logo: aloja;
+  --font-titre_small-text: leagueSpartan;
+  --font-big-text: Montserrat;
+
+  --transition: all 400ms ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: var(--font-big-text);
+  scrollbar-width: none;
+}
+h1,
+h2,
+h3 {
+  font-family: var(--font-titre_small-text);
+}
+.buttonStyle {
+  width: clamp(8rem, 10rem, 12rem);
+  height: clamp(2rem, 2.5rem, 3rem);
+  border: 2px solid var(--color_3);
+  border-radius: 5px;
+  background-color: var(--color_light);
+  color: var(--color_3);
+  transition: var(--transition);
+}
+
+.buttonStyle:hover {
+  background-color: var(--color_3);
+  color: var(--color_light);
+  border: 2px solid var(--color_light);
+  cursor: pointer;
+}
+
+a {
+  transition: var(--transition);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
