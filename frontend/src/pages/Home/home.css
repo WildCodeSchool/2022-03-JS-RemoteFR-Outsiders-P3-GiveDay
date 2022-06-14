@@ -1,13 +1,14 @@
 .acceuilContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1.3fr 1.1fr 0.7fr;
+  grid-template-columns: 1.2fr 0.6fr 1.2fr;
+  grid-template-rows: 0.8fr 1.3fr 0.9fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
     "CCM creation blog"
     "CCM rejoindre article"
     "Philan atelier news";
+  height: 40rem;
 }
 
 .CCM {
@@ -57,22 +58,54 @@
 .article2 {
   grid-area: article2;
 }
+.article {
+  border: 0px;
+}
 
 div.acceuilContainer > div > p:nth-child(n) {
   width: 98%;
   margin: 10px;
   height: 98%;
 }
-div.acceuilContainer > div:nth-child(n) {
+div.acceuilContainer > div:nth-child(1) {
   border: 1px solid;
+  border-radius: 7px;
+}
+div.acceuilContainer > div:nth-child(2) {
+  border: 1px solid;
+  border-radius: 7px;
+}
+div.acceuilContainer > div:nth-child(3) {
+  border: 1px solid;
+  border-radius: 7px;
+}
+div.acceuilContainer > div:nth-child(4) {
+  border: 1px solid;
+  border-radius: 7px;
+}
+div.acceuilContainer > div:nth-child(5) {
+  border: 1px solid;
+  border-radius: 7px;
+}
+div.acceuilContainer > div:nth-child(6) {
+  border: 1px solid;
+  border-radius: 7px;
+}
+div.acceuilContainer > div > div {
+  border: 1px solid;
+  border-radius: 7px;
+}
+div.acceuilContainer > div:nth-child(8) {
+  border: 1px solid;
+  border-radius: 7px;
 }
 
-.article1 > a:nth-child(n) {
+.article1 > p:nth-child(n) {
   width: 98%;
   margin: 10px;
   height: 98%;
 }
-.article2 > a:nth-child(n) {
+.article2 > p:nth-child(n) {
   width: 98%;
   margin: 10px;
   height: 98%;
@@ -87,7 +120,7 @@ div.acceuilContainer > div:nth-child(n) {
   border-radius: 5px;
 }
 .acceuilContainer > div {
-  margin: 3px;
+  margin: 5px;
 }
 .news {
   display: flex;
@@ -97,4 +130,10 @@ div.acceuilContainer > div:nth-child(n) {
 .prenomMail {
   display: flex;
   flex-direction: wrap;
+}
+.article1 {
+  margin-bottom: 3px;
+}
+.article2 {
+  margin-top: 3px;
 }
