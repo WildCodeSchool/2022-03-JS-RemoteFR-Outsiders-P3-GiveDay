@@ -1,9 +1,11 @@
 import React from "react";
-import { FaFacebook, GrInstagram, BsLinkedin } from "react-icons";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "./footer.css";
 
 export default function Footer() {
   return (
+    <footer>
     <div className="give-footer">
       <ul className="social-links">
         <li className="conditions-link_items">
@@ -18,7 +20,8 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <FaFacebook /> Facebook
+            <FaFacebook /> 
+            Facebook
           </a>
         </li>
 
@@ -28,7 +31,8 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <GrInstagram /> Instagram
+            <FaInstagram /> 
+            Instagram
           </a>
         </li>
 
@@ -38,12 +42,14 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <BsLinkedin /> Linked In
+            <FaLinkedin /> 
+            Linked In
           </a>
         </li>
 
         <Link to="/Contact">nous contacter</Link>
       </ul>
     </div>
+  </footer>
   );
 }
