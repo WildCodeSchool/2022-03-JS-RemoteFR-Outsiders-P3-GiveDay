@@ -9,9 +9,17 @@
 
 #creationEvenement h1,
 #creationEvenement h2 {
-  font-family: var(--font-logo);
-  margin: 0.2rem;
+  font-family: var(--font-big-text);
+  font-size: 1.7rem;
+  margin: 0.5rem;
   color: #232323;
+}
+
+p.codeEvenement {
+  color: black;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-family: var(--font-titre_small-text);
 }
 
 #creationEvenement .qrcode {
