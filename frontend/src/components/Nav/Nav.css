@@ -1,4 +1,7 @@
+
+
 .navAndContain {
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,4 +52,6 @@
   to {
     color: var(--color_dark);
   }
+}
+.showHomeContainer {
 }
