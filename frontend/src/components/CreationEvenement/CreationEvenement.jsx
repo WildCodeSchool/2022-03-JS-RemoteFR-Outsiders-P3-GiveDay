@@ -60,7 +60,7 @@ function CreationEvenement() {
         onSubmit={onSubmit}
       >
         <h1>Créez votre évènement</h1>
-        <h2>CODE : {code} </h2>
+        <p>CODE : {code} </p>
         <label htmlFor="input_eve_mail">
           Email de l'organisateur
           <input
