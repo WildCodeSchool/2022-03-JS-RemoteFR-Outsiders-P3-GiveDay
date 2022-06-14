@@ -1,48 +1,60 @@
-import React from "react";
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 import "./contact.css";
 
 function Contact() {
-  function onSubmit() {
-    console.warn("Envoi du formulaire de contact...");
-  }
+  const form = useRef();
 
-  function handleAdd() {
-    console.warn("Clic boutton Envoi du formulaire de contact...");
-  }
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    Swal.fire({
+      title: "Error!",
+      text: "Do you want to continue",
+      icon: "error",
+      confirmButtonText: "Cool",
+    });
+
+    emailjs
+      .sendForm(
+        "service_bgu7oxk",
+        "template_fnzqw3n",
+        form.current,
+        "5NZVBYk7GV2tzzM0L"
+      )
+      .then(
+        (result) => {
+          console.warn(result.text);
+        },
+        (error) => {
+          console.error(error.text);
+        }
+      );
+  };
 
   return (
     <div className="contactContainer">
       <form
-        id="contact"
-        className="contactForm"
         action="/api/route/contact"
         method="post"
-        onSubmit={onSubmit}
+        onSubmit={sendEmail}
+        ref={form}
       >
-        <h1>Giveday !</h1>
-        <label htmlFor="input_mail">
-          Email
-          <input
-            className="inputForm"
-            id="input_mail"
-            type="email"
-            name="adresse_mail"
-            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-          />
-        </label>
+        <h1>Prenez contact avec nous !</h1>
+        <input type="text" name="name" placeholder="Nom et prénom" required />
 
-        <label htmlFor="input_message">
-          Votre message
-          <textarea id="input_message" defaultValue="" rows="12" />
-        </label>
+        <input type="email" name="email" placeholder="adresse mail" required />
 
-        <button
-          className="buttonStyle"
-          type="submit"
-          form="EnvoiContact"
-          value="Submit"
-          onClick={handleAdd}
-        >
+        <textarea
+          type="message"
+          row="12"
+          name="message"
+          placeholder="Votre message"
+          required
+        />
+
+        <button className="buttonStyle" type="submit">
           Envoyer le message
         </button>
       </form>
