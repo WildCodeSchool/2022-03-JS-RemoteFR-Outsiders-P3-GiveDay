@@ -7,8 +7,10 @@ import { dataAsso } from "@pages/Associations/dataAsso";
 import SliderAssociations from "@pages/Associations/SliderAssociations";
 import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
 import Home from "@pages/Home/Home";
-import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
 import Contact from "@components/Contact/Contact";
+import Footer from "@components/Footer/Footer";
+
+import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
 
 function App() {
   return (
@@ -16,7 +18,7 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/accueil"
+          path="/"
           element={
             <div className="containerContainWebsite">
               <Home />
@@ -42,7 +44,8 @@ function App() {
         <Route path="/CreationEvenement" element={<CreationEvenement />} />
         <Route path="/Contact" element={<Contact />} />
       </Routes>
-      <Contact />
+
+      <Footer />
     </div>
   );
 }

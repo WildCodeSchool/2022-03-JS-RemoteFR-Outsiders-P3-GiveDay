@@ -27,7 +27,7 @@ function Nav() {
       <nav className="navContainer">
         <ul>
           <li>
-            <Link to="/accueil">
+            <Link to="/">
               <button
                 type="button"
                 className={accueil ? "navLinkOn" : "navLinkOff"}
