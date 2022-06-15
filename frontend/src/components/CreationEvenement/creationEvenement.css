@@ -40,10 +40,15 @@ p.codeEvenement {
   width: 275px;
   height: 22px;
   float: right;
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+}
+#asso-select {
+  margin-top: 7px;
 }
 
-#creationEvenement button[type="submit"],
-#creationEvenement button[type="button"] {
+#creationEvenement button[type="submit"] {
   margin: 20px auto;
   padding: 10px 10px;
   width: 300px;
@@ -95,12 +100,12 @@ p.codeEvenement {
 
 /* COMPOSANT CADEAU */
 #creationEvenement div.cadeau {
-  width: 100%;
+  width: 90%;
   height: 100px;
   border: 1px solid rgb(149, 218, 159);
   border-radius: 5px 50px / 50px 15px;
   background-color: rgb(149, 218, 159);
-  margin: 20px 0 20px 0;
+  margin: 20px auto;
   padding: 10px;
   display: flex;
   flex-direction: row;
@@ -130,4 +135,10 @@ p.codeEvenement {
 #creationEvenement div.cadeau .remove {
   width: 30px;
   margin: auto 5px;
+}
+
+#ajouterCadeau {
+  margin: 0px auto;
+  padding: 10px 10px;
+  width: 200px;
 }
