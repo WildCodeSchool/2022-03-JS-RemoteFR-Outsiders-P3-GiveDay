@@ -1,14 +1,18 @@
-const UserAbstractManager = require("./UserAbstractManager");
+const AbstractManager = require("./AbstractManager");
 
-class UserManager extends UserAbstractManager {
+class UserManager extends AbstractManager {
   static table = "user";
 
-  // insert(user) {
-  //   return this.connection.query(
-  //     `insert into ${UserManager.table} (prenom) values (?)`,
-  //     [user.prenom]
-  //   );
-  // }
+  getUserByMail(email) {
+    return this.connection.query(`SELECT * FROM user WHERE email = ?`, [email]);
+  }
+
+  insert(user) {
+    return this.connection.query(
+      `insert into ${UserManager.table} (prenom, nom, email, password, role) values (?, ?, ?, ?, "user")`,
+      [user.prenom, user.nom, user.email, user.password]
+    );
+  }
 
   // update(user) {
   //   return this.connection.query(
