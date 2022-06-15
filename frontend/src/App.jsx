@@ -7,7 +7,7 @@ import { dataAsso } from "@pages/Associations/dataAsso";
 import SliderAssociations from "@pages/Associations/SliderAssociations";
 import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
 import Home from "@pages/Home/Home";
-
+import Contact from "@components/Contact/Contact";
 import Footer from "@components/Footer/Footer";
 
 import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
@@ -18,7 +18,7 @@ function App() {
       <Header />
       <Routes>
         <Route
-          path="/accueil"
+          path="/"
           element={
             <div className="containerContainWebsite">
               <Home />
@@ -46,9 +46,7 @@ function App() {
       </Routes>
 
       <Footer />
-
     </div>
-
   );
 }
 
