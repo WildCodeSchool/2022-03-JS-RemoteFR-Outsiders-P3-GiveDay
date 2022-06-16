@@ -13,6 +13,9 @@
 
 .CCM {
   grid-area: CCM;
+  background-size: 181%;
+background-repeat: no-repeat;
+
 }
 
 .Philan {
@@ -21,22 +24,31 @@
 
 .creation {
   grid-area: creation;
+  background-color: rgb(90, 148, 210);
+ 
+
 }
 
 .rejoindre {
   grid-area: rejoindre;
+ 
 }
 
 .atelier {
   grid-area: atelier;
+  background-color: rgb(255, 226, 0);
 }
 
 .blog {
   grid-area: blog;
+  
+  
 }
 
 .news {
   grid-area: news;
+  background-color: rgb(231, 235, 234);
+  
 }
 
 .article {
@@ -49,19 +61,57 @@
     "article1"
     "article2";
   grid-area: article;
+  
 }
 
 .article1 {
   grid-area: article1;
+  background-color: rgb(236, 95, 93)
 }
 
 .article2 {
   grid-area: article2;
+  background-color: rgb(255, 51, 51)
 }
 .article {
   border: 0px;
 }
-
+.acceuilContainer > div > h2{
+  text-align: center;
+  font-family: aloja;
+  margin-top: 2rem;
+  font-weight: initial;
+  text-decoration: none ;
+  list-style: none;
+  color: black;  
+}
+.creation > a:nth-child(1) > h2:nth-child(1){
+  text-align: center;
+  font-family: aloja;
+  margin-top: 2rem;
+  font-weight: initial;
+  text-decoration: none ;
+  list-style: none;
+  color: black;  
+}
+.article1 > h2:nth-child(1){
+  text-align: center;
+  font-family: aloja;
+  margin-top: 2rem;
+  font-weight: initial;
+  text-decoration: none ;
+  list-style: none;
+  color: black;  
+}
+.article2 > h2:nth-child(1){
+  text-align: center;
+  font-family: aloja;
+  margin-top: 2rem;
+  font-weight: initial;
+  text-decoration: none ;
+  list-style: none;
+  color: black;  
+}
 div.acceuilContainer > div > p:nth-child(n) {
   width: 98%;
   margin: 10px;
