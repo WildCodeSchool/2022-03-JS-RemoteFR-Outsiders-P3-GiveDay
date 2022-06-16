@@ -1,14 +1,29 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";
+import axios from "axios";
 import "./user.css";
 
 function Register({ hundleOpenNewAccount }) {
-  const [name, setName] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [mail, setMail] = useState("");
-  const [password, setPassword] = useState("");
+  const API = `http://localhost:5000/api/users`;
+  const [user, setUser] = useState({
+    prenom: "",
+    nom: "",
+    email: "",
+    password: "",
+  });
   const handleRegister = (event) => {
     event.preventDefault();
+    console.warn(user);
+    axios.post(API, user, { withCredentials: true }).then((res) => {
+      console.warn(`${res.data}data envoyée`);
+    });
+  };
+
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
   return (
     <div className="formContainer">
@@ -27,18 +42,18 @@ function Register({ hundleOpenNewAccount }) {
           Nom
           <input
             className="inputForm"
+            name="nom"
             type="text"
-            value={name}
-            onChange={({ target }) => setName(target.value)}
+            onChange={handleChange}
           />
         </label>
         <label>
           Prénom
           <input
             className="inputForm"
+            name="prenom"
             type="name"
-            value={lastname}
-            onChange={({ target }) => setLastname(target.value)}
+            onChange={handleChange}
           />
         </label>
         <label>
@@ -46,9 +61,9 @@ function Register({ hundleOpenNewAccount }) {
           <input
             className="inputForm"
             type="email"
+            name="email"
             pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[.]{1}[a-zA-Z]{2,}$"
-            value={mail}
-            onChange={({ target }) => setMail(target.value)}
+            onChange={handleChange}
           />
         </label>
         <label>
@@ -56,9 +71,9 @@ function Register({ hundleOpenNewAccount }) {
           <input
             className="inputForm"
             type="password"
+            name="password"
             pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
-            value={password}
-            onChange={({ target }) => setPassword(target.value)}
+            onChange={handleChange}
           />
           <span className="detailsInput">
             Votre mot de passe doit contenir au moins 8 caractères (majuscule +
