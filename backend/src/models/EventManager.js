@@ -1,6 +1,6 @@
-const EventAbstractManager = require("./EventAbstractManager");
+const AbstractManager = require("./AbstractManager");
 
-class EventManager extends EventAbstractManager {
+class EventManager extends AbstractManager {
   static table = "event";
 
   insert(event) {

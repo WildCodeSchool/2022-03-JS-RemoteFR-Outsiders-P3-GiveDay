@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
+import Newsletter from "../../components/Newsletter/Newsletter";
 // import Userback from "@components/AxiosBack/Userback"
 // import Eventback from "@components/AxiosBack/Eventback"
 
@@ -38,6 +39,7 @@ function Home() {
         </div>
 
         <div className="news">
+
           <form
             id="newsletter"
             className="contactForm"
@@ -79,6 +81,9 @@ function Home() {
             </div>
           </form>
           
+
+          <Newsletter />
+
         </div>
       </div>
 

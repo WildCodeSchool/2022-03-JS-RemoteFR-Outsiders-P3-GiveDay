@@ -1,3 +1,4 @@
+const bcrypt = require("bcryptjs");
 const models = require("../models");
 
 class UserController {
@@ -51,21 +52,35 @@ class UserController {
       });
   };
 
-  static add = (req, res) => {
-    const user = req.body;
+  static async add(req, res) {
+    try {
+      const { prenom, nom, email, password } = req.body;
+      const hash = await bcrypt.hash(password, 10);
+      const getMail = await models.user.getUserByMail(email);
+      if (getMail[0].length > 0) {
+        return res.status(400).json({
+          status: 400,
+          message: "Email already exist",
+        });
+      }
 
-    // TODO validations (length, format...)
-
-    models.user
-      .insert(user)
-      .then(([result]) => {
-        res.status(201).send({ ...user, id: result.insertId });
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  };
+      models.user
+        .insert({ prenom, nom, email, password: hash })
+        .then(([result]) => {
+          res
+            .status(201)
+            .send({ message: "user created", id: result.insertId });
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(500);
+        });
+    } catch (err) {
+      console.error(err);
+      res.sendStatus(500);
+    }
+    return null;
+  }
 
   static delete = (req, res) => {
     models.user

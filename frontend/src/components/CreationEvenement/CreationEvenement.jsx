@@ -17,7 +17,7 @@ function CreationEvenement() {
     telephone: "",
     mail: "",
     asso_event_id: 1 /** VALEUR EN DUR POUR L INSTANT */,
-    user_id: 1 /** VALEUR EN DUR POUR L INSTANT */,
+    user_id: 3 /** VALEUR EN DUR POUR L INSTANT */,
   });
   const handleChange = (e) => {
     setform({
@@ -46,9 +46,13 @@ function CreationEvenement() {
   }
 
   useEffect(() => {
-    const cd = genCode("Gabriel", 7);
+    const cd = genCode(form.prenom, 7);
+    form.code = cd;
     console.warn(`useEffect newCode ${cd}`);
-  }, []);
+    if (form.prenom.length < 1) {
+      setNewCode("");
+    }
+  }, [form]);
 
   return (
     <div>
@@ -60,7 +64,7 @@ function CreationEvenement() {
         onSubmit={onSubmit}
       >
         <h1>Créez votre évènement</h1>
-        <p>CODE : {code} </p>
+        <p className="codeEvenement">CODE : {code} </p>
         <label htmlFor="input_eve_mail">
           Email de l'organisateur
           <input
@@ -106,9 +110,8 @@ function CreationEvenement() {
             type="date"
             name="date"
             onChange={handleChange}
-            value="2018-07-22"
-            min="2018-01-01"
-            max="2018-12-31"
+            value={new Date()}
+            min={new Date()}
           />
         </label>
 
@@ -161,13 +164,29 @@ function CreationEvenement() {
             placeholder="06 00 00 00 00"
           />
         </label>
+
+        <label htmlFor="asso-select">
+          Pour l'association
+          <select name="associations" id="asso-select">
+            <option value="0">--Choisir un association--</option>
+            <option value="1">Pâte Blanche</option>
+            <option value="2">Rejoué</option>
+            <option value="3">Terre de Milpa</option>
+          </select>
+        </label>
+
         <span className="title">LISTE DES CADEAUX SOUHAITES</span>
         <div className="cadeauxList">
           <Cadeau name="lego" />
           {cadeauxList}
         </div>
 
-        <button className="buttonStyle" type="button" onClick={handleAdd}>
+        <button
+          id="ajouterCadeau"
+          className="buttonStyle"
+          type="button"
+          onClick={handleAdd}
+        >
           🎁 Ajouter un cadeau
         </button>
 

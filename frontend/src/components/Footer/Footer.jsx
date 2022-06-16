@@ -1,49 +1,55 @@
 import React from "react";
-import { FaFacebook, GrInstagram, BsLinkedin } from "react-icons";
+import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "./footer.css";
 
 export default function Footer() {
   return (
-    <div className="give-footer">
-      <ul className="social-links">
-        <li className="conditions-link_items">
-          <a href="https://www.giveday.fr/conditions_generales">
-            conditions generales
-          </a>
-        </li>
+    <footer>
+      <div className="give-footer">
+        <ul className="social-links">
+          <li className="conditions-link_items">
+            <a href="https://www.giveday.fr/conditions_generales">
+              conditions generales
+            </a>
+          </li>
 
-        <li className="social-link_items">
-          <a
-            href="https://m.facebook.com/pages/category/Website/Giveday-111827540281807/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <FaFacebook /> Facebook
-          </a>
-        </li>
+          <li className="social-link_items">
+            <a
+              href="https://m.facebook.com/pages/category/Website/Giveday-111827540281807/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaFacebook />
+              Facebook
+            </a>
+          </li>
 
-        <li className="social-link_items">
-          <a
-            href="https://www.instagram.com/giveday.fr/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <GrInstagram /> Instagram
-          </a>
-        </li>
+          <li className="social-link_items">
+            <a
+              href="https://www.instagram.com/giveday.fr/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaInstagram />
+              Instagram
+            </a>
+          </li>
 
-        <li className="social-link_items">
-          <a
-            href="https://www.linkedin.com/company/giveday"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <BsLinkedin /> Linked In
-          </a>
-        </li>
+          <li className="social-link_items">
+            <a
+              href="https://www.linkedin.com/company/giveday"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaLinkedin />
+              Linked In
+            </a>
+          </li>
 
-        <Link to="/Contact">nous contacter</Link>
-      </ul>
-    </div>
+          <Link to="/Contact">nous contacter</Link>
+        </ul>
+      </div>
+    </footer>
   );
 }

@@ -9,9 +9,17 @@
 
 #creationEvenement h1,
 #creationEvenement h2 {
-  font-family: var(--font-logo);
-  margin: 0.2rem;
+  font-family: var(--font-big-text);
+  font-size: 1.7rem;
+  margin: 0.5rem;
   color: #232323;
+}
+
+p.codeEvenement {
+  color: black;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-family: var(--font-titre_small-text);
 }
 
 #creationEvenement .qrcode {
@@ -32,10 +40,15 @@
   width: 275px;
   height: 22px;
   float: right;
+  border: none;
+  border-radius: 3px;
+  text-align: center;
+}
+#asso-select {
+  margin-top: 7px;
 }
 
-#creationEvenement button[type="submit"],
-#creationEvenement button[type="button"] {
+#creationEvenement button[type="submit"] {
   margin: 20px auto;
   padding: 10px 10px;
   width: 300px;
@@ -87,12 +100,12 @@
 
 /* COMPOSANT CADEAU */
 #creationEvenement div.cadeau {
-  width: 100%;
+  width: 90%;
   height: 100px;
   border: 1px solid rgb(149, 218, 159);
   border-radius: 5px 50px / 50px 15px;
   background-color: rgb(149, 218, 159);
-  margin: 20px 0 20px 0;
+  margin: 20px auto;
   padding: 10px;
   display: flex;
   flex-direction: row;
@@ -122,4 +135,10 @@
 #creationEvenement div.cadeau .remove {
   width: 30px;
   margin: auto 5px;
+}
+
+#ajouterCadeau {
+  margin: 0px auto;
+  padding: 10px 10px;
+  width: 200px;
 }
