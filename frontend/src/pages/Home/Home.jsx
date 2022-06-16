@@ -9,31 +9,31 @@ function Home() {
     <div>
       <div className="acceuilContainer">
         <div className="CCM">
-          <p>comment ça marche </p>
+          <h2>Comment ca marche </h2>
         </div>
         <div className="Philan">
-          <p>Philanthrokids</p>
+          <h2>Philanthrokids</h2>
         </div>
         <div className="creation">
           <Link to="/CreationEvenement">
-            <p>Créer un évenement</p>
+            <h2>Creer un evenement</h2>
           </Link>
         </div>
         <div className="rejoindre">
-          <p>Rejoindre un évenement</p>
+          <h2>Rejoindre un evenement</h2>
         </div>
         <div className="atelier">
-          <p>Atelier carte d'invitation</p>
+          <h2>Atelier carte d'invitation</h2>
         </div>
         <div className="blog">
-          <p>Blog</p>
+          <h2>Nos partenaires</h2>
         </div>
         <div className="article">
           <div className="article1">
-            <p>Article</p>
+            <h2>Article</h2>
           </div>
           <div className="article2">
-            <p>Article</p>
+            <h2>Article</h2>
           </div>
         </div>
 
@@ -78,6 +78,7 @@ function Home() {
               </button>
             </div>
           </form>
+          
         </div>
       </div>
 
