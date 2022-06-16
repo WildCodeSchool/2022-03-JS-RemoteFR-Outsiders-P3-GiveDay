@@ -20,5 +20,5 @@ ul {
   height: 100%;
   color: var(--color_dark);
   font-family: var(--font-titre_small-text);
-  padding: 1rem;
+  padding: 1,5rem;
 }
