@@ -2,7 +2,7 @@
 import React from "react";
 import "./user.css";
 
-function Login({ hundleOpenMyEvents }) {
+function MyEvents({ hundleOpenMyEvents }) {
   const handleMyEvents = (event) => {
     event.preventDefault();
   };
@@ -53,4 +53,4 @@ function Login({ hundleOpenMyEvents }) {
   );
 }
 
-export default Login;
+export default MyEvents;
