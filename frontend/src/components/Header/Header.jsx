@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import "./Header.css";
-import Login from "@components/Login/Login";
+import Login from "@components/User/User";
 import Nav from "@components/Nav/Nav";
 import logoGiveday from "@assets/images/logoGiveday.png";
 

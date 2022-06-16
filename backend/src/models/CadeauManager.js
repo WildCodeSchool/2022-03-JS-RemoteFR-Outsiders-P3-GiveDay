@@ -1,6 +1,6 @@
-const CadeauAbstractManager = require("./CadeauAbstractManager");
+const AbstractManager = require("./AbstractManager");
 
-class CadeauManager extends CadeauAbstractManager {
+class CadeauManager extends AbstractManager {
   static table = "cadeau";
 
   // insert(user) {
