@@ -1,6 +1,7 @@
 import React from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
+import Newsletter from "../../components/Newsletter/Newsletter";
 // import Userback from "@components/AxiosBack/Userback"
 // import Eventback from "@components/AxiosBack/Eventback"
 
@@ -38,46 +39,7 @@ function Home() {
         </div>
 
         <div className="news">
-          <form
-            id="newsletter"
-            className="contactForm"
-            action="/api/route/contact"
-            method="post"
-          >
-            <div className="prenomMail">
-              <label htmlFor="input_eve_firstname">
-                <input
-                  className="inputNewsletter"
-                  id="input_eve_firstname"
-                  type="text"
-                  name="prenom"
-                  placeholder="prénom"
-                />
-              </label>
-
-              <label htmlFor="input_mail">
-                <input
-                  className="inputNewsletter"
-                  id="input_mail"
-                  type="email"
-                  name="adresse_mail"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                  placeholder="email"
-                />
-              </label>
-            </div>
-
-            <div className="nouSuivre">
-              <button
-                className="buttonStyle"
-                type="submit"
-                form="EnvoiContact"
-                value="Submit"
-              >
-                Nous suivre
-              </button>
-            </div>
-          </form>
+          <Newsletter />
         </div>
       </div>
 
