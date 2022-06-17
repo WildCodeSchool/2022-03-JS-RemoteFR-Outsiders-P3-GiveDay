@@ -3,7 +3,7 @@ import React from "react";
 import "./Header.css";
 import Login from "@components/User/User";
 import Nav from "@components/Nav/Nav";
-import logoGiveday from "@assets/images/logoGiveday.png";
+import logoGiveday from "@assets/images/logoGiveday.svg";
 
 function Header() {
   return (

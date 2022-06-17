@@ -10,7 +10,7 @@ function Home() {
     <div>
       <div className="acceuilContainer">
         <div className="CCM">
-          <h2>Comment ca marche </h2>
+          <h>Comment ca marche </h>
         </div>
         <div className="Philan">
           <h2>Philanthrokids</h2>
@@ -39,54 +39,9 @@ function Home() {
         </div>
 
         <div className="news">
-          <form
-            id="newsletter"
-            className="contactForm"
-            action="/api/route/contact"
-            method="post"
-          >
-            <div className="prenomMail">
-              <label htmlFor="input_eve_firstname">
-                <input
-                  className="inputNewsletter"
-                  id="input_eve_firstname"
-                  type="text"
-                  name="prenom"
-                  placeholder="prénom"
-                />
-              </label>
-
-              <label htmlFor="input_mail">
-                <input
-                  className="inputNewsletter"
-                  id="input_mail"
-                  type="email"
-                  name="adresse_mail"
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                  placeholder="email"
-                />
-              </label>
-            </div>
-
-            <div className="nouSuivre">
-              <button
-                className="buttonStyle"
-                type="submit"
-                form="EnvoiContact"
-                value="Submit"
-              >
-                Nous suivre
-              </button>
-            </div>
-          </form>
-
           <Newsletter />
         </div>
       </div>
-
-      <Link to="/Contact">
-        <p>contact</p>
-      </Link>
 
       {/* <Eventback />
       <Userback /> */}
