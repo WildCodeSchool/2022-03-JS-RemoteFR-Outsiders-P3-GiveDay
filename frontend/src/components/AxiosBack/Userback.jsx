@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function Userback() {
-  const [user, setuser] = useState("");
-  const API = `http://localhost:5000/api/user`;
+  const [users, setUsers] = useState("");
+  const API = `http://localhost:5000/api/users`;
   useEffect(() => {
     axios
       .get(API)
       .then((res) => res.data)
       .then((data) => {
-        setuser(data);
+        setUsers(data);
       })
       .catch((e) => console.error(e));
   }, []);
@@ -17,7 +17,7 @@ function Userback() {
   return (
     <p>
       {/* test de user */}
-      {console.warn(user)}
+      {console.warn(users)}
     </p>
   );
 }

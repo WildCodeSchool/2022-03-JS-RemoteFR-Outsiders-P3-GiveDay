@@ -1,17 +1,51 @@
+require("dotenv").config();
+const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const models = require("../models");
 
-class UserController {
-  static browse = (req, res) => {
-    models.user
-      .findAll()
-      .then(([rows]) => {
-        res.send(rows);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
+class LoginController {
+  static async browse(req, res) {
+    try {
+      console.warn(req.body);
+      const { email, password } = req.body;
+      const user = await models.user.getUserByEmail(email);
+      console.warn(user[0]);
+      if (user[0].length === 0) {
+        return res.status(400).json({
+          status: 400,
+          message: "Email not found",
+        });
+      }
+      const isPasswordValid = await bcrypt.compare(
+        password,
+        user[0][0].password
+      );
+      if (!isPasswordValid) {
+        return res.status(400).json({
+          status: 400,
+          message: "Password is not correct",
+        });
+      }
+      const token = jwt.sign(
+        {
+          id: user[0].id,
+          email: user[0].email,
+        },
+        process.env.SECRET_JWT,
+        {
+          expiresIn: "1h",
+        }
+      );
+      res.cookie("user_giveday", token).json({
+        message: "User is logged",
       });
-  };
+    } catch (error) {
+      res.status(400).json({
+        message: error.message,
+      });
+    }
+    return null;
+  }
 
   static read = (req, res) => {
     models.user
@@ -80,4 +114,4 @@ class UserController {
   };
 }
 
-module.exports = UserController;
+module.exports = LoginController;
