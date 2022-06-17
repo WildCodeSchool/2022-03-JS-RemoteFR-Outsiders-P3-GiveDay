@@ -39,7 +39,6 @@ function Home() {
         </div>
 
         <div className="news">
-
           <form
             id="newsletter"
             className="contactForm"
@@ -80,10 +79,8 @@ function Home() {
               </button>
             </div>
           </form>
-          
 
           <Newsletter />
-
         </div>
       </div>
 
