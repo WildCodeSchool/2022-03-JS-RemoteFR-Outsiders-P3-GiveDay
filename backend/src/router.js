@@ -1,25 +1,25 @@
 const express = require("express");
 
 const {
-  ItemController,
-  UserController,
+  RegisterController,
+  LoginController,
   EventController,
   CadeauController,
 } = require("./controllers");
 
 const router = express.Router();
 
-router.get("/items", ItemController.browse);
-router.get("/items/:id", ItemController.read);
-router.put("/items/:id", ItemController.edit);
-router.post("/items", ItemController.add);
-router.delete("/items/:id", ItemController.delete);
+router.get("/api/auth/register", RegisterController.browse);
+router.get("/api/auth/register/:id", RegisterController.read);
+router.put("/api/auth/register/:id", RegisterController.edit);
+router.post("/api/auth/register", RegisterController.add);
+router.delete("/api/auth/register/:id", RegisterController.delete);
 
-router.get("/api/users", UserController.browse);
-router.get("/api/users/:id", UserController.read);
-router.put("/api/users/:id", UserController.edit);
-router.post("/api/users", UserController.add);
-router.delete("/api/users/:id", UserController.delete);
+// router.get("/api/auth/login", LoginController.browse);
+router.get("/api/auth/login/:id", LoginController.read);
+router.put("/api/auth/login/:id", LoginController.edit);
+router.post("/api/auth/login", LoginController.browse);
+router.delete("/api/auth/login/:id", LoginController.delete);
 
 router.get("/api/events", EventController.browse);
 router.get("/api/events/:id", EventController.read);
