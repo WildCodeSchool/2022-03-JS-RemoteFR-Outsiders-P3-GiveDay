@@ -8,17 +8,21 @@
     "CCM creation blog"
     "CCM rejoindre article"
     "Philan atelier news";
-  height: 40rem;
+  height: 70rem;
+  margin-bottom: 4rem;
 }
 
 .CCM {
   grid-area: CCM;
-  background-size: 181%;
+  background-size: cover;
   background-repeat: no-repeat;
+  background-image: url("../../assets/images/fille.jpg");
 }
 
 .Philan {
   grid-area: Philan;
+  background-image: url("../../assets/images/enfant.png");
+  background-size: cover;
 }
 
 .creation {
@@ -28,6 +32,9 @@
 
 .rejoindre {
   grid-area: rejoindre;
+  background-image: url("../../assets/images/ZEBRE.jpg");
+  background-size: cover;
+  background-position: 50% -10%;
 }
 
 .atelier {
@@ -37,6 +44,7 @@
 
 .blog {
   grid-area: blog;
+  background-color: var(--color_1);
 }
 
 .news {
@@ -71,7 +79,7 @@
 .acceuilContainer > div > h2 {
   text-align: center;
   font-family: aloja;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-weight: initial;
   text-decoration: none;
   list-style: none;
@@ -80,7 +88,7 @@
 .creation > a:nth-child(1) > h2:nth-child(1) {
   text-align: center;
   font-family: aloja;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-weight: initial;
   text-decoration: none;
   list-style: none;
@@ -89,7 +97,7 @@
 .article1 > h2:nth-child(1) {
   text-align: center;
   font-family: aloja;
-  margin-top: 2rem;
+  margin-top: 1rem;
   font-weight: initial;
   text-decoration: none;
   list-style: none;
@@ -110,35 +118,35 @@ div.acceuilContainer > div > p:nth-child(n) {
   height: 98%;
 }
 div.acceuilContainer > div:nth-child(1) {
-  border: 1px solid;
+  border: 3px solid;
   border-radius: 7px;
 }
 div.acceuilContainer > div:nth-child(2) {
-  border: 1px solid;
+  border: 3px solid;
   border-radius: 7px;
 }
 div.acceuilContainer > div:nth-child(3) {
-  border: 1px solid;
+  border: 3px solid;
   border-radius: 7px;
 }
 div.acceuilContainer > div:nth-child(4) {
-  border: 1px solid;
+  border: 3px solid;
   border-radius: 7px;
 }
 div.acceuilContainer > div:nth-child(5) {
-  border: 1px solid;
+  border: 3px solid;
   border-radius: 7px;
 }
 div.acceuilContainer > div:nth-child(6) {
-  border: 1px solid;
+  border: 3px solid;
   border-radius: 7px;
 }
 div.acceuilContainer > div > div {
-  border: 1px solid;
+  border: 3px solid;
   border-radius: 7px;
 }
 div.acceuilContainer > div:nth-child(8) {
-  border: 1px solid;
+  border: 3px solid;
   border-radius: 7px;
 }
 

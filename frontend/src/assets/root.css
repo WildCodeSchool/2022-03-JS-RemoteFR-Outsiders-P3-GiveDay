@@ -69,6 +69,16 @@ a {
   transition: var(--transition);
 }
 
+body {
+  background-image: linear-gradient(
+      rgba(207, 203, 203, 0.74),
+      rgba(226, 220, 220, 0.404)
+    ),
+    url("../assets/images/backgroud.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
