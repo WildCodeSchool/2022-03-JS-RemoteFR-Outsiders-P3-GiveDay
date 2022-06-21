@@ -4,7 +4,7 @@ import Register from "@components/User/Register";
 import Login from "@components/User/Login";
 import "./user.css";
 
-function UserDisconnected() {
+function UserDisconnected({ setUserIsConnected }) {
   const [openLogin, setOpenLogin] = useState(false);
   const [openNewAccount, setOpenNewAccount] = useState(false);
   const hundleOpenLogin = () => {
@@ -34,9 +34,17 @@ function UserDisconnected() {
           Créer un compte
         </button>
       </div>
-      {openLogin ? <Login hundleOpenLogin={hundleOpenLogin} /> : null}
+      {openLogin ? (
+        <Login
+          setUserIsConnected={setUserIsConnected}
+          hundleOpenLogin={hundleOpenLogin}
+        />
+      ) : null}
       {openNewAccount ? (
-        <Register hundleOpenNewAccount={hundleOpenNewAccount} />
+        <Register
+          setUserIsConnected={setUserIsConnected}
+          hundleOpenNewAccount={hundleOpenNewAccount}
+        />
       ) : null}
     </div>
   );
