@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./user.css";
 
-function Register({ hundleOpenNewAccount }) {
-  const API = `http://localhost:5000/api/users`;
+function Register({ hundleOpenNewAccount, setUserIsConnected }) {
+  const API = `http://localhost:5000/api/auth/register`;
   const [user, setUser] = useState({
     prenom: "",
     nom: "",
@@ -14,9 +14,14 @@ function Register({ hundleOpenNewAccount }) {
   const handleRegister = (event) => {
     event.preventDefault();
     console.warn(user);
-    axios.post(API, user, { withCredentials: true }).then((res) => {
-      console.warn(`${res.data}data envoyée`);
-    });
+    axios
+      .post(API, user, { withCredentials: true })
+      .then((res) => res.data)
+      .then((data) => {
+        if (data) {
+          setUserIsConnected(true);
+        }
+      });
   };
 
   const handleChange = (e) => {
