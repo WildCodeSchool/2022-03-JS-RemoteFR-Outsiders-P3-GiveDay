@@ -8,7 +8,6 @@ import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
 import Home from "@pages/Home/Home";
 import Contact from "@components/Contact/Contact";
 import Admin from "@pages/dashboard/Admin/Admin";
-
 import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
 
 function App() {
@@ -41,7 +40,8 @@ function App() {
         />
         <Route path="/creationEvenement" element={<CreationEvenement />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin/users" element={<Admin content="users" />} />
+        <Route path="/admin/posts" element={<Admin content="posts" />} />
       </Routes>
     </div>
   );

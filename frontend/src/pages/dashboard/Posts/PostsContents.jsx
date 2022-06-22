@@ -1,6 +1,6 @@
 import React from "react";
 
-function Posts() {
+function PostsContent() {
   return (
     <div>
       Posts
@@ -11,4 +11,4 @@ function Posts() {
   );
 }
 
-export default Posts;
+export default PostsContent;
