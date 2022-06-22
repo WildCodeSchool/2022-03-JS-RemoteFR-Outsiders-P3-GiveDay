@@ -4,6 +4,7 @@ import {
   MdOutlineArrowForwardIos,
   MdOutlineArrowBackIos,
 } from "react-icons/md";
+import Layout from "@components/Layout";
 import Slide from "./Slide";
 
 function SliderAssociations({ dataAsso }) {
@@ -22,23 +23,25 @@ function SliderAssociations({ dataAsso }) {
   }
 
   return (
-    <section id="slider">
-      <MdOutlineArrowBackIos
-        className="icons icon-left"
-        onClick={handlePrevSlide}
-      />
-      <MdOutlineArrowForwardIos className="icons" onClick={handleNextSlide} />
-      {dataAsso.map((slide, index) => {
-        return (
-          <Slide
-            key={slide.index}
-            props={slide}
-            index={index}
-            current={current}
-          />
-        );
-      })}
-    </section>
+    <Layout>
+      <section id="slider">
+        <MdOutlineArrowBackIos
+          className="icons icon-left"
+          onClick={handlePrevSlide}
+        />
+        <MdOutlineArrowForwardIos className="icons" onClick={handleNextSlide} />
+        {dataAsso.map((slide, index) => {
+          return (
+            <Slide
+              key={slide.index}
+              props={slide}
+              index={index}
+              current={current}
+            />
+          );
+        })}
+      </section>
+    </Layout>
   );
 }
 

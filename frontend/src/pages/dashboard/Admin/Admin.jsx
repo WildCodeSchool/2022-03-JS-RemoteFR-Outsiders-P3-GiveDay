@@ -1,14 +1,24 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Link } from "react-router-dom";
 import Users from "@pages/dashboard/Users/Users";
-import Nav from "@components/Nav/Nav";
 
 function Admin() {
   return (
     <div>
-      <Nav />
+      <div>
+        <h1>GiveDay</h1>
+        <ul>
+          <Link to="/users">
+            <li>Users</li>
+          </Link>
+
+          <Link to="/posts">
+            <li>Posts</li>
+          </Link>
+        </ul>
+      </div>
       <Routes>
-        <Route path="/users" element={<Users />} />
+        <Route path="/admin/users" element={<Users />} />
       </Routes>
     </div>
   );
