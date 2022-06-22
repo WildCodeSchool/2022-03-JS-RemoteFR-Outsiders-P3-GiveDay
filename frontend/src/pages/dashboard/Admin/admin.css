@@ -1,0 +1,69 @@
+.adminPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: aqua;
+  display: flex;
+  flex-direction: row;
+}
+
+#adminNav {
+  background-color: #333;
+  color: #eee;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+#adminNav {
+  display: block;
+  height: 100vh;
+  width: 20%;
+}
+
+#adminNav > ul {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  width: 100%;
+}
+
+#adminNav > li {
+  padding: 0.5rem;
+  display: block;
+  width: 100%;
+}
+
+#adminNav a {
+  display: block;
+  text-decoration: none;
+  list-style: none;
+  text-align: center;
+}
+#adminNav a:link,
+#adminNav a:visited {
+  color: #eee;
+  display: block;
+}
+
+/* mouse over link */
+#adminNav a:hover {
+  background-color: #eee;
+  color: #333;
+}
+
+/* selected link */
+#adminNav a:active {
+  color: #eee;
+}
+
+#adminNav li {
+  list-style-type: none;
+  line-height: 3rem;
+}
+
+.adminContent {
+  background-color: coral;
+  width: 80%;
+}

@@ -1,13 +1,14 @@
 import React from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
+import Layout from "@components/Layout";
 import Newsletter from "../../components/Newsletter/Newsletter";
 // import Userback from "@components/AxiosBack/Userback"
 // import Eventback from "@components/AxiosBack/Eventback"
 
 function Home() {
   return (
-    <div>
+    <Layout>
       <div className="acceuilContainer">
         <div className="CCM">
           <h2>Comment ca marche </h2>
@@ -45,7 +46,7 @@ function Home() {
 
       {/* <Eventback />
       <Userback /> */}
-    </div>
+    </Layout>
   );
 }
 
