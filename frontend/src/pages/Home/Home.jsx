@@ -2,10 +2,14 @@ import React from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Newsletter from "../../components/Newsletter/Newsletter";
+import invitationsPablo from "../../assets/images/InvitationsPablo.jpg"
 // import Userback from "@components/AxiosBack/Userback"
 // import Eventback from "@components/AxiosBack/Eventback"
 
 function Home() {
+  const animIvit = ()=> {
+    return ;
+  }
   return (
     <div>
       <div className="acceuilContainer">
@@ -25,23 +29,39 @@ function Home() {
         </div>
         <div className="atelier">
           <h2>Atelier carte d'invitation</h2>
+          <div onClick={animIvit}>
+          <img  className="cartePablo" src={invitationsPablo} alt="invitation modèle" />
+          </div>
         </div>
-        <div className="blog">
-          <h2>Nos partenaires</h2>
-        </div>
-        <div className="article">
           <div className="article1">
             <h2>Article</h2>
           </div>
           <div className="article2">
-            <h2>Article</h2>
+            <h2>Blog</h2>
           </div>
-        </div>
-
         <div className="news">
           <Newsletter />
         </div>
       </div>
+       <div className="confiance">
+            <div className="divTitre">
+            <h2>ils nous font confiance</h2>
+            </div>
+            <div>
+              <p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of </p>
+            </div>
+            <div className="globalCercle">
+                <div className="cerclePartenaire"></div>
+                <div className="cerclePartenaire"></div>
+                <div className="cerclePartenaire"></div>
+                <div className="cerclePartenaire"></div>
+                <div className="cerclePartenaire"></div>
+                <div className="cerclePartenaire"></div>
+                <div className="cerclePartenaire"></div>
+                <div className="cerclePartenaire"></div>
+                <div className="cerclePartenaire"></div>
+            </div>
+        </div> 
 
       {/* <Eventback />
       <Userback /> */}
