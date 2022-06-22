@@ -1,10 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";
-import axios from "axios";
+import api from "@services/api";
 import "./user.css";
 
 function Register({ hundleOpenNewAccount, setUserIsConnected }) {
-  const API = `http://localhost:5000/api/auth/register`;
   const [user, setUser] = useState({
     prenom: "",
     nom: "",
@@ -14,8 +13,8 @@ function Register({ hundleOpenNewAccount, setUserIsConnected }) {
   const handleRegister = (event) => {
     event.preventDefault();
     console.warn(user);
-    axios
-      .post(API, user, { withCredentials: true })
+    api
+      .post("/api/auth/register", user, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
         if (data) {
