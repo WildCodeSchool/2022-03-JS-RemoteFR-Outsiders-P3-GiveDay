@@ -9,6 +9,7 @@ import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
 import Home from "@pages/Home/Home";
 import Contact from "@components/Contact/Contact";
 import Footer from "@components/Footer/Footer";
+import Admin from "@pages/dashboard/Admin/Admin";
 
 import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
 
@@ -41,8 +42,9 @@ function App() {
             </div>
           }
         />
-        <Route path="/CreationEvenement" element={<CreationEvenement />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route path="/creationEvenement" element={<CreationEvenement />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
 
       <Footer />
