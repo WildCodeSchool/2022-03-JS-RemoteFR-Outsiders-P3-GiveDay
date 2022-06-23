@@ -48,7 +48,6 @@ h2,
 h3 {
   font-family: var(--font-titre_small-text);
   font-weight: 100;
- 
 }
 
 .buttonStyle {
@@ -72,13 +71,12 @@ a {
   transition: var(--transition);
 }
 
-
-body::before{
+body::before {
   content: "";
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url("../assets/images/backgroud.jpg") ;
+  background-image: url("../assets/images/backgroud.jpg");
   z-index: -1;
   background-size: cover;
   -moz-filter: blur(15px);

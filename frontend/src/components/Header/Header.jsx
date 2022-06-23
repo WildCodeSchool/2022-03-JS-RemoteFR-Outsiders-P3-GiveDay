@@ -9,8 +9,8 @@ function Header() {
   return (
     <div className="headerContainer">
       <div className="columnContainer">
-          <img src={logoGiveday} alt="LogoGiveday" className="logoGiveday" />
-          <Login />
+        <img src={logoGiveday} alt="LogoGiveday" className="logoGiveday" />
+        <Login />
       </div>
       <Nav />
     </div>

@@ -175,8 +175,7 @@
   font-family: var(--font-logo);
   margin: 0.2rem;
 }
-@media screen and (max-width : 980px) {
-  
+@media screen and (max-width: 980px) {
   .loginContainer {
     display: flex;
     flex-direction: column;
@@ -184,7 +183,6 @@
     justify-content: start;
     position: initial;
     width: 100%;
-    
   }
 
   .buttonStyle {

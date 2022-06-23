@@ -26,13 +26,13 @@
   margin-bottom: 3rem;
   margin-top: 1rem;
 }
-.social-links > li{
+.social-links > li {
   margin: 0.3rem;
 }
-.social-links > a:nth-child(5){
+.social-links > a:nth-child(5) {
   margin-bottom: 1rem;
 }
-li.social-link_items:nth-child(2){
+li.social-link_items:nth-child(2) {
   margin-bottom: 1rem;
 }
 li.social-link_items > a > svg {
@@ -43,7 +43,7 @@ li.social-link_items > a > svg {
   width: 100%;
 }
 
-@media screen and (max-width : 980px) {
+@media screen and (max-width: 980px) {
   .social-links {
     display: flex;
     list-style: none;
@@ -66,4 +66,4 @@ li.social-link_items > a > svg {
     border-bottom: 0.2rem solid var(--color_1);
     background-color: var(--color_1);
   }
-} 
+}

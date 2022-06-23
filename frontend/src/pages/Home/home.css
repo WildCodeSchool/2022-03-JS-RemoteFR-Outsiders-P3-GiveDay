@@ -54,8 +54,6 @@
   background-color: rgb(231, 235, 234);
 }
 
-
-
 .article1 {
   grid-area: article1;
   background-color: rgb(236, 95, 93);
@@ -191,7 +189,7 @@ div.acceuilContainer > div:nth-child(8) {
   border: 3px solid;
   border-radius: 7px;
 }
-.divTitre >  h2{
+.divTitre > h2 {
   text-align: center;
   font-family: aloja;
   margin: 2rem;
@@ -201,32 +199,30 @@ div.acceuilContainer > div:nth-child(8) {
   margin: 2rem;
   padding: 2rem;
 }
-.cerclePartenaire{
-  height: 5rem; 
-		width: 5rem; 
-		background-image: url(../../assets/images/enfant.png);
-    background-size: cover;
-		border: 2px solid rgba(0, 0, 0, 1);
-		border-radius: 50%; 
-    margin: 1rem;
+.cerclePartenaire {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/enfant.png);
+  background-size: cover;
+  border: 2px solid rgba(0, 0, 0, 1);
+  border-radius: 50%;
+  margin: 1rem;
 }
-.globalCercle{
+.globalCercle {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   margin: 4rem;
-
 }
-.cartePablo{
+.cartePablo {
   width: 73%;
   transform: rotate(25deg);
   margin-left: 10%;
   margin-top: 15%;
-  transition: margin-left 2s , margin-top 2s, transform 2s;
-  
+  transition: margin-left 2s, margin-top 2s, transform 2s;
 }
-.cartePablo:hover{
+.cartePablo:hover {
   margin-left: 15%;
   margin-top: 45%;
   transform: rotate(90deg);
@@ -234,32 +230,29 @@ div.acceuilContainer > div:nth-child(8) {
 
 /***********************************************************media query**********************/
 
-@media screen and (max-width : 980px) {
+@media screen and (max-width: 980px) {
   .acceuilContainer {
     display: flex;
     flex-direction: column;
-
   }
   .acceuilContainer > div {
-        height: 30%;
+    height: 30%;
   }
-  .cerclePartenaire{
-    height: 5rem; 
-      width: 5rem; 
-      background-image: url(../../assets/images/enfant.png);
-      background-size: cover;
-      border: 2px solid rgba(0, 0, 0, 1);
-      border-radius: 50%; 
-      margin: 1rem;
+  .cerclePartenaire {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/enfant.png);
+    background-size: cover;
+    border: 2px solid rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    margin: 1rem;
   }
-  .globalCercle{
+  .globalCercle {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     margin: 1rem;
     width: 90%;
-  
   }
-  
 }
