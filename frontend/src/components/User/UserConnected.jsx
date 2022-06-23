@@ -16,6 +16,10 @@ function UserConnected() {
     setOpenMyAccount(false);
   };
 
+  const handleLogout = () => {
+    setOpenMyAccount(true);
+  };
+
   return (
     <div className="loginContainer">
       <div className="buttonContainer">
@@ -32,6 +36,13 @@ function UserConnected() {
           onClick={hundleOpenMyEvents}
         >
           Mes événements
+        </button>
+        <button
+          type="button"
+          className="buttonStyle buttonStyleLogin"
+          onClick={handleLogout}
+        >
+          Me déconnecter
         </button>
       </div>
       {openMyAccount ? (
