@@ -1,14 +1,16 @@
 .App {
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   align-items: center;
+  background-color: var(--color_light);
+  margin-top: 2rem;
+  border-radius: 25px;
 }
 
 .containerContainWebsite {
   margin-top: 2rem;
-  width: 70%;
-  margin-bottom: 31rem; /*TEMPORAIRE*/
+  width: 94%;
 }
 
 @media screen and (max-width: 750px) {
