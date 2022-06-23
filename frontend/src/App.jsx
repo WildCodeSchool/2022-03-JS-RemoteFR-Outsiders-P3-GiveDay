@@ -9,6 +9,7 @@ import Home from "@pages/Home/Home";
 import Contact from "@components/Contact/Contact";
 import Admin from "@pages/dashboard/Admin/Admin";
 import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
+import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
           }
         />
         <Route path="/creationEvenement" element={<CreationEvenement />} />
+        <Route path="/AtelierCarte" element={<AtelierCarte />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />

@@ -25,7 +25,9 @@ function Home() {
           <h2>Rejoindre un evenement</h2>
         </div>
         <div className="atelier">
-          <h2>Atelier carte d'invitation</h2>
+          <Link to="/AtelierCarte">
+            <h2>Atelier carte d'invitation</h2>
+          </Link>
         </div>
         <div className="blog">
           <h2>Nos partenaires</h2>

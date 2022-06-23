@@ -1,0 +1,9 @@
+.viewAtelierTitle{
+    width:100%;
+    text-align: center;
+}
+.atelierViewtest {
+    width: calc(21cm * 63 / 100);
+    height: calc(29.7cm * 63 / 100);
+    border-radius: var(--border-radius);
+}
