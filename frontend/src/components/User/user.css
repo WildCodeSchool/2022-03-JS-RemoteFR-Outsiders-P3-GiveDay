@@ -186,13 +186,14 @@
   }
 
   .buttonStyle {
-    width: clamp(7rem, 1rem, 1rem);
+    width: clamp(9rem, 1rem, 1rem);
     height: clamp(2rem, 2.5rem, 3rem);
     border: 2px solid var(--color_ligh);
     border-radius: 5px;
     background-color: var(--color_3);
     color: var(--color_light);
     transition: var(--transition);
+    font-size: 0.8rem;
   }
   .buttonContainer {
     display: flex;

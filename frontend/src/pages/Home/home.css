@@ -8,8 +8,9 @@
     "CCM creation article2"
     "CCM rejoindre article1"
     "Philan atelier news";
-  height: 70rem;
-  margin-bottom: 4rem;
+  height: 100rem;
+  width: 90%;
+  margin-top: 3rem;
 }
 
 .CCM {
@@ -179,13 +180,17 @@ div.acceuilContainer > div:nth-child(8) {
 .article2 {
   margin-top: 3px;
 }
-
+.confianceFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .confiance {
   grid-area: blog;
   background-color: var(--color_1);
   margin-top: 10rem;
   margin-bottom: 10rem;
-  width: 100%;
+  width: 90%;
   border: 3px solid;
   border-radius: 7px;
 }
