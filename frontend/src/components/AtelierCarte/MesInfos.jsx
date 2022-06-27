@@ -9,7 +9,7 @@ function MesInfos({ cardContain, setCardContain }) {
       [e.target.name]: e.target.value,
     });
   };
-  console.warn(cardContain);
+  // console.warn(cardContain);
   return (
     <div id="formContainer">
       <form className="form">
