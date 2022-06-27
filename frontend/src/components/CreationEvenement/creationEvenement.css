@@ -144,19 +144,16 @@ p.codeEvenement {
   padding: 10px 10px;
   width: 200px;
 }
-#root > div:nth-child(1){
+#root > div:nth-child(1) {
   width: 100%;
 }
-.eventFlex{
+.eventFlex {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   background-image: url("../../assets/images/fille.jpg");
   background-repeat: no-repeat;
- background-position: 100% 0%;
- background-size: 150%;
-
- 
-
+  background-position: 100% 0%;
+  background-size: 150%;
 }

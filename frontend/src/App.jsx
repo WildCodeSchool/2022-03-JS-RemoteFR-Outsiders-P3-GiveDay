@@ -39,30 +39,46 @@ function App() {
             </div>
           }
         />
-        <Route path="/creationEvenement" element={
-        <div className="containerContainWebsite">
-        <CreationEvenement />
-        </div>
-      } />
-        <Route path="/contact" element={
-        <div className="containerContainWebsite">
-        <Contact />
-        </div>
-      } />
-        <Route path="/admin/users" element={
-        <div className="containerContainWebsite">
-         <Admin content="users" />
-         </div>} />
-        <Route path="/admin/posts" element={
-        <div className="containerContainWebsite">
-        <Admin content="posts" />
-        </div>
-      } />
-        <Route path="/Philanthrokids" element={
-         <div className="containerContainWebsite">
-        <Philanthrokids />
-        </div>
-      } />
+        <Route
+          path="/creationEvenement"
+          element={
+            <div className="containerContainWebsite">
+              <CreationEvenement />
+            </div>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <div className="containerContainWebsite">
+              <Contact />
+            </div>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <div className="containerContainWebsite">
+              <Admin content="users" />
+            </div>
+          }
+        />
+        <Route
+          path="/admin/posts"
+          element={
+            <div className="containerContainWebsite">
+              <Admin content="posts" />
+            </div>
+          }
+        />
+        <Route
+          path="/Philanthrokids"
+          element={
+            <div className="containerContainWebsite">
+              <Philanthrokids />
+            </div>
+          }
+        />
       </Routes>
     </div>
   );
