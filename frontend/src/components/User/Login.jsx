@@ -6,12 +6,12 @@ import "./user.css";
 function Login({ hundleOpenLogin, setUserIsConnected }) {
   const [errorLogin, setErrorLogin] = useState(false);
   const [user, setUser] = useState({
-    email: "",
-    password: "",
+    email: "doe@gmail.com",
+    password: "Giveday2022?",
   });
   const handleLogin = (event) => {
     event.preventDefault();
-    console.warn(user);
+    // console.warn(user);
     api
       .post("/api/auth/login", user, { withCredentials: true })
       .then((res) => res.data)
@@ -61,7 +61,7 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
         </label>
         <input type="submit" value="Valider" className="buttonStyle" />
         <a className="forget" href="www.google.com">
-          J'ai oblié mon mot de passe
+          J'ai oublié mon mot de passe
         </a>
         {errorLogin ? (
           <span className="errorLogin">

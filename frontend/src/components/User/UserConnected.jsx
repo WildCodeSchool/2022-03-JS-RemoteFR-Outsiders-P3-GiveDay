@@ -4,7 +4,7 @@ import MyAccount from "@components/User/MyAccount";
 import MyEvents from "@components/User/MyEvents";
 import "./user.css";
 
-function UserConnected() {
+function UserConnected({ setUserIsConnected, userIsConnected }) {
   const [openMyAccount, setOpenMyAccount] = useState(false);
   const [openMyEvents, setOpenMyEvents] = useState(false);
   const hundleOpenMyAccount = () => {
@@ -17,7 +17,7 @@ function UserConnected() {
   };
 
   const handleLogout = () => {
-    setOpenMyAccount(true);
+    setUserIsConnected(!userIsConnected);
   };
 
   return (

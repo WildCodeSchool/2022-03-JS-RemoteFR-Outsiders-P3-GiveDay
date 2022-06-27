@@ -9,7 +9,10 @@ function User() {
   if (userIsConnected) {
     return (
       <div className="loginContainer">
-        <UserConnected setUserIsConnected={setUserIsConnected} />
+        <UserConnected
+          setUserIsConnected={setUserIsConnected}
+          userIsConnected={userIsConnected}
+        />
       </div>
     );
   }
