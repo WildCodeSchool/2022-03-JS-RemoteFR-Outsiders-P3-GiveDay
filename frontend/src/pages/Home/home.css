@@ -49,11 +49,13 @@
 .atelier {
   grid-area: atelier;
   background-color: rgb(255, 226, 0);
+  height: 60%;
 }
 
 .news {
   grid-area: news;
   background-color: rgb(231, 235, 234);
+  height: 60%;
 }
 
 .article1 {
@@ -232,21 +234,25 @@ div.acceuilContainer > div:nth-child(8) {
   margin: 4rem;
 }
 .cartePablo {
-  width: 73%;
+  width: 53%;
   transform: rotate(25deg);
-  margin-left: 10%;
-  margin-top: 15%;
-  transition: margin-left 2s, margin-top 2s, transform 2s;
+  margin: 5rem;
+  transition: transform 2s;
 }
 .cartePablo:hover {
   margin-left: 15%;
-  margin-top: 45%;
-  transform: rotate(90deg);
+  transform: rotate(320deg);
 }
 
 /***********************************************************media query**********************/
 
 @media screen and (max-width: 980px) {
+  .cartePablo {
+    width: 53%;
+    transform: rotate(25deg);
+    margin: 5rem;
+    transition: transform 2s;
+  }
   .acceuilContainer {
     display: flex;
     flex-direction: column;
