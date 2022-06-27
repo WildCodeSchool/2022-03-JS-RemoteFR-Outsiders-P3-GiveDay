@@ -15,7 +15,9 @@ function Home() {
           <h2>Comment ca marche </h2>
         </div>
         <div className="Philan">
-          <h2>Philanthrokids</h2>
+        <Link to="/Philanthrokids">
+        <h2>Philanthrokids</h2>
+          </Link> 
         </div>
         <div className="creation">
           <Link to="/CreationEvenement">

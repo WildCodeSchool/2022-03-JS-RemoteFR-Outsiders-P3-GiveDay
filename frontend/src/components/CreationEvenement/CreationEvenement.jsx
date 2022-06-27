@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import Cadeau from "@components/CreationEvenement/Cadeau";
 import axios from "axios";
+import Layout from "@components/Layout";
+import "../../pages/Home/home.css";
+import "../../App.css";
+import "../../components/Nav/Nav.css"
+
 
 function CreationEvenement() {
   const [cadeauxList, setcadeauxList] = useState([]);
@@ -55,7 +60,8 @@ function CreationEvenement() {
   }, [form]);
 
   return (
-    <div>
+    <Layout>
+    <div className="eventFlex">
       <form
         id="creationEvenement"
         className="giveForm"
@@ -201,6 +207,7 @@ function CreationEvenement() {
         </button>
       </form>
     </div>
+    </Layout>
   );
 }
 
