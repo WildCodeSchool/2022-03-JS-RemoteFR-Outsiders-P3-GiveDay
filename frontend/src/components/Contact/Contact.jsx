@@ -34,7 +34,7 @@ function Contact() {
   };
 
   return (
-    <div className="contactContainer">
+    <div id="contactContainer">
       <form
         action="/api/route/contact"
         method="post"

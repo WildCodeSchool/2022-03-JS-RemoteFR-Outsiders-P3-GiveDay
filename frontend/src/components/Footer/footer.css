@@ -1,4 +1,4 @@
-.give-footer {
+#give-footer {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,7 +10,7 @@
   background-color: var(--color_light);
 }
 
-ul {
+#give-footer ul {
   display: flex;
   list-style: none;
   flex-direction: row;
@@ -24,7 +24,7 @@ ul {
   margin: 0%;
   font-weight: bold;
 }
-li.social-link_items > a > svg {
+#give-footer li.social-link_items > a > svg {
   margin-right: 10px;
 }
 

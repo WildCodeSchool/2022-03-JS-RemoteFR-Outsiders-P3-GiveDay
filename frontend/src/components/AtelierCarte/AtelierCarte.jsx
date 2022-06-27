@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./atelierCarte.css";
 import Layout from "@components/Layout";
 import zebre from "@assets/images/zebre.jpg";
+import template1 from "@assets/images/template1.png";
 import View from "./View";
+import MesInfos from "./MesInfos";
 
 function AtelierCarte() {
+  const [cardContain, setCardContain] = useState({
+    name: "Emma",
+    place: "Chez ma mami",
+    address: "5 rue de la liberté, 69003 LYON",
+    date: "5 juin 2022",
+    time: "18h00",
+    mobile: "06 00 00 00 00",
+    email: "mailmail.@mail.fr",
+    asso: "ex: Rêves",
+  });
+  const [eventCode, setEventCode] = useState({
+    code: "PASENCOREDECODE",
+  });
+  setEventCode();
   return (
     <Layout>
       <div className="atelierContainer">
@@ -14,7 +30,7 @@ function AtelierCarte() {
             <div className="atelierContainerSubSection1-1">
               <h1>Mes templates</h1>
               <button type="button">
-                <img src={zebre} alt="" />
+                <img src={template1} alt="" />
               </button>
               <button type="button">
                 <img src={zebre} alt="" />
@@ -47,20 +63,17 @@ function AtelierCarte() {
               <button type="button" label="Green" />
               <button type="button" label="Pink" />
             </div>
-            <div className="atelierContainerSubSection1-4">
-              <button type="button" label="Arial">
-                Remplissage Auto ? info
-              </button>
-            </div>
           </section>
           <section className="atelierContainerSection2">
             <h1 className="viewAtelierTitle">Prévue</h1>
-            <View />
-            <div className="atelierContainerSubSection2-1">
-              <button type="button" label="Previsualiser">
-                Télécharger PDF
-              </button>
-            </div>
+            <View eventCode={eventCode} cardContain={cardContain} />
+          </section>
+          <section className="atelierContainerSection3">
+            <h1 className="mesInfosTitle">Mes info</h1>
+            <MesInfos
+              cardContain={cardContain}
+              setCardContain={setCardContain}
+            />
           </section>
         </div>
       </div>

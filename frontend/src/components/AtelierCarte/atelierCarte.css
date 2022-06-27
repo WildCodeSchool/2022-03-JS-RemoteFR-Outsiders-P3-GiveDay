@@ -37,13 +37,16 @@
     border: 0;
     background-color: transparent;
     width: calc(100% / 3);
+    height:6rem ;
     margin: 0.5rem;
 }
 
 .atelierContainerSubSection1-1 button img {
     width: 100%;
+    height: 100%;
     border: 2px solid var(--color_light);
     border-radius: var(--border-radius);
+    transition: var(--transition);
 }.atelierContainerSubSection1-1 button img:hover {
     border: 2px solid var(--color_1);
     border-radius: var(--border-radius);
@@ -66,6 +69,7 @@
     height: 3rem;
     margin: 0.5rem 1rem;
     color: var(--color_light);
+    transition: var(--transition);
 }
 
 .atelierContainerSubSection1-2 button:nth-child(2) {
@@ -114,10 +118,11 @@
     margin: 0.5rem;
     border: 2px solid var(--color_light);
     opacity: 80%;
+    transition: var(--transition);
 }
 
 .atelierContainerSubSection1-3 button:nth-child(2) {
-    background-color: red;
+    background-color: var(--color_1);
 }
 
 .atelierContainerSubSection1-3 button:nth-child(2):hover {
@@ -125,7 +130,7 @@
 }
 
 .atelierContainerSubSection1-3 button:nth-child(3) {
-    background-color: blue;
+    background-color: var(--color_2);
 }
 
 .atelierContainerSubSection1-3 button:nth-child(3):hover {
@@ -133,7 +138,7 @@
 }
 
 .atelierContainerSubSection1-3 button:nth-child(4) {
-    background-color: yellow;
+    background-color: var(--color_3);
 }
 
 .atelierContainerSubSection1-3 button:nth-child(4):hover {
@@ -141,7 +146,7 @@
 }
 
 .atelierContainerSubSection1-3 button:nth-child(5) {
-    background-color: orange;
+    background-color: var(--color_4);
 }
 
 .atelierContainerSubSection1-3 button:nth-child(5):hover {
@@ -149,7 +154,7 @@
 }
 
 .atelierContainerSubSection1-3 button:nth-child(6) {
-    background-color: green;
+    background-color: var(--color_5);
 }
 
 .atelierContainerSubSection1-3 button:nth-child(6):hover {
@@ -157,7 +162,8 @@
 }
 
 .atelierContainerSubSection1-3 button:nth-child(7) {
-    background-color: violet;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 48%, rgba(255,255,255,1) 100%);
 }
 
 .atelierContainerSubSection1-3 button:nth-child(7):hover {
@@ -175,6 +181,7 @@
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
+    transition: var(--transition);
 }
 
 .atelierContainerSubSection1-4 button:hover {
@@ -189,7 +196,7 @@
     display:flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 
@@ -204,6 +211,7 @@
     margin: 0.5rem;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
+    transition: var(--transition);
 }
 
 .atelierContainerSubSection2-1 button:hover {
@@ -216,8 +224,14 @@
     width:100%;
     text-align: center;
 }
-.atelierViewtest {
-    width: calc(21cm * 63 / 100);
-    height: calc(29.7cm * 63 / 100);
-    border-radius: var(--border-radius);
+
+.atelierContainerSection3 {
+    margin-top: 1rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mesInfosTitle{
+    width:100%;
+    text-align: center;
 }
