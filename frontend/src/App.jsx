@@ -81,13 +81,17 @@ function App() {
             </div>
           }
         />
-
-        
-        <Route path="/AtelierCarte" element={<AtelierCarte />} />
+        <Route
+          path="/AtelierCarte"
+          element={
+            <div className="containerContainWebsite">
+              <AtelierCarte />
+            </div>
+          }
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
-
       </Routes>
     </div>
   );

@@ -96,7 +96,7 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
         </label>
         <br />
         <input
-          type="submit"
+          type="button"
           value="Remplissage Auto"
           className="buttonStyle save"
         />

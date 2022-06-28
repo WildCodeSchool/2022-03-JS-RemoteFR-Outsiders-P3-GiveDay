@@ -3,12 +3,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-right:15%;
-    padding-left:15%;
+    padding-right: 5%;
+    padding-left: 5%;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 
 }
 
-.atelierTitle {}
+.atelierTitle {
+    color: var(--color_3);
+}
 
 .atelierContainerSections {
     width: 100%;
@@ -25,7 +29,7 @@
     width: 20%;
 }
 
-.atelierContainerSubSection1-1 {    
+.atelierContainerSubSection1-1 {
     width: 100%;
 }
 
@@ -36,19 +40,21 @@
 .atelierContainerSubSection1-1 button {
     border: 0;
     background-color: transparent;
-    width: calc(100% / 3);
-    height:6rem ;
+    width: calc(100% / 3.2);
+    height: 8rem;
     margin: 0.5rem;
 }
 
 .atelierContainerSubSection1-1 button img {
     width: 100%;
     height: 100%;
-    border: 2px solid var(--color_light);
+    border: 1px solid var(--color_dark);
     border-radius: var(--border-radius);
     transition: var(--transition);
-}.atelierContainerSubSection1-1 button img:hover {
-    border: 2px solid var(--color_1);
+}
+
+.atelierContainerSubSection1-1 button img:hover {
+    border: 1px solid var(--color_1);
     border-radius: var(--border-radius);
 }
 
@@ -162,8 +168,8 @@
 }
 
 .atelierContainerSubSection1-3 button:nth-child(7) {
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 48%, rgba(255,255,255,1) 100%);
+    background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 50%, rgba(255, 255, 255, 1) 100%);
 }
 
 .atelierContainerSubSection1-3 button:nth-child(7):hover {
@@ -192,8 +198,8 @@
 
 .atelierContainerSection2 {
     margin-top: 1rem;
-    width:80%;
-    display:flex;
+    width: 80%;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
@@ -220,18 +226,110 @@
     border: 2px solid var(--color_3);
 }
 
-.viewAtelierTitle{
-    width:100%;
+.viewAtelierTitle {
+    width: 100%;
     text-align: center;
 }
 
 .atelierContainerSection3 {
     margin-top: 1rem;
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
-.mesInfosTitle{
-    width:100%;
+
+.mesInfosTitle {
+    width: 100%;
     text-align: center;
+}
+
+
+#formContainer .form label {
+    color: var(--color_dark);
+}
+
+/* 
+#formContainer .form label .inputForm {
+    border: 1px solid var(--color_3);
+} */
+#formContainer .inputForm:valid,
+#formContainer .inputForm:invalid {
+    background-color: var(--color_light);
+    border: 1px solid var(--color_3);
+    border-radius: 5px;
+    margin-bottom: 0.8rem;
+    color: var(--color_dark);
+    padding: 0.2rem;
+    text-align: center;
+}
+
+#formContainer .inputForm:invalid {
+    border: 1px solid var(--color_5);
+    color: var(--color_5);
+}
+
+#formContainer .inputForm:hover {
+    opacity: 50%;
+    position: relative;
+}
+.save{
+    background-color: var(--color_3);
+    border: 2px solid var(--color_light);
+    color: var var(--color_light);
+    transition: var(--transition);
+    text-align: center;
+}
+.save:hover{
+    background-color: var(--color_light);
+    border: 2px solid var(--color_3);
+    color: var(--color_3);
+}
+
+
+
+@media screen and (max-width: 750px) {
+
+    .atelierContainer {
+        justify-content: center;
+    
+    }
+    
+    .atelierTitle {
+        color: var(--color_3);
+        text-align: center;
+    }
+    
+    .atelierContainerSections {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .atelierContainerSection1 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    
+    .atelierContainerSubSection1-1 {
+        width: 100%;
+        text-align: center;
+    }
+
+    
+    .atelierContainerSubSection1-2 {
+        align-items: center;
+    }
+        
+    .atelierContainerSubSection1-2 button {
+        width: calc(100%);
+    }
+    
+    
+    .atelierContainerSubSection1-3 {
+        text-align: center;
+        width: 100%;
+    }
 }

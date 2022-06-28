@@ -6,13 +6,13 @@ import { jsPDF } from "jspdf";
 import "./atelierCarte.css";
 import Layout from "@components/Layout";
 import template1 from "@assets/images/template1.png";
-import template1black from "@assets/images/zebre1.jpg";
+import template1black from "@assets/images/template1black.png";
 import template2 from "@assets/images/template2.png";
-import template2black from "@assets/images/zebre2.jpg";
+import template2black from "@assets/images/template2black.png";
 import template3 from "@assets/images/template3.png";
-import template3black from "@assets/images/zebre3.jpg";
+import template3black from "@assets/images/template3black.png";
 import template4 from "@assets/images/template4.png";
-import template4black from "@assets/images/zebre4.jpg";
+import template4black from "@assets/images/template4black.png";
 import View from "./View";
 import MesInfos from "./MesInfos";
 
