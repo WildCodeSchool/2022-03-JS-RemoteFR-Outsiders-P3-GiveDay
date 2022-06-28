@@ -2,20 +2,18 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./assets/root.css";
 import "./App.css";
-import Header from "@components/Header/Header";
 import { dataAsso } from "@pages/Associations/dataAsso";
 import SliderAssociations from "@pages/Associations/SliderAssociations";
 import NotreBelleHistoire from "@pages/NotreBelleHistoire/NotreBelleHistoire";
 import Home from "@pages/Home/Home";
 import Contact from "@components/Contact/Contact";
-import Footer from "@components/Footer/Footer";
-
+import Admin from "@pages/dashboard/Admin/Admin";
 import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
+import Philanthrokids from "@pages/Philanthrokids/Philanthrokids";
 
 function App() {
   return (
     <div className="App">
-      <Header />
       <Routes>
         <Route
           path="/"
@@ -41,11 +39,47 @@ function App() {
             </div>
           }
         />
-        <Route path="/CreationEvenement" element={<CreationEvenement />} />
-        <Route path="/Contact" element={<Contact />} />
+        <Route
+          path="/creationEvenement"
+          element={
+            <div className="containerContainWebsite">
+              <CreationEvenement />
+            </div>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <div className="containerContainWebsite">
+              <Contact />
+            </div>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <div className="containerContainWebsite">
+              <Admin content="users" />
+            </div>
+          }
+        />
+        <Route
+          path="/admin/posts"
+          element={
+            <div className="containerContainWebsite">
+              <Admin content="posts" />
+            </div>
+          }
+        />
+        <Route
+          path="/Philanthrokids"
+          element={
+            <div className="containerContainWebsite">
+              <Philanthrokids />
+            </div>
+          }
+        />
       </Routes>
-
-      <Footer />
     </div>
   );
 }

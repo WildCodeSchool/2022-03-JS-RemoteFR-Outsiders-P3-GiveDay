@@ -6,7 +6,26 @@
   justify-content: center;
 }
 .logoGiveday {
-  width: 14rem;
   height: 10.25rem;
   padding: 1rem;
+}
+.columnContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+@media screen and (max-width: 980px) {
+  .columnContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  .loginContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    position: initial;
+  }
 }

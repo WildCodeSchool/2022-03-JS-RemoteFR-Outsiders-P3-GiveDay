@@ -1,13 +1,10 @@
 .loginContainer {
   display: flex;
-  width: 100%;
   flex-direction: column;
   align-items: flex-start;
   justify-content: start;
   position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 100;
+  right: 10%;
 }
 
 .buttonContainer {
@@ -177,4 +174,35 @@
 .styleLogo {
   font-family: var(--font-logo);
   margin: 0.2rem;
+}
+@media screen and (max-width: 980px) {
+  .loginContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: start;
+    position: initial;
+    width: 100%;
+  }
+
+  .buttonStyle {
+    width: clamp(9rem, 1rem, 1rem);
+    height: clamp(2rem, 2.5rem, 3rem);
+    border: 2px solid var(--color_ligh);
+    border-radius: 5px;
+    background-color: var(--color_3);
+    color: var(--color_light);
+    transition: var(--transition);
+    font-size: 0.8rem;
+  }
+  .buttonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: initial;
+    width: 100%;
+    justify-content: center;
+    height: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
 }

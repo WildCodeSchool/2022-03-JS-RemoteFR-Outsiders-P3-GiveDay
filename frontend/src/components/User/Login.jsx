@@ -1,14 +1,32 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState } from "react";
+import api from "@services/api";
 import "./user.css";
 
-function Login({ hundleOpenLogin }) {
+function Login({ hundleOpenLogin, setUserIsConnected }) {
   const [errorLogin, setErrorLogin] = useState(false);
-  const [mail, setMail] = useState("");
-  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
   const handleLogin = (event) => {
     event.preventDefault();
-    setErrorLogin(true);
+    console.warn(user);
+    api
+      .post("/api/auth/login", user, { withCredentials: true })
+      .then((res) => res.data)
+      .then((data) => {
+        if (data) {
+          setUserIsConnected(true);
+        }
+      })
+      .catch(setErrorLogin(true));
+  };
+  const handleChange = (e) => {
+    setUser({
+      ...user,
+      [e.target.name]: e.target.value,
+    });
   };
   return (
     <div className="formContainer">
@@ -26,9 +44,8 @@ function Login({ hundleOpenLogin }) {
           <input
             className="inputForm"
             type="text"
-            value={mail}
-            name="Mail"
-            onChange={({ target }) => setMail(target.value)}
+            name="email"
+            onChange={handleChange}
             minLength="7"
           />
         </label>
@@ -37,9 +54,8 @@ function Login({ hundleOpenLogin }) {
           <input
             className="inputForm"
             type="password"
-            value={password}
-            name="Password"
-            onChange={({ target }) => setPassword(target.value)}
+            name="password"
+            onChange={handleChange}
             minLength="8"
           />
         </label>

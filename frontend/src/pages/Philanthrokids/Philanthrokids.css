@@ -1,0 +1,95 @@
+.globalPhilan {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.vignettePhilan > img {
+  width: 100%;
+}
+.vignettePhilan {
+  width: 25%;
+  margin: 3.5rem;
+  background-color: var(--color_light);
+  border-radius: 10px;
+}
+.globalPhilan {
+  background-image: url("../../assets/images/enfant2.jpg");
+  background-size: 30%;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: #f4f4f4;
+}
+.vignettePhilan > h2 {
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+.vignettePhilan > h3 {
+  padding: 0rem 1rem;
+  font-size: 1em;
+}
+.vignettePhilan > p {
+  padding: 0rem 1rem;
+}
+.vignettePhilan > img {
+  border-radius: 10px 10px 0px 0px;
+}
+.vignettePhilanTitre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
+  width: 25%;
+}
+.vignettePhilanTitre > h1 {
+  font-family: aloja;
+  z-index: 2;
+  margin-top: 3rem;
+}
+.vignettePhilanTitre > img {
+  width: 20%;
+  transform: rotate(25deg);
+  position: absolute;
+  z-index: 0;
+  opacity: 0.2;
+}
+.vignettePhilanTitre > p {
+  font-size: 1.3rem;
+  z-index: 2;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 980px) {
+  .globalPhilan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .vignettePhilanTitre {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3rem;
+    width: 80%;
+  }
+  .vignettePhilan {
+    width: 80%;
+    margin: 3.5rem;
+    background-color: var(--color_light);
+    border-radius: 10px;
+  }
+  .vignettePhilanTitre > p:nth-child(3) {
+    text-align: center;
+  }
+  div.vignettePhilan:nth-child(5) {
+    margin-bottom: 15rem;
+  }
+  .globalPhilan {
+    background-image: url("../../assets/images/enfant2.jpg");
+    background-size: 50%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #f4f4f4;
+  }
+}
