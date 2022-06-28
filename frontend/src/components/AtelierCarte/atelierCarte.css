@@ -1,0 +1,237 @@
+.atelierContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right:15%;
+    padding-left:15%;
+
+}
+
+.atelierTitle {}
+
+.atelierContainerSections {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+
+
+.atelierContainerSection1 {
+    margin-top: 1rem;
+    width: 20%;
+}
+
+.atelierContainerSubSection1-1 {    
+    width: 100%;
+}
+
+.atelierContainerSubSection1-1 h1 {
+    width: 100%;
+}
+
+.atelierContainerSubSection1-1 button {
+    border: 0;
+    background-color: transparent;
+    width: calc(100% / 3);
+    height:6rem ;
+    margin: 0.5rem;
+}
+
+.atelierContainerSubSection1-1 button img {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--color_light);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}.atelierContainerSubSection1-1 button img:hover {
+    border: 2px solid var(--color_1);
+    border-radius: var(--border-radius);
+}
+
+.atelierContainerSubSection1-2 {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.atelierContainerSubSection1-2 h1 {
+    width: 100%;
+}
+
+.atelierContainerSubSection1-2 button {
+    border-radius: var(--border-radius);
+    width: calc(100% / 2.7);
+    height: 3rem;
+    margin: 0.5rem 1rem;
+    color: var(--color_light);
+    transition: var(--transition);
+}
+
+.atelierContainerSubSection1-2 button:nth-child(2) {
+    background-color: var(--color_2);
+    border: 2px solid var(--color_light);
+}
+
+.atelierContainerSubSection1-2 button:nth-child(2):hover {
+    background-color: var(--color_light);
+    border: 2px solid var(--color_2);
+    color: var(--color_2);
+}
+
+.atelierContainerSubSection1-2 button:nth-child(3) {
+    background-color: var(--color_1);
+    border: 2px solid var(--color_light);
+}
+
+.atelierContainerSubSection1-2 button:nth-child(3):hover {
+    background-color: var(--color_light);
+    border: 2px solid var(--color_1);
+    color: var(--color_1);
+}
+
+.atelierContainerSubSection1-2 button:nth-child(4) {
+    background-color: var(--color_4);
+    border: 2px solid var(--color_light);
+}
+
+.atelierContainerSubSection1-2 button:nth-child(4):hover {
+    background-color: var(--color_light);
+    border: 2px solid var(--color_4);
+    color: var(--color_4);
+}
+
+.atelierContainerSubSection1-3 {
+    margin-top: 1rem;
+}
+
+.atelierContainerSubSection1-3 h1 {}
+
+.atelierContainerSubSection1-3 button {
+    border-radius: var(--border-radius);
+    width: calc(100% / 4);
+    height: 3rem;
+    margin: 0.5rem;
+    border: 2px solid var(--color_light);
+    opacity: 80%;
+    transition: var(--transition);
+}
+
+.atelierContainerSubSection1-3 button:nth-child(2) {
+    background-color: var(--color_1);
+}
+
+.atelierContainerSubSection1-3 button:nth-child(2):hover {
+    opacity: 60%;
+}
+
+.atelierContainerSubSection1-3 button:nth-child(3) {
+    background-color: var(--color_2);
+}
+
+.atelierContainerSubSection1-3 button:nth-child(3):hover {
+    opacity: 50%;
+}
+
+.atelierContainerSubSection1-3 button:nth-child(4) {
+    background-color: var(--color_3);
+}
+
+.atelierContainerSubSection1-3 button:nth-child(4):hover {
+    opacity: 60%;
+}
+
+.atelierContainerSubSection1-3 button:nth-child(5) {
+    background-color: var(--color_4);
+}
+
+.atelierContainerSubSection1-3 button:nth-child(5):hover {
+    opacity: 60%;
+}
+
+.atelierContainerSubSection1-3 button:nth-child(6) {
+    background-color: var(--color_5);
+}
+
+.atelierContainerSubSection1-3 button:nth-child(6):hover {
+    opacity: 60%;
+}
+
+.atelierContainerSubSection1-3 button:nth-child(7) {
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 48%, rgba(0,0,0,1) 48%, rgba(255,255,255,1) 100%);
+}
+
+.atelierContainerSubSection1-3 button:nth-child(7):hover {
+    opacity: 60%;
+}
+
+.atelierContainerSubSection1-4 {
+    margin-top: 1rem;
+}
+
+.atelierContainerSubSection1-4 button {
+    color: var(--color_light);
+    background-color: var(--color_3);
+    border: 2px solid var(--color_light);
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.atelierContainerSubSection1-4 button:hover {
+    color: var(--color_3);
+    background-color: var(--color_light);
+    border: 2px solid var(--color_3);
+}
+
+.atelierContainerSection2 {
+    margin-top: 1rem;
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.atelierContainerSubSection2-1 {
+    margin-top: 1rem;
+}
+
+.atelierContainerSubSection2-1 button {
+    color: var(--color_light);
+    background-color: var(--color_3);
+    border: 2px solid var(--color_light);
+    margin: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+}
+
+.atelierContainerSubSection2-1 button:hover {
+    color: var(--color_3);
+    background-color: var(--color_light);
+    border: 2px solid var(--color_3);
+}
+
+.viewAtelierTitle{
+    width:100%;
+    text-align: center;
+}
+
+.atelierContainerSection3 {
+    margin-top: 1rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mesInfosTitle{
+    width:100%;
+    text-align: center;
+}
