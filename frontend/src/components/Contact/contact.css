@@ -1,9 +1,9 @@
-.contactContainer {
+#contactContainer {
   display: flex;
   height: 100vh;
   flex-direction: column;
 }
-form {
+#contactContainer  form {
   background-color: var(--color_3);
   padding: 4rem;
   border-radius: var(--border-radius);
@@ -13,14 +13,14 @@ form {
   gap: 2rem;
 }
 
-input,
+#contactContainer  input, #contactContainer 
 textarea {
   align-self: center;
   width: 100%;
   padding: 0.5rem;
   border-radius: 0.3rem;
 }
-textarea {
+#contactContainer textarea {
   height: 15vh;
   resize: none;
   vertical-align: top;

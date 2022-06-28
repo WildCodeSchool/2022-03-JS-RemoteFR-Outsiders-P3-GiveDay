@@ -26,6 +26,7 @@ function Home() {
           <h2>Rejoindre un evenement</h2>
         </div>
         <div className="atelier">
+          <Link to="/AtelierCarte">
           <h2>Atelier carte d'invitation</h2>
           <div>
             <img
@@ -34,6 +35,7 @@ function Home() {
               alt="invitation modèle"
             />
           </div>
+          </Link>
         </div>
         <div className="article1">
           <h2>Article</h2>
