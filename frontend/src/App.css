@@ -1,4 +1,4 @@
-.App {
+.containerContainWebsite > div:nth-child(1) {
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -6,11 +6,14 @@
   background-color: var(--color_light);
   margin-top: 2rem;
   border-radius: 25px;
+  margin-bottom: 2rem;
 }
 
 .containerContainWebsite {
   margin-top: 2rem;
-  width: 94%;
+
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 750px) {

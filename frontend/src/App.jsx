@@ -9,6 +9,7 @@ import Home from "@pages/Home/Home";
 import Contact from "@components/Contact/Contact";
 import Admin from "@pages/dashboard/Admin/Admin";
 import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
+import Philanthrokids from "@pages/Philanthrokids/Philanthrokids";
 import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
 
 function App() {
@@ -39,11 +40,54 @@ function App() {
             </div>
           }
         />
-        <Route path="/creationEvenement" element={<CreationEvenement />} />
+
+        <Route
+          path="/creationEvenement"
+          element={
+            <div className="containerContainWebsite">
+              <CreationEvenement />
+            </div>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <div className="containerContainWebsite">
+              <Contact />
+            </div>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <div className="containerContainWebsite">
+              <Admin content="users" />
+            </div>
+          }
+        />
+        <Route
+          path="/admin/posts"
+          element={
+            <div className="containerContainWebsite">
+              <Admin content="posts" />
+            </div>
+          }
+        />
+        <Route
+          path="/Philanthrokids"
+          element={
+            <div className="containerContainWebsite">
+              <Philanthrokids />
+            </div>
+          }
+        />
+
+        
         <Route path="/AtelierCarte" element={<AtelierCarte />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
+
       </Routes>
     </div>
   );

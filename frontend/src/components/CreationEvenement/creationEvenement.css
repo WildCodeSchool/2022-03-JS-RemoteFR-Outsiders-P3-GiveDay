@@ -5,6 +5,8 @@
   width: 100%;
   background-color: #6fceb4;
   color: var(--color_light);
+  width: 50%;
+  margin: 3rem 1rem 3rem 1rem;
 }
 
 #creationEvenement h1,
@@ -141,4 +143,17 @@ p.codeEvenement {
   margin: 0px auto;
   padding: 10px 10px;
   width: 200px;
+}
+#root > div:nth-child(1) {
+  width: 100%;
+}
+.eventFlex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-image: url("../../assets/images/fille.jpg");
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  background-size: 150%;
 }

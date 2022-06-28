@@ -15,7 +15,9 @@ function Home() {
           <h2>Comment ca marche </h2>
         </div>
         <div className="Philan">
-          <h2>Philanthrokids</h2>
+          <Link to="/Philanthrokids">
+            <h2>Philanthrokids</h2>
+          </Link>
         </div>
         <div className="creation">
           <Link to="/CreationEvenement">
@@ -47,34 +49,35 @@ function Home() {
           <Newsletter />
         </div>
       </div>
-      <div className="confiance">
-        <div className="divTitre">
-          <h2>ils nous font confiance</h2>
-        </div>
-        <div>
-          <p>
-            is simply dummy text of the printing and typesetting industry. Lorem
-            Ipsum has been the industry's standard dummy text ever since the
-            1500s, when an unknown printer took a galley of type and scrambled
-            it to make a type specimen book. It has survived not only five
-            centuries, but also the leap into electronic typesetting, remaining
-            essentially unchanged. It was popularised in the 1960s with the
-            release of{" "}
-          </p>
-        </div>
-        <div className="globalCercle">
-          <div className="cerclePartenaire" />
-          <div className="cerclePartenaire" />
-          <div className="cerclePartenaire" />
-          <div className="cerclePartenaire" />
-          <div className="cerclePartenaire" />
-          <div className="cerclePartenaire" />
-          <div className="cerclePartenaire" />
-          <div className="cerclePartenaire" />
-          <div className="cerclePartenaire" />
+      <div className="confianceFlex">
+        <div className="confiance">
+          <div className="divTitre">
+            <h2>ils nous font confiance</h2>
+          </div>
+          <div>
+            <p>
+              is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry's standard dummy text ever since
+              the 1500s, when an unknown printer took a galley of type and
+              scrambled it to make a type specimen book. It has survived not
+              only five centuries, but also the leap into electronic
+              typesetting, remaining essentially unchanged. It was popularised
+              in the 1960s with the release of{" "}
+            </p>
+          </div>
+          <div className="globalCercle">
+            <div className="cerclePartenaire" />
+            <div className="cerclePartenaire" />
+            <div className="cerclePartenaire" />
+            <div className="cerclePartenaire" />
+            <div className="cerclePartenaire" />
+            <div className="cerclePartenaire" />
+            <div className="cerclePartenaire" />
+            <div className="cerclePartenaire" />
+            <div className="cerclePartenaire" />
+          </div>
         </div>
       </div>
-
       {/* <Eventback />
       <Userback /> */}
     </Layout>
