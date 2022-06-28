@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 
-function MesInfos({ cardContain, setCardContain }) {
+function MesInfos({ cardContain, setCardContain, printDocument }) {
   const handleChange = (e) => {
     e.preventDefault();
     setCardContain({
@@ -102,9 +102,10 @@ function MesInfos({ cardContain, setCardContain }) {
         />
         <br />
         <input
-          type="submit"
+          type="button"
           value="Télécharger PDF"
           className="buttonStyle save"
+          onClick={printDocument}
         />
       </form>
     </div>

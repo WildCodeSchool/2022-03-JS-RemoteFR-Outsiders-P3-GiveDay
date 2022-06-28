@@ -2,16 +2,6 @@ import React from "react";
 import "./view.css";
 
 function View({ cardContain, eventCode, templateOn, fontChoice, colorChoice }) {
-  // const printDocument = () => {
-  //   const input = document.getElementById("divToPrint");
-  //   html2canvas(input).then((canvas) => {
-  //     const imgData = canvas.toDataURL("image/png");
-  //     const pdf = new jsPDF();
-  //     pdf.addImage(imgData, "JPEG", 0, 0);
-  //     // pdf.output('dataurlnewwindow');
-  //     pdf.save("download.pdf");
-  //   });
-  // };
   return (
     <div id="atelierViewContainer">
       <div className="fondContainer">

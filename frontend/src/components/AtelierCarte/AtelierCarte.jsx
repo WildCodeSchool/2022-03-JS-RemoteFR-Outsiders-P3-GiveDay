@@ -1,4 +1,8 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable new-cap */
 import React, { useState } from "react";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
 import "./atelierCarte.css";
 import Layout from "@components/Layout";
 import template1 from "@assets/images/template1.png";
@@ -26,7 +30,6 @@ function AtelierCarte() {
   const [eventCode, setEventCode] = useState({
     code: "PASENCOREDECODE",
   });
-  setEventCode();
   const [templateOn, setTemplateOn] = useState([template1]);
   const GoTemplate1 = () => {
     setTemplateOn([template1]);
@@ -118,6 +121,19 @@ function AtelierCarte() {
   };
   console.warn(fontChoice);
   console.warn(colorChoice);
+  // atelierViewContainer
+  const printDocument = () => {
+    const input = document.getElementById("atelierViewContainer");
+    html2canvas(input, { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save("MaCarte.pdf");
+    });
+  };
   return (
     <Layout>
       <div className="atelierContainer">
@@ -125,7 +141,7 @@ function AtelierCarte() {
         <div className="atelierContainerSections">
           <section className="atelierContainerSection1">
             <div className="atelierContainerSubSection1-1">
-              <h1>Mes templates</h1>
+              <h1>Mon template</h1>
               <button type="button" onClick={GoTemplate1}>
                 <img src={template1} alt="" />
               </button>
@@ -147,12 +163,12 @@ function AtelierCarte() {
               <button type="button" label="Aloja" onClick={FontChoice2}>
                 Aloja
               </button>
-              <button type="button" label="Arial" onClick={FontChoice3}>
-                Arial
+              <button type="button" label="Fredoka" onClick={FontChoice3}>
+                Fredoka
               </button>
             </div>
             <div className="atelierContainerSubSection1-3">
-              <h1>Couleurs</h1>
+              <h1>Couleur</h1>
               <button type="button" label="yellow" onClick={ColorChoice1} />
               <button type="button" label="pink" onClick={ColorChoice2} />
               <button type="button" label="green" onClick={ColorChoice3} />
@@ -172,10 +188,11 @@ function AtelierCarte() {
             />
           </section>
           <section className="atelierContainerSection3">
-            <h1 className="mesInfosTitle">Mes info</h1>
+            <h1 className="mesInfosTitle">Mes infos</h1>
             <MesInfos
               cardContain={cardContain}
               setCardContain={setCardContain}
+              printDocument={printDocument}
             />
           </section>
         </div>
