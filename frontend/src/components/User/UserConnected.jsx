@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import MyAccount from "@components/User/MyAccount";
 import MyEvents from "@components/User/MyEvents";
 import "./user.css";
+import api from "@services/api";
 
 function UserConnected({ setUserIsConnected, userIsConnected }) {
   const [openMyAccount, setOpenMyAccount] = useState(false);
@@ -17,6 +18,14 @@ function UserConnected({ setUserIsConnected, userIsConnected }) {
   };
 
   const handleLogout = () => {
+    api
+      .get("/api/auth/logout")
+      .then((res) => {
+        console.warn(res);
+      })
+      .catch((err) => {
+        console.warn(err);
+      });
     setUserIsConnected(!userIsConnected);
   };
 

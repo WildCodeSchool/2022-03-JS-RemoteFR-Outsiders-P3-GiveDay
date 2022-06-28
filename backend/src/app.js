@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const router = require("./router");
 
 const app = express();
+app.use(cookieParser());
 
 // use some application-level middlewares
 app.use(
@@ -16,7 +17,6 @@ app.use(
 );
 
 app.use(express.json());
-app.use(cookieParser());
 
 // Serve the public folder for public resources
 app.use(express.static(path.join(__dirname, "../public")));

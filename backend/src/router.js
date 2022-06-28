@@ -5,6 +5,7 @@ const {
   LoginController,
   EventController,
   CadeauController,
+  LogoutController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -21,7 +22,7 @@ router.put("/api/auth/login/:id", LoginController.edit);
 router.post("/api/auth/login", LoginController.browse);
 router.delete("/api/auth/login/:id", LoginController.delete);
 
-// router.get("/api/auth/logout", LogoutController.browse);
+router.get("/api/auth/logout", LogoutController.logout);
 
 router.get("/api/events", EventController.browse);
 router.get("/api/events/:id", EventController.read);
