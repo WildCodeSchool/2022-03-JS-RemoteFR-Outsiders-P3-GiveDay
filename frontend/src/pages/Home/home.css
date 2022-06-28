@@ -1,12 +1,12 @@
 .acceuilContainer {
   display: grid;
-  grid-template-columns: 1.2fr 0.6fr 1.2fr;
-  grid-template-rows: 0.8fr 1.3fr 0.9fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 0.9fr 0.9fr 1.1fr;
   gap: 0px 0px;
   grid-auto-flow: row;
   grid-template-areas:
-    "CCM creation blog"
-    "CCM rejoindre article"
+    "CCM creation article2"
+    "CCM rejoindre article1"
     "Philan atelier news";
   height: 70rem;
   margin-bottom: 4rem;
@@ -16,25 +16,32 @@
   grid-area: CCM;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url("../../assets/images/fille.jpg");
+  background-position: 50% 0% 70% 50%;
+  background-image: url("../../assets/images/animaux1.jpg");
 }
 
 .Philan {
   grid-area: Philan;
   background-image: url("../../assets/images/enfant.png");
   background-size: cover;
+  background-position: 60% 50%;
+  background-repeat: no-repeat;
 }
 
 .creation {
   grid-area: creation;
   background-color: rgb(90, 148, 210);
+  background-image: url("../src/assets/images/fille.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .rejoindre {
   grid-area: rejoindre;
   background-image: url("../../assets/images/ZEBRE.jpg");
   background-size: cover;
-  background-position: 50% -10%;
+  background-position: 90% 70%;
+  background-repeat: no-repeat;
 }
 
 .atelier {
@@ -42,26 +49,9 @@
   background-color: rgb(255, 226, 0);
 }
 
-.blog {
-  grid-area: blog;
-  background-color: var(--color_1);
-}
-
 .news {
   grid-area: news;
   background-color: rgb(231, 235, 234);
-}
-
-.article {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 0px 0px;
-  grid-auto-flow: row;
-  grid-template-areas:
-    "article1"
-    "article2";
-  grid-area: article;
 }
 
 .article1 {
@@ -73,44 +63,46 @@
   grid-area: article2;
   background-color: rgb(255, 51, 51);
 }
-.article {
-  border: 0px;
-}
+
 .acceuilContainer > div > h2 {
   text-align: center;
   font-family: aloja;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   font-weight: initial;
   text-decoration: none;
   list-style: none;
   color: black;
+  background-color: #f4f5f9c2;
 }
 .creation > a:nth-child(1) > h2:nth-child(1) {
   text-align: center;
   font-family: aloja;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   font-weight: initial;
   text-decoration: none;
   list-style: none;
   color: black;
+  background-color: #f4f5f9c2;
 }
 .article1 > h2:nth-child(1) {
   text-align: center;
   font-family: aloja;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   font-weight: initial;
   text-decoration: none;
   list-style: none;
   color: black;
+  background-color: #f4f5f9c2;
 }
 .article2 > h2:nth-child(1) {
   text-align: center;
   font-family: aloja;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   font-weight: initial;
   text-decoration: none;
   list-style: none;
   color: black;
+  background-color: #f4f5f9c2;
 }
 div.acceuilContainer > div > p:nth-child(n) {
   width: 98%;
@@ -141,7 +133,7 @@ div.acceuilContainer > div:nth-child(6) {
   border: 3px solid;
   border-radius: 7px;
 }
-div.acceuilContainer > div > div {
+div.acceuilContainer > div {
   border: 3px solid;
   border-radius: 7px;
 }
@@ -186,4 +178,81 @@ div.acceuilContainer > div:nth-child(8) {
 }
 .article2 {
   margin-top: 3px;
+}
+
+.confiance {
+  grid-area: blog;
+  background-color: var(--color_1);
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  width: 100%;
+  border: 3px solid;
+  border-radius: 7px;
+}
+.divTitre > h2 {
+  text-align: center;
+  font-family: aloja;
+  margin: 2rem;
+}
+.confiance > div > p {
+  text-align: center;
+  margin: 2rem;
+  padding: 2rem;
+}
+.cerclePartenaire {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/enfant.png);
+  background-size: cover;
+  border: 2px solid rgba(0, 0, 0, 1);
+  border-radius: 50%;
+  margin: 1rem;
+}
+.globalCercle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 4rem;
+}
+.cartePablo {
+  width: 73%;
+  transform: rotate(25deg);
+  margin-left: 10%;
+  margin-top: 15%;
+  transition: margin-left 2s, margin-top 2s, transform 2s;
+}
+.cartePablo:hover {
+  margin-left: 15%;
+  margin-top: 45%;
+  transform: rotate(90deg);
+}
+
+/***********************************************************media query**********************/
+
+@media screen and (max-width: 980px) {
+  .acceuilContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .acceuilContainer > div {
+    height: 30%;
+  }
+  .cerclePartenaire {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/enfant.png);
+    background-size: cover;
+    border: 2px solid rgba(0, 0, 0, 1);
+    border-radius: 50%;
+    margin: 1rem;
+  }
+  .globalCercle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 1rem;
+    width: 90%;
+  }
 }

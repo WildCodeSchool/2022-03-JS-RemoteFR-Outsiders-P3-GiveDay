@@ -53,21 +53,23 @@ h1,
 h2,
 h3 {
   font-family: var(--font-titre_small-text);
+  font-weight: 100;
 }
+
 .buttonStyle {
   width: clamp(8rem, 10rem, 12rem);
   height: clamp(2rem, 2.5rem, 3rem);
-  border: 2px solid var(--color_3);
+  border: 2px solid var(--color_light);
   border-radius: 5px;
-  background-color: var(--color_light);
-  color: var(--color_3);
+  background-color: var(--color_3);
+  color: var(--color_light);
   transition: var(--transition);
 }
 
 .buttonStyle:hover {
   background-color: var(--color_3);
   color: var(--color_light);
-  border: 2px solid var(--color_light);
+  border: 2px solid var(--color_3);
   cursor: pointer;
 }
 
@@ -75,16 +77,25 @@ a {
   transition: var(--transition);
 }
 
-body {
-  background-image: linear-gradient(
-      rgba(207, 203, 203, 0.74),
-      rgba(226, 220, 220, 0.404)
-    ),
-    url("../assets/images/backgroud.jpg");
-  background-repeat: no-repeat;
+body::before {
+  content: "";
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-image: url("../assets/images/backgroud.jpg");
+  z-index: -1;
   background-size: cover;
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+  transform: scale(1.2, 1.2);
 }
-
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 ::-webkit-scrollbar {
   width: 0px;
   height: 0px;
