@@ -19,7 +19,7 @@ function UserConnected({ setUserIsConnected, userIsConnected }) {
 
   const handleLogout = () => {
     api
-      .get("/api/auth/logout")
+      .get("/api/auth/logout", { withCredentials: true })
       .then((res) => {
         console.warn(res);
       })

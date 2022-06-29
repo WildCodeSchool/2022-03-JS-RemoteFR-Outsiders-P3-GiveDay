@@ -6,8 +6,8 @@ import "./user.css";
 function Login({ hundleOpenLogin, setUserIsConnected }) {
   const [errorLogin, setErrorLogin] = useState(false);
   const [user, setUser] = useState({
-    email: "doe@gmail.com",
-    password: "Giveday2022?",
+    email: "a@a.fr",
+    password: "Azerty.123",
   });
   const handleLogin = (event) => {
     event.preventDefault();

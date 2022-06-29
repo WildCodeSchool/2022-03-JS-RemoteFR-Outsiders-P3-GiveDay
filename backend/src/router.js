@@ -1,28 +1,24 @@
 const express = require("express");
 
 const {
-  RegisterController,
-  LoginController,
+  AuthController,
   EventController,
   CadeauController,
-  LogoutController,
 } = require("./controllers");
 
 const router = express.Router();
 
-router.get("/api/auth/register", RegisterController.browse);
-router.get("/api/auth/register/:id", RegisterController.read);
-router.put("/api/auth/register/:id", RegisterController.edit);
-router.post("/api/auth/register", RegisterController.add);
-router.delete("/api/auth/register/:id", RegisterController.delete);
+/**
+ * @desc Auth routes
+ *
+ * @api {post} /auth/register Register a new user
+ * @api {post} /auth/login Login a user
+ * @api {get} /auth/logout Logout a user
+ */
 
-router.get("/api/auth/login", LoginController.browse);
-router.get("/api/auth/login/:id", LoginController.read);
-router.put("/api/auth/login/:id", LoginController.edit);
-router.post("/api/auth/login", LoginController.browse);
-router.delete("/api/auth/login/:id", LoginController.delete);
-
-router.get("/api/auth/logout", LogoutController.logout);
+router.post("/api/auth/register", AuthController.register);
+router.post("/api/auth/login", AuthController.login);
+router.get("/api/auth/logout", AuthController.logout);
 
 router.get("/api/events", EventController.browse);
 router.get("/api/events/:id", EventController.read);

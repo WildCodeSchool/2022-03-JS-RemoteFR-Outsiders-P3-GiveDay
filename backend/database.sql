@@ -34,7 +34,7 @@ CREATE TABLE `user` (
   `role` varchar(80) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 
 
@@ -57,7 +57,7 @@ CREATE TABLE `event` (
   KEY `asso_event_id_idx` (`asso_event_id`),
   CONSTRAINT `asso_event_id` FOREIGN KEY (`asso_event_id`) REFERENCES `asso` (`id`),
   CONSTRAINT `user_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 
 --
@@ -73,7 +73,7 @@ CREATE TABLE `asso` (
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_asso_id`),
   CONSTRAINT `user_asso_id` FOREIGN KEY (`user_asso_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `cadeau` (
   `id_cadeau` int NOT NULL AUTO_INCREMENT,
@@ -83,7 +83,7 @@ CREATE TABLE `cadeau` (
   PRIMARY KEY (`id_cadeau`),
   KEY `event_id_idx` (`event_id`),
   CONSTRAINT `event_id` FOREIGN KEY (`event_id`) REFERENCES `event` (`idevenement`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 
 
