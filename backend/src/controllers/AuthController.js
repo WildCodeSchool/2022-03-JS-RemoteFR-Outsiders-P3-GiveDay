@@ -54,12 +54,12 @@ class AuthController {
        *
        * output :
        * {
-       *   id: 2,
+       *   id: id,
        *   prenom: 'firstname',
        *   nom: 'lastname',
        *   email: 'email',
        *   password: 'password hash',
-       *   role: 'user'
+       *   role: 'role'
        * }
        */
       if (user[0]?.id === undefined) {
