@@ -8,13 +8,13 @@ function User() {
   const [userIsConnected, setUserIsConnected] = useState(false);
   if (userIsConnected) {
     return (
-      <div className="loginContainer">
+      <div className="userContainer">
         <UserConnected setUserIsConnected={setUserIsConnected} />
       </div>
     );
   }
   return (
-    <div className="loginContainer">
+    <div className="userContainer">
       <UserDisconnected setUserIsConnected={setUserIsConnected} />
     </div>
   );

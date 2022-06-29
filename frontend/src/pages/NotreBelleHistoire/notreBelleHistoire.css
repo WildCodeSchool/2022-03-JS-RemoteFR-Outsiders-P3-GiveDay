@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   overflow: hidden;
+  margin-top: 3rem;
+  margin-bottom: -5vh;
 }
 
 .textNotreHistoire {
@@ -15,11 +17,11 @@
 
 @keyframes transition2 {
   from {
-    margin-right: 200rem;
+    transform: translate(-120%);
   }
 
   to {
-    margin-right: 0rem;
+    transform: translate(0%);
   }
 }
 

@@ -29,14 +29,14 @@ function Home() {
         </div>
         <div className="atelier">
           <Link to="/AtelierCarte">
-          <h2>Atelier carte d'invitation</h2>
-          <div>
-            <img
-              className="cartePablo"
-              src={invitationsPablo}
-              alt="invitation modèle"
-            />
-          </div>
+            <h2>Atelier carte d'invitation</h2>
+            <div>
+              <img
+                className="cartePablo"
+                src={invitationsPablo}
+                alt="invitation modèle"
+              />
+            </div>
           </Link>
         </div>
         <div className="article1">
