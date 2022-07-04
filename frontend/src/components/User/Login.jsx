@@ -11,7 +11,6 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
   });
   const handleLogin = (event) => {
     event.preventDefault();
-    // console.warn(user);
     api
       .post("/api/auth/login", user, { withCredentials: true })
       .then((res) => res.data)

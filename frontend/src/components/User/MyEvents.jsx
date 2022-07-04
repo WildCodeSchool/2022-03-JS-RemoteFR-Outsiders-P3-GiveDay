@@ -3,7 +3,7 @@ import React from "react";
 import "./user.css";
 
 function MyEvents() {
-  return <div />;
+  return <div>My Events</div>;
 }
 
 export default MyEvents;
