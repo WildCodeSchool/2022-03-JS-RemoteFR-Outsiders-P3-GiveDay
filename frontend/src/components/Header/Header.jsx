@@ -8,8 +8,10 @@ import logoGiveday from "@assets/images/logo2Giveday.png";
 function Header() {
   return (
     <div className="headerContainer">
-      <img src={logoGiveday} alt="LogoGiveday" className="logoGiveday" />
-      <Login />
+      <div className="columnContainer">
+        <img src={logoGiveday} alt="LogoGiveday" className="logoGiveday" />
+        <Login />
+      </div>
       <Nav />
     </div>
   );

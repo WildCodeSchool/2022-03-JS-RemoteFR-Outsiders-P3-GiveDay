@@ -69,11 +69,12 @@ CREATE TABLE `asso` (
   `logo` varchar(255) NOT NULL,
   `url` varchar(255) NOT NULL,
   `description` text NOT NULL,
-  `user_asso_id` int NOT NULL,
+  `user_asso_id` int DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_idx` (`user_asso_id`),
   CONSTRAINT `user_asso_id` FOREIGN KEY (`user_asso_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 CREATE TABLE `cadeau` (
   `id_cadeau` int NOT NULL AUTO_INCREMENT,
