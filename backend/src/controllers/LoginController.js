@@ -6,10 +6,8 @@ const models = require("../models");
 class LoginController {
   static async browse(req, res) {
     try {
-      console.warn(req.body);
       const { email, password } = req.body;
       const user = await models.user.getUserByEmail(email);
-      console.warn(user[0]);
       if (user[0].length === 0) {
         return res.status(400).json({
           status: 400,

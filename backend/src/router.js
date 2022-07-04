@@ -5,6 +5,7 @@ const {
   LoginController,
   EventController,
   CadeauController,
+  LogoutController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -15,11 +16,13 @@ router.put("/api/auth/register/:id", RegisterController.edit);
 router.post("/api/auth/register", RegisterController.add);
 router.delete("/api/auth/register/:id", RegisterController.delete);
 
-// router.get("/api/auth/login", LoginController.browse);
+router.get("/api/auth/login", LoginController.browse);
 router.get("/api/auth/login/:id", LoginController.read);
 router.put("/api/auth/login/:id", LoginController.edit);
 router.post("/api/auth/login", LoginController.browse);
 router.delete("/api/auth/login/:id", LoginController.delete);
+
+router.get("/api/auth/logout", LogoutController.logout);
 
 router.get("/api/events", EventController.browse);
 router.get("/api/events/:id", EventController.read);
