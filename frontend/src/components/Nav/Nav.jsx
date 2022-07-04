@@ -44,7 +44,7 @@ function Nav() {
                 className={histoire ? "navLinkOn" : "navLinkOff"}
                 onClick={goToHistoire}
               >
-                <h2>NOTRE HISTORE</h2>
+                <h2>NOTRE HISTOIRE</h2>
               </button>
             </Link>
           </li>
