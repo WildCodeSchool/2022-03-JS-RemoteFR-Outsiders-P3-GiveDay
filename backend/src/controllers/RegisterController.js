@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+const Joi = require("joi");
 const models = require("../models");
 
 class RegisterController {
@@ -56,11 +57,23 @@ class RegisterController {
     try {
       const { prenom, nom, email, password } = req.body;
       const hash = await bcrypt.hash(password, 10);
+      let validationErrors = null;
       const getEmail = await models.user.getUserByEmail(email);
       if (getEmail[0].length > 0) {
         return res.status(400).json({
           status: 400,
           message: "Email already exist",
+        });
+      }
+      validationErrors = Joi.object({
+        email: Joi.string().email().max(255).required(),
+        prenom: Joi.string().max(255).required(),
+        nom: Joi.string().max(255).required(),
+      }).validate({ prenom, nom, email }, { abortEarly: false }).error;
+      if (validationErrors) {
+        return res.status(400).json({
+          status: 400,
+          message: "INVALID DATA",
         });
       }
 
