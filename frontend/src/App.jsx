@@ -14,7 +14,6 @@ import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
 import Blog from "@pages/blog/Blog";
 import Page404 from "@pages/Page404/Page404";
 
-
 function App() {
   return (
     <div className="App">

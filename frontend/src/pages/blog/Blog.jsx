@@ -19,7 +19,7 @@ function Blog() {
       .then((cards) => {
         setarrayData(cards);
       });
-  });
+  }, []);
 
   return (
     <Layout>

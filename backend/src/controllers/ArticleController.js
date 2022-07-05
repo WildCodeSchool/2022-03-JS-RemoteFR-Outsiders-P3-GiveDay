@@ -13,6 +13,18 @@ class ArticleController {
       });
   };
 
+  static newArticle = (req, res) => {
+    models.article
+      .findId()
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static read = (req, res) => {
     models.article
       .find(req.params.id)

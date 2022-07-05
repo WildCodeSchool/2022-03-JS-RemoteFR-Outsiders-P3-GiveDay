@@ -3,25 +3,24 @@ import "./home.css";
 import { Link } from "react-router-dom";
 import Layout from "@components/Layout";
 import axios from "axios";
+import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
-import invitationsPablo from "../../assets/images/InvitationsPablo.jpg";
+import invitation from "../../assets/images/invitation.gif";
+import post2 from "../../assets/images/post2.gif";
+import blog2 from "../../assets/images/blog2.gif";
 
 function Home() {
   const [arrayData, setarrayData] = useState([]);
 
   useEffect(() => {
-    const article = `http://localhost:5000/api/article`;
+    const article = `http://localhost:5000/api/new-article`;
     axios
       .get(article)
       .then((res) => res.data)
       .then((cards) => {
-        setarrayData(cards.id);
-        console.warn(arrayData);
-        // const result = arrayData.filter((arrayData) =>
-        //   arrayData.Math.max(cards.id)
-        // );
+        setarrayData(cards);
       });
-  });
+  }, []);
 
   return (
     <Layout>
@@ -37,6 +36,7 @@ function Home() {
         <div className="creation">
           <Link to="/CreationEvenement">
             <h2 className="titleAloja">Creer un evenement</h2>
+            <img className="blogGif" src={blog2} alt="journal" />
           </Link>
         </div>
         <div className="rejoindre">
@@ -48,7 +48,7 @@ function Home() {
             <div>
               <img
                 className="cartePablo"
-                src={invitationsPablo}
+                src={invitation}
                 alt="invitation modèle"
               />
             </div>
@@ -56,7 +56,14 @@ function Home() {
         </div>
         <div className="article1">
           <Link to="/Blog">
+            <img className="postGif" src={post2} alt="new post" />
             <h2 className="titleAloja">Article</h2>
+
+            <div className="newArticle">
+              {arrayData.map((card) => (
+                <NewArticle key={card.id} article={card} />
+              ))}
+            </div>
           </Link>
         </div>
         <div className="article2">

@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.vignetteBlog > img {
+.vignetteBlog > div > img {
   width: 100%;
 }
 .vignetteBlog {

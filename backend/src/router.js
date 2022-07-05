@@ -38,6 +38,7 @@ router.post("/api/cadeaux", CadeauController.add);
 router.delete("/api/cadeaux/:id", CadeauController.delete);
 
 router.get("/api/article", ArticleController.browse);
+router.get("/api/new-article", ArticleController.newArticle);
 router.get("/api/article/:id", ArticleController.read);
 router.put("/api/article/:id", ArticleController.edit);
 router.post("/api/article", ArticleController.add);
