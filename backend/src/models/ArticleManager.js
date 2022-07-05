@@ -6,13 +6,7 @@ class ArticleManager extends AbstractManager {
   insert(article) {
     return this.connection.query(
       `insert into ${ArticleManager.table} (titre, date, texte, image) values (? , ? , ? , ? )`,
-      [
-        article.titre,
-        article.date,
-        article.texte,
-        article.image,
-        
-      ]
+      [article.titre, article.date, article.texte, article.image]
     );
   }
 

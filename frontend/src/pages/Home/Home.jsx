@@ -2,28 +2,26 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Layout from "@components/Layout";
+import axios from "axios";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import invitationsPablo from "../../assets/images/InvitationsPablo.jpg";
-import axios from "axios";
-
 
 function Home() {
   const [arrayData, setarrayData] = useState([]);
-  const result = [];
 
-  useEffect(()=>{
-      const article = `http://localhost:5000/api/article`;
-      axios
+  useEffect(() => {
+    const article = `http://localhost:5000/api/article`;
+    axios
       .get(article)
-      .then((res)=> res.data)
-      .then((cards)=>{
-         setarrayData(cards.id)
-        const result =  arrayData.filter((arrayData)=> arrayData.Math.max(cards.id))
-        console.log(result);
-      })
-  })
-
-
+      .then((res) => res.data)
+      .then((cards) => {
+        setarrayData(cards.id);
+        console.warn(arrayData);
+        // const result = arrayData.filter((arrayData) =>
+        //   arrayData.Math.max(cards.id)
+        // );
+      });
+  });
 
   return (
     <Layout>
@@ -38,7 +36,7 @@ function Home() {
         </div>
         <div className="creation">
           <Link to="/CreationEvenement">
-            <h2 className="titleAloja" >Creer un evenement</h2>
+            <h2 className="titleAloja">Creer un evenement</h2>
           </Link>
         </div>
         <div className="rejoindre">
@@ -57,15 +55,13 @@ function Home() {
           </Link>
         </div>
         <div className="article1">
-        <Link to="/Blog">
-        <h2 className="titleAloja">Article</h2>
-
+          <Link to="/Blog">
+            <h2 className="titleAloja">Article</h2>
           </Link>
-          
         </div>
         <div className="article2">
-        <Link to="/Blog">
-        <h2 className="titleAloja" >Blog</h2>
+          <Link to="/Blog">
+            <h2 className="titleAloja">Blog</h2>
           </Link>
         </div>
         <div className="news">

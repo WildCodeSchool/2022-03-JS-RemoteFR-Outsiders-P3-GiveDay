@@ -8,29 +8,27 @@ import axios from "axios";
 import Article from "@components/Article/Article";
 import "../../components/Article/article.css";
 
-
 function Blog() {
-    const [arrayData, setarrayData] = useState([]);
+  const [arrayData, setarrayData] = useState([]);
 
-    useEffect(()=>{
-        const article = `http://localhost:5000/api/article`;
-        axios
-        .get(article)
-        .then((res)=> res.data)
-        .then((cards)=>{
-            setarrayData(cards)
-            
-        })
-    })
+  useEffect(() => {
+    const article = `http://localhost:5000/api/article`;
+    axios
+      .get(article)
+      .then((res) => res.data)
+      .then((cards) => {
+        setarrayData(cards);
+      });
+  });
 
   return (
     <Layout>
       <div className="globalBlog">
         <div>
-            <h1 className="titleAloja">BLOG</h1>
+          <h1 className="titleAloja">BLOG</h1>
         </div>
-        {arrayData.map((card)=>(
-            <Article key={card.id} article={card}/>
+        {arrayData.map((card) => (
+          <Article key={card.id} article={card} />
         ))}
       </div>
     </Layout>

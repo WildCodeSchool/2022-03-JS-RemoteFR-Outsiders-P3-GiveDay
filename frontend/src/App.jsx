@@ -12,6 +12,8 @@ import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
 import Philanthrokids from "@pages/Philanthrokids/Philanthrokids";
 import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
 import Blog from "@pages/blog/Blog";
+import Page404 from "@pages/Page404/Page404";
+
 
 function App() {
   return (
@@ -101,6 +103,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
+        <Route path="/*" element={<Page404 />} />
       </Routes>
     </div>
   );

@@ -6,7 +6,7 @@ const {
   EventController,
   CadeauController,
   LogoutController,
-  ArticleController
+  ArticleController,
 } = require("./controllers");
 
 const router = express.Router();

@@ -1,95 +1,95 @@
 .globalBlog {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-  .vignetteBlog > img {
-    width: 100%;
-  }
-  .vignetteBlog {
-    width: 25%;
-    margin: 3.5rem;
-    background-color: var(--color_light);
-    border-radius: 10px;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.vignetteBlog > img {
+  width: 100%;
+}
+.vignetteBlog {
+  width: 25%;
+  margin: 3.5rem;
+  background-color: var(--color_light);
+  border-radius: 10px;
+}
+.globalBlog {
+  background-image: url("../../assets/images/enfant2.jpg");
+  background-size: 30%;
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-color: #f4f4f4;
+}
+.vignetteBlog > h2 {
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+.vignetteBlog > h3 {
+  padding: 0rem 1rem;
+  font-size: 1em;
+}
+.vignetteBlog > p {
+  padding: 0rem 1rem;
+}
+.vignetteBlog > img {
+  border-radius: 10px 10px 0px 0px;
+}
+.vignetteBlogTitre {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 3rem;
+  width: 25%;
+}
+.vignetteBlogTitre > h1 {
+  font-family: aloja;
+  z-index: 2;
+  margin-top: 3rem;
+}
+.vignetteBlogTitre > img {
+  width: 20%;
+  transform: rotate(25deg);
+  position: absolute;
+  z-index: 0;
+  opacity: 0.2;
+}
+.vignetteBlogTitre > p {
+  font-size: 1.3rem;
+  z-index: 2;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+@media screen and (max-width: 980px) {
   .globalBlog {
-    background-image: url("../../assets/images/enfant2.jpg");
-    background-size: 30%;
-    background-position: 100% 100%;
-    background-repeat: no-repeat;
-    background-color: #f4f4f4;
-  }
-  .vignetteBlog > h2 {
-    padding: 1rem;
-    font-size: 1.3rem;
-  }
-  .vignetteBlog > h3 {
-    padding: 0rem 1rem;
-    font-size: 1em;
-  }
-  .vignetteBlog > p {
-    padding: 0rem 1rem;
-  }
-  .vignetteBlog > img {
-    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   .vignetteBlogTitre {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 3rem;
-    width: 25%;
+    width: 80%;
   }
-  .vignetteBlogTitre > h1 {
-    font-family: aloja;
-    z-index: 2;
-    margin-top: 3rem;
+  .vignetteBlog {
+    width: 80%;
+    margin: 3.5rem;
+    background-color: var(--color_light);
+    border-radius: 10px;
   }
-  .vignetteBlogTitre > img {
-    width: 20%;
-    transform: rotate(25deg);
-    position: absolute;
-    z-index: 0;
-    opacity: 0.2;
+  .vignetteBlogTitre > p:nth-child(3) {
+    text-align: center;
   }
-  .vignetteBlogTitre > p {
-    font-size: 1.3rem;
-    z-index: 2;
-    font-weight: bold;
-    margin-top: 2rem;
+  div.vignetteBlog:nth-child(5) {
+    margin-bottom: 15rem;
   }
-  
-  @media screen and (max-width: 980px) {
-    .globalBlog {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .vignetteBlogTitre {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin: 3rem;
-      width: 80%;
-    }
-    .vignetteBlog {
-      width: 80%;
-      margin: 3.5rem;
-      background-color: var(--color_light);
-      border-radius: 10px;
-    }
-    .vignetteBlogTitre > p:nth-child(3) {
-      text-align: center;
-    }
-    div.vignetteBlog:nth-child(5) {
-      margin-bottom: 15rem;
-    }
-    .globalBlog {
-      background-image: url("../../assets/images/enfant2.jpg");
-      background-size: 50%;
-      background-position: 100% 100%;
-      background-repeat: no-repeat;
-      background-color: #f4f4f4;
-    }
+  .globalBlog {
+    background-image: url("../../assets/images/enfant2.jpg");
+    background-size: 50%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    background-color: #f4f4f4;
   }
+}
