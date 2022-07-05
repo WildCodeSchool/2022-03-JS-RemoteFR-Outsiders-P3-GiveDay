@@ -8,20 +8,20 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema giveday_db_new
+-- Schema giveday_db
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema giveday_db_new
+-- Schema giveday_db
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `giveday_db_new` DEFAULT CHARACTER SET utf8 ;
-USE `giveday_db_new` ;
+CREATE SCHEMA IF NOT EXISTS `giveday_db` DEFAULT CHARACTER SET utf8 ;
+USE `giveday_db` ;
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`user`
+-- Table `giveday_db`.`user`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`user` (
-  `id` INT NOT NULL AUTO_INCREMENT ,
+CREATE TABLE IF NOT EXISTS `giveday_db`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `prenom` VARCHAR(255) NOT NULL,
   `nom` VARCHAR(255) NOT NULL,
   `email` VARCHAR(180) NOT NULL,
@@ -35,20 +35,13 @@ DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`cadeau`
+-- Table `giveday_db`.`cadeau`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`cadeau` (
+CREATE TABLE IF NOT EXISTS `giveday_db`.`cadeau` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `titre` VARCHAR(255) NOT NULL,
   `url_site` VARCHAR(255) NULL DEFAULT NULL,
-  `event_id` INT,
-  PRIMARY KEY (`id`),
-  INDEX `fk_cadeau_event_idx` (`event_id` ASC) VISIBLE,
-  CONSTRAINT `fk_cadeau_event`
-    FOREIGN KEY (`event_id`)
-    REFERENCES `giveday_db_new`.`event` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
@@ -56,10 +49,10 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`cagnotte`
+-- Table `giveday_db`.`cagnotte`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`cagnotte` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `giveday_db`.`cagnotte` (
+  `id` INT NOT NULL,
   `somme_don` FLOAT NOT NULL,
   `somme_cadeau` FLOAT NOT NULL,
   PRIMARY KEY (`id`))
@@ -67,9 +60,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`asso`
+-- Table `giveday_db`.`asso`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`asso` (
+CREATE TABLE IF NOT EXISTS `giveday_db`.`asso` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(255) NOT NULL,
   `image` VARCHAR(255) NOT NULL,
@@ -81,9 +74,9 @@ CREATE TABLE IF NOT EXISTS `giveday_db_new`.`asso` (
   INDEX `fk_asso_user_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_asso_user`
     FOREIGN KEY (`user_id`)
-    REFERENCES `giveday_db_new`.`user` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    REFERENCES `giveday_db`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 2
 DEFAULT CHARACTER SET = utf8mb4
@@ -91,9 +84,9 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`event`
+-- Table `giveday_db`.`event`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`event` (
+CREATE TABLE IF NOT EXISTS `giveday_db`.`event` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `code` VARCHAR(45) NOT NULL,
   `prenom` VARCHAR(45) NULL DEFAULT NULL,
@@ -110,24 +103,30 @@ CREATE TABLE IF NOT EXISTS `giveday_db_new`.`event` (
   `user_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `code_UNIQUE` (`code` ASC) VISIBLE,
+  INDEX `fk_event_cadeau1_idx` (`cadeau_id` ASC) VISIBLE,
   INDEX `fk_event_cagnotte1_idx` (`cagnotte_id` ASC) VISIBLE,
   INDEX `fk_event_asso1_idx` (`asso_id` ASC) VISIBLE,
   INDEX `fk_event_user1_idx` (`user_id` ASC) VISIBLE,
-      CONSTRAINT `fk_event_cagnotte1`
+  CONSTRAINT `fk_event_cadeau1`
+    FOREIGN KEY (`cadeau_id`)
+    REFERENCES `giveday_db`.`cadeau` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_event_cagnotte1`
     FOREIGN KEY (`cagnotte_id`)
-    REFERENCES `giveday_db_new`.`cagnotte` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    REFERENCES `giveday_db`.`cagnotte` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_event_asso1`
     FOREIGN KEY (`asso_id`)
-    REFERENCES `giveday_db_new`.`asso` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    REFERENCES `giveday_db`.`asso` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_event_user1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `giveday_db_new`.`user` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    REFERENCES `giveday_db`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
 DEFAULT CHARACTER SET = utf8mb4
@@ -135,10 +134,10 @@ COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`article`
+-- Table `giveday_db`.`article`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`article` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `giveday_db`.`article` (
+  `id` INT NOT NULL,
   `titre` VARCHAR(255) NOT NULL,
   `date` DATE NOT NULL,
   `texte` LONGTEXT NOT NULL,
@@ -148,9 +147,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`user_has_article`
+-- Table `giveday_db`.`user_has_article`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`user_has_article` (
+CREATE TABLE IF NOT EXISTS `giveday_db`.`user_has_article` (
   `user_id` INT NOT NULL,
   `article_id` INT NOT NULL,
   PRIMARY KEY (`user_id`, `article_id`),
@@ -158,32 +157,32 @@ CREATE TABLE IF NOT EXISTS `giveday_db_new`.`user_has_article` (
   INDEX `fk_user_has_article_user1_idx` (`user_id` ASC) VISIBLE,
   CONSTRAINT `fk_user_has_article_user1`
     FOREIGN KEY (`user_id`)
-    REFERENCES `giveday_db_new`.`user` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    REFERENCES `giveday_db`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_article_article1`
     FOREIGN KEY (`article_id`)
-    REFERENCES `giveday_db_new`.`article` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    REFERENCES `giveday_db`.`article` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = latin1;
 
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`tag`
+-- Table `giveday_db`.`tag`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`tag` (
-  `id` INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS `giveday_db`.`tag` (
+  `id` INT NOT NULL,
   `tag` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `giveday_db_new`.`article_has_tag`
+-- Table `giveday_db`.`article_has_tag`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `giveday_db_new`.`article_has_tag` (
+CREATE TABLE IF NOT EXISTS `giveday_db`.`article_has_tag` (
   `article_id` INT NOT NULL,
   `tag_id` INT NOT NULL,
   PRIMARY KEY (`article_id`, `tag_id`),
@@ -191,14 +190,14 @@ CREATE TABLE IF NOT EXISTS `giveday_db_new`.`article_has_tag` (
   INDEX `fk_article_has_tag_article1_idx` (`article_id` ASC) VISIBLE,
   CONSTRAINT `fk_article_has_tag_article1`
     FOREIGN KEY (`article_id`)
-    REFERENCES `giveday_db_new`.`article` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
+    REFERENCES `giveday_db`.`article` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
   CONSTRAINT `fk_article_has_tag_tag1`
     FOREIGN KEY (`tag_id`)
-    REFERENCES `giveday_db_new`.`tag` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
+    REFERENCES `giveday_db`.`tag` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
