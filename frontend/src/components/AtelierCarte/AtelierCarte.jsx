@@ -119,8 +119,6 @@ function AtelierCarte() {
       setTemplateOn([template4black]);
     }
   };
-  console.warn(fontChoice);
-  console.warn(colorChoice);
   // atelierViewContainer
   const printDocument = () => {
     const input = document.getElementById("atelierViewContainer");
