@@ -20,7 +20,6 @@ function View({ cardContain, eventCode, templateOn, fontChoice, colorChoice }) {
               {cardContain.name}
             </span>
             <br />
-            <br />
             T'INVITE À SA FIESTA !
             <br />
             <br />
