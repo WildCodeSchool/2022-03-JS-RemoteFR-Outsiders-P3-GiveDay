@@ -1,13 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import { useCookies } from "react-cookie";
 import UserDisconnected from "@components/User/UserDisconnected";
 import UserConnected from "@components/User/UserConnected";
+import CurrentPagesContext from "../../PagesContexts";
 import "./user.css";
 
 function User() {
+  const { userIsConnected, setUserIsConnected } =
+    useContext(CurrentPagesContext);
   const cookies = useCookies();
-  const [userIsConnected, setUserIsConnected] = useState(false);
   useEffect(() => {
     if (cookies[0].user_giveday) {
       setUserIsConnected(true);

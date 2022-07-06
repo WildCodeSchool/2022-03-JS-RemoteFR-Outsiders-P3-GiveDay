@@ -1,26 +1,10 @@
 /* eslint-disable react/no-array-index-key */
-import React from "react";
+import React, { useEffect, useState } from "react";
+import api from "@services/api";
 import "./user.css";
+import ViewUser from "./ViewUser";
 
 function MyEvents({ hundleOpenMyEvents }) {
-  const fakeDateEvents = [
-    { date: "2022-7-5", organisateur: "Joan", status: "" },
-    { date: "2022-7-5", organisateur: "Alex", status: "" },
-    { date: "2022-7-5", organisateur: "Ana", status: "" },
-    { date: "2022-7-5", organisateur: "Loaja", status: "" },
-    { date: "2022-7-5", organisateur: "Joan", status: "" },
-    { date: "2022-7-5", organisateur: "Alex", status: "" },
-    { date: "2022-7-5", organisateur: "Ana", status: "" },
-    { date: "2022-7-4", organisateur: "Loaja", status: "" },
-    { date: "2022-7-5", organisateur: "Joan", status: "" },
-    { date: "2022-7-5", organisateur: "Alex", status: "" },
-    { date: "2022-7-5", organisateur: "Ana", status: "" },
-    { date: "2022-7-5", organisateur: "Loaja", status: "" },
-    { date: "2022-7-5", organisateur: "Joan", status: "" },
-    { date: "2022-7-5", organisateur: "Alex", status: "" },
-    { date: "2022-7-5", organisateur: "Ana", status: "" },
-    { date: "2022-7-5", organisateur: "Loaja", status: "" },
-  ];
   const today = new Date();
   const TodayDate = `${today.getFullYear()}-${
     today.getMonth() + 1
@@ -34,9 +18,37 @@ function MyEvents({ hundleOpenMyEvents }) {
     }
     return null;
   };
+  const [userEvents, setUserEvents] = useState([
+    { date: "2022-7-5", organisateur: "Joan", status: "" },
+    { date: "2022-7-8", organisateur: "Alex", status: "" },
+    { date: "2022-7-5", organisateur: "Ana", status: "" },
+    { date: "2022-7-5", organisateur: "Loaja", status: "" },
+    { date: "2022-7-5", organisateur: "Joan", status: "" },
+    { date: "2022-7-5", organisateur: "Alex", status: "" },
+    { date: "2022-7-5", organisateur: "Ana", status: "" },
+    { date: "2022-7-8", organisateur: "Loaja", status: "" },
+    { date: "2022-7-5", organisateur: "Joan", status: "" },
+    { date: "2022-7-5", organisateur: "Alex", status: "" },
+    { date: "2022-7-5", organisateur: "Ana", status: "" },
+    { date: "2022-7-5", organisateur: "Loaja", status: "" },
+    { date: "2022-7-5", organisateur: "Joan", status: "" },
+    { date: "2022-7-5", organisateur: "Alex", status: "" },
+    { date: "2022-7-8", organisateur: "Ana", status: "" },
+    { date: "2022-7-5", organisateur: "Loaja", status: "" },
+  ]);
+  useEffect(() => {
+    api
+      .get("/api/users/:id", { withCredentials: true })
+      .then((res) => res.data)
+      .then((data) => {
+        if (data) {
+          setUserEvents(data);
+        }
+      });
+  }, []);
 
   return (
-    <div className="formContainer" id="MyEvents">
+    <div className="formContainer" id="MyUser">
       <button
         type="button"
         className="exitFormContainer"
@@ -45,15 +57,13 @@ function MyEvents({ hundleOpenMyEvents }) {
         X
       </button>
       <section className="eventSection1">
-        <h1 className="eventSection1Title">
-          Nouveau sur <span className="styleLogo"> Giveday </span>?
-        </h1>
+        <h1 className="eventSection1Title">Mes événements</h1>
         <div className="eventSection1Titles">
           <h1>Date</h1>
           <h1>Organisateur</h1>
           <h1>Status</h1>
         </div>
-        {fakeDateEvents.map((OneEvent, index) => (
+        {userEvents.map((OneEvent, index) => (
           <div key={index} className="eventSection1Results">
             <h1>{OneEvent.date}</h1>
             <h1>{OneEvent.organisateur}</h1>
@@ -69,7 +79,9 @@ function MyEvents({ hundleOpenMyEvents }) {
           </div>
         ))}
       </section>
-      <section className="eventSection2" />
+      <section className="eventSection2">
+        <ViewUser />
+      </section>
     </div>
   );
 }

@@ -43,7 +43,6 @@
   background-color: transparent;
   border: 0;
   color: var(--color_dark);
-  animation: changeColor 1s;
 }
 .navLinkOn > h2:nth-child(n) {
   margin-bottom: 0;
@@ -53,15 +52,7 @@
   margin-bottom: 0;
   font-size: 1rem;
 }
-@keyframes changeColor {
-  from {
-    color: var(--color_2);
-  }
 
-  to {
-    color: var(--color_dark);
-  }
-}
 
 @media screen and (max-width: 980px) {
   .navLinkOff > h2 {
