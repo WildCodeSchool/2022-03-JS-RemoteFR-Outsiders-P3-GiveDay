@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../dashboard.css";
 
 import { BsTrash } from "react-icons/bs";
 import api from "@services/api";
@@ -21,50 +22,52 @@ function UsersContent() {
   };
 
   return (
-    <div className="contentUsers">
+    <div className="contentTable">
       <div className="">
-        <h1>Utilisateurs</h1>
+        <h2>Utilisateurs</h2>
       </div>
-
-      <table className="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Prénom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Role</th>
-            <th scope="col">Email</th>
-            <th scope="col">Mot de passe chiffré</th>
-            <th scope="col">Supprimer</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users &&
-            users.map((user) => (
-              <tr>
-                <th scope="col">{user.prenom}</th>
-                <th scope="col">{user.nom}</th>
-                <th scope="col">{user.role}</th>
-                <th scope="col">{user.email}</th>
-                <th scope="col">{user.password}</th>
-                <th scope="col">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const confirmBox = window.confirm(
-                        "Etes-vous sûr de vouloir supprimer cet utilisateur?"
-                      );
-                      if (confirmBox === true) {
-                        handleDelete(user.id);
-                      }
-                    }}
-                  >
-                    <BsTrash size={20} />
-                  </button>
-                </th>
-              </tr>
-            ))}
-        </tbody>
-      </table>
+      <div className="table-responsive-md ">
+        <table className="table align-middle table-striped table-light table-bordered table-hover ">
+          <thead className="table-dark">
+            <tr>
+              <th scope="col">Prénom</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Role</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mot de passe chiffré</th>
+              <th scope="col">Supprimer</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users &&
+              users.map((user) => (
+                <tr>
+                  <th scope="col">{user.prenom}</th>
+                  <th scope="col">{user.nom}</th>
+                  <th scope="col">{user.role}</th>
+                  <th scope="col">{user.email}</th>
+                  <th scope="col">{user.password}</th>
+                  <th scope="col">
+                    <button
+                      className="delete-btn"
+                      type="button"
+                      onClick={() => {
+                        const confirmBox = window.confirm(
+                          "Etes-vous sûr de vouloir supprimer cet utilisateur?"
+                        );
+                        if (confirmBox === true) {
+                          handleDelete(user.id);
+                        }
+                      }}
+                    >
+                      <BsTrash size={20} />
+                    </button>
+                  </th>
+                </tr>
+              ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

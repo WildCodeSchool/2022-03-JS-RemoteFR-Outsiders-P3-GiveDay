@@ -1,48 +1,29 @@
 .adminPage {
   width: 100vw;
   height: 100vh;
-  background-color: aqua;
+  background-color: var(--color_3);
   display: flex;
   flex-direction: row;
 }
 
 #adminNav {
-  background-color: #333;
+  background-color: rgb(27, 27, 27);
   color: #eee;
-  padding: 5px;
   display: flex;
   flex-direction: column;
-}
-
-#adminNav {
   display: block;
-  height: 100vh;
-  width: 20%;
 }
 
 #adminNav > ul {
+  list-style-type: none;
   padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  width: 100%;
-}
-
-#adminNav > li {
-  padding: 0.5rem;
-  display: block;
-  width: 100%;
+  line-height: 5rem;
 }
 
 #adminNav a {
-  display: block;
-  text-decoration: none;
-  list-style: none;
   text-align: center;
-}
-#adminNav a:link,
-#adminNav a:visited {
   color: #eee;
   display: block;
 }
@@ -53,30 +34,31 @@
   color: #333;
 }
 
-/* selected link */
-#adminNav a:active {
-  color: #eee;
+#adminNav h1 {
+  padding: 3rem;
+  margin: 0;
+  background-color: var(--color_2);
 }
-
-#adminNav li {
-  list-style-type: none;
-  line-height: 3rem;
+.contentTable h2 {
+  font-size: var(--font-size-h3);
+  padding-top: 4.1rem;
+  margin: 0;
 }
-
-.adminContent {
-  background-color: var(--color_3);
-  width: 80%;
-}
-
-.contentUsers {
-  width: 100% !important;
-  padding: 1rem;
+.contentTable {
+  padding-left: 4rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 0 auto;
+  /* align-items: center; */
+  /* margin: 0 auto; */
 }
 
-.contentUsers .table {
-  margin: 1rem;
+.delete-btn {
+  border: none;
+  color: var(--color_2);
+  font-weight: 900;
+  background-color: transparent;
+}
+
+.table {
+  margin-top: 3.1rem;
 }

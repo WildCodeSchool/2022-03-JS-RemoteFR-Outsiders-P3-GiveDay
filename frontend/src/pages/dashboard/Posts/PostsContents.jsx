@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BsTrash } from "react-icons/bs";
 import api from "@services/api";
+import "../dashboard.css";
 
 function PostsContent() {
   const [articles, setArticles] = useState("");
@@ -22,13 +23,12 @@ function PostsContent() {
   };
 
   return (
-    <div className="contentUsers">
+    <div className="contentTable">
       <div className="">
-        <h1>Tous les articles du blog</h1>
+        <h2>Tous les articles du blog</h2>
       </div>
-
-      <table className="table table-striped">
-        <thead>
+      <table className="table table-responsive-sm table-striped table-light table-bordered table-hover ">
+        <thead className="table-dark">
           <tr>
             <th scope="col">Titre</th>
             <th scope="col">Date de création</th>
@@ -43,6 +43,7 @@ function PostsContent() {
                 <th scope="col">date de création</th>
                 <th scope="col">
                   <button
+                    className="delete-btn"
                     type="button"
                     onClick={() => {
                       const confirmBox = window.confirm(
