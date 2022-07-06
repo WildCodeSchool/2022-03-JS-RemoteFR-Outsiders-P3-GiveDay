@@ -32,38 +32,38 @@ function Nav() {
   };
   const goToHistoire = () => {
     setAcceuil(false);
-    setHistoire(true);
     setAssociations(false);
     setAtelierCarte(false);
     setBlog(false);
     setCreationEvenement(false);
+    setHistoire(true);
   };
   const goToAssociations = () => {
     setAcceuil(false);
     setHistoire(false);
-    setAssociations(true);
     setAtelierCarte(false);
     setBlog(false);
     setCreationEvenement(false);
+    setAssociations(true);
   };
   const goToBlog = () => {
     setAcceuil(false);
     setHistoire(false);
     setAssociations(false);
     setAtelierCarte(false);
-    setBlog(true);
     setCreationEvenement(false);
+    setBlog(true);
   };
   const goToAtelierCarte = () => {
     setAcceuil(false);
     setHistoire(false);
     setAssociations(false);
-    setAtelierCarte(true);
     setBlog(false);
     setCreationEvenement(false);
     setTimeout(() => {
       setIsOpenJeCree(false);
     }, 250);
+    setAtelierCarte(true);
   };
   const goToCreationEvenement = () => {
     setAcceuil(false);

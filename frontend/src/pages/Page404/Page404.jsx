@@ -25,7 +25,7 @@ function Page404() {
       setCreationEvenement(false);
       setIsOpenJeCree(false);
       navigate("/");
-    }, 1500);
+    }, 2500);
   }, []);
   return (
     <div id="containerPage404">

@@ -5,7 +5,7 @@ import MyEvents from "@components/User/MyEvents";
 import "./user.css";
 import api from "@services/api";
 
-function UserConnected({ setUserIsConnected, userIsConnected }) {
+function UserConnected({ setUserIsConnected }) {
   const [openMyAccount, setOpenMyAccount] = useState(false);
   const [openMyEvents, setOpenMyEvents] = useState(false);
   const hundleOpenMyAccount = () => {
@@ -26,7 +26,7 @@ function UserConnected({ setUserIsConnected, userIsConnected }) {
       .catch((err) => {
         console.warn(err);
       });
-    setUserIsConnected(!userIsConnected);
+    setUserIsConnected(false);
   };
 
   return (
