@@ -6,6 +6,7 @@ const {
   EventController,
   CadeauController,
   LogoutController,
+  UserController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -35,5 +36,8 @@ router.get("/api/cadeaux/:id", CadeauController.read);
 router.put("/api/cadeaux/:id", CadeauController.edit);
 router.post("/api/cadeaux", CadeauController.add);
 router.delete("/api/cadeaux/:id", CadeauController.delete);
+
+router.get("/api/users", UserController.browse);
+router.delete("/api/users/delete/:id", UserController.delete);
 
 module.exports = router;
