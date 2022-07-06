@@ -24,7 +24,7 @@ function Blog() {
   return (
     <Layout>
       <div className="globalBlog">
-        <div>
+        <div className="titre">
           <h1 className="titleAloja">BLOG</h1>
         </div>
         {arrayData.map((card) => (
