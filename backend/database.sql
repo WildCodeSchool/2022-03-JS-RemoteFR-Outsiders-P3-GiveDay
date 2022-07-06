@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `giveday_db` /*!40100 DEFAULT CHARACTER SET utf8 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `giveday_db`;
 -- MySQL dump 10.13  Distrib 8.0.29, for macos12 (x86_64)
 --
 -- Host: localhost    Database: giveday_db
@@ -31,7 +29,7 @@ CREATE TABLE `article` (
   `texte` longtext,
   `image` longtext,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +38,7 @@ CREATE TABLE `article` (
 
 LOCK TABLES `article` WRITE;
 /*!40000 ALTER TABLE `article` DISABLE KEYS */;
-INSERT INTO `article` VALUES (1,'Les abeilles, reines de la nature ','2022-05-12','Where does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.','https://www.giveday.fr/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYUU9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--22f06779e8ed27f0530522142f0815ed55baf81c/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWdBRWFRSUFBdz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--d39262048b4ac0c81f97d726bf16aab639648876/image-from-rawpixel-id-3259514-jpeg.jpg'),(2,' Les Bonnes Resolutions pour commencer ce 2022 !!!!','2022-01-05','Where does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.','https://www.giveday.fr/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZzRCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1698bdeb8b422e9cd70e8c6fe744ac6b4d0ddd6a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWdBRWFRSUFBdz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--d39262048b4ac0c81f97d726bf16aab639648876/potager.jpg'),(3,'Why do we use it?','2022-05-14','It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).','https://www.giveday.fr/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZzRCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1698bdeb8b422e9cd70e8c6fe744ac6b4d0ddd6a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWdBRWFRSUFBdz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--d39262048b4ac0c81f97d726bf16aab639648876/potager.jpg');
+INSERT INTO `article` VALUES (1,'Les abeilles, reines de la nature ','2022-05-12','Where does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.','https://www.giveday.fr/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYUU9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--22f06779e8ed27f0530522142f0815ed55baf81c/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWdBRWFRSUFBdz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--d39262048b4ac0c81f97d726bf16aab639648876/image-from-rawpixel-id-3259514-jpeg.jpg'),(2,' Les Bonnes Resolutions pour commencer ce 2022 !!!!','2022-01-05','Where does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.','https://www.giveday.fr/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZzRCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1698bdeb8b422e9cd70e8c6fe744ac6b4d0ddd6a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWdBRWFRSUFBdz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--d39262048b4ac0c81f97d726bf16aab639648876/potager.jpg'),(3,'Why do we use it?','2022-05-14','It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).','https://www.giveday.fr/rails/active_storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZzRCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--1698bdeb8b422e9cd70e8c6fe744ac6b4d0ddd6a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9VY21WemFYcGxYM1J2WDJ4cGJXbDBXd2RwQWdBRWFRSUFBdz09IiwiZXhwIjpudWxsLCJwdXIiOiJ2YXJpYXRpb24ifX0=--d39262048b4ac0c81f97d726bf16aab639648876/potager.jpg'),(4,'Vive les vacances … Nos idées coup de cœur pour se dépayser et voyager en mode éco-responsable  !','2022-06-01','Where does it come from?\nContrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.','https://lh6.googleusercontent.com/f0k5pct2iRkn-YQEfrKImjD0fawwJZQm_eRFeZ7n1G5u4qZko62bCjYsuaJLVvvyuMqBSd9MH3EO_iSimQxB-w6XT4_fhH2LC9gaCY7eqVMIMjZD056BqCXeiw1IyPGrvwK1W6zT8fP-2PbnDA');
 /*!40000 ALTER TABLE `article` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -127,33 +125,8 @@ CREATE TABLE `cadeau` (
 
 LOCK TABLES `cadeau` WRITE;
 /*!40000 ALTER TABLE `cadeau` DISABLE KEYS */;
-INSERT INTO `cadeau` VALUES (2,'trotinette','https://www.king-jouet.com/jeu-jouet/jeux-sportifs/trottinettes/ref-235899-trottinette-carbone-cars-2-roues.htm?cid=Google_Paid-Search_campaign=Push_Google_HM_SmartShopping_Smoby_adgroup=Marque+Smoby_adcr=PRODUCT_GROUP&gclid=CjwKCAjwwo-WBhAMEiwAV4dybRdgd0fTq7CI884i-ym3jHMKNsW4a5Bnp_rYix4MWpsiNTYHNbqxYBoCtXwQAvD_BwE&gclsrc=aw.ds',1),(3,'Nintendo switch','https://www.fnac.com/Console-Nintendo-Switch-avec-paire-de-Joy-Con-Rouge-et-Bleu-Neon-V2/a13721295/w-4?esl-k=sem-google%7cnu%7cc588125096280%7cm%7ck1649173706824%7cp%7ct%7cdc%7ca138439419510%7cg16583476065&gclid=CjwKCAjwwo-WBhAMEiwAV4dybVmXAhhWLlEnzasxmj3Chs3YtmIGvSx8JhLfF0LcTc8ABe_v9ZwQORoC6HcQAvD_BwE&gclsrc=aw.ds&Origin=SEA_GOOGLE_PLA_CONSOL',2);
+INSERT INTO `cadeau` VALUES (3,'Nintendo switch','https://www.fnac.com/Console-Nintendo-Switch-avec-paire-de-Joy-Con-Rouge-et-Bleu-Neon-V2/a13721295/w-4?esl-k=sem-google%7cnu%7cc588125096280%7cm%7ck1649173706824%7cp%7ct%7cdc%7ca138439419510%7cg16583476065&gclid=CjwKCAjwwo-WBhAMEiwAV4dybVmXAhhWLlEnzasxmj3Chs3YtmIGvSx8JhLfF0LcTc8ABe_v9ZwQORoC6HcQAvD_BwE&gclsrc=aw.ds&Origin=SEA_GOOGLE_PLA_CONSOL',2);
 /*!40000 ALTER TABLE `cadeau` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `cagnotte`
---
-
-DROP TABLE IF EXISTS `cagnotte`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cagnotte` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `somme_don` float NOT NULL DEFAULT '0',
-  `somme_cadeau` float NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cagnotte`
---
-
-LOCK TABLES `cagnotte` WRITE;
-/*!40000 ALTER TABLE `cagnotte` DISABLE KEYS */;
-INSERT INTO `cagnotte` VALUES (1,0,0),(2,0,0),(3,0,0);
-/*!40000 ALTER TABLE `cagnotte` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -174,16 +147,15 @@ CREATE TABLE `event` (
   `lieu` varchar(255) DEFAULT NULL,
   `telephone` varchar(45) DEFAULT NULL,
   `mail` varchar(45) NOT NULL,
-  `cagnotte_id` int NOT NULL,
+  `cagnotte_don_asso` float DEFAULT '0',
+  `cagnotte_somme_cadeau` float DEFAULT '0',
   `asso_id` int NOT NULL,
   `user_id` int NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `code_UNIQUE` (`code`),
-  KEY `fk_event_cagnotte1_idx` (`cagnotte_id`),
   KEY `fk_event_asso1_idx` (`asso_id`),
   KEY `fk_event_user1_idx` (`user_id`),
   CONSTRAINT `fk_event_asso1` FOREIGN KEY (`asso_id`) REFERENCES `asso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `fk_event_cagnotte1` FOREIGN KEY (`cagnotte_id`) REFERENCES `cagnotte` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_event_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -194,7 +166,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (1,'Mila2022','Mila',10,'2022-08-15','16:00','20:00','Parc de la tête d\'or','0156475865','mamanmila@gmail.com',1,1,1),(2,'Tom2022','Tom',6,'2022-09-20','14:00','17:00','maison','0585698755','papatom@gmail.com',2,3,4);
+INSERT INTO `event` VALUES (2,'Tom2022','Tom',6,'2022-09-20','14:00','17:00','maison','0585698755','papatom@gmail.com',0,0,3,4);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,7 +210,7 @@ CREATE TABLE `user` (
   `role` varchar(80) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +219,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'valerie','ielsch','valere@gmail.com','Giveday2022!','user'),(2,'oscar','agudelo','oscar@gmail.com','Giveday2022!','user'),(3,'olivier','pochic','olivier@gmail.com','Giveday2022','user'),(4,'ali','belala','ali@gmail.com','Giveday2022','user'),(5,'guillaume','calliez','guillaume@gmail.com','Giveday2022','user');
+INSERT INTO `user` VALUES (3,'olivier','pochic','olivier@gmail.com','Giveday2022!','user'),(4,'ali','belala','ali@gmail.com','Giveday2022!','user'),(5,'guillaume','calliez','guillaume@gmail.com','Giveday2022!','user'),(6,'val','val','val@gmail.com','$2a$10$IXQ/zWm4pAWhJHzDXTGK/OR9kWcYMEk9Aopem6F6iraqR.NEDTk2i','user'),(7,'antho','antho','antho@gmail.com','$2a$10$rOMfOWQxLZcK9XJdEMd3m.gCX.3D2zmwbKF6bzgYESWHdAAmzxAJm','user');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -287,4 +259,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-05 15:30:03
+-- Dump completed on 2022-07-06 14:44:03
