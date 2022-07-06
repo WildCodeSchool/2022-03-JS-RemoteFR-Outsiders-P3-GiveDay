@@ -1,26 +1,83 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import { useContext } from "react";
 import "./Nav.css";
 import { Link } from "react-router-dom";
+import CurrentPagesContext from "../../PagesContexts";
 
 function Nav() {
-  const [accueil, setAcceuil] = useState(true);
-  const [histoire, setHistoire] = useState(false);
-  const [associations, setAssociations] = useState(false);
+  const {
+    accueil,
+    setAcceuil,
+    histoire,
+    setHistoire,
+    associations,
+    setAssociations,
+    atelierCarte,
+    setAtelierCarte,
+    blog,
+    setBlog,
+    creationEvenement,
+    setCreationEvenement,
+    isOpenJeCree,
+    setIsOpenJeCree,
+  } = useContext(CurrentPagesContext);
+
   const goToAccueil = () => {
     setAcceuil(true);
     setHistoire(false);
     setAssociations(false);
+    setAtelierCarte(false);
+    setBlog(false);
+    setCreationEvenement(false);
   };
   const goToHistoire = () => {
     setAcceuil(false);
     setHistoire(true);
     setAssociations(false);
+    setAtelierCarte(false);
+    setBlog(false);
+    setCreationEvenement(false);
   };
   const goToAssociations = () => {
     setAcceuil(false);
     setHistoire(false);
     setAssociations(true);
+    setAtelierCarte(false);
+    setBlog(false);
+    setCreationEvenement(false);
+  };
+  const goToBlog = () => {
+    setAcceuil(false);
+    setHistoire(false);
+    setAssociations(false);
+    setAtelierCarte(false);
+    setBlog(true);
+    setCreationEvenement(false);
+  };
+  const goToAtelierCarte = () => {
+    setAcceuil(false);
+    setHistoire(false);
+    setAssociations(false);
+    setAtelierCarte(true);
+    setBlog(false);
+    setCreationEvenement(false);
+    setTimeout(() => {
+      setIsOpenJeCree(false);
+    }, 250);
+  };
+  const goToCreationEvenement = () => {
+    setAcceuil(false);
+    setHistoire(false);
+    setAssociations(false);
+    setAtelierCarte(false);
+    setBlog(false);
+    setCreationEvenement(true);
+    setTimeout(() => {
+      setIsOpenJeCree(false);
+    }, 250);
+  };
+  const openJeCree = () => {
+    setIsOpenJeCree(!isOpenJeCree);
   };
   return (
     <div className="navAndContain">
@@ -37,14 +94,55 @@ function Nav() {
               </button>
             </Link>
           </li>
+          <li className="openedJeCreeContainer">
+            <button
+              type="button"
+              className={
+                atelierCarte || creationEvenement ? "navLinkOn" : "navLinkOff"
+              }
+              onClick={openJeCree}
+            >
+              <h2>JE CRÉE</h2>
+            </button>
+            <div className="openedJeCree">
+              <Link
+                to="/AtelierCarte"
+                className={isOpenJeCree ? "show" : "hidden"}
+              >
+                <button
+                  type="button"
+                  className={
+                    atelierCarte ? "navLinkOn  open" : "navLinkOff  open"
+                  }
+                  onClick={goToAtelierCarte}
+                >
+                  <h2>Ma Carte d'invitation</h2>
+                </button>
+              </Link>
+              <Link
+                to="/creationEvenement"
+                className={isOpenJeCree ? "show" : "hidden"}
+              >
+                <button
+                  type="button"
+                  className={
+                    creationEvenement ? "navLinkOn open" : "navLinkOff open"
+                  }
+                  onClick={goToCreationEvenement}
+                >
+                  <h2>Mon évenement</h2>
+                </button>
+              </Link>
+            </div>
+          </li>
           <li>
-            <Link to="/histoire">
+            <Link to="/blog">
               <button
                 type="button"
-                className={histoire ? "navLinkOn" : "navLinkOff"}
-                onClick={goToHistoire}
+                className={blog ? "navLinkOn" : "navLinkOff"}
+                onClick={goToBlog}
               >
-                <h2>NOTRE HISTOIRE</h2>
+                <h2>BLOG</h2>
               </button>
             </Link>
           </li>
@@ -56,6 +154,17 @@ function Nav() {
                 onClick={goToAssociations}
               >
                 <h2>ASSOCIATIONS</h2>
+              </button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/histoire">
+              <button
+                type="button"
+                className={histoire ? "navLinkOn" : "navLinkOff"}
+                onClick={goToHistoire}
+              >
+                <h2>NOTRE HISTOIRE</h2>
               </button>
             </Link>
           </li>

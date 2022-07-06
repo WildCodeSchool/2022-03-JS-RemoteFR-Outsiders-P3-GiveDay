@@ -45,14 +45,12 @@ function CreationEvenement() {
     const r = (Math.random() + 1).toString(36).substring(len);
     const cd = `${firstname}-${r}`;
     setNewCode(cd);
-    console.warn(code);
     return code;
   }
 
   useEffect(() => {
     const cd = genCode(form.prenom, 7);
     form.code = cd;
-    console.warn(`useEffect newCode ${cd}`);
     if (form.prenom.length < 1) {
       setNewCode("");
     }
