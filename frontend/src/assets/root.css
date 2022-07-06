@@ -74,6 +74,7 @@ h3 {
 
 a {
   transition: var(--transition);
+  text-decoration: none !important;
 }
 
 body::before {
