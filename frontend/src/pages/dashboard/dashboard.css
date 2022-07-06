@@ -64,6 +64,19 @@
 }
 
 .adminContent {
-  background-color: coral;
+  background-color: var(--color_3);
   width: 80%;
+}
+
+.contentUsers {
+  width: 100% !important;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.contentUsers .table {
+  margin: 1rem;
 }

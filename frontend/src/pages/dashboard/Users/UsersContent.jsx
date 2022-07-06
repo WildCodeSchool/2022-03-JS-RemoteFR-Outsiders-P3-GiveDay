@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./users.css";
+
 import { BsTrash } from "react-icons/bs";
 import api from "@services/api";
 
@@ -23,7 +23,7 @@ function UsersContent() {
   return (
     <div className="contentUsers">
       <div className="">
-        <h1>UTILISATEURS</h1>
+        <h1>Utilisateurs</h1>
       </div>
 
       <table className="table table-striped">
