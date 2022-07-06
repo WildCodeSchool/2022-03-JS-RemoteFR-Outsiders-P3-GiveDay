@@ -7,6 +7,7 @@ const {
   CadeauController,
   LogoutController,
   ArticleController,
+  ResetController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -43,5 +44,7 @@ router.get("/api/article/:id", ArticleController.read);
 router.put("/api/article/:id", ArticleController.edit);
 router.post("/api/article", ArticleController.add);
 router.delete("/api/article/:id", ArticleController.delete);
+
+router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
 
 module.exports = router;

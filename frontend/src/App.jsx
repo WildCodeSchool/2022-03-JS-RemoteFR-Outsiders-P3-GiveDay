@@ -12,6 +12,7 @@ import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
 import Philanthrokids from "@pages/Philanthrokids/Philanthrokids";
 import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
 import Blog from "@pages/blog/Blog";
+import FormResetPassword from "@components/FormForgotPassword/FormForgotPassword";
 import Page404 from "@pages/Page404/Page404";
 
 function App() {
@@ -99,6 +100,7 @@ function App() {
             </div>
           }
         />
+        <Route path="/reset-password" element={<FormResetPassword />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
