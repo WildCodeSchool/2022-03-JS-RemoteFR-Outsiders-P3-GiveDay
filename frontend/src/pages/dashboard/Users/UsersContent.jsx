@@ -33,7 +33,7 @@ function UsersContent() {
             <th scope="col">Nom</th>
             <th scope="col">Role</th>
             <th scope="col">Email</th>
-            <th scope="col">Mot de passe hashé</th>
+            <th scope="col">Mot de passe chiffré</th>
             <th scope="col">Supprimer</th>
           </tr>
         </thead>
@@ -47,7 +47,17 @@ function UsersContent() {
                 <th scope="col">{user.email}</th>
                 <th scope="col">{user.password}</th>
                 <th scope="col">
-                  <button type="button" onClick={() => handleDelete()}>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const confirmBox = window.confirm(
+                        "Etes-vous sûr de vouloir supprimer cet utilisateur?"
+                      );
+                      if (confirmBox === true) {
+                        handleDelete(user.id);
+                      }
+                    }}
+                  >
                     <BsTrash size={20} />
                   </button>
                 </th>
