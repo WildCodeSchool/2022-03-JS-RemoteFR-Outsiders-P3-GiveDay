@@ -59,22 +59,7 @@ function App() {
             </div>
           }
         />
-        <Route
-          path="/admin/users"
-          element={
-            <div className="containerContainWebsite">
-              <Admin content="users" />
-            </div>
-          }
-        />
-        <Route
-          path="/admin/posts"
-          element={
-            <div className="containerContainWebsite">
-              <Admin content="posts" />
-            </div>
-          }
-        />
+
         <Route
           path="/Philanthrokids"
           element={
@@ -100,6 +85,7 @@ function App() {
           }
         />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/admin" element={<Admin />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
         <Route path="/*" element={<Page404 />} />
