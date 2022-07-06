@@ -62,6 +62,13 @@ router.put("/api/article/:id", ArticleController.edit);
 router.post("/api/article", ArticleController.add);
 router.delete("/api/article/:id", ArticleController.delete);
 
+/**
+ * @desc Users routes
+ *
+ * @api {get} /api/users Récupère tous les utilisateurs
+ * @api {delete} /api/users/delete/:id Supprime un utilisateur de la base de données
+
+ */
 router.get("/api/users", UserController.browse);
 router.delete("/api/users/delete/:id", UserController.delete);
 module.exports = router;
