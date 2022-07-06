@@ -10,6 +10,12 @@ class AbstractManager {
     ]);
   }
 
+  findId() {
+    return this.connection.query(
+      `SELECT * FROM article WHERE id = (SELECT MAX(id) FROM article); `
+    );
+  }
+
   findAll() {
     return this.connection.query(`select * from  ${this.table}`);
   }

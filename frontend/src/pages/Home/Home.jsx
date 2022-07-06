@@ -1,49 +1,75 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Layout from "@components/Layout";
+import axios from "axios";
+import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
-import invitationsPablo from "../../assets/images/InvitationsPablo.jpg";
-// import Userback from "@components/AxiosBack/Userback"
-// import Eventback from "@components/AxiosBack/Eventback"
+import invitation from "../../assets/images/invitation.gif";
+import post2 from "../../assets/images/post2.gif";
+import blog2 from "../../assets/images/blog2.gif";
 
 function Home() {
+  const [arrayData, setarrayData] = useState([]);
+
+  useEffect(() => {
+    const article = `http://localhost:5000/api/new-article`;
+    axios
+      .get(article)
+      .then((res) => res.data)
+      .then((cards) => {
+        setarrayData(cards);
+      });
+  }, []);
+
   return (
     <Layout>
       <div className="acceuilContainer">
         <div className="CCM">
-          <h2>Comment ca marche </h2>
+          <h2 className="titleAloja">Comment ca marche </h2>
         </div>
         <div className="Philan">
           <Link to="/Philanthrokids">
-            <h2>Philanthrokids</h2>
+            <h2 className="titleAloja">Philanthrokids</h2>
           </Link>
         </div>
         <div className="creation">
           <Link to="/CreationEvenement">
-            <h2>Creer un evenement</h2>
+            <h2 className="titleAloja">Creer un evenement</h2>
+            <img className="blogGif" src={blog2} alt="journal" />
           </Link>
         </div>
         <div className="rejoindre">
-          <h2>Rejoindre un evenement</h2>
+          <h2 className="titleAloja">Rejoindre un evenement</h2>
         </div>
         <div className="atelier">
           <Link to="/AtelierCarte">
-            <h2>Atelier carte d'invitation</h2>
+            <h2 className="titleAloja">Atelier carte d'invitation</h2>
             <div>
               <img
                 className="cartePablo"
-                src={invitationsPablo}
+                src={invitation}
                 alt="invitation modèle"
               />
             </div>
           </Link>
         </div>
         <div className="article1">
-          <h2>Article</h2>
+          <Link to="/Blog">
+            <img className="postGif" src={post2} alt="new post" />
+            <h2 className="titleAloja">Article</h2>
+
+            <div className="newArticle">
+              {arrayData.map((card) => (
+                <NewArticle key={card.id} article={card} />
+              ))}
+            </div>
+          </Link>
         </div>
         <div className="article2">
-          <h2>Blog</h2>
+          <Link to="/Blog">
+            <h2 className="titleAloja">Blog</h2>
+          </Link>
         </div>
         <div className="news">
           <Newsletter />

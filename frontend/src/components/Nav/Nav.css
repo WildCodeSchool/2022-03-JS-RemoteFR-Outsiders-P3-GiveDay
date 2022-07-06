@@ -90,3 +90,21 @@
     border-bottom: 0.2rem solid var(--color_1);
   }
 }
+
+.openedJeCreeContainer {
+  display: flex;
+  flex-direction: row;
+}
+.openedJeCree .open {
+  margin: 0.5rem 0rem 0.5rem 2rem;
+}
+.openedJeCree {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 14.7rem;
+  margin-left: 3.5rem;
+}
+.hidden {
+  display: none;
+}

@@ -11,6 +11,7 @@ import Admin from "@pages/dashboard/Admin/Admin";
 import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
 import Philanthrokids from "@pages/Philanthrokids/Philanthrokids";
 import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
+import Blog from "@pages/blog/Blog";
 import Page404 from "@pages/Page404/Page404";
 
 function App() {
@@ -64,6 +65,14 @@ function App() {
           element={
             <div className="containerContainWebsite">
               <Philanthrokids />
+            </div>
+          }
+        />
+        <Route
+          path="/Blog"
+          element={
+            <div className="containerContainWebsite">
+              <Blog />
             </div>
           }
         />
