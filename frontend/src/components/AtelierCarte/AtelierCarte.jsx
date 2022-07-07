@@ -139,7 +139,7 @@ function AtelierCarte() {
         <div className="atelierContainerSections">
           <section className="atelierContainerSection1">
             <div className="atelierContainerSubSection1-1">
-              <h1>Mon template</h1>
+              <h2>Mon cadre</h2>
               <button type="button" onClick={GoTemplate1}>
                 <img src={template1} alt="" />
               </button>
@@ -154,7 +154,7 @@ function AtelierCarte() {
               </button>
             </div>
             <div className="atelierContainerSubSection1-2">
-              <h1>Ma typo</h1>
+              <h2>Ma typo</h2>
               <button type="button" label="League" onClick={FontChoice1}>
                 League
               </button>
@@ -166,7 +166,7 @@ function AtelierCarte() {
               </button>
             </div>
             <div className="atelierContainerSubSection1-3">
-              <h1>Couleur</h1>
+              <h2>Couleur</h2>
               <button type="button" label="yellow" onClick={ColorChoice1} />
               <button type="button" label="pink" onClick={ColorChoice2} />
               <button type="button" label="green" onClick={ColorChoice3} />
@@ -176,7 +176,7 @@ function AtelierCarte() {
             </div>
           </section>
           <section className="atelierContainerSection2">
-            <h1 className="viewAtelierTitle">Prévue</h1>
+            <h2 className="viewAtelierTitle">Prévue</h2>
             <View
               eventCode={eventCode}
               cardContain={cardContain}
@@ -186,7 +186,7 @@ function AtelierCarte() {
             />
           </section>
           <section className="atelierContainerSection3">
-            <h1 className="mesInfosTitle">Mes infos</h1>
+            <h2 className="mesInfosTitle">Mes infos</h2>
             <MesInfos
               cardContain={cardContain}
               setCardContain={setCardContain}
