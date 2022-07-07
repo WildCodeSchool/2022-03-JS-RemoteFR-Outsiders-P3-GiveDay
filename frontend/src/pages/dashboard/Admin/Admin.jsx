@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UsersContent from "../Users/UsersContent";
 import PostsContent from "../Posts/PostsContents";
-import "./admin.css";
+import "../dashboard.css";
 
 function Admin({ content }) {
   console.warn(content);
