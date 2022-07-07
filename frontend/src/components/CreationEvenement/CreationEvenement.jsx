@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import Cadeau from "@components/CreationEvenement/Cadeau";
 import axios from "axios";
@@ -6,8 +6,10 @@ import Layout from "@components/Layout";
 import "../../pages/Home/home.css";
 import "../../App.css";
 import "../Nav/Nav.css";
+import CurrentPagesContext from "../../PagesContexts";
 
 function CreationEvenement() {
+  const { userIsConnected } = useContext(CurrentPagesContext);
   const [cadeauxList, setcadeauxList] = useState([]);
   const [code, setNewCode] = useState();
   const [form, setform] = useState({
@@ -34,7 +36,11 @@ function CreationEvenement() {
     event.preventDefault();
     const data = new FormData(event.target);
     console.warn(Array.from(data.entries()));
-    axios.post("http://localhost:5000/api/event", form).then((res) => res.data);
+    if (userIsConnected) {
+      axios
+        .post("http://localhost:5000/api/event", form)
+        .then((res) => res.data);
+    }
   };
 
   const handleAdd = () => {
@@ -192,16 +198,26 @@ function CreationEvenement() {
           >
             🎁 Ajouter un cadeau
           </button>
-
-          <button
-            className="buttonStyle"
-            type="submit"
-            form="creationEvenement"
-            value="Submit"
-            onClick={handleAdd}
-          >
-            🎉 Créer l'évènement
-          </button>
+          <br />
+          {userIsConnected ? (
+            <button
+              className="buttonStyle"
+              type="submit"
+              form="creationEvenement"
+              value="Submit"
+            >
+              🎉 Créer l'évènement
+            </button>
+          ) : (
+            <button
+              className="buttonStyle notConnected"
+              type="button"
+              value="Submit"
+            >
+              Connexion requise
+            </button>
+          )}
+          <br />
         </form>
       </div>
     </Layout>
