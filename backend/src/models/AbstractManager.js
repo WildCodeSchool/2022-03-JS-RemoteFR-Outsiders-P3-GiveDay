@@ -16,6 +16,16 @@ class AbstractManager {
     );
   }
 
+  findTag() {
+    return this.connection.query(`SELECT * FROM tag  `);
+  }
+
+  findTagFiltre(tag) {
+    return this.connection.query(
+      `select * from article_has_tag WHERE tag_id = ${tag}  `
+    );
+  }
+
   findAll() {
     return this.connection.query(`select * from  ${this.table}`);
   }

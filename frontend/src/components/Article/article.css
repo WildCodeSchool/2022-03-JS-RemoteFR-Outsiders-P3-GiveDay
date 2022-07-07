@@ -58,7 +58,21 @@
   font-weight: bold;
   margin-top: 2rem;
 }
-
+.titreBlog {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 3rem;
+}
+.searchTag {
+  display: flex;
+  margin-left: 3rem;
+  margin-right: 1rem;
+}
+.searchTag > h3 {
+  margin-right: 1rem;
+}
 @media screen and (max-width: 980px) {
   .globalBlog {
     display: flex;
