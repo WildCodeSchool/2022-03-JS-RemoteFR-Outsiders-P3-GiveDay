@@ -273,10 +273,10 @@
   border-radius: var(--border-radius);
 }
 
-#viewUserContainer{
+#viewUserContainer {
   text-align: center;
 }
-#viewUserContainer h1{
+#viewUserContainer h1 {
   margin-top: 3rem;
 }
 

@@ -25,21 +25,59 @@ class ArticleController {
       });
   };
 
-  // static read = (req, res) => {
-  //   models.article
-  //     .find(req.params.id)
-  //     .then(([rows]) => {
-  //       if (rows[0] == null) {
-  //         res.sendStatus(404);
-  //       } else {
-  //         res.send(rows[0]);
-  //       }
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       res.sendStatus(500);
-  //     });
-  // };
+  static tag = (req, res) => {
+    models.article
+      .findTag()
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static read = (req, res) => {
+    models.article
+      .find(req.params.id)
+      .then(([rows]) => {
+        if (rows[0] == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows[0]);
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
+  static readTag = (req, res) => {
+    if (parseInt(req.params.id, 10) === 0) {
+      models.article.findAll().then(([rows]) => {
+        if (rows == null) {
+          res.sendStatus(404);
+        } else {
+          res.send(rows);
+        }
+      });
+    } else {
+      models.article
+        .findTagFiltre(req.params.id)
+        .then(([rows]) => {
+          if (rows == null) {
+            res.sendStatus(404);
+          } else {
+            res.send(rows);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(500);
+        });
+    }
+  };
 
   // static edit = (req, res) => {
   //   const article = req.body;
