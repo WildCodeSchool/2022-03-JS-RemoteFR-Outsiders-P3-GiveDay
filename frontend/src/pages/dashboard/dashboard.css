@@ -71,16 +71,14 @@
   display: flex;
   flex-direction: column;
 }
-.update-btn {
+.dashboard-btn {
   border: none;
   font-weight: 900;
   background-color: transparent;
 }
+
 .delete-btn {
-  border: none;
   color: var(--color_2);
-  font-weight: 900;
-  background-color: transparent;
 }
 
 .valid-cancel {
@@ -89,9 +87,7 @@
   justify-content: center;
   gap: 2rem;
 }
-.valid-cancel button {
-  border: none;
-}
+
 .role-column {
   width: 7rem;
 }
@@ -102,4 +98,14 @@
 
 .icons-cell {
   text-align: center;
+}
+
+.searchbar {
+  width: fit-content;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.searchbar input {
+  width: 32.5rem;
 }

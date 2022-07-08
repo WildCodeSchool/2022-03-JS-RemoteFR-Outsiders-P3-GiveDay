@@ -3,12 +3,13 @@ import "../dashboard.css";
 import { GrUpdate } from "react-icons/gr";
 import { BsCheckCircleFill, BsTrash } from "react-icons/bs";
 import { MdOutlineCancel } from "react-icons/md";
-
+import { FcSearch } from "react-icons/fc";
 import api from "@services/api";
 
 function UsersContent() {
   const [users, setUsers] = useState("");
   const [isUpdate, setIsUpdate] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   // const [roleUpdate, setroleUpdate] = useState("");
 
   useEffect(() => {
@@ -33,12 +34,38 @@ function UsersContent() {
     setIsUpdate(!isUpdate);
   };
   console.warn(isUpdate);
+
+  const handleChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+
+  const HandleClickSearch = () => {
+    setUsers(searchValue);
+    setSearchValue("");
+  };
   return (
     <div className="contentTable table-responsive">
       <div className="head-h2-btn">
         <h2>Utilisateurs</h2>{" "}
       </div>
-
+      <div className="searchbar">
+        <input
+          id="search"
+          value={searchValue}
+          type="text"
+          name="search"
+          placeholder="Tapez un email, un nom ..."
+          className="input"
+          onChange={handleChange}
+        />
+        <button
+          type="button"
+          className="dashboard-btn"
+          onClick={HandleClickSearch}
+        >
+          <FcSearch size={35} />
+        </button>
+      </div>
       <div className="">
         <table className="table align-middle table-striped table-light table-bordered table-hover ">
           <thead className="table-dark">
@@ -57,61 +84,63 @@ function UsersContent() {
           </thead>
           <tbody>
             {users &&
-              users.map((user) => (
-                <tr>
-                  <th scope="col">{user.prenom}</th>
-                  <th scope="col">{user.nom}</th>
-                  <th scope="col">{user.email}</th>
-                  <th scope="col">
-                    {!isUpdate ? (
-                      user.role
-                    ) : (
-                      <select>
-                        <option>admin</option>
-                        <option>user</option>
-                      </select>
-                    )}
-                  </th>
-                  <th scope="col" className="icons-cell">
-                    <button
-                      className="update-btn"
-                      type="button"
-                      onClick={() => {
-                        handleChangeRole(user.id);
-                      }}
-                    >
+              users
+                .filter((user) => user.includes(searchValue))
+                .map((user) => (
+                  <tr>
+                    <th scope="col">{user.prenom}</th>
+                    <th scope="col">{user.nom}</th>
+                    <th scope="col">{user.email}</th>
+                    <th scope="col">
                       {!isUpdate ? (
-                        <GrUpdate size={18} />
+                        user.role
                       ) : (
-                        <div className="valid-cancel">
-                          <button type="button">
-                            <BsCheckCircleFill size={20} />
-                          </button>
-                          <button type="button">
-                            <MdOutlineCancel size={22} />
-                          </button>
-                        </div>
+                        <select>
+                          <option>admin</option>
+                          <option>user</option>
+                        </select>
                       )}
-                    </button>
-                  </th>
-                  <th scope="col" className="icons-cell">
-                    <button
-                      className="delete-btn"
-                      type="button"
-                      onClick={() => {
-                        const confirmBox = window.confirm(
-                          "Etes-vous sûr de vouloir supprimer cet utilisateur?"
-                        );
-                        if (confirmBox === true) {
-                          handleDelete(user.id);
-                        }
-                      }}
-                    >
-                      <BsTrash size={22} />
-                    </button>
-                  </th>{" "}
-                </tr>
-              ))}
+                    </th>
+                    <th scope="col" className="icons-cell">
+                      <button
+                        className="dashboard-btn"
+                        type="button"
+                        onClick={() => {
+                          handleChangeRole(user.id);
+                        }}
+                      >
+                        {!isUpdate ? (
+                          <GrUpdate size={18} />
+                        ) : (
+                          <div className="valid-cancel">
+                            <button type="button" className="dashboard-btn">
+                              <BsCheckCircleFill size={20} />
+                            </button>
+                            <button type="button" className="dashboard-btn">
+                              <MdOutlineCancel size={22} />
+                            </button>
+                          </div>
+                        )}
+                      </button>
+                    </th>
+                    <th scope="col" className="icons-cell">
+                      <button
+                        className="dashboard-btn delete-btn"
+                        type="button"
+                        onClick={() => {
+                          const confirmBox = window.confirm(
+                            "Etes-vous sûr de vouloir supprimer cet utilisateur?"
+                          );
+                          if (confirmBox === true) {
+                            handleDelete(user.id);
+                          }
+                        }}
+                      >
+                        <BsTrash size={22} />
+                      </button>
+                    </th>{" "}
+                  </tr>
+                ))}
           </tbody>
         </table>
       </div>
