@@ -100,6 +100,10 @@ p.codeEvenement {
   opacity: 55%;
 }
 
+#creationEvenement .notConnected{
+  background-color: var(--color_5);
+}
+
 /* COMPOSANT CADEAU */
 #creationEvenement div.cadeau {
   width: 90%;
