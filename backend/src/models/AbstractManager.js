@@ -22,7 +22,7 @@ class AbstractManager {
 
   findTagFiltre(tag) {
     return this.connection.query(
-      `select * from article_has_tag WHERE tag_id = ${tag}  `
+      `SELECT * FROM article  INNER JOIN article_has_tag ON  article_has_tag.article_id = article.id   WHERE article_has_tag.tag_id = ${tag}`
     );
   }
 

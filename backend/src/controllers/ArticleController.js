@@ -54,19 +54,29 @@ class ArticleController {
   };
 
   static readTag = (req, res) => {
-    models.article
-      .findTagFiltre(req.params.id)
-      .then(([rows]) => {
-        if (rows[0] == null) {
+    if (parseInt(req.params.id, 10) === 0) {
+      models.article.findAll().then(([rows]) => {
+        if (rows == null) {
           res.sendStatus(404);
         } else {
-          res.send(rows[0]);
+          res.send(rows);
         }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
       });
+    } else {
+      models.article
+        .findTagFiltre(req.params.id)
+        .then(([rows]) => {
+          if (rows == null) {
+            res.sendStatus(404);
+          } else {
+            res.send(rows);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(500);
+        });
+    }
   };
 
   // static edit = (req, res) => {

@@ -1,62 +1,54 @@
-import Layout from "@components/Layout";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+import Layout from "@components/Layout";
+import Article from "@components/Article/Article";
+
 import "./blog.css";
 import "../Home/home.css";
 import "../../App.css";
 import "../../components/Nav/Nav.css";
-import axios from "axios";
-import Article from "@components/Article/Article";
 import "../../components/Article/article.css";
 
 function Blog() {
-  const [arrayData, setarrayData] = useState([]);
-  const [arrayFiltre, setArrayFiltre] = useState([]);
-  const [arrayCategorie, setArrayCategorie] = useState([]);
-  const [result, setResult] = useState("");
+  const [articles, setArticles] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [choiceCategorie, setChoiceCategorie] = useState(0);
 
+  /**
+   * Lors du chargement du component, nous allons récupérer toutes nos catégories.
+   */
   useEffect(() => {
-    if (result === "") {
-      const tags = `http://localhost:5000/api/tag`;
-      // console.log(tags);
-      axios
-        .get(tags)
-        .then((res) => res.data)
-        .then((tags1) => {
-          setArrayCategorie(tags1);
-        });
+    const tags = `http://localhost:5000/api/tag`;
+    axios
+      .get(tags)
+      .then((res) => res.data)
+      .then((data) => {
+        setCategories(data);
+      });
+  }, []);
 
-      const article = `http://localhost:5000/api/articles`;
-      axios
-        .get(article)
-        .then((res) => res.data)
-        .then((cards1) => {
-          setarrayData(cards1);
-        });
-    } else {
-      const tags = `http://localhost:5000/api/tag/${result}`;
-      axios
-        .get(tags)
-        .then((res) => res.data)
-        .then((tags2) => {
-          console.warn(tags2);
-          setArrayFiltre(tags2);
-        });
-
-      // console.log(arrayFiltre);
-      const article = `http://localhost:5000/api/articles/${arrayFiltre}`;
-      // console.log(article);
-      axios
-        .get(article)
-        .then((res) => res.data)
-        .then((cards) => {
-          setarrayData(cards);
-        });
-    }
-  }, [result]);
-
+  /**
+   * La fonction handleChange, permet de récuperer l'id de la catégorie,
+   * car nous allons faire appel à celui ci pour récupérer tout nos articles
+   */
   const handlechange = (event) => {
-    setResult(event.target.value);
+    setChoiceCategorie(event.target.value);
   };
+
+  /**
+   * Ce useEffect, permet de charger tous les articles d'une catégorie,
+   * si celui ci change, alors nous relançons notre axios pour récupérer nos articles.
+   */
+  useEffect(() => {
+    const getArticles = `http://localhost:5000/api/tag/${choiceCategorie}`;
+    axios
+      .get(getArticles)
+      .then((res) => {
+        setArticles(res.data);
+      })
+      .catch((err) => console.error(err));
+  }, [choiceCategorie]);
 
   return (
     <Layout>
@@ -67,7 +59,11 @@ function Blog() {
           <div className="searchTag">
             <h3>Catégorie:</h3>
             <select>
-              {arrayCategorie.map((categorie) => (
+              <option onClick={handlechange} value={0}>
+                Tous les articles
+              </option>
+              {/** Ici, nous affichons toutes nos catégories, reçu via l'API  */}
+              {categories.map((categorie) => (
                 <option
                   key={categorie.id}
                   onClick={handlechange}
@@ -80,8 +76,8 @@ function Blog() {
           </div>
           {/* <SelectTag setArrayTag={setArrayTag} arrayTag={arrayTag}/> */}
         </div>
-        {arrayData.map((card) => (
-          <Article key={card.id} article={card} />
+        {articles.map((article) => (
+          <Article key={article.id} article={article} />
         ))}
       </div>
     </Layout>
