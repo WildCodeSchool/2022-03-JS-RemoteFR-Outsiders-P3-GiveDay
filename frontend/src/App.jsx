@@ -88,6 +88,8 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
+        {/* A modifier quand l'éditeur de texte sera en ligne :  */}
+        <Route path="/admin/new-article" element={<Admin content="users" />} />
         <Route path="/*" element={<Page404 />} />
       </Routes>
     </div>

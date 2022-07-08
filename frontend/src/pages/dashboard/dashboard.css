@@ -1,11 +1,16 @@
+/*$$$$$$$$$$$$$$$$$$$ Page ADMIN $$$$$$$$$$$$$$*/
 .adminPage {
-  width: 100vw;
-  height: 100vh;
+  min-width: fit-content;
+  min-height: 100vh;
   background-color: var(--color_3);
   display: flex;
   flex-direction: row;
 }
 
+::-webkit-scrollbar {
+  height: 20px;
+}
+/*$$$$$$$$$$$$$$$$$$$ Navigation $$$$$$$$$$$$$$*/
 #adminNav {
   background-color: rgb(27, 27, 27);
   color: #eee;
@@ -39,6 +44,23 @@
   margin: 0;
   background-color: var(--color_2);
 }
+
+/*$$$$$$$$$$$$$$$$$$$ Container Utilisateur $$$$$$$$$$$$$$*/
+/********* Titre + button "ajouter user"***********/
+.head-h2-btn {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.btn-add {
+  margin-top: 3.5rem;
+  background-color: transparent;
+  border: none;
+}
+
+/******** Tableau affichage utilisateurs **********/
 .contentTable h2 {
   font-size: var(--font-size-h3);
   padding-top: 4.1rem;
@@ -48,10 +70,12 @@
   padding-left: 4rem;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
-  /* margin: 0 auto; */
 }
-
+.update-btn {
+  border: none;
+  font-weight: 900;
+  background-color: transparent;
+}
 .delete-btn {
   border: none;
   color: var(--color_2);
@@ -59,6 +83,23 @@
   background-color: transparent;
 }
 
-.table {
-  margin-top: 3.1rem;
+.valid-cancel {
+  display: flex;
+  width: 8rem;
+  justify-content: center;
+  gap: 2rem;
+}
+.valid-cancel button {
+  border: none;
+}
+.role-column {
+  width: 7rem;
+}
+
+.modify-role-column {
+  width: 9rem;
+}
+
+.icons-cell {
+  text-align: center;
 }

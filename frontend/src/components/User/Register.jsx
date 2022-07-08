@@ -9,6 +9,7 @@ function Register({ hundleOpenNewAccount, setUserIsConnected }) {
     nom: "",
     email: "",
     password: "",
+    role: "user",
   });
   const handleRegister = (event) => {
     event.preventDefault();

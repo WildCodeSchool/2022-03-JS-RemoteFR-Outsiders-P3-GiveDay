@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BsTrash } from "react-icons/bs";
+import { GrAddCircle, GrUpdate } from "react-icons/gr";
+
 import api from "@services/api";
 import "../dashboard.css";
 
@@ -23,15 +25,19 @@ function PostsContent() {
   };
 
   return (
-    <div className="contentTable">
-      <div className="">
+    <div className="contentTable table-responsive">
+      <div className="head-h2-btn">
         <h2>Tous les articles du blog</h2>
+        <button type="button" className="btn-add">
+          <GrAddCircle size={40} />
+        </button>
       </div>
       <table className="table table-responsive-sm table-striped table-light table-bordered table-hover ">
         <thead className="table-dark">
           <tr>
             <th scope="col">Titre</th>
             <th scope="col">Date de création</th>
+            <th scope="col">Modifier</th>
             <th scope="col">Supprimer</th>
           </tr>
         </thead>
@@ -41,6 +47,15 @@ function PostsContent() {
               <tr>
                 <th scope="col">{article.titre}</th>
                 <th scope="col">date de création</th>
+                <th scope="col">
+                  <button
+                    className="update-btn"
+                    type="button"
+                    onClick={() => {}}
+                  >
+                    <GrUpdate size={20} />
+                  </button>
+                </th>
                 <th scope="col">
                   <button
                     className="delete-btn"

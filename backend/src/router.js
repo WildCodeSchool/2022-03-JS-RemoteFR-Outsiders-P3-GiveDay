@@ -70,5 +70,6 @@ router.delete("/api/article/delete/:id", ArticleController.delete);
 
  */
 router.get("/api/users", UserController.browse);
+router.get("/api/users/:id", UserController.read);
 router.delete("/api/users/delete/:id", UserController.delete);
 module.exports = router;
