@@ -100,7 +100,7 @@ p.codeEvenement {
   opacity: 55%;
 }
 
-#creationEvenement .notConnected{
+#creationEvenement .notConnected {
   background-color: var(--color_5);
 }
 
