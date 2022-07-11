@@ -7,6 +7,19 @@
   height: 100%;
   background-color: var(--color_light);
 }
+.openToogle{
+  border: 0;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 0 0.7rem;
+  background-color: var(--color_2);
+  color: var(--color_light);
+  margin: 1.5rem 0 2.25rem 0;
+}
+.navContainerOff{
+  display: none;
+}
 .navContainer {
   display: flex;
   flex-direction: row;
