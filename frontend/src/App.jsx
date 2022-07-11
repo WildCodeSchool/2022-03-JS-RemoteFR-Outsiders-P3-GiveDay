@@ -12,6 +12,9 @@ import CreationEvenement from "@components/CreationEvenement/CreationEvenement";
 import Philanthrokids from "@pages/Philanthrokids/Philanthrokids";
 import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
 import Blog from "@pages/blog/Blog";
+import FormForgotPassword from "@components/FormForgotPassword/FormForgotPassword";
+import FormChangePassword from "@components/FormChangePassword/FormChangePassword";
+
 import Page404 from "@pages/Page404/Page404";
 
 function App() {
@@ -26,6 +29,11 @@ function App() {
             </div>
           }
         />
+
+        <Route path="/resetpassword-change/">
+          <Route path=":id" element={<FormChangePassword />} />
+        </Route>
+
         <Route
           path="/histoire"
           element={
@@ -84,6 +92,7 @@ function App() {
             </div>
           }
         />
+        <Route path="/resetpassword-ask" element={<FormForgotPassword />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/users" element={<Admin content="users" />} />

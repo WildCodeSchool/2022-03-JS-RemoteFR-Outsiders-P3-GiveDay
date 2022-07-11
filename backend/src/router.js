@@ -6,6 +6,7 @@ const {
   CadeauController,
   UserController,
   ArticleController,
+  ResetController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -60,6 +61,9 @@ router.get("/api/articles/:id", ArticleController.read);
 router.get("/api/tag", ArticleController.tag);
 router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);
+
+router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
+router.get("/api/resetpassword-change/:id", ResetController.compareToken);
 
 // router.put("/api/article/:id", ArticleController.edit);
 // router.post("/api/article", ArticleController.add);

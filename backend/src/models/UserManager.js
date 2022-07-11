@@ -14,12 +14,25 @@ class UserManager extends AbstractManager {
     );
   }
 
-  // update(user) {
-  //   return this.connection.query(
-  //     `update ${UserManager.table} set prenom = ? where id = ?`,
-  //     [user.prenom, user.id]
-  //   );
-  // }
+  updateToken(tokenArray) {
+    return this.connection.query(
+      `UPDATE ${UserManager.table} SET tokenpwd = ? WHERE email = ?`,
+      tokenArray
+    );
+  }
+
+  getTokenExists(tokenjwt) {
+    return this.connection.query(`SELECT * FROM user WHERE tokenpwd = ?`, [
+      tokenjwt,
+    ]);
+  }
+
+  unsetToken(tokenjwt) {
+    return this.connection.query(
+      `UPDATE ${UserManager.table} SET tokenpwd = null WHERE tokenpwd = ?`,
+      tokenjwt
+    );
+  }
 }
 
 module.exports = UserManager;
