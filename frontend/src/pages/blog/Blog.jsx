@@ -58,17 +58,11 @@ function Blog() {
 
           <div className="searchTag">
             <h3>Catégorie:</h3>
-            <select>
-              <option onClick={handlechange} value={0}>
-                Tous les articles
-              </option>
+            <select onChange={handlechange}>
+              <option value={0}>Tous les articles</option>
               {/** Ici, nous affichons toutes nos catégories, reçu via l'API  */}
               {categories.map((categorie) => (
-                <option
-                  key={categorie.id}
-                  onClick={handlechange}
-                  value={categorie.id}
-                >
+                <option key={categorie.id} value={categorie.id}>
                   {categorie.tag}
                 </option>
               ))}
