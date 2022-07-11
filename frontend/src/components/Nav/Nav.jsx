@@ -79,11 +79,11 @@ function Nav() {
   const openJeCree = () => {
     setIsOpenJeCree(!isOpenJeCree);
   };
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [openToogle, setOpenToogle] = useState(false);
   const handleToogle = () => {
     setOpenToogle(!openToogle);
   };
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   useEffect(() => {
     const changeWidth = () => {
       setScreenWidth(window.innerWidth);
@@ -102,7 +102,11 @@ function Nav() {
         </button>
       ) : null}
 
-      <nav className={openToogle ? "navContainer" : "navContainerOff"}>
+      <nav
+        className={
+          openToogle || screenWidth > 750 ? "navContainer" : "navContainerOff"
+        }
+      >
         <ul>
           <li>
             <Link
