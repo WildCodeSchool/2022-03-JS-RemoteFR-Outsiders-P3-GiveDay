@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./FormForgotPassword.css";
 import api from "@services/api";
 
-function FormResetPassword() {
+function FormForgotPassword() {
   const [email, setEmail] = useState("");
 
   const handleChange = (e) => {
@@ -30,7 +30,7 @@ function FormResetPassword() {
     >
       <div className="form-group">
         {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="emailInput">Nouveau mot de passe</label>
+        <label htmlFor="emailInput">Demande de nouveau mot de passe</label>
         <input
           type="email"
           name="email"
@@ -51,4 +51,4 @@ function FormResetPassword() {
   );
 }
 
-export default FormResetPassword;
+export default FormForgotPassword;
