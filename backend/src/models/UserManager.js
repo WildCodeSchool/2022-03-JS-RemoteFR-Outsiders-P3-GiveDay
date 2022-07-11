@@ -14,12 +14,18 @@ class UserManager extends AbstractManager {
     );
   }
 
-  // update(user) {
-  //   return this.connection.query(
-  //     `update ${UserManager.table} set prenom = ? where id = ?`,
-  //     [user.prenom, user.id]
-  //   );
-  // }
+  update(user) {
+    return this.connection.query(
+      `update ${UserManager.table} set prenom = ?, nom= ?, role= ? where id = ?`,
+      [user.prenom, user.nom, user.role, user.id]
+    );
+  }
+
+  getCount() {
+    return this.connection.query(
+      `SELECT Count(*) as count FROM ${UserManager.table} `
+    );
+  }
 }
 
 module.exports = UserManager;
