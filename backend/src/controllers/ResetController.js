@@ -33,6 +33,19 @@ class ResetController {
     */
   };
 
+  static isTokenExists = (req, res) => {
+    models.user
+      .getTokenExists(req.params.id)
+      .then((data) => {
+        console.warn(data[0]);
+        res.status(200).json(data[0]);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(204);
+      });
+  };
+
   static isEmailExists = (req, res) => {
     models.user
       .getUserByEmail(req.params.id)

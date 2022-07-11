@@ -22,9 +22,10 @@ class UserManager extends AbstractManager {
   }
 
   getTokenExists(tokenjwt) {
-    return this.connection.query(`SELECT * FROM user WHERE tokenpwd = ?`, [
-      tokenjwt,
-    ]);
+    return this.connection.query(
+      `SELECT * FROM user WHERE tokenpwd = ?`,
+      tokenjwt
+    );
   }
 
   unsetToken(tokenjwt) {
