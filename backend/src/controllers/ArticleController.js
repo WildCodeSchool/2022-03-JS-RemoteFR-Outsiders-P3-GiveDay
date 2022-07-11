@@ -25,6 +25,18 @@ class ArticleController {
       });
   };
 
+  static tag = (req, res) => {
+    models.article
+      .findTag()
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static read = (req, res) => {
     models.article
       .find(req.params.id)
@@ -41,43 +53,69 @@ class ArticleController {
       });
   };
 
-  static edit = (req, res) => {
-    const article = req.body;
-
-    // TODO validations (length, format...)
-
-    article.id = parseInt(req.params.id, 10);
-
-    models.article
-      .update(article)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
+  static readTag = (req, res) => {
+    if (parseInt(req.params.id, 10) === 0) {
+      models.article.findAll().then(([rows]) => {
+        if (rows == null) {
           res.sendStatus(404);
         } else {
-          res.sendStatus(204);
+          res.send(rows);
         }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
       });
+    } else {
+      models.article
+        .findTagFiltre(req.params.id)
+        .then(([rows]) => {
+          if (rows == null) {
+            res.sendStatus(404);
+          } else {
+            res.send(rows);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          res.sendStatus(500);
+        });
+    }
   };
 
-  static add = (req, res) => {
-    const article = req.body;
+  // static edit = (req, res) => {
+  //   const article = req.body;
 
-    // TODO validations (length, format...)
+  //   // TODO validations (length, format...)
 
-    models.article
-      .insert(article)
-      .then(([result]) => {
-        res.status(201).send({ ...article, id: result.insertId });
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  };
+  //   article.id = parseInt(req.params.id, 10);
+
+  //   models.article
+  //     .update(article)
+  //     .then(([result]) => {
+  //       if (result.affectedRows === 0) {
+  //         res.sendStatus(404);
+  //       } else {
+  //         res.sendStatus(204);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.sendStatus(500);
+  //     });
+  // };
+
+  // static add = (req, res) => {
+  //   const article = req.body;
+
+  //   // TODO validations (length, format...)
+
+  //   models.article
+  //     .insert(article)
+  //     .then(([result]) => {
+  //       res.status(201).send({ ...article, id: result.insertId });
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.sendStatus(500);
+  //     });
+  // };
 
   static delete = (req, res) => {
     models.article

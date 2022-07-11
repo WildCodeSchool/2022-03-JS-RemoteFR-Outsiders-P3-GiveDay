@@ -26,25 +26,25 @@ function Home() {
     <Layout>
       <div className="acceuilContainer">
         <div className="CCM">
-          <h2 className="titleAloja">Comment ca marche </h2>
+          <h3 className="titleAloja">Comment ca marche </h3>
         </div>
         <div className="Philan">
           <Link to="/Philanthrokids">
-            <h2 className="titleAloja">Philanthrokids</h2>
+            <h3 className="titleAloja">Philanthrokids</h3>
           </Link>
         </div>
         <div className="creation">
           <Link to="/CreationEvenement">
-            <h2 className="titleAloja">Creer un evenement</h2>
+            <h3 className="titleAloja">Creer un evenement</h3>
             <img className="blogGif" src={blog2} alt="journal" />
           </Link>
         </div>
         <div className="rejoindre">
-          <h2 className="titleAloja">Rejoindre un evenement</h2>
+          <h3 className="titleAloja">Rejoindre un evenement</h3>
         </div>
         <div className="atelier">
           <Link to="/AtelierCarte">
-            <h2 className="titleAloja">Atelier carte d'invitation</h2>
+            <h3 className="titleAloja">Atelier carte d'invitation</h3>
             <div>
               <img
                 className="cartePablo"
@@ -57,7 +57,7 @@ function Home() {
         <div className="article1">
           <Link to="/Blog">
             <img className="postGif" src={post2} alt="new post" />
-            <h2 className="titleAloja">Article</h2>
+            <h3 className="titleAloja">Article</h3>
 
             <div className="newArticle">
               {arrayData.map((card) => (
@@ -68,7 +68,7 @@ function Home() {
         </div>
         <div className="article2">
           <Link to="/Blog">
-            <h2 className="titleAloja">Blog</h2>
+            <h3 className="titleAloja">Blog</h3>
           </Link>
         </div>
         <div className="news">
@@ -78,7 +78,7 @@ function Home() {
       <div className="confianceFlex">
         <div className="confiance">
           <div className="divTitre">
-            <h2>ils nous font confiance</h2>
+            <h3>ils nous font confiance</h3>
           </div>
           <div>
             <p>

@@ -52,20 +52,30 @@ router.delete("/api/cadeaux/:id", CadeauController.delete);
 /**
  * @desc Article routes
  *
- * @api {post}
- * @api {post}
- * @api {get}
+ * @api {get} /api/article   Récupérer tous les articles de la base de données (table article)
+ * @api {get} /api/new-article   Récupérer le dernier article ?????
+ * @api {delete} /api/article/delete/:id    Supprimer un article
  */
-router.get("/api/article", ArticleController.browse);
+router.get("/api/articles", ArticleController.browse);
+router.get("/api/articles/:id", ArticleController.read);
+router.get("/api/tag", ArticleController.tag);
+router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);
-router.get("/api/article/:id", ArticleController.read);
-router.put("/api/article/:id", ArticleController.edit);
-router.post("/api/article", ArticleController.add);
-router.delete("/api/article/:id", ArticleController.delete);
 
 router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
 router.get("/api/resetpassword-change/:id", ResetController.compareToken);
 
+// router.put("/api/article/:id", ArticleController.edit);
+// router.post("/api/article", ArticleController.add);
+router.delete("/api/article/delete/:id", ArticleController.delete);
+
+/**
+ * @desc Users routes
+ *
+ * @api {get} /api/users Récupère tous les utilisateurs
+ * @api {delete} /api/users/delete/:id Supprime un utilisateur de la base de données
+
+ */
 router.get("/api/users", UserController.browse);
 router.delete("/api/users/delete/:id", UserController.delete);
 module.exports = router;

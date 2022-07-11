@@ -12,7 +12,6 @@ function Register({ hundleOpenNewAccount, setUserIsConnected }) {
   });
   const handleRegister = (event) => {
     event.preventDefault();
-    console.warn(user);
     api
       .post("/api/auth/register", user, { withCredentials: true })
       .then((res) => res.data)

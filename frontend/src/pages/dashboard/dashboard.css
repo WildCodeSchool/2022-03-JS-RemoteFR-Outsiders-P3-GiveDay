@@ -1,0 +1,64 @@
+.adminPage {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color_3);
+  display: flex;
+  flex-direction: row;
+}
+
+#adminNav {
+  background-color: rgb(27, 27, 27);
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  display: block;
+}
+
+#adminNav > ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 5rem;
+}
+
+#adminNav a {
+  text-align: center;
+  color: #eee;
+  display: block;
+}
+
+/* mouse over link */
+#adminNav a:hover {
+  background-color: #eee;
+  color: #333;
+}
+
+#adminNav h1 {
+  padding: 3rem;
+  margin: 0;
+  background-color: var(--color_2);
+}
+.contentTable h2 {
+  font-size: var(--font-size-h3);
+  padding-top: 4.1rem;
+  margin: 0;
+}
+.contentTable {
+  padding-left: 4rem;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* margin: 0 auto; */
+}
+
+.delete-btn {
+  border: none;
+  color: var(--color_2);
+  font-weight: 900;
+  background-color: transparent;
+}
+
+.table {
+  margin-top: 3.1rem;
+}
