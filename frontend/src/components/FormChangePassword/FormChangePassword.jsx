@@ -34,7 +34,7 @@ function ResetPasswordForm() {
   useEffect(() => {
     console.warn("Effect is loaded");
     api
-      .get(`/api/checktoken/${id}`, { withCredentials: true })
+      .get(`/api/reset/checktoken/${id}`, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
         if (data[0].tokenpwd === id) {

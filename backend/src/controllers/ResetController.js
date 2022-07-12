@@ -1,5 +1,4 @@
 require("dotenv").config();
-const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const models = require("../models");
 /*
@@ -57,24 +56,15 @@ class ResetController {
         } else {
           console.warn(`Email found : ${rows[0]}`);
           const key = generateRandomString(30);
-          const tokenpwd = jwt.sign(
-            { email: rows[0].email, key },
-            process.env.SECRET_JWT,
-            { expiresIn: "15m" }
-          );
-
-          tokenArray.push(tokenpwd);
-          tokenArray.push(rows[0].email);
           tokenArray.push(key);
-
+          tokenArray.push(rows[0].email);
           models.user.updateToken(tokenArray);
-
           res.json({ tokenArray });
           return tokenArray;
         }
       })
       .then((data) => {
-        // 0 - Generer un token jwt
+        // 0 - Generer un token (30)
         // 1 - enregistrer le token dans la table user
         // 2 - envoi d'un mail avec le lien pour modifier le mdp avec un token valide
         // exemple : http://localhost:5000/reset-password?token=elsm46eRc...
@@ -83,16 +73,16 @@ class ResetController {
         console.warn(data);
         async function main() {
           const transporter = nodemailer.createTransport({
-            host: "palette.o2switch.net",
+            host: process.env.MAIL_HOST,
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-              user: "giveday@propod.net", // generated ethereal user
-              pass: "[^U.QW9=KFNZ", // generated ethereal password
+              user: process.env.MAIL_USER, // generated ethereal user
+              pass: process.env.MAIL_PASS, // generated ethereal password
             },
           });
 
-          const link = `${process.env.FRONTEND_URL}/resetpassword-change/${data[0]}`;
+          const link = `${process.env.FRONTEND_URL}/reset/password-change/${data[0]}`;
           console.warn(link);
           const info = await transporter.sendMail({
             from: '"Email from giveday 👻" <contact@giveday.com>', // sender address

@@ -30,7 +30,7 @@ function App() {
           }
         />
 
-        <Route path="/resetpassword-change/">
+        <Route path="/reset/password-change/">
           <Route path=":id" element={<FormChangePassword />} />
         </Route>
 
