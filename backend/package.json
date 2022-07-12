@@ -19,8 +19,11 @@
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
+    "nodemailer": "^6.7.7",
+    "rand-token": "^1.0.1",
     "template-fullstack": "file:.."
   },
   "rules": {

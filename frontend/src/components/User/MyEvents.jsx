@@ -1,13 +1,54 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React from "react";
+/* eslint-disable react/no-array-index-key */
+import React, { useEffect, useState } from "react";
+import api from "@services/api";
 import "./user.css";
+import ViewUser from "./ViewUser";
 
 function MyEvents({ hundleOpenMyEvents }) {
-  const handleMyEvents = (event) => {
-    event.preventDefault();
+  const today = new Date();
+  const TodayDate = `${today.getFullYear()}-${
+    today.getMonth() + 1
+  }-${today.getDate()}`;
+  const setStatusEvent = (item) => {
+    if (item >= TodayDate) {
+      return "Terminé";
+    }
+    if (item < TodayDate) {
+      return "En cours";
+    }
+    return null;
   };
+  const [userEvents, setUserEvents] = useState([
+    { date: "2022-7-5", organisateur: "Joan", status: "" },
+    { date: "2022-7-8", organisateur: "Alex", status: "" },
+    { date: "2022-7-5", organisateur: "Ana", status: "" },
+    { date: "2022-7-5", organisateur: "Loaja", status: "" },
+    { date: "2022-7-5", organisateur: "Joan", status: "" },
+    { date: "2022-7-5", organisateur: "Alex", status: "" },
+    { date: "2022-7-5", organisateur: "Ana", status: "" },
+    { date: "2022-7-8", organisateur: "Loaja", status: "" },
+    { date: "2022-7-5", organisateur: "Joan", status: "" },
+    { date: "2022-7-5", organisateur: "Alex", status: "" },
+    { date: "2022-7-5", organisateur: "Ana", status: "" },
+    { date: "2022-7-5", organisateur: "Loaja", status: "" },
+    { date: "2022-7-5", organisateur: "Joan", status: "" },
+    { date: "2022-7-5", organisateur: "Alex", status: "" },
+    { date: "2022-7-8", organisateur: "Ana", status: "" },
+    { date: "2022-7-5", organisateur: "Loaja", status: "" },
+  ]);
+  useEffect(() => {
+    api
+      .get("/api/users/:id", { withCredentials: true })
+      .then((res) => res.data)
+      .then((data) => {
+        if (data) {
+          setUserEvents(data);
+        }
+      });
+  }, []);
+
   return (
-    <div className="formContainer">
+    <div className="formContainer" id="MyUser">
       <button
         type="button"
         className="exitFormContainer"
@@ -15,40 +56,32 @@ function MyEvents({ hundleOpenMyEvents }) {
       >
         X
       </button>
-      <form className="form" onSubmit={handleMyEvents}>
-        <p>
-          Mes événements avec <span className="styleLogo"> Giveday </span>?
-        </p>
-        <label>
-          Nom
-          <input className="inputForm" type="text" />
-        </label>
-        <label>
-          Prénom
-          <input className="inputForm" type="name" />
-        </label>
-        <label>
-          Mail
-          <input
-            className="inputForm"
-            type="email"
-            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[.]{1}[a-zA-Z]{2,}$"
-          />
-        </label>
-        <label>
-          Mot de passe
-          <input
-            className="inputForm"
-            type="password"
-            pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
-          />
-          <span className="detailsInput">
-            Votre mot de passe doit contenir au moins 8 caractères (majuscule +
-            minuscule + nombre + caractère spéciaux)
-          </span>
-        </label>
-        <input type="submit" value="Valider" className="buttonStyle " />
-      </form>
+      <section className="eventSection1">
+        <h1 className="eventSection1Title">Mes événements</h1>
+        <div className="eventSection1Titles">
+          <h1>Date</h1>
+          <h1>Organisateur</h1>
+          <h1>Status</h1>
+        </div>
+        {userEvents.map((OneEvent, index) => (
+          <div key={index} className="eventSection1Results">
+            <h1>{OneEvent.date}</h1>
+            <h1>{OneEvent.organisateur}</h1>
+            <h1
+              className={
+                setStatusEvent(OneEvent.date) === "En cours"
+                  ? "eventStatusEnCours"
+                  : "eventStatusTerminé"
+              }
+            >
+              {setStatusEvent(OneEvent.date)}
+            </h1>
+          </div>
+        ))}
+      </section>
+      <section className="eventSection2">
+        <ViewUser />
+      </section>
     </div>
   );
 }

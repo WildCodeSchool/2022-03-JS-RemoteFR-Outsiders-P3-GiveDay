@@ -14,6 +14,10 @@
   font-family: Montserrat;
   src: url("../assets/fonts/Montserrat-Light.otf") format("opentype");
 }
+@font-face {
+  font-family: PatrickHand;
+  src: url("../assets/fonts/PatrickHand-Regular.ttf") format("truetype");
+}
 
 :root {
   --color_1: #ffe200;
@@ -24,13 +28,14 @@
   --color_dark: #000000;
   --color_light: #ffffff;
   --font-size-h1: 3.5rem;
-  --font-size-h2: 1.5rem;
-  --font-size-h3: 2.2rem;
+  --font-size-h2: 2.2rem;
+  --font-size-h3: 1.5rem;
   --font-size-p: 1.4rem;
   --border-radius: 5px;
   --font-logo: aloja;
   --font-titre_small-text: leagueSpartan;
   --font-big-text: Montserrat;
+  --card-text: PatrickHand;
 
   --transition: all 400ms ease;
 }
@@ -69,6 +74,7 @@ h3 {
 
 a {
   transition: var(--transition);
+  text-decoration: none !important;
 }
 
 body::before {

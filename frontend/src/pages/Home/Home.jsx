@@ -1,47 +1,75 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Layout from "@components/Layout";
+import axios from "axios";
+import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
-import invitationsPablo from "../../assets/images/InvitationsPablo.jpg";
-// import Userback from "@components/AxiosBack/Userback"
-// import Eventback from "@components/AxiosBack/Eventback"
+import invitation from "../../assets/images/invitation.gif";
+import post2 from "../../assets/images/post2.gif";
+import blog2 from "../../assets/images/blog2.gif";
 
 function Home() {
+  const [arrayData, setarrayData] = useState([]);
+
+  useEffect(() => {
+    const article = `http://localhost:5000/api/new-article`;
+    axios
+      .get(article)
+      .then((res) => res.data)
+      .then((cards) => {
+        setarrayData(cards);
+      });
+  }, []);
+
   return (
     <Layout>
       <div className="acceuilContainer">
         <div className="CCM">
-          <h2>Comment ca marche </h2>
+          <h3 className="titleAloja">Comment ca marche </h3>
         </div>
         <div className="Philan">
           <Link to="/Philanthrokids">
-            <h2>Philanthrokids</h2>
+            <h3 className="titleAloja">Philanthrokids</h3>
           </Link>
         </div>
         <div className="creation">
           <Link to="/CreationEvenement">
-            <h2>Creer un evenement</h2>
+            <h3 className="titleAloja">Creer un evenement</h3>
+            <img className="blogGif" src={blog2} alt="journal" />
           </Link>
         </div>
         <div className="rejoindre">
-          <h2>Rejoindre un evenement</h2>
+          <h3 className="titleAloja">Rejoindre un evenement</h3>
         </div>
         <div className="atelier">
-          <h2>Atelier carte d'invitation</h2>
-          <div>
-            <img
-              className="cartePablo"
-              src={invitationsPablo}
-              alt="invitation modèle"
-            />
-          </div>
+          <Link to="/AtelierCarte">
+            <h3 className="titleAloja">Atelier carte d'invitation</h3>
+            <div>
+              <img
+                className="cartePablo"
+                src={invitation}
+                alt="invitation modèle"
+              />
+            </div>
+          </Link>
         </div>
         <div className="article1">
-          <h2>Article</h2>
+          <Link to="/Blog">
+            <img className="postGif" src={post2} alt="new post" />
+            <h3 className="titleAloja">Article</h3>
+
+            <div className="newArticle">
+              {arrayData.map((card) => (
+                <NewArticle key={card.id} article={card} />
+              ))}
+            </div>
+          </Link>
         </div>
         <div className="article2">
-          <h2>Blog</h2>
+          <Link to="/Blog">
+            <h3 className="titleAloja">Blog</h3>
+          </Link>
         </div>
         <div className="news">
           <Newsletter />
@@ -50,7 +78,7 @@ function Home() {
       <div className="confianceFlex">
         <div className="confiance">
           <div className="divTitre">
-            <h2>ils nous font confiance</h2>
+            <h3>ils nous font confiance</h3>
           </div>
           <div>
             <p>

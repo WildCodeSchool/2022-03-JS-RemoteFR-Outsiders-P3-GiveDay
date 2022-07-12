@@ -5,7 +5,7 @@ import "./footer.css";
 
 export default function Footer() {
   return (
-    <footer className="give-footer">
+    <footer id="give-footer">
       <ul className="social-links">
         <li className="conditions-link_items">
           <a href="https://www.giveday.fr/conditions_generales">

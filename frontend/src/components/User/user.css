@@ -26,8 +26,7 @@
   background-color: var(--color_3);
   position: absolute;
   top: 0;
-  left: 0;
-  right: 0;
+  right: 2vw;
   bottom: 0;
   margin: auto;
   margin-top: 10.25rem;
@@ -103,8 +102,8 @@
   text-align: center;
 }
 .inputForm:invalid {
-  border: 1px solid red;
-  color: red;
+  border: 1px solid var(--color_5);
+  color: var(--color_5);
 }
 
 .inputForm:hover {
@@ -124,13 +123,20 @@
   padding: 0.5rem;
   display: block;
   background: var(--color_2);
-  width: 30%;
+  width: 50%;
   margin-top: 20rem;
   position: absolute;
   text-decoration: none;
   color: var(--color_1);
   font-size: 0.8rem;
   border-radius: 5px;
+}
+.detailsInput {
+  display: none;
+}
+.inputForm:invalid ~ .detailsInputMyAccount {
+  margin-top: 20rem;
+  margin-right: 18rem;
 }
 
 .errorLogin {
@@ -175,17 +181,18 @@
   font-family: var(--font-logo);
   margin: 0.2rem;
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 750px) {
   .loginContainer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: start;
+    flex-direction: row;
+    align-items: center;
+    right: 0;
+    justify-content: center;
     position: initial;
     width: 100%;
   }
 
-  .buttonStyle {
+  .buttonStyleLogin {
     width: clamp(9rem, 1rem, 1rem);
     height: clamp(2rem, 2.5rem, 3rem);
     border: 2px solid var(--color_ligh);
@@ -194,15 +201,93 @@
     color: var(--color_light);
     transition: var(--transition);
     font-size: 0.8rem;
+    margin-left: 2.5%;
   }
   .buttonContainer {
     display: flex;
     flex-direction: row;
-    align-items: initial;
+    align-items: center;
     width: 100%;
     justify-content: center;
     height: 3rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
+}
+#MyUser {
+  color: var(--color_light);
+}
+#MyUser .logoGiveday {
+  height: 10rem;
+  padding-bottom: 3rem;
+}
+#MyUser .eventSection1 {
+  width: 65%;
+  height: 80%;
+  margin-left: 2.5%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  overflow: scroll;
+}
+#MyUser .eventSection1 .eventSection1Title {
+  padding-left: 5%;
+  padding-bottom: 3%;
+  color: var(--color_2);
+}
+#MyUser .eventSection1Titles {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 2%;
+}
+#MyUser .eventSection1Titles h1 {
+  flex: 1;
+  text-align: center;
+  color: var(--color_4);
+}
+#MyUser .eventSection1Results {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 0.5%;
+}
+#MyUser .eventSection1Results h1 {
+  flex: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: var(--font-big-text);
+  font-weight: bold;
+}
+#MyUser .eventSection1Results .eventStatusEnCours {
+  color: var(--color_5);
+}
+#MyUser .eventSection1Results .eventStatusTerminé {
+  color: var(--color_1);
+}
+#MyUser .eventSection2 {
+  width: 30%;
+  height: 80%;
+  margin-right: 2.5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color_4);
+  border-radius: var(--border-radius);
+}
+
+#viewUserContainer {
+  text-align: center;
+}
+#viewUserContainer h1 {
+  margin-top: 3rem;
+}
+
+.formsContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  color: var(--color_light);
+  text-align: center;
+  gap: 7rem;
 }

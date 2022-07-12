@@ -9,10 +9,10 @@ function Register({ hundleOpenNewAccount, setUserIsConnected }) {
     nom: "",
     email: "",
     password: "",
+    role: "user",
   });
   const handleRegister = (event) => {
     event.preventDefault();
-    console.warn(user);
     api
       .post("/api/auth/register", user, { withCredentials: true })
       .then((res) => res.data)

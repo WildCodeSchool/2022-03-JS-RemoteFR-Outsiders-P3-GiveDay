@@ -1,4 +1,4 @@
-.give-footer {
+#give-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -35,7 +35,7 @@
 li.social-link_items:nth-child(2) {
   margin-bottom: 1rem;
 }
-li.social-link_items > a > svg {
+#give-footer li.social-link_items > a > svg {
   margin-right: 10px;
 }
 
@@ -56,7 +56,7 @@ li.social-link_items > a > svg {
     font-family: var(--font-big-text);
     font-weight: bold;
   }
-  .give-footer {
+  #give-footer {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;

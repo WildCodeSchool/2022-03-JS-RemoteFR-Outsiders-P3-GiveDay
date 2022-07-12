@@ -1,0 +1,127 @@
+/*$$$$$$$$$$$$$$$$$$$ Page ADMIN $$$$$$$$$$$$$$*/
+.adminPage {
+  min-width: fit-content;
+  min-height: 100vh;
+  background-color: rgb(222, 222, 223);
+  display: flex;
+  flex-direction: row;
+}
+
+::-webkit-scrollbar {
+  height: 20px;
+}
+/*$$$$$$$$$$$$$$$$$$$ Navigation $$$$$$$$$$$$$$*/
+#adminNav {
+  background-color: rgb(27, 27, 27);
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  display: block;
+}
+
+#adminNav > ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 5rem;
+}
+
+#adminNav a {
+  text-align: center;
+  color: #eee;
+  display: block;
+}
+
+/* mouse over link */
+#adminNav a:hover {
+  background-color: #eee;
+  color: #333;
+}
+
+#adminNav h1 {
+  padding: 3rem;
+  margin: 0;
+  background-color: var(--color_2);
+}
+
+/*$$$$$$$$$$$$$$$$$$$ Container Utilisateur $$$$$$$$$$$$$$*/
+/********* Titre + button "ajouter user"***********/
+.head-h2-btn {
+  display: flex;
+  /* justify-content: space-between; */
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.btn-add {
+  margin-top: 3.5rem;
+  background-color: transparent;
+  border: none;
+}
+
+/******** Tableau affichage utilisateurs **********/
+.contentTable h2 {
+  font-size: var(--font-size-h3);
+  padding-top: 4.1rem;
+  margin: 0;
+}
+.contentTable {
+  padding-left: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-btn {
+  border: none;
+  font-weight: 900;
+  background-color: transparent;
+}
+
+.delete-btn {
+  color: var(--color_2);
+}
+
+.valid-cancel {
+  display: flex;
+  width: 8rem;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.role-column {
+  width: 7rem;
+}
+
+.modify-role-column {
+  width: 9rem;
+}
+
+.icons-cell {
+  text-align: center;
+}
+
+.searchbar {
+  width: fit-content;
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 0.5rem;
+}
+.searchbar input {
+  width: 32.5rem;
+}
+
+/*************Formulaire update user ****************/
+#updateUserForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+#updateUserForm label {
+  display: flex;
+  flex-direction: column;
+}
+
+#updateUserForm select {
+  max-width: fit-content;
+}

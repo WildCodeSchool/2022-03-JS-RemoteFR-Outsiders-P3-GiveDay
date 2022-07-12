@@ -1,17 +1,9 @@
 import React from "react";
 import "./newsletter.css";
 import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
 
 const sendNewsletterFollower = (e) => {
   e.preventDefault();
-
-  Swal.fire({
-    title: "Error!",
-    text: "Do you want to continue",
-    icon: "error",
-    confirmButtonText: "Cool",
-  });
 
   emailjs
     .sendForm("service_bgu7oxk", "template_fnzqw3n", "", "5NZVBYk7GV2tzzM0L")

@@ -7,12 +7,30 @@
   height: 100%;
   background-color: var(--color_light);
 }
+.openToogle {
+  border: solid 2px var(--color_2);
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  padding: 0 0.7rem;
+  background-color: var(--color_2);
+  color: var(--color_light);
+  margin: 1.5rem 0 1rem 0;
+}
+.openToogle:hover {
+  background-color: var(--color_light);
+  color: var(--color_2);
+  border: solid 2px var(--color_2);
+}
+.navContainerOff {
+  display: none;
+}
 .navContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  height: 5rem;
+  min-height: 5rem;
 }
 .navContainer > ul:nth-child(1) {
   padding-left: 0rem;
@@ -43,7 +61,6 @@
   background-color: transparent;
   border: 0;
   color: var(--color_dark);
-  animation: changeColor 1s;
 }
 .navLinkOn > h2:nth-child(n) {
   margin-bottom: 0;
@@ -53,40 +70,54 @@
   margin-bottom: 0;
   font-size: 1rem;
 }
-@keyframes changeColor {
-  from {
-    color: var(--color_2);
-  }
 
-  to {
-    color: var(--color_dark);
-  }
+.openedJeCreeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+.openedJeCree .open {
+  margin: 1rem 0rem 0rem 0rem;
+}
+.openedJeCree {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.open {
+  text-align: center;
+  width: 100%;
+  color: var(--color_3);
+}
+.hidden {
+  display: none;
 }
 
-@media screen and (max-width: 980px) {
-  .navLinkOff > h2 {
-    font-size: 1rem;
-  }
-  .navLinkOn > h2 {
-    font-size: 1rem;
-  }
+@media screen and (max-width: 750px) {
   .navContainer {
-    display: flex;
-    flex-direction: row;
-    align-items: initial;
-    justify-content: space-around;
-    width: 100%;
-    height: 7rem;
+    height: 30rem;
+    align-items: center;
+    justify-content: center;
   }
   .navContainer ul {
-    display: flex;
+    padding: 3rem 0;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 70%;
-    height: 100%;
-    list-style: none;
-    border-top: 0.2rem solid var(--color_1);
-    border-bottom: 0.2rem solid var(--color_1);
+  }
+  .openedJeCree .open {
+    margin: 0;
+  }
+  .openedJeCree {
+    position: relative;
+    top: 0;
+    margin-left: 0;
+  }
+  .openedJeCreeContainer {
+    flex-direction: column;
+  }
+  .show {
+    text-align: center;
+    margin: 2rem 0 1rem 0;
   }
 }

@@ -17,7 +17,7 @@ function UserDisconnected({ setUserIsConnected }) {
   };
 
   return (
-    <div className="loginContainer">
+    <div>
       <div className="buttonContainer">
         <button
           type="button"

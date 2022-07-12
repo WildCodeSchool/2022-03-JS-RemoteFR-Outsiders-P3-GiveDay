@@ -40,7 +40,7 @@
 
 .rejoindre {
   grid-area: rejoindre;
-  background-image: url("../../assets/images/ZEBRE.jpg");
+  background-image: url("../../assets/images/zebre.jpg");
   background-size: cover;
   background-position: 90% 70%;
   background-repeat: no-repeat;
@@ -62,6 +62,35 @@
   grid-area: article1;
   background-color: rgb(236, 95, 93);
 }
+.newVignette {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+.newArticle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.newImage {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+.newTitle {
+  color: var(--color_dark);
+  margin-bottom: 2rem;
+}
+.newArticle {
+  color: var(--color_dark);
+}
+.newDescript {
+  color: var(--color_dark);
+  font-weight: bold;
+}
+.article1 {
+  position: relative;
+}
 
 .article2 {
   grid-area: article2;
@@ -78,7 +107,8 @@
   color: black;
   background-color: #f4f5f9c2;
 }
-.Philan > a:nth-child(1) > h2:nth-child(1) {
+
+.titleAloja {
   text-align: center;
   font-family: aloja;
   /* margin-top: 1rem; */
@@ -88,36 +118,7 @@
   color: black;
   background-color: #f4f5f9c2;
 }
-.creation > a:nth-child(1) > h2:nth-child(1) {
-  text-align: center;
-  font-family: aloja;
-  /* margin-top: 1rem; */
-  font-weight: initial;
-  text-decoration: none;
-  list-style: none;
-  color: black;
-  background-color: #f4f5f9c2;
-}
-.article1 > h2:nth-child(1) {
-  text-align: center;
-  font-family: aloja;
-  /* margin-top: 1rem; */
-  font-weight: initial;
-  text-decoration: none;
-  list-style: none;
-  color: black;
-  background-color: #f4f5f9c2;
-}
-.article2 > h2:nth-child(1) {
-  text-align: center;
-  font-family: aloja;
-  /* margin-top: 2rem; */
-  font-weight: initial;
-  text-decoration: none;
-  list-style: none;
-  color: black;
-  background-color: #f4f5f9c2;
-}
+
 div.acceuilContainer > div > p:nth-child(n) {
   width: 98%;
   margin: 10px;
@@ -234,16 +235,22 @@ div.acceuilContainer > div:nth-child(8) {
   margin: 4rem;
 }
 .cartePablo {
-  width: 53%;
+  width: 63%;
   transform: rotate(25deg);
-  margin: 5rem;
-  transition: transform 2s;
+  margin: 4rem;
 }
-.cartePablo:hover {
-  margin-left: 15%;
-  transform: rotate(320deg);
+.postGif {
+  width: 30%;
+  transform: rotate(25deg);
+  position: absolute;
+  right: 0;
 }
 
+.blogGif {
+  margin: 3rem;
+  width: 80%;
+  transform: rotate(5deg);
+}
 /***********************************************************media query**********************/
 
 @media screen and (max-width: 980px) {

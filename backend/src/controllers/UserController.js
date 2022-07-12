@@ -1,7 +1,6 @@
-const bcrypt = require("bcryptjs");
 const models = require("../models");
 
-class RegisterController {
+class UserController {
   static browse = (req, res) => {
     models.user
       .findAll()
@@ -52,36 +51,6 @@ class RegisterController {
       });
   };
 
-  static async add(req, res) {
-    try {
-      const { prenom, nom, email, password } = req.body;
-      const hash = await bcrypt.hash(password, 10);
-      const getEmail = await models.user.getUserByEmail(email);
-      if (getEmail[0].length > 0) {
-        return res.status(400).json({
-          status: 400,
-          message: "Email already exist",
-        });
-      }
-
-      models.user
-        .insert({ prenom, nom, email, password: hash })
-        .then(([result]) => {
-          res
-            .status(201)
-            .send({ message: "register user ok", id: result.insertId });
-        })
-        .catch((err) => {
-          console.error(err);
-          res.sendStatus(500);
-        });
-    } catch (err) {
-      console.error(err);
-      res.sendStatus(500);
-    }
-    return null;
-  }
-
   static delete = (req, res) => {
     models.user
       .delete(req.params.id)
@@ -93,6 +62,18 @@ class RegisterController {
         res.sendStatus(500);
       });
   };
+
+  static count = (req, res) => {
+    models.user
+      .getCount()
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
 }
 
-module.exports = RegisterController;
+module.exports = UserController;
