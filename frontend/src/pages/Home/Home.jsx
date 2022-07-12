@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
+import api from "@services/api";
 import Layout from "@components/Layout";
-import axios from "axios";
 import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import invitation from "../../assets/images/invitation.gif";
@@ -13,9 +13,8 @@ function Home() {
   const [arrayData, setarrayData] = useState([]);
 
   useEffect(() => {
-    const article = `http://localhost:5000/api/new-article`;
-    axios
-      .get(article)
+    api
+      .get(`http://localhost:5000/api/new-article`)
       .then((res) => res.data)
       .then((cards) => {
         setarrayData(cards);
@@ -55,16 +54,14 @@ function Home() {
           </Link>
         </div>
         <div className="article1">
-          <Link to="/Blog">
-            <img className="postGif" src={post2} alt="new post" />
-            <h3 className="titleAloja">Article</h3>
+          <img className="postGif" src={post2} alt="new post" />
+          <h3 className="titleAloja">Article</h3>
 
-            <div className="newArticle">
-              {arrayData.map((card) => (
-                <NewArticle key={card.id} article={card} />
-              ))}
-            </div>
-          </Link>
+          <div className="newArticle">
+            {arrayData.map((card) => (
+              <NewArticle key={card.id} article={card} />
+            ))}
+          </div>
         </div>
         <div className="article2">
           <Link to="/Blog">

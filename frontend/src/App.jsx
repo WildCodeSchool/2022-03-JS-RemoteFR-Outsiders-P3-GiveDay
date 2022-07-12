@@ -86,7 +86,14 @@ function App() {
             </div>
           }
         />
-        <Route path="/ArticleDetail" element={<ArticleDetail />} />
+        <Route
+          path="/ArticleDetail"
+          element={
+            <div className="containerContainWebsite">
+              <ArticleDetail />
+            </div>
+          }
+        />
 
         <Route
           path="/AtelierCarte"
@@ -96,14 +103,6 @@ function App() {
             </div>
           }
         />
-        {/* <Route
-          path={`/articleDetail/:id`}
-          element={
-            <div className="containerContainWebsite">
-              <ArticleDetail article={article} />
-            </div>
-          }
-        /> */}
 
         <Route path="/resetpassword-ask" element={<FormForgotPassword />} />
         <Route path="/contact" element={<Contact />} />
