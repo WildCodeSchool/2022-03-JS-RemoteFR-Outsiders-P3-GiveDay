@@ -21,17 +21,6 @@ const generateRandomString = (myLength) => {
 };
 
 class ResetController {
-  static compareToken = () => {
-    // JWT TOKEN
-    // DB TOKEN
-    // const dbToken = models.getTokenExists();
-    /* console.warn(
-      `compareToken id:${req.params.id} with Database Token : ${getTokenExists}`
-    );
-    console.warn("JWT : ");
-    */
-  };
-
   static isTokenExists = (req, res) => {
     models.user
       .getTokenExists(req.params.id)

@@ -23,7 +23,7 @@ class UserManager extends AbstractManager {
 
   getTokenExists(tokenjwt) {
     return this.connection.query(
-      `SELECT * FROM user WHERE tokenpwd = ?`,
+      `SELECT prenom, nom, email, role, tokenpwd FROM user WHERE tokenpwd = ?`,
       tokenjwt
     );
   }

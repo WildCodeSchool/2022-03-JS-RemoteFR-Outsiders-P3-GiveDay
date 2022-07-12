@@ -63,7 +63,6 @@ router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);
 
 router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
-router.get("/api/reset/password-change/:id", ResetController.compareToken);
 router.get("/api/reset/checktoken/:id", ResetController.isTokenExists);
 
 // router.put("/api/article/:id", ArticleController.edit);

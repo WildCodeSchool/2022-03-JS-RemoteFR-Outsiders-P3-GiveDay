@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import "./FormChangePassword.css";
 import api from "@services/api";
@@ -13,56 +13,68 @@ import api from "@services/api";
   email: "",
   password: "",
 });
-const handleRegister = (event) => {
-  event.preventDefault();
-  api
-    .post("/api/auth/register", user, { withCredentials: true })
-    .then((res) => res.data)
-    .then((data) => {
-      if (data) {
-        setUserIsConnected(true);
-      }
-    });
-}; */
+*/
 
 function ResetPasswordForm() {
-  const [isMessageOk, setIsMessageOk] = useState();
+  const [isAuthorized, setIsAuthorized] = useState();
+  const [message, setMessage] = useState("");
+  // let infos = "";
+  const inputRef1 = useRef(null);
+  const inputRef2 = useRef(null);
+  let infos = useRef(null);
 
   const { id } = useParams();
-  console.warn(id);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.warn({ infos });
+    if (inputRef1.current.value === inputRef2.current.value) {
+      api
+        .post(
+          "/api/auth/register",
+          [infos.prenom, infos.nom, infos.email, "user", inputRef1],
+          { withCredentials: true }
+        )
+        .then((res) => {
+          console.warn(res.data);
+          return res.data;
+        })
+        .catch(() => {
+          // setIsAuthorized("forbidden");
+          console.error("Modification refusée");
+        });
+
+      setMessage("Votre mot de passe est modifié !");
+    } else {
+      setMessage("Veuillez entrer 2 mots de passe identiques.");
+    }
+    console.warn(message);
+  };
+
+  // Verification : autorise / non-autorise
   useEffect(() => {
-    console.warn("Effect is loaded");
     api
       .get(`/api/reset/checktoken/${id}`, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
         if (data[0].tokenpwd === id) {
-          setIsMessageOk("authorised");
-          console.warn("Demande est authorisée");
+          setIsAuthorized("authorised");
+          console.warn("Demande est autorisée");
+          return data;
         }
+        return false;
+      })
+      .then((data) => {
+        infos = { ...data[0] };
+        console.warn({ infos });
       })
       .catch(() => {
-        setIsMessageOk("forbidden");
-        console.warn("Demande non authorisée");
+        setIsAuthorized("forbidden");
+        console.warn("Demande non autorisée");
       });
   }, []);
 
-  const [passwords, setPasswords] = useState({
-    password1: "",
-    password2: "",
-  });
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.warn("lancement d'axios...");
-  };
-
-  const handleChange = (e) => {
-    setPasswords(e.target.value);
-  };
-
-  if (isMessageOk === "authorised") {
+  if (isAuthorized === "authorised") {
     return (
       <form
         className="form-change-password-email"
@@ -78,10 +90,9 @@ function ResetPasswordForm() {
             className="form-control"
             id="password1Input"
             aria-describedby="password1"
-            placeholder="Entrez votre email"
-            value={passwords.password1}
-            onChange={handleChange}
-            pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
+            placeholder="Entrez le mot de passe"
+            ref={inputRef1}
+            // pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
           />
           <input
             type="password"
@@ -90,18 +101,19 @@ function ResetPasswordForm() {
             id="password2Input"
             aria-describedby="password2"
             placeholder="Confirmez le mot de passe"
-            value={passwords.password2}
-            onChange={handleChange}
+            ref={inputRef2}
           />
         </div>
         <input
           type="submit"
           className="btn btn-primary"
           value="Valider le nouveau mot de passe"
-          pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
+          // pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
         />
-        <p>
-          Mettre au moins 8 caracteres 1 majuscule 1 minuscule 1 nombre 1 signe
+        <p className="message red">{message}</p>
+        <p className="descriptif">
+          * Mettre au moins 8 caracteres 1 majuscule 1 minuscule 1 nombre 1
+          signe
         </p>
       </form>
     );
