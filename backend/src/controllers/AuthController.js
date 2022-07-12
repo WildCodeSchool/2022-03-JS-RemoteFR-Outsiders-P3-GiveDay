@@ -12,7 +12,7 @@ class AuthController {
    */
   static async register(req, res) {
     try {
-      const { prenom, nom, email, password } = req.body;
+      const { prenom, nom, email, password, role } = req.body;
       const hash = await bcrypt.hash(password, 10);
       let validationErrors = null;
       const getEmail = await models.user.getUserByEmail(email);
@@ -27,7 +27,8 @@ class AuthController {
         email: Joi.string().email().max(255).required(),
         prenom: Joi.string().max(255).required(),
         nom: Joi.string().max(255).required(),
-      }).validate({ prenom, nom, email }, { abortEarly: false }).error;
+        role: Joi.string(),
+      }).validate({ prenom, nom, email, role }, { abortEarly: false }).error;
       if (validationErrors) {
         return res.status(400).json({
           status: 400,
@@ -36,7 +37,7 @@ class AuthController {
       }
 
       models.user
-        .insert({ prenom, nom, email, password: hash })
+        .insert({ prenom, nom, email, password: hash, role })
         .then(([result]) => {
           res
             .status(201)
