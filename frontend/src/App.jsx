@@ -14,6 +14,7 @@ import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
 import Blog from "@pages/blog/Blog";
 import FormForgotPassword from "@components/FormForgotPassword/FormForgotPassword";
 import FormChangePassword from "@components/FormChangePassword/FormChangePassword";
+import ArticleDetail from "@components/Article/ArticleDetail";
 
 import Page404 from "@pages/Page404/Page404";
 
@@ -76,6 +77,7 @@ function App() {
             </div>
           }
         />
+
         <Route
           path="/Blog"
           element={
@@ -84,6 +86,8 @@ function App() {
             </div>
           }
         />
+        <Route path="/ArticleDetail" element={<ArticleDetail />} />
+
         <Route
           path="/AtelierCarte"
           element={
@@ -92,6 +96,15 @@ function App() {
             </div>
           }
         />
+        {/* <Route
+          path={`/articleDetail/:id`}
+          element={
+            <div className="containerContainWebsite">
+              <ArticleDetail article={article} />
+            </div>
+          }
+        /> */}
+
         <Route path="/resetpassword-ask" element={<FormForgotPassword />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />} />
