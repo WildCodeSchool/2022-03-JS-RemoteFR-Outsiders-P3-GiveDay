@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
 import Layout from "@components/Layout";
-import axios from "axios";
+import api from "@services/api";
 import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import invitation from "../../assets/images/invitation.gif";
@@ -13,9 +13,8 @@ function Home() {
   const [arrayData, setarrayData] = useState([]);
 
   useEffect(() => {
-    const article = `http://localhost:5000/api/new-article`;
-    axios
-      .get(article)
+    api
+      .get(`http://localhost:5000/api/new-article`)
       .then((res) => res.data)
       .then((cards) => {
         setarrayData(cards);

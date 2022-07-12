@@ -86,7 +86,15 @@ function App() {
             </div>
           }
         />
-        <Route path="/ArticleDetail" element={<ArticleDetail />} />
+
+        <Route
+          path="/ArticleDetail"
+          element={
+            <div className="containerContainWebsite">
+              <ArticleDetail />
+            </div>
+          }
+        />
 
         <Route
           path="/AtelierCarte"

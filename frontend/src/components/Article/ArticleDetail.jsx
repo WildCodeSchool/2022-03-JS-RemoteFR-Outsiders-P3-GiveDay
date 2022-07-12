@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import Layout from "@components/Layout";
+import { Link } from "react-router-dom";
 
 import CurrentPagesContext from "../../PagesContexts";
 
@@ -8,22 +9,30 @@ function ArticleDetail() {
 
   return (
     <Layout>
-      <div className="vignetteBlog">
-        <p>coucou</p>
-        <div>
+      <div className="gloArticle">
+        <div className="BlocPhotoArticle">
           <img
-            className="photoArticle"
+            className="PhotoPrincipal"
             src={`../src/assets/images/${detail.image}`}
             alt={detail.titre}
           />
         </div>
-        <div>
-          <h3 className="titreArticle">{detail.titre}</h3>
-          <p className="titreDate">{detail.date}</p>
-          <p className="titreText">{detail.texte}</p>
+        <div className="titreAndDate">
+          <h3 className="detailTitre">{detail.titre}</h3>
+          <p className="detailDate">{detail.date}</p>
+        </div>
+        <div className="articleDetail">
+          <article className="detailText">{detail.texte}</article>
+        </div>
+
+        <div className="ButtonArticle">
+          <Link to="/Blog">
+            <button type="button" className="buttonStyle">
+              Retour aux articles
+            </button>
+          </Link>
         </div>
       </div>
-      {/* <ArticleDetail key={article.id} article={article} /> */}
     </Layout>
   );
 }

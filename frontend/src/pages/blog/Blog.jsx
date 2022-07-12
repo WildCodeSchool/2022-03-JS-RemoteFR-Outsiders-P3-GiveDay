@@ -19,9 +19,8 @@ function Blog() {
    * Lors du chargement du component, nous allons récupérer toutes nos catégories.
    */
   useEffect(() => {
-    const tags = `/api/tag`;
     api
-      .get(tags)
+      .get(`/api/tag`)
       .then((res) => res.data)
       .then((data) => {
         setCategories(data);

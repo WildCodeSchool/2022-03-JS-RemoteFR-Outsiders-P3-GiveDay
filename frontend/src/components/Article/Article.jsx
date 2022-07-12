@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import api from "@services/api";
 import "./article.css";
 import "@components/Article/ArticleDetail";
 import CurrentPagesContext from "../../PagesContexts";
@@ -9,9 +9,8 @@ function Article({ article }) {
   const { setDetail } = useContext(CurrentPagesContext);
 
   const handleClick = () => {
-    const articleSolo = `http://localhost:5000/api/articles/${article.id}`;
-    axios
-      .get(articleSolo)
+    api
+      .get(`http://localhost:5000/api/articles/${article.id}`)
       .then((res) => res.data)
       .then((data) => {
         setDetail(data);
