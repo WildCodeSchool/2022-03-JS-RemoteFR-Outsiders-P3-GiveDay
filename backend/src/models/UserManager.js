@@ -14,7 +14,6 @@ class UserManager extends AbstractManager {
     );
   }
 
-
   update(user) {
     return this.connection.query(
       `update ${UserManager.table} set prenom = ?, nom= ?, role= ? where id = ?`,
@@ -22,13 +21,12 @@ class UserManager extends AbstractManager {
     );
   }
 
-getCount() {
+  getCount() {
     return this.connection.query(
       `SELECT Count(*) as count FROM ${UserManager.table} `
     );
   }
-  
-  
+
   updateToken(tokenArray) {
     return this.connection.query(
       `UPDATE ${UserManager.table} SET tokenpwd = ? WHERE email = ?`,
@@ -46,7 +44,6 @@ getCount() {
     return this.connection.query(
       `UPDATE ${UserManager.table} SET tokenpwd = null WHERE tokenpwd = ?`,
       tokenjwt
-
     );
   }
 }
