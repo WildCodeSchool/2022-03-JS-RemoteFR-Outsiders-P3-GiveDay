@@ -58,6 +58,7 @@ router.delete("/api/cadeaux/:id", CadeauController.delete);
  */
 router.get("/api/articles", ArticleController.browse);
 router.get("/api/articles/:id", ArticleController.read);
+router.get("/Blog/articleDetail/:id", ArticleController.read);
 router.get("/api/tag", ArticleController.tag);
 router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);

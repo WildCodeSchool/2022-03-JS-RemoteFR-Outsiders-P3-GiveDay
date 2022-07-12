@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import api from "@services/api";
 import Layout from "@components/Layout";
 import Article from "@components/Article/Article";
+import CurrentPagesContext from "../../PagesContexts";
 
 import "./blog.css";
 import "../Home/home.css";
@@ -10,9 +11,9 @@ import "../../components/Nav/Nav.css";
 import "../../components/Article/article.css";
 
 function Blog() {
-  const [articles, setArticles] = useState([]);
   const [categories, setCategories] = useState([]);
   const [choiceCategorie, setChoiceCategorie] = useState(0);
+  const { articles, setArticles } = useContext(CurrentPagesContext);
 
   /**
    * Lors du chargement du component, nous allons récupérer toutes nos catégories.

@@ -3,7 +3,7 @@
   flex-direction: row;
   flex-wrap: wrap;
 }
-.vignetteBlog > div > img {
+.photoArticle {
   width: 100%;
 }
 .vignetteBlog {
@@ -19,10 +19,7 @@
   background-repeat: no-repeat;
   background-color: #f4f4f4;
 }
-.vignetteBlog > h2 {
-  padding: 1rem;
-  font-size: 1.3rem;
-}
+
 .vignetteBlog > h3 {
   padding: 0rem 1rem;
   font-size: 1em;
@@ -72,6 +69,26 @@
 }
 .searchTag > h3 {
   margin-right: 1rem;
+}
+.titreArticle {
+  margin: 2rem;
+  text-decoration: none;
+  color: var(--color_dark);
+}
+.titreDate {
+  margin: 2rem;
+  text-decoration: none;
+  color: var(--color_dark);
+}
+.titreText {
+  margin: 2rem;
+  text-decoration: none;
+  color: var(--color_dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
 }
 @media screen and (max-width: 980px) {
   .globalBlog {
