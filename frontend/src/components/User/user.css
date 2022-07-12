@@ -181,17 +181,18 @@
   font-family: var(--font-logo);
   margin: 0.2rem;
 }
-@media screen and (max-width: 980px) {
-  .loginContainer {
+ @media screen and (max-width: 750px) {
+   .loginContainer {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: start;
+    flex-direction: row;
+    align-items: center;
+    right: 0;
+    justify-content: center;
     position: initial;
     width: 100%;
-  }
+  } 
 
-  .buttonStyle {
+  .buttonStyleLogin {
     width: clamp(9rem, 1rem, 1rem);
     height: clamp(2rem, 2.5rem, 3rem);
     border: 2px solid var(--color_ligh);
@@ -200,18 +201,19 @@
     color: var(--color_light);
     transition: var(--transition);
     font-size: 0.8rem;
+    margin-left: 2.5%;
   }
   .buttonContainer {
     display: flex;
     flex-direction: row;
-    align-items: initial;
+    align-items: center;
     width: 100%;
     justify-content: center;
     height: 3rem;
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
-}
+} 
 #MyUser {
   color: var(--color_light);
 }

@@ -74,9 +74,16 @@ router.delete("/api/article/delete/:id", ArticleController.delete);
  * @desc Users routes
  *
  * @api {get} /api/users Récupère tous les utilisateurs
+ * @api {get} /api/users/:id Récupère un utilisateur
+ * @api {put} /api/users/update/:id Update l'utilisateur (pour le moment juste le role)
  * @api {delete} /api/users/delete/:id Supprime un utilisateur de la base de données
-
+ * @api {get} /api/users/count Récupère le nombre total d'utilisateurs
+ 
  */
 router.get("/api/users", UserController.browse);
+router.get("/api/users/:id", UserController.read);
+router.put("/api/users/update/:id", UserController.edit);
 router.delete("/api/users/delete/:id", UserController.delete);
+router.get("/api/count", UserController.count);
+
 module.exports = router;

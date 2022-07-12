@@ -14,7 +14,7 @@
   width: 100%;
   justify-content: center;
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 750px) {
   .columnContainer {
     display: flex;
     flex-direction: column;

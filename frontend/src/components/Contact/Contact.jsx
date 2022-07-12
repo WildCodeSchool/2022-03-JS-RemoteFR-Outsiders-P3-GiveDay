@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
-import Swal from "sweetalert2";
 import "./contact.css";
 
 function Contact() {
@@ -8,13 +7,6 @@ function Contact() {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    Swal.fire({
-      title: "Error!",
-      text: "Do you want to continue",
-      icon: "error",
-      confirmButtonText: "Cool",
-    });
 
     emailjs
       .sendForm(

@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import UsersContent from "../Users/UsersContent";
 import PostsContent from "../Posts/PostsContents";
+import Edit from "../Users/Edit";
 import "../dashboard.css";
 
 function Admin({ content }) {
-  console.warn(content);
+  // console.warn(content);
   return (
     <div className="adminPage">
       <nav id="adminNav">
@@ -22,6 +23,7 @@ function Admin({ content }) {
       <div className="adminContent">
         {content === "users" ? <UsersContent /> : null}
         {content === "posts" ? <PostsContent /> : null}
+        {content === "edit" ? <Edit /> : null}
       </div>
     </div>
   );

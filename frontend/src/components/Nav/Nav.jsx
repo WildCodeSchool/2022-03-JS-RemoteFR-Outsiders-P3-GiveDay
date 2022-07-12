@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./Nav.css";
 import { Link } from "react-router-dom";
 import CurrentPagesContext from "../../PagesContexts";
@@ -79,19 +79,42 @@ function Nav() {
   const openJeCree = () => {
     setIsOpenJeCree(!isOpenJeCree);
   };
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [openToogle, setOpenToogle] = useState(false);
+  const handleToogle = () => {
+    setOpenToogle(!openToogle);
+  };
+  useEffect(() => {
+    const changeWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
+    window.addEventListener("resize", changeWidth);
+
+    return () => {
+      window.removeEventListener("resize", changeWidth);
+    };
+  }, []);
   return (
     <div className="navAndContain">
-      <nav className="navContainer">
+      {screenWidth < 750 ? (
+        <button type="button" className="openToogle" onClick={handleToogle}>
+          =
+        </button>
+      ) : null}
+
+      <nav
+        className={
+          openToogle || screenWidth > 750 ? "navContainer" : "navContainerOff"
+        }
+      >
         <ul>
           <li>
-            <Link to="/">
-              <button
-                type="button"
-                className={accueil ? "navLinkOn" : "navLinkOff"}
-                onClick={goToAccueil}
-              >
-                <h2>ACCUEIL</h2>
-              </button>
+            <Link
+              to="/"
+              className={accueil ? "navLinkOn" : "navLinkOff"}
+              onClick={goToAccueil}
+            >
+              <h2>ACCUEIL</h2>
             </Link>
           </li>
           <li className="openedJeCreeContainer">
@@ -136,86 +159,33 @@ function Nav() {
             </div>
           </li>
           <li>
-            <Link to="/blog">
-              <button
-                type="button"
-                className={blog ? "navLinkOn" : "navLinkOff"}
-                onClick={goToBlog}
-              >
-                <h2>BLOG</h2>
-              </button>
+            <Link
+              to="/blog"
+              className={blog ? "navLinkOn" : "navLinkOff"}
+              onClick={goToBlog}
+            >
+              <h2>BLOG</h2>
             </Link>
           </li>
           <li>
-            <Link to="/associations">
-              <button
-                type="button"
-                className={associations ? "navLinkOn" : "navLinkOff"}
-                onClick={goToAssociations}
-              >
-                <h2>ASSOCIATIONS</h2>
-              </button>
+            <Link
+              to="/associations"
+              className={associations ? "navLinkOn" : "navLinkOff"}
+              onClick={goToAssociations}
+            >
+              <h2>ASSOCIATIONS</h2>
             </Link>
           </li>
           <li>
-            <Link to="/histoire">
-              <button
-                type="button"
-                className={histoire ? "navLinkOn" : "navLinkOff"}
-                onClick={goToHistoire}
-              >
-                <h2>NOTRE HISTOIRE</h2>
-              </button>
+            <Link
+              to="/histoire"
+              className={histoire ? "navLinkOn" : "navLinkOff"}
+              onClick={goToHistoire}
+            >
+              <h2>NOTRE HISTOIRE</h2>
             </Link>
           </li>
         </ul>
-        {/* <button
-            type="button"
-            className={accueil ? "navLinkOn" : "navLinkOff"}
-            onClick={goToAccueil}
-          >
-            <h2>ACCUEIL</h2>
-          </button>
-          <button
-            type="button"
-            className={histoire ? "navLinkOn" : "navLinkOff"}
-            onClick={goToHistoire}
-          >
-            <h2>NOTRE HISTORE</h2>
-          </button>
-          <button
-            type="button"
-            className={associations ? "navLinkOn" : "navLinkOff"}
-            onClick={goToAssociations}
-          >
-            <h2>ASSOCIATIONS</h2>
-          </button>
-          {accueil ? (
-        <div className="containerContain">
-
-      {accueil ? (
-        <div className="showHomeContainer">
-
-          <Home />
-        </div>
-      ) : null}
-
-      {associations ? (
-
-        <div className="containerContain">
-          <Associations />
-
-        <div className="showHomeContainer">
-          <SliderAssociations slides={slides}/>
-
-        </div>
-      ) : null}
-
-      {histoire ? (
-        <div className="containerContain">
-          <NotreBelleHistoire />
-        </div>
-      ) : null} */}
       </nav>
     </div>
   );
