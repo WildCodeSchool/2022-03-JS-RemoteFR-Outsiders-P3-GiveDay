@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-
+import api from "@services/api";
 import Layout from "@components/Layout";
 import Article from "@components/Article/Article";
 
@@ -19,8 +18,8 @@ function Blog() {
    * Lors du chargement du component, nous allons récupérer toutes nos catégories.
    */
   useEffect(() => {
-    const tags = `http://localhost:5000/api/tag`;
-    axios
+    const tags = `/api/tag`;
+    api
       .get(tags)
       .then((res) => res.data)
       .then((data) => {
@@ -41,8 +40,8 @@ function Blog() {
    * si celui ci change, alors nous relançons notre axios pour récupérer nos articles.
    */
   useEffect(() => {
-    const getArticles = `http://localhost:5000/api/tag/${choiceCategorie}`;
-    axios
+    const getArticles = `/api/tag/${choiceCategorie}`;
+    api
       .get(getArticles)
       .then((res) => {
         setArticles(res.data);
