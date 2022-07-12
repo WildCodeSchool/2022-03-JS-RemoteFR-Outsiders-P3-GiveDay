@@ -58,6 +58,7 @@
 .titreBlog {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   margin: 3rem;
@@ -66,6 +67,7 @@
   display: flex;
   margin-left: 3rem;
   margin-right: 1rem;
+  margin-top: 3rem;
 }
 .searchTag > h3 {
   margin-right: 1rem;
@@ -130,6 +132,34 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  .titreBlog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem 0rem 1rem 0rem;
+  }
+  .searchTag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0rem 1rem 0rem;
+  }
+  .searchTag > select {
+    width: 15rem;
+    text-align: center;
+  }
+  select.buttonStyle > option:nth-child(n) {
+    font-size: 0.8rem;
+  }
+  .searchTag > h3 {
+    margin-right: 0rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   .vignetteBlogTitre {
     display: flex;
@@ -156,5 +186,8 @@
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-color: #f4f4f4;
+  }
+  .PhotoPrincipal {
+    width: 100%;
   }
 }

@@ -54,16 +54,14 @@ function Home() {
           </Link>
         </div>
         <div className="article1">
-          <Link to="/Blog">
-            <img className="postGif" src={post2} alt="new post" />
-            <h3 className="titleAloja">Article</h3>
+          <img className="postGif" src={post2} alt="new post" />
+          <h3 className="titleAloja">Article</h3>
 
-            <div className="newArticle">
-              {arrayData.map((card) => (
-                <NewArticle key={card.id} article={card} />
-              ))}
-            </div>
-          </Link>
+          <div className="newArticle">
+            {arrayData.map((card) => (
+              <NewArticle key={card.id} article={card} />
+            ))}
+          </div>
         </div>
         <div className="article2">
           <Link to="/Blog">
