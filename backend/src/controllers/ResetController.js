@@ -1,4 +1,5 @@
 require("dotenv").config();
+const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 const models = require("../models");
 /*
@@ -75,7 +76,7 @@ class ResetController {
           console.warn(link);
           const info = await transporter.sendMail({
             from: '"Email from giveday 👻" <contact@giveday.com>', // sender address
-            to: "o.pochic@gmail.com", // list of receivers
+            to: data[1], // list of receivers
             subject: "Reset Password give_day", // Subject line
             html: `Please reset your password by clicking this link : <br> <a href=${link}>Cliquer ce lien pour redéfinir votre mot de passe</a>`, // html body
           });
@@ -86,6 +87,21 @@ class ResetController {
       .catch((err) => {
         console.error(err);
         res.sendStatus(500);
+      });
+  };
+
+  static updatePassword = async (req, res) => {
+    console.warn(req.body);
+    const hash = await bcrypt.hash(req.body.newPassword, 10);
+    models.user
+      .updatePassword({ id: req.params.id, password: hash })
+      .then((data) => {
+        console.warn(data[0]);
+        res.status(200).json(data[0]);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(204);
       });
   };
 }

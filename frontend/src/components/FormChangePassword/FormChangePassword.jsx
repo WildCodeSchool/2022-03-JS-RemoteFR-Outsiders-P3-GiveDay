@@ -1,19 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import "./FormChangePassword.css";
 import api from "@services/api";
 
-// OK : la page changement du mot de passe doit apparaitre quand le params (aqAqGr1dPGhlC) = tokenpwd de la base (aqAqGr1dPGhlC)
-// OK : si oui : on afficher le changement de mot de passe sinon afficher un message type demande non authorisée
+// 1 : la page changement du mot de passe doit apparaitre quand le params (aqAqGr1dPGhlC) = tokenpwd de la base (aqAqGr1dPGhlC)
+// 2 : si oui : on afficher le changement de mot de passe sinon afficher un message type demande non authorisée
 // 3 : comparer les 2 mots de passes identique + 1 pattern si oui update du mot (voir dans register)
-
-/* const [user, setUser] = useState({
-  prenom: "",
-  nom: "",
-  email: "",
-  password: "",
-});
-*/
 
 function ResetPasswordForm() {
   const [isAuthorized, setIsAuthorized] = useState();
@@ -21,30 +13,34 @@ function ResetPasswordForm() {
   // let infos = "";
   const inputRef1 = useRef(null);
   const inputRef2 = useRef(null);
-  let infos = useRef(null);
+  const [infos, setInfos] = useState();
 
   const { id } = useParams();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.warn({ infos });
+    console.warn(infos);
+
     if (inputRef1.current.value === inputRef2.current.value) {
+      // Axios update du user
+      const newPassword = inputRef1.current.value;
       api
-        .post(
-          "/api/auth/register",
-          [infos.prenom, infos.nom, infos.email, "user", inputRef1],
+        .put(
+          `/api/reset/updatepassword/${infos.id}`,
+          { newPassword },
           { withCredentials: true }
         )
         .then((res) => {
           console.warn(res.data);
+          // rediriger vers une page ou un composant ou un popup
           return res.data;
         })
         .catch(() => {
-          // setIsAuthorized("forbidden");
-          console.error("Modification refusée");
+          setIsAuthorized("forbidden");
+          console.error("Update refusée");
         });
-
       setMessage("Votre mot de passe est modifié !");
+      setIsAuthorized("passwordValidated");
     } else {
       setMessage("Veuillez entrer 2 mots de passe identiques.");
     }
@@ -53,6 +49,7 @@ function ResetPasswordForm() {
 
   // Verification : autorise / non-autorise
   useEffect(() => {
+    console.warn("Lauching of axios...");
     api
       .get(`/api/reset/checktoken/${id}`, { withCredentials: true })
       .then((res) => res.data)
@@ -65,8 +62,7 @@ function ResetPasswordForm() {
         return false;
       })
       .then((data) => {
-        infos = { ...data[0] };
-        console.warn({ infos });
+        setInfos(data[0]);
       })
       .catch(() => {
         setIsAuthorized("forbidden");
@@ -115,6 +111,22 @@ function ResetPasswordForm() {
           * Mettre au moins 8 caracteres 1 majuscule 1 minuscule 1 nombre 1
           signe
         </p>
+      </form>
+    );
+  }
+  if (isAuthorized === "passwordValidated") {
+    return (
+      <form
+        className="form-change-password-email"
+        name="form-reset-password-email"
+        onSubmit={handleSubmit}
+      >
+        <p className="confirmation">Votre mot de passe à bien été modifié !</p>
+        <Link to="/" className="btn btn-primary">
+          <button className="btn btn-primary" type="button">
+            Retourner sur la page d'accueil
+          </button>
+        </Link>
       </form>
     );
   }
