@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import MyAccount from "@components/User/MyAccount";
 import MyEvents from "@components/User/MyEvents";
 import "./user.css";
 import api from "@services/api";
+import CurrentPagesContext from "../../PagesContexts";
 
 function UserConnected({ setUserIsConnected }) {
+  const { accountConnected } = useContext(CurrentPagesContext);
   const [openMyAccount, setOpenMyAccount] = useState(false);
   const [openMyEvents, setOpenMyEvents] = useState(false);
   const hundleOpenMyAccount = () => {
@@ -23,12 +25,13 @@ function UserConnected({ setUserIsConnected }) {
       .then((res) => {
         console.warn(res);
       })
+      .then(localStorage.removeItem("user"))
       .catch((err) => {
         console.warn(err);
       });
     setUserIsConnected(false);
   };
-
+  console.warn(accountConnected);
   return (
     <div className="loginContainer">
       <div className="buttonContainer">

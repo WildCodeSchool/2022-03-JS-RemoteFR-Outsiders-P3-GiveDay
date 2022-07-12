@@ -12,10 +12,17 @@ class AuthController {
    */
   static async register(req, res) {
     try {
-      const { prenom, nom, email, password, role } = req.body;
+      const { prenom, nom, email, password, repeatPassword, role } = req.body;
+      if (password !== repeatPassword) {
+        return res.status(400).json({
+          status: 400,
+          message: "Password is not correct",
+        });
+      }
       const hash = await bcrypt.hash(password, 10);
       let validationErrors = null;
       const getEmail = await models.user.getUserByEmail(email);
+
       if (getEmail[0].length > 0) {
         return res.status(400).json({
           status: 400,
@@ -99,6 +106,7 @@ class AuthController {
       res.cookie("user_giveday", token).status(200).json({
         status: "success",
         message: "User is logged",
+        id: user[0].id,
       });
     } catch (error) {
       res.status(400).json({

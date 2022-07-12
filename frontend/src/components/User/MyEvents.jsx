@@ -1,10 +1,12 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import api from "@services/api";
 import "./user.css";
 import ViewUser from "./ViewUser";
+import CurrentPagesContext from "../../PagesContexts";
 
 function MyEvents({ hundleOpenMyEvents }) {
+  const { accountConnected } = useContext(CurrentPagesContext);
   const today = new Date();
   const TodayDate = `${today.getFullYear()}-${
     today.getMonth() + 1
@@ -38,7 +40,7 @@ function MyEvents({ hundleOpenMyEvents }) {
   ]);
   useEffect(() => {
     api
-      .get("/api/users/:id", { withCredentials: true })
+      .get(`/api/users/${accountConnected.id}`, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
         if (data) {

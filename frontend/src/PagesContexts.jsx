@@ -4,6 +4,8 @@ import React, { createContext, useState } from "react";
 const CurrentPagesContext = createContext();
 
 export function CurrentPagesContextProvider({ children }) {
+  const user = localStorage.getItem("user");
+  const [accountConnected, setAccountConnected] = useState(JSON.parse(user));
   const [accueil, setAcceuil] = useState(true);
   const [histoire, setHistoire] = useState(false);
   const [associations, setAssociations] = useState(false);
@@ -32,6 +34,8 @@ export function CurrentPagesContextProvider({ children }) {
         setIsOpenJeCree,
         userIsConnected,
         setUserIsConnected,
+        accountConnected,
+        setAccountConnected,
       }}
     >
       {children}

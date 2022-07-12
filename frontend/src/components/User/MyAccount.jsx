@@ -1,16 +1,20 @@
 /* eslint-disable react/no-array-index-key */ /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import api from "@services/api";
 import "./user.css";
 import ViewUser from "./ViewUser";
+import CurrentPagesContext from "../../PagesContexts";
 
 function MyAccount({ hundleOpenMyAccount }) {
-  const [user, setUser] = useState({});
+  const { accountConnected } = useContext(CurrentPagesContext);
+  const [user, setUser] = useState({ id: accountConnected.id });
   const handlePutMyAccount = (event) => {
     event.preventDefault();
     if (user.password === user.repeatPassword) {
       api
-        .put("/api/users/:id", user, { withCredentials: true })
+        .put(`/api/users/update/${accountConnected.id}`, user, {
+          withCredentials: true,
+        })
         .then((res) => res.data)
         .then((data) => {
           if (data) {
@@ -25,6 +29,18 @@ function MyAccount({ hundleOpenMyAccount }) {
       [e.target.name]: e.target.value,
     });
   };
+  const [userMyAccount, setUserMyAccount] = useState({});
+  useEffect(() => {
+    api
+      .get(`/api/users/${accountConnected.id}`, { withCredentials: true })
+      .then((res) => res.data)
+      .then((data) => {
+        if (data) {
+          setUserMyAccount(data);
+        }
+      });
+  }, []);
+  console.warn(userMyAccount);
   return (
     <div className="formContainer" id="MyUser">
       <button

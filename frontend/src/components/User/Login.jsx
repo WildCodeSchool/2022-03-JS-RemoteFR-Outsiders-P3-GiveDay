@@ -16,7 +16,9 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
       .then((res) => res.data)
       .then((data) => {
         if (data) {
+          localStorage.setItem("user", JSON.stringify(data));
           setUserIsConnected(true);
+          window.location = "/";
         }
       })
       .catch(setErrorLogin(true));

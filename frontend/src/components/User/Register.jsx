@@ -5,24 +5,23 @@ import "./user.css";
 
 function Register({ hundleOpenNewAccount, setUserIsConnected }) {
   const [user, setUser] = useState({
-    prenom: "",
-    nom: "",
-    email: "",
-    password: "",
     role: "user",
   });
   const handleRegister = (event) => {
     event.preventDefault();
-    api
-      .post("/api/auth/register", user, { withCredentials: true })
-      .then((res) => res.data)
-      .then((data) => {
-        if (data) {
-          setUserIsConnected(true);
-        }
-      });
+    if (user.password === user.repeatPassword) {
+      api
+        .post("/api/auth/register", user, { withCredentials: true })
+        .then((res) => res.data)
+        .then((data) => {
+          if (data) {
+            localStorage.setItem("user", JSON.stringify(data));
+            setUserIsConnected(true);
+            window.location = "/";
+          }
+        });
+    }
   };
-
   const handleChange = (e) => {
     setUser({
       ...user,
@@ -76,6 +75,16 @@ function Register({ hundleOpenNewAccount, setUserIsConnected }) {
             className="inputForm"
             type="password"
             name="password"
+            pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
+            onChange={handleChange}
+          />
+        </label>
+        <label>
+          Confirmer mot de passe
+          <input
+            className="inputForm"
+            type="password"
+            name="repeatPassword"
             pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
             onChange={handleChange}
           />
