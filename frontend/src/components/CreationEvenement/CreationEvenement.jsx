@@ -9,7 +9,9 @@ import api from "@services/api";
 import CurrentPagesContext from "../../PagesContexts";
 
 function CreationEvenement() {
-  const { userIsConnected, cadeauxList } = useContext(CurrentPagesContext);
+  const { userIsConnected } = useContext(CurrentPagesContext);
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [idEvent, setIdEvent] = useState();
 
   const [code, setNewCode] = useState();
   const [asso, setAsso] = useState([]);
@@ -40,24 +42,16 @@ function CreationEvenement() {
       [e.target.name]: e.target.value,
     });
   };
-  console.warn(createEvent);
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // const data = new FormData(e.target);
-    // console.warn(Array.from(data.entries()));
-    // if (userIsConnected) {
-    //   axios
-    //     .post("http://localhost:5000/api/createEvent", createEvent)
-    //     .then((res) => res.data);
-
-    // }
+    setIsSubmit(!isSubmit);
 
     api
-      // .post("api/createEvent", createEvent)
-      // .then((res) => console.warn(res.data))
-      .post("/api/cadeaux", cadeauxList)
-      .then((res) => console.warn(res.data))
+      .post("api/createEvent", createEvent)
+      .then((res) => {
+        setIdEvent(res.data.id);
+      })
       .catch((err) => console.error(err));
   };
 
@@ -76,7 +70,6 @@ function CreationEvenement() {
     }
   }, [createEvent]);
 
-  console.warn(cadeauxList);
   return (
     <Layout>
       <div className="eventFlex">
@@ -85,142 +78,136 @@ function CreationEvenement() {
           className="giveForm"
           action="/api/route/evenement"
           method="post"
-          onSubmit={onSubmit}
         >
-          <h1>Créez votre évènement</h1>
-          <p className="codeEvenement">CODE : {code} </p>
-          <label htmlFor="input_eve_mail">
-            Email de l'organisateur
-            <input
-              className="inputForm"
-              id="input_eve_mail"
-              type="mail"
-              onChange={handleChange}
-              name="mail"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-              placeholder="john.doe@email.fr"
-            />
-          </label>
-
-          <label htmlFor="input_eve_age">
-            Age de la personne célébrée
-            <input
-              className="inputForm"
-              id="input_eve_age"
-              onChange={handleChange}
-              type="text"
-              name="age"
-              placeholder="8"
-            />
-          </label>
-
-          <label htmlFor="input_eve_firstname">
-            Prénom de la personne célébrée
-            <input
-              className="inputForm"
-              id="input_eve_firstname"
-              onChange={handleChange}
-              type="text"
-              name="prenom"
-              placeholder="Gabriel"
-            />
-          </label>
-
-          <label htmlFor="input_eve_date">
-            Date de l'évènement
-            <input
-              id="input_eve_date"
-              className="inputForm"
-              type="date"
-              name="date"
-              onChange={handleChange}
-            />
-          </label>
-
-          <label htmlFor="input_eve_hour_start">
-            Heure de début
-            <input
-              id="input_eve_hour_start"
-              className="inputForm"
-              type="time"
-              onChange={handleChange}
-              name="heure_de_debut"
-            />
-          </label>
-
-          <label htmlFor="input_eve_hour_end">
-            Heure de fin
-            <input
-              id="input_eve_hour_end"
-              className="inputForm"
-              type="time"
-              onChange={handleChange}
-              name="heure_de_fin"
-            />
-          </label>
-          <label htmlFor="input_eve_place">
-            Lieu du rendez-vous
-            <input
-              id="input_eve_place"
-              className="inputForm"
-              onChange={handleChange}
-              type="text"
-              name="lieu"
-              placeholder="Parc de la tête d'or, Lyon"
-            />
-          </label>
-
-          <label htmlFor="input_eve_phone">
-            N° Téléphone de l'organisateur
-            <input
-              id="input_eve_phone"
-              className="inputForm"
-              type="tel"
-              onChange={handleChange}
-              name="telephone"
-              pattern="^(\+33 |0)[1-9]( \d\d){4}$"
-              placeholder="06 00 00 00 00"
-            />
-          </label>
-
-          <label htmlFor="asso-select">
-            Pour l'association
-            <select name="asso_id" id="asso-select" onChange={handleChange}>
-              <option value="">---</option>
-              {asso &&
-                asso.map((item) => (
-                  <option key={item.id} value={item.id}>
-                    {item.nom}
-                  </option>
-                ))}
-            </select>
-          </label>
-
-          <span className="title">LISTE DES CADEAUX SOUHAITES</span>
-          <div className="cadeauxList">
-            <Cadeau name="lego" />
-          </div>
-
-          <br />
-          {userIsConnected ? (
-            <button
-              className="buttonStyle"
-              type="submit"
-              form="creationEvenement"
-              value="Submit"
-            >
-              🎉 Créer l'évènement
-            </button>
+          {" "}
+          {!isSubmit ? (
+            <>
+              <h1>Créez votre évènement</h1>
+              <p className="codeEvenement">CODE : {code} </p>
+              <label htmlFor="input_eve_mail">
+                Email de l'organisateur
+                <input
+                  className="inputForm"
+                  id="input_eve_mail"
+                  type="mail"
+                  onChange={handleChange}
+                  name="mail"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  placeholder="john.doe@email.fr"
+                />
+              </label>
+              <label htmlFor="input_eve_age">
+                Age de la personne célébrée
+                <input
+                  className="inputForm"
+                  id="input_eve_age"
+                  onChange={handleChange}
+                  type="text"
+                  name="age"
+                  placeholder="8"
+                />
+              </label>
+              <label htmlFor="input_eve_firstname">
+                Prénom de la personne célébrée
+                <input
+                  className="inputForm"
+                  id="input_eve_firstname"
+                  onChange={handleChange}
+                  type="text"
+                  name="prenom"
+                  placeholder="Gabriel"
+                />
+              </label>
+              <label htmlFor="input_eve_date">
+                Date de l'évènement
+                <input
+                  id="input_eve_date"
+                  className="inputForm"
+                  type="date"
+                  name="date"
+                  onChange={handleChange}
+                />
+              </label>
+              <label htmlFor="input_eve_hour_start">
+                Heure de début
+                <input
+                  id="input_eve_hour_start"
+                  className="inputForm"
+                  type="time"
+                  onChange={handleChange}
+                  name="heure_de_debut"
+                />
+              </label>
+              <label htmlFor="input_eve_hour_end">
+                Heure de fin
+                <input
+                  id="input_eve_hour_end"
+                  className="inputForm"
+                  type="time"
+                  onChange={handleChange}
+                  name="heure_de_fin"
+                />
+              </label>
+              <label htmlFor="input_eve_place">
+                Lieu du rendez-vous
+                <input
+                  id="input_eve_place"
+                  className="inputForm"
+                  onChange={handleChange}
+                  type="text"
+                  name="lieu"
+                  placeholder="Parc de la tête d'or, Lyon"
+                />
+              </label>
+              <label htmlFor="input_eve_phone">
+                N° Téléphone de l'organisateur
+                <input
+                  id="input_eve_phone"
+                  className="inputForm"
+                  type="tel"
+                  onChange={handleChange}
+                  name="telephone"
+                  pattern="^(\+33 |0)[1-9]( \d\d){4}$"
+                  placeholder="06 00 00 00 00"
+                />
+              </label>
+              <label htmlFor="asso-select">
+                Pour l'association
+                <select name="asso_id" id="asso-select" onChange={handleChange}>
+                  <option value="">---</option>
+                  {asso &&
+                    asso.map((item) => (
+                      <option key={item.id} value={item.id}>
+                        {item.nom}
+                      </option>
+                    ))}
+                </select>
+              </label>
+              <br />
+              {userIsConnected ? (
+                <button
+                  className="buttonStyle"
+                  type="submit"
+                  form="creationEvenement"
+                  value="Submit"
+                  onClick={onSubmit}
+                >
+                  🎉 Envoyer mes infos
+                </button>
+              ) : (
+                <button
+                  className="buttonStyle notConnected"
+                  type="button"
+                  value="Submit"
+                >
+                  Connexion requise
+                </button>
+              )}
+              <br />{" "}
+            </>
           ) : (
-            <button
-              className="buttonStyle notConnected"
-              type="button"
-              value="Submit"
-            >
-              Connexion requise
-            </button>
+            <Cadeau idEvent={idEvent} />
           )}
-          <br />
         </form>
       </div>
     </Layout>

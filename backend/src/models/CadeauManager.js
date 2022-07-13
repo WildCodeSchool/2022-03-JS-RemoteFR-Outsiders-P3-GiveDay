@@ -5,8 +5,8 @@ class CadeauManager extends AbstractManager {
 
   insert(cadeau) {
     return this.connection.query(
-      `insert into ${CadeauManager.table} (titre, site_url, event_id) values (?, ?, ?)`,
-      [cadeau.titre, cadeau.site_url, cadeau.event_id]
+      `insert into ${CadeauManager.table} (titre, url_site, event_id) values (?, ?, ?)`,
+      [cadeau.titre, cadeau.url_site, cadeau.event_id]
     );
   }
 

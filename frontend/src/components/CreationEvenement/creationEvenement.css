@@ -167,3 +167,8 @@ p.codeEvenement {
   flex-direction: column;
   justify-content: center;
 }
+
+#gift-container .remove {
+  border: none;
+  background: none;
+}
