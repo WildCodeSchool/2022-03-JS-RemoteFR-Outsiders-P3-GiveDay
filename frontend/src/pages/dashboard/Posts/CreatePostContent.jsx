@@ -57,20 +57,20 @@ export default function CreatePostContent() {
       <h4>Entrez un titre pour l'article</h4>
 
       <input
-        className="mb-1"
+        className="mb-1 editorInput"
         name="titrePost"
         type="text"
-        defaultValue="Entrez le titre de l'article"
+        placeholder="Entrez le titre de l'article"
         onChange={handleTitre}
       />
 
       <h4>Choisissez une image (url)</h4>
 
       <input
-        className="mb-1"
-        name="titrePost"
+        className="mb-1 editorInput"
+        name="ImageURL"
         type="text"
-        defaultValue="Copiez-collez une URL"
+        placeholder="Copiez-collez une URL"
         onChange={handleIamgeURL}
       />
 
@@ -103,6 +103,7 @@ export default function CreatePostContent() {
             "preview",
             "help",
             "wordcount",
+            "emoticons",
           ],
           toolbar:
             "undo redo | blocks | " +
