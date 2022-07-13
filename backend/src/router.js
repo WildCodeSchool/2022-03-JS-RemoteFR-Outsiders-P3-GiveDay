@@ -27,9 +27,9 @@ router.get("/api/auth/logout", AuthController.logout);
 /**
  * @desc Events routes
  *
- * @api {post}
- * @api {post} permet d'ajouter un évènement dans la base de données table event
- * @api {get}
+ * @api {get} /api/events permet de voir tous les évènements enregistrés dans la bdd
+ * @api {get} /api/events/:id permet de récupérer les infos d'un évènement
+ * @api {post} /api/createEvent permet d'ajouter un évènement dans la base de données table event
  */
 router.get("/api/events", EventController.browse);
 router.get("/api/events/:id", EventController.read);
@@ -40,13 +40,13 @@ router.post("/api/createEvent", EventController.add);
 /**
  * @desc Cadeau routes
  *
- * @api {post}
- * @api {post}
+ * @api {post} /api/cadeaux
+ * @api {delete}
  * @api {get}
  */
 router.get("/api/cadeaux", CadeauController.browse);
 router.get("/api/cadeaux/:id", CadeauController.read);
-router.put("/api/cadeaux/:id", CadeauController.edit);
+// router.put("/api/cadeaux/:id", CadeauController.edit);
 router.post("/api/cadeaux", CadeauController.add);
 router.delete("/api/cadeaux/:id", CadeauController.delete);
 
@@ -62,13 +62,18 @@ router.get("/api/articles/:id", ArticleController.read);
 router.get("/api/tag", ArticleController.tag);
 router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);
-
-router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
-router.get("/api/resetpassword-change/:id", ResetController.compareToken);
-
 // router.put("/api/article/:id", ArticleController.edit);
 // router.post("/api/article", ArticleController.add);
 router.delete("/api/article/delete/:id", ArticleController.delete);
+
+/**
+ * @desc Reset Password Routes
+ *
+ * @api {get} /api/reset/isemailexists/:id   ------Entrer la description-----
+ * @api {get} /api/resetpassword-change/:id  ------Entrer la description-----
+ */
+router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
+router.get("/api/resetpassword-change/:id", ResetController.compareToken);
 
 /**
  * @desc Users routes
@@ -89,7 +94,7 @@ router.get("/api/count", UserController.count);
 /**
  * @desc Asso Routes
  *
- * @api {get} /api/users Récupère tous les utilisateurs
+ * @api {get} /api/users Récupère toutes les associations
 
  */
 router.get("/api/asso", AssoController.browse);

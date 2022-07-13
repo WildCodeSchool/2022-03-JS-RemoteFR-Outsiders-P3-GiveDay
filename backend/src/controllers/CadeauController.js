@@ -29,27 +29,27 @@ class CadeauController {
       });
   };
 
-  static edit = (req, res) => {
-    const cadeau = req.body;
+  // static edit = (req, res) => {
+  //   const cadeau = req.body;
 
-    // TODO validations (length, format...)
+  //   // TODO validations (length, format...)
 
-    cadeau.id = parseInt(req.params.id, 10);
+  //   cadeau.id = parseInt(req.params.id, 10);
 
-    models.cadeau
-      .update(cadeau)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  };
+  //   models.cadeau
+  //     .update(cadeau)
+  //     .then(([result]) => {
+  //       if (result.affectedRows === 0) {
+  //         res.sendStatus(404);
+  //       } else {
+  //         res.sendStatus(204);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.sendStatus(500);
+  //     });
+  // };
 
   static add = (req, res) => {
     const cadeau = req.body;

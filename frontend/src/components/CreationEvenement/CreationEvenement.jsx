@@ -9,8 +9,8 @@ import api from "@services/api";
 import CurrentPagesContext from "../../PagesContexts";
 
 function CreationEvenement() {
-  const { userIsConnected } = useContext(CurrentPagesContext);
-  const [cadeauxList, setcadeauxList] = useState([]);
+  const { userIsConnected, cadeauxList } = useContext(CurrentPagesContext);
+
   const [code, setNewCode] = useState();
   const [asso, setAsso] = useState([]);
   const [createEvent, setCreateEvent] = useState({
@@ -40,6 +40,7 @@ function CreationEvenement() {
       [e.target.name]: e.target.value,
     });
   };
+  console.warn(createEvent);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -53,13 +54,11 @@ function CreationEvenement() {
     // }
 
     api
-      .post("api/createEvent", createEvent)
+      // .post("api/createEvent", createEvent)
+      // .then((res) => console.warn(res.data))
+      .post("/api/cadeaux", cadeauxList)
       .then((res) => console.warn(res.data))
       .catch((err) => console.error(err));
-  };
-
-  const handleAdd = () => {
-    setcadeauxList(cadeauxList.concat(<Cadeau name="lego" />));
   };
 
   function genCode(firstname, len) {
@@ -77,6 +76,7 @@ function CreationEvenement() {
     }
   }, [createEvent]);
 
+  console.warn(cadeauxList);
   return (
     <Layout>
       <div className="eventFlex">
@@ -199,17 +199,8 @@ function CreationEvenement() {
           <span className="title">LISTE DES CADEAUX SOUHAITES</span>
           <div className="cadeauxList">
             <Cadeau name="lego" />
-            {cadeauxList}
           </div>
 
-          <button
-            id="ajouterCadeau"
-            className="buttonStyle"
-            type="button"
-            onClick={handleAdd}
-          >
-            🎁 Ajouter un cadeau
-          </button>
           <br />
           {userIsConnected ? (
             <button

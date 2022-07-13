@@ -12,6 +12,7 @@ export function CurrentPagesContextProvider({ children }) {
   const [creationEvenement, setCreationEvenement] = useState(false);
   const [isOpenJeCree, setIsOpenJeCree] = useState(false);
   const [userIsConnected, setUserIsConnected] = useState(false);
+  const [cadeauxList, setcadeauxList] = useState([]);
 
   return (
     <CurrentPagesContext.Provider
@@ -32,6 +33,8 @@ export function CurrentPagesContextProvider({ children }) {
         setIsOpenJeCree,
         userIsConnected,
         setUserIsConnected,
+        cadeauxList,
+        setcadeauxList,
       }}
     >
       {children}

@@ -3,12 +3,12 @@ const AbstractManager = require("./AbstractManager");
 class CadeauManager extends AbstractManager {
   static table = "cadeau";
 
-  // insert(user) {
-  //   return this.connection.query(
-  //     `insert into ${UserManager.table} (prenom) values (?)`,
-  //     [user.prenom]
-  //   );
-  // }
+  insert(cadeau) {
+    return this.connection.query(
+      `insert into ${CadeauManager.table} (titre, site_url, event_id) values (?, ?, ?)`,
+      [cadeau.titre, cadeau.site_url, cadeau.event_id]
+    );
+  }
 
   // update(user) {
   //   return this.connection.query(
