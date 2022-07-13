@@ -56,7 +56,7 @@ function Blog() {
 
           <div className="searchTag">
             <h3>Catégorie:</h3>
-            <select onChange={handlechange}>
+            <select onChange={handlechange} className="buttonStyle">
               <option value={0}>Tous les articles</option>
               {/** Ici, nous affichons toutes nos catégories, reçu via l'API  */}
               {categories.map((categorie) => (

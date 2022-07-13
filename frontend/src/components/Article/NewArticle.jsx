@@ -17,7 +17,6 @@ function NewArticle({ article }) {
         setDetail(data);
       });
   };
-
   return (
     <div className="newVignette">
       <Link to="/ArticleDetail" onClick={handleClick}>
