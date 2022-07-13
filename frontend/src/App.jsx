@@ -15,6 +15,7 @@ import Blog from "@pages/blog/Blog";
 import FormForgotPassword from "@components/FormForgotPassword/FormForgotPassword";
 import FormChangePassword from "@components/FormChangePassword/FormChangePassword";
 import ArticleDetail from "@components/Article/ArticleDetail";
+import CreatePostContent from "@pages/dashboard/Posts/CreatePostContent";
 
 import Page404 from "@pages/Page404/Page404";
 
@@ -110,6 +111,10 @@ function App() {
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/edit/:id" element={<Admin content="edit" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
+        <Route
+          path="/admin/createPost"
+          element={<CreatePostContent content="createPost" />}
+        />
         {/* A modifier quand l'éditeur de texte sera en ligne :  */}
         <Route path="/admin/new-article" element={<Admin content="users" />} />
         <Route path="/*" element={<Page404 />} />
