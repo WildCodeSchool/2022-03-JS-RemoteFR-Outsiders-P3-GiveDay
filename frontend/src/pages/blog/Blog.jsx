@@ -19,9 +19,8 @@ function Blog() {
    * Lors du chargement du component, nous allons récupérer toutes nos catégories.
    */
   useEffect(() => {
-    const tags = `/api/tag`;
     api
-      .get(tags)
+      .get(`/api/tag`)
       .then((res) => res.data)
       .then((data) => {
         setCategories(data);
@@ -58,7 +57,7 @@ function Blog() {
 
           <div className="searchTag">
             <h3>Catégorie:</h3>
-            <select onChange={handlechange}>
+            <select onChange={handlechange} className="buttonStyle">
               <option value={0}>Tous les articles</option>
               {/** Ici, nous affichons toutes nos catégories, reçu via l'API  */}
               {categories.map((categorie) => (
