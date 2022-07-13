@@ -28,13 +28,13 @@ router.get("/api/auth/logout", AuthController.logout);
  * @desc Events routes
  *
  * @api {post}
- * @api {post}
+ * @api {post} permet d'ajouter un évènement dans la base de données table event
  * @api {get}
  */
 router.get("/api/events", EventController.browse);
 router.get("/api/events/:id", EventController.read);
 // router.put("/api/events/:id", EventController.edit);
-router.post("/api/events", EventController.add);
+router.post("/api/createEvent", EventController.add);
 // router.delete("/api/events/:id", EventController.delete);
 
 /**

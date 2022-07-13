@@ -14,7 +14,7 @@ function CreationEvenement() {
   const [code, setNewCode] = useState();
   const [asso, setAsso] = useState([]);
   const [createEvent, setCreateEvent] = useState({
-    code: "" /** VALEUR EN DUR POUR L INSTANT attention valeur unique pour la bdd */,
+    code: "",
     prenom: "",
     age: "",
     date: "",
@@ -34,20 +34,13 @@ function CreationEvenement() {
       .catch((err) => console.error(err));
   }, []);
 
-  // useEffect(() => {
-  //   api
-  //     .get("api/createEvent")
-  //     .then((res) => setCreateEvent(res.data))
-  //     .catch((err) => console.error(err));
-  // }, []);
-
   const handleChange = (e) => {
     setCreateEvent({
       ...createEvent,
       [e.target.name]: e.target.value,
     });
   };
-  console.warn(createEvent);
+
   const onSubmit = (e) => {
     e.preventDefault();
     // const data = new FormData(e.target);
@@ -58,6 +51,11 @@ function CreationEvenement() {
     //     .then((res) => res.data);
 
     // }
+
+    api
+      .post("api/createEvent", createEvent)
+      .then((res) => console.warn(res.data))
+      .catch((err) => console.error(err));
   };
 
   const handleAdd = () => {
