@@ -7,6 +7,7 @@ const {
   UserController,
   ArticleController,
   ResetController,
+  AssoController,
 } = require("./controllers");
 
 const router = express.Router();
@@ -32,9 +33,9 @@ router.get("/api/auth/logout", AuthController.logout);
  */
 router.get("/api/events", EventController.browse);
 router.get("/api/events/:id", EventController.read);
-router.put("/api/events/:id", EventController.edit);
+// router.put("/api/events/:id", EventController.edit);
 router.post("/api/events", EventController.add);
-router.delete("/api/events/:id", EventController.delete);
+// router.delete("/api/events/:id", EventController.delete);
 
 /**
  * @desc Cadeau routes
@@ -84,5 +85,13 @@ router.get("/api/users/:id", UserController.read);
 router.put("/api/users/update/:id", UserController.edit);
 router.delete("/api/users/delete/:id", UserController.delete);
 router.get("/api/count", UserController.count);
+
+/**
+ * @desc Asso Routes
+ *
+ * @api {get} /api/users Récupère tous les utilisateurs
+
+ */
+router.get("/api/asso", AssoController.browse);
 
 module.exports = router;

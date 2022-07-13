@@ -7,7 +7,7 @@
   height: 100%;
   background-color: var(--color_light);
 }
-.openToogle{
+.openToogle {
   border: solid 2px var(--color_2);
   border-radius: 5px;
   font-size: 1.5rem;
@@ -17,12 +17,12 @@
   color: var(--color_light);
   margin: 1.5rem 0 1rem 0;
 }
-.openToogle:hover{
+.openToogle:hover {
   background-color: var(--color_light);
   color: var(--color_2);
   border: solid 2px var(--color_2);
 }
-.navContainerOff{
+.navContainerOff {
   display: none;
 }
 .navContainer {
@@ -71,7 +71,6 @@
   font-size: 1rem;
 }
 
-
 .openedJeCreeContainer {
   display: flex;
   flex-direction: column;
@@ -87,7 +86,7 @@
   flex-direction: column;
   position: relative;
 }
-.open{
+.open {
   text-align: center;
   width: 100%;
   color: var(--color_3);
@@ -95,7 +94,6 @@
 .hidden {
   display: none;
 }
-
 
 @media screen and (max-width: 750px) {
   .navContainer {
@@ -111,14 +109,14 @@
     margin: 0;
   }
   .openedJeCree {
-    position:relative;
+    position: relative;
     top: 0;
     margin-left: 0;
   }
   .openedJeCreeContainer {
     flex-direction: column;
   }
-  .show{
+  .show {
     text-align: center;
     margin: 2rem 0 1rem 0;
   }

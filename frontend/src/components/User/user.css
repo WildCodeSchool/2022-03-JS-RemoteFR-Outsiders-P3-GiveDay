@@ -181,8 +181,8 @@
   font-family: var(--font-logo);
   margin: 0.2rem;
 }
- @media screen and (max-width: 750px) {
-   .loginContainer {
+@media screen and (max-width: 750px) {
+  .loginContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -190,7 +190,7 @@
     justify-content: center;
     position: initial;
     width: 100%;
-  } 
+  }
 
   .buttonStyleLogin {
     width: clamp(9rem, 1rem, 1rem);
@@ -213,7 +213,7 @@
     margin-bottom: 1rem;
     margin-top: 1rem;
   }
-} 
+}
 #MyUser {
   color: var(--color_light);
 }

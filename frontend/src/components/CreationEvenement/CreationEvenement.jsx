@@ -1,19 +1,20 @@
 import React, { useState, useEffect, useContext } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import Cadeau from "@components/CreationEvenement/Cadeau";
-import axios from "axios";
 import Layout from "@components/Layout";
 import "../../pages/Home/home.css";
 import "../../App.css";
 import "../Nav/Nav.css";
+import api from "@services/api";
 import CurrentPagesContext from "../../PagesContexts";
 
 function CreationEvenement() {
   const { userIsConnected } = useContext(CurrentPagesContext);
   const [cadeauxList, setcadeauxList] = useState([]);
   const [code, setNewCode] = useState();
-  const [form, setform] = useState({
-    code: 2140 /** VALEUR EN DUR POUR L INSTANT attention valeur unique pour la bdd */,
+  const [asso, setAsso] = useState([]);
+  const [createEvent, setCreateEvent] = useState({
+    code: "" /** VALEUR EN DUR POUR L INSTANT attention valeur unique pour la bdd */,
     prenom: "",
     age: "",
     date: "",
@@ -22,25 +23,41 @@ function CreationEvenement() {
     lieu: "",
     telephone: "",
     mail: "",
-    asso_event_id: 1 /** VALEUR EN DUR POUR L INSTANT */,
+    asso_id: "",
     user_id: 3 /** VALEUR EN DUR POUR L INSTANT */,
   });
+
+  useEffect(() => {
+    api
+      .get("api/asso")
+      .then((res) => setAsso(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
+  // useEffect(() => {
+  //   api
+  //     .get("api/createEvent")
+  //     .then((res) => setCreateEvent(res.data))
+  //     .catch((err) => console.error(err));
+  // }, []);
+
   const handleChange = (e) => {
-    setform({
-      ...form,
+    setCreateEvent({
+      ...createEvent,
       [e.target.name]: e.target.value,
     });
   };
+  console.warn(createEvent);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    // const data = new FormData(e.target);
+    // console.warn(Array.from(data.entries()));
+    // if (userIsConnected) {
+    //   axios
+    //     .post("http://localhost:5000/api/createEvent", createEvent)
+    //     .then((res) => res.data);
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    console.warn(Array.from(data.entries()));
-    if (userIsConnected) {
-      axios
-        .post("http://localhost:5000/api/event", form)
-        .then((res) => res.data);
-    }
+    // }
   };
 
   const handleAdd = () => {
@@ -55,12 +72,12 @@ function CreationEvenement() {
   }
 
   useEffect(() => {
-    const cd = genCode(form.prenom, 7);
-    form.code = cd;
-    if (form.prenom.length < 1) {
+    const cd = genCode(createEvent.prenom, 7);
+    createEvent.code = cd;
+    if (createEvent.prenom.length < 1) {
       setNewCode("");
     }
-  }, [form]);
+  }, [createEvent]);
 
   return (
     <Layout>
@@ -119,8 +136,6 @@ function CreationEvenement() {
               type="date"
               name="date"
               onChange={handleChange}
-              value={new Date()}
-              min={new Date()}
             />
           </label>
 
@@ -132,8 +147,6 @@ function CreationEvenement() {
               type="time"
               onChange={handleChange}
               name="heure_de_debut"
-              min="09:00"
-              max="22:00"
             />
           </label>
 
@@ -145,8 +158,6 @@ function CreationEvenement() {
               type="time"
               onChange={handleChange}
               name="heure_de_fin"
-              min="11:00"
-              max="00:00"
             />
           </label>
           <label htmlFor="input_eve_place">
@@ -176,11 +187,14 @@ function CreationEvenement() {
 
           <label htmlFor="asso-select">
             Pour l'association
-            <select name="associations" id="asso-select">
-              <option value="0">--Choisir un association--</option>
-              <option value="1">Pâte Blanche</option>
-              <option value="2">Rejoué</option>
-              <option value="3">Terre de Milpa</option>
+            <select name="asso_id" id="asso-select" onChange={handleChange}>
+              <option value="">---</option>
+              {asso &&
+                asso.map((item) => (
+                  <option key={item.id} value={item.id}>
+                    {item.nom}
+                  </option>
+                ))}
             </select>
           </label>
 

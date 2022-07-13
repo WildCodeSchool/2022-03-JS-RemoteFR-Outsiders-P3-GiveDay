@@ -29,27 +29,27 @@ class EventController {
       });
   };
 
-  static edit = (req, res) => {
-    const event = req.body;
+  // static edit = (req, res) => {
+  //   const event = req.body;
 
-    // TODO validations (length, format...)
+  //   // TODO validations (length, format...)
 
-    event.id = parseInt(req.params.id, 10);
+  //   event.id = parseInt(req.params.id, 10);
 
-    models.event
-      .update(event)
-      .then(([result]) => {
-        if (result.affectedRows === 0) {
-          res.sendStatus(404);
-        } else {
-          res.sendStatus(204);
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  };
+  //   models.event
+  //     .update(event)
+  //     .then(([result]) => {
+  //       if (result.affectedRows === 0) {
+  //         res.sendStatus(404);
+  //       } else {
+  //         res.sendStatus(204);
+  //       }
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.sendStatus(500);
+  //     });
+  // };
 
   static add = (req, res) => {
     const event = req.body;
@@ -67,17 +67,17 @@ class EventController {
       });
   };
 
-  static delete = (req, res) => {
-    models.event
-      .delete(req.params.id)
-      .then(() => {
-        res.sendStatus(204);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  };
+  // static delete = (req, res) => {
+  //   models.event
+  //     .delete(req.params.id)
+  //     .then(() => {
+  //       res.sendStatus(204);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.sendStatus(500);
+  //     });
+  // };
 }
 
 module.exports = EventController;
