@@ -9,8 +9,7 @@ function Article({ article }) {
   const { setDetail } = useContext(CurrentPagesContext);
 
   const handleClick = () => {
-    api
-      .get(`/api/articles/${article.id}`)
+    api.get(`/api/articles/${article.id}`)
       .then((res) => res.data)
       .then((data) => {
         setDetail(data);
