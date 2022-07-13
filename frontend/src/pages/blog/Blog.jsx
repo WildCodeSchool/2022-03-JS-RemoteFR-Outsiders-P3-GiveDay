@@ -40,9 +40,8 @@ function Blog() {
    * si celui ci change, alors nous relançons notre axios pour récupérer nos articles.
    */
   useEffect(() => {
-    const getArticles = `/api/tag/${choiceCategorie}`;
     api
-      .get(getArticles)
+      .get(`/api/tag/${choiceCategorie}`)
       .then((res) => {
         setArticles(res.data);
       })
@@ -67,7 +66,6 @@ function Blog() {
               ))}
             </select>
           </div>
-          {/* <SelectTag setArrayTag={setArrayTag} arrayTag={arrayTag}/> */}
         </div>
         {articles.map((article) => (
           <Article key={article.id} article={article} />

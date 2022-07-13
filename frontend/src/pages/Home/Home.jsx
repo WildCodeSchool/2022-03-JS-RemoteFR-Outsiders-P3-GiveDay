@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./home.css";
 import { Link } from "react-router-dom";
-import Layout from "@components/Layout";
 import api from "@services/api";
+import Layout from "@components/Layout";
 import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import invitation from "../../assets/images/invitation.gif";
@@ -14,7 +14,7 @@ function Home() {
 
   useEffect(() => {
     api
-      .get(`http://localhost:5000/api/new-article`)
+      .get(`/api/new-article`)
       .then((res) => res.data)
       .then((cards) => {
         setarrayData(cards);

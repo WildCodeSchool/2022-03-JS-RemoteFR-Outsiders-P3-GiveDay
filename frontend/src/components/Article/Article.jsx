@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import api from "@services/api";
+import { Link } from "react-router-dom";
 import "./article.css";
 import "@components/Article/ArticleDetail";
 import CurrentPagesContext from "../../PagesContexts";
@@ -10,7 +10,7 @@ function Article({ article }) {
 
   const handleClick = () => {
     api
-      .get(`http://localhost:5000/api/articles/${article.id}`)
+      .get(`/api/articles/${article.id}`)
       .then((res) => res.data)
       .then((data) => {
         setDetail(data);

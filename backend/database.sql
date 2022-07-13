@@ -91,7 +91,7 @@ CREATE TABLE `asso` (
   PRIMARY KEY (`id`),
   KEY `fk_asso_user_idx` (`user_id`),
   CONSTRAINT `fk_asso_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -160,7 +160,7 @@ CREATE TABLE `event` (
   KEY `fk_event_user1_idx` (`user_id`),
   CONSTRAINT `fk_event_asso1` FOREIGN KEY (`asso_id`) REFERENCES `asso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `fk_event_user1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
