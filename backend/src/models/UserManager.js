@@ -28,10 +28,10 @@ class UserManager extends AbstractManager {
     );
   }
 
-  unsetToken(tokenjwt) {
+  unsetToken(id) {
     return this.connection.query(
-      `UPDATE ${UserManager.table} SET tokenpwd = null WHERE tokenpwd = ?`,
-      tokenjwt
+      `UPDATE ${UserManager.table} SET tokenpwd = '' WHERE id = ?`,
+      [id]
     );
   }
 

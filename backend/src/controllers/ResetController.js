@@ -10,6 +10,13 @@ const models = require("../models");
  * port : 465
  */
 
+// 0 - Generer un token (30)
+// 1 - enregistrer le token dans la table user
+// 2 - envoi d'un mail avec le lien pour modifier le mdp avec un token valide
+// exemple : http://localhost:5000/reset-password?token=elsm46eRc...
+// 3 - on clique sur le lien : un controller avec la route reset-password
+// 4 - On affiche la page de changement de password...
+
 const generateRandomString = (myLength) => {
   const chars =
     "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
@@ -26,7 +33,6 @@ class ResetController {
     models.user
       .getTokenExists(req.params.id)
       .then((data) => {
-        console.warn(data[0]);
         res.status(200).json(data[0]);
       })
       .catch((err) => {
@@ -44,7 +50,6 @@ class ResetController {
         if (rows[0] == null) {
           res.sendStatus(404);
         } else {
-          console.warn(`Email found : ${rows[0]}`);
           const key = generateRandomString(30);
           tokenArray.push(key);
           tokenArray.push(rows[0].email);
@@ -54,12 +59,7 @@ class ResetController {
         }
       })
       .then((data) => {
-        // 0 - Generer un token (30)
-        // 1 - enregistrer le token dans la table user
-        // 2 - envoi d'un mail avec le lien pour modifier le mdp avec un token valide
-        // exemple : http://localhost:5000/reset-password?token=elsm46eRc...
-        // 3 - on clique sur le lien : un controller avec la route reset-password
-        // 4 - On affiche la page de changement de password...
+        console.warn("Fonction sendMail :");
         console.warn(data);
         async function main() {
           const transporter = nodemailer.createTransport({
@@ -73,14 +73,13 @@ class ResetController {
           });
 
           const link = `${process.env.FRONTEND_URL}/reset/password-change/${data[0]}`;
-          console.warn(link);
           const info = await transporter.sendMail({
             from: '"Email from giveday 👻" <contact@giveday.com>', // sender address
             to: data[1], // list of receivers
             subject: "Reset Password give_day", // Subject line
             html: `Please reset your password by clicking this link : <br> <a href=${link}>Cliquer ce lien pour redéfinir votre mot de passe</a>`, // html body
           });
-          console.warn(info.messageId);
+          console.warn(info);
         }
         main();
       })
@@ -91,12 +90,11 @@ class ResetController {
   };
 
   static updatePassword = async (req, res) => {
-    console.warn(req.body);
     const hash = await bcrypt.hash(req.body.newPassword, 10);
     models.user
       .updatePassword({ id: req.params.id, password: hash })
       .then((data) => {
-        console.warn(data[0]);
+        models.user.unsetToken(req.params.id);
         res.status(200).json(data[0]);
       })
       .catch((err) => {

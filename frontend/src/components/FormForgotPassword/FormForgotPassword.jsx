@@ -12,14 +12,12 @@ function FormForgotPassword() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.warn("lancement d'axios...");
     api
       .get(`/api/reset/isemailexists/${email}`, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
         if (data) {
           setIsAuthorized("messageReceived");
-          console.warn(data);
         }
       });
   };

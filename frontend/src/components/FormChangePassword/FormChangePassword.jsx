@@ -10,7 +10,6 @@ import api from "@services/api";
 function ResetPasswordForm() {
   const [isAuthorized, setIsAuthorized] = useState();
   const [message, setMessage] = useState("");
-  // let infos = "";
   const inputRef1 = useRef(null);
   const inputRef2 = useRef(null);
   const [infos, setInfos] = useState();
@@ -19,10 +18,8 @@ function ResetPasswordForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.warn(infos);
 
     if (inputRef1.current.value === inputRef2.current.value) {
-      // Axios update du user
       const newPassword = inputRef1.current.value;
       api
         .put(
@@ -31,8 +28,6 @@ function ResetPasswordForm() {
           { withCredentials: true }
         )
         .then((res) => {
-          console.warn(res.data);
-          // rediriger vers une page ou un composant ou un popup
           return res.data;
         })
         .catch(() => {
@@ -44,12 +39,9 @@ function ResetPasswordForm() {
     } else {
       setMessage("Veuillez entrer 2 mots de passe identiques.");
     }
-    console.warn(message);
   };
 
-  // Verification : autorise / non-autorise
   useEffect(() => {
-    console.warn("Lauching of axios...");
     api
       .get(`/api/reset/checktoken/${id}`, { withCredentials: true })
       .then((res) => res.data)
@@ -88,7 +80,7 @@ function ResetPasswordForm() {
             aria-describedby="password1"
             placeholder="Entrez le mot de passe"
             ref={inputRef1}
-            // pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
+            pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
           />
           <input
             type="password"
@@ -104,12 +96,12 @@ function ResetPasswordForm() {
           type="submit"
           className="btn btn-primary"
           value="Valider le nouveau mot de passe"
-          // pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
+          pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
         />
         <p className="message red">{message}</p>
         <p className="descriptif">
-          * Mettre au moins 8 caracteres 1 majuscule 1 minuscule 1 nombre 1
-          signe
+          * Mettre au moins 8 caracteres dont : 1 majuscule, 1 minuscule, 1
+          chiffre et 1 caractère spécial
         </p>
       </form>
     );
