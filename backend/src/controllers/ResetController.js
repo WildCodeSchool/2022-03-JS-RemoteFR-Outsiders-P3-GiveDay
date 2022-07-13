@@ -1,5 +1,5 @@
 require("dotenv").config();
-const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 const models = require("../models");
 /*
@@ -9,6 +9,13 @@ const models = require("../models");
  * smtp : palette.o2switch.net
  * port : 465
  */
+
+// 0 - Generer un token (30)
+// 1 - enregistrer le token dans la table user
+// 2 - envoi d'un mail avec le lien pour modifier le mdp avec un token valide
+// exemple : http://localhost:5000/reset-password?token=elsm46eRc...
+// 3 - on clique sur le lien : un controller avec la route reset-password
+// 4 - On affiche la page de changement de password...
 
 const generateRandomString = (myLength) => {
   const chars =
@@ -22,15 +29,16 @@ const generateRandomString = (myLength) => {
 };
 
 class ResetController {
-  static compareToken = () => {
-    // JWT TOKEN
-    // DB TOKEN
-    // const dbToken = models.getTokenExists();
-    /* console.warn(
-      `compareToken id:${req.params.id} with Database Token : ${getTokenExists}`
-    );
-    console.warn("JWT : ");
-    */
+  static isTokenExists = (req, res) => {
+    models.user
+      .getTokenExists(req.params.id)
+      .then((data) => {
+        res.status(200).json(data[0]);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(204);
+      });
   };
 
   static isEmailExists = (req, res) => {
@@ -42,58 +50,56 @@ class ResetController {
         if (rows[0] == null) {
           res.sendStatus(404);
         } else {
-          console.warn(`Email found : ${rows[0]}`);
           const key = generateRandomString(30);
-          const tokenpwd = jwt.sign(
-            { email: rows[0].email, key },
-            process.env.SECRET_JWT,
-            { expiresIn: "15m" }
-          );
-
-          tokenArray.push(tokenpwd);
-          tokenArray.push(rows[0].email);
           tokenArray.push(key);
-
+          tokenArray.push(rows[0].email);
           models.user.updateToken(tokenArray);
-
           res.json({ tokenArray });
           return tokenArray;
         }
       })
       .then((data) => {
-        // 0 - Generer un token jwt
-        // 1 - enregistrer le token dans la table user
-        // 2 - envoi d'un mail avec le lien pour modifier le mdp avec un token valide
-        // exemple : http://localhost:5000/reset-password?token=elsm46eRc...
-        // 3 - on clique sur le lien : un controller avec la route reset-password
-        // 4 - On affiche la page de changement de password...
+        console.warn("Fonction sendMail :");
         console.warn(data);
         async function main() {
           const transporter = nodemailer.createTransport({
-            host: "palette.o2switch.net",
+            host: process.env.MAIL_HOST,
             port: 465,
             secure: true, // true for 465, false for other ports
             auth: {
-              user: "giveday@propod.net", // generated ethereal user
-              pass: "[^U.QW9=KFNZ", // generated ethereal password
+              user: process.env.MAIL_USER, // generated ethereal user
+              pass: process.env.MAIL_PASS, // generated ethereal password
             },
           });
 
-          const link = `${process.env.FRONTEND_URL}/resetpassword-change/${data[0]}`;
-          console.warn(link);
+          const link = `${process.env.FRONTEND_URL}/reset/password-change/${data[0]}`;
           const info = await transporter.sendMail({
             from: '"Email from giveday 👻" <contact@giveday.com>', // sender address
-            to: "o.pochic@gmail.com", // list of receivers
+            to: data[1], // list of receivers
             subject: "Reset Password give_day", // Subject line
             html: `Please reset your password by clicking this link : <br> <a href=${link}>Cliquer ce lien pour redéfinir votre mot de passe</a>`, // html body
           });
-          console.warn(info.messageId);
+          console.warn(info);
         }
         main();
       })
       .catch((err) => {
         console.error(err);
         res.sendStatus(500);
+      });
+  };
+
+  static updatePassword = async (req, res) => {
+    const hash = await bcrypt.hash(req.body.newPassword, 10);
+    models.user
+      .updatePassword({ id: req.params.id, password: hash })
+      .then((data) => {
+        models.user.unsetToken(req.params.id);
+        res.status(200).json(data[0]);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(204);
       });
   };
 }
