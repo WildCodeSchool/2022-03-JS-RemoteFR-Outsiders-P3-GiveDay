@@ -14,7 +14,7 @@ function Home() {
 
   useEffect(() => {
     api
-      .get(`http://localhost:5000/api/new-article`)
+      .get(`/api/new-article`)
       .then((res) => res.data)
       .then((cards) => {
         setarrayData(cards);
