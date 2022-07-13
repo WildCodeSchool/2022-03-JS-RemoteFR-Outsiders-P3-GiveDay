@@ -125,3 +125,25 @@
 #updateUserForm select {
   max-width: fit-content;
 }
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mt-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-2 {
+  margin-bottom: 0.8rem;
+}
+
+.mt-2 {
+  margin-bottom: 0.8rem;
+}
+
+.w-1 {
+  width: 300px;
+}
+.ms-auto {
+  margin: 1rem auto;
+}

@@ -13,7 +13,7 @@ function ArticleDetail() {
         <div className="BlocPhotoArticle">
           <img
             className="PhotoPrincipal"
-            src={`../src/assets/images/${detail.image}`}
+            src={detail.image}
             alt={detail.titre}
           />
         </div>

@@ -11,6 +11,7 @@
   margin: 3.5rem;
   background-color: var(--color_light);
   border-radius: 10px;
+  overflow: hidden;
 }
 .globalBlog {
   background-image: url("../../assets/images/enfant2.jpg");
@@ -172,7 +173,6 @@
     width: 80%;
     margin: 3.5rem;
     background-color: var(--color_light);
-    border-radius: 10px;
   }
   .vignetteBlogTitre > p:nth-child(3) {
     text-align: center;

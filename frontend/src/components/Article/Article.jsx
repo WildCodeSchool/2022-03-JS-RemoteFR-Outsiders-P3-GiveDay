@@ -13,6 +13,7 @@ function Article({ article }) {
       .get(`/api/articles/${article.id}`)
       .then((res) => res.data)
       .then((data) => {
+        console.warn({ article });
         setDetail(data);
       });
   };
@@ -21,9 +22,14 @@ function Article({ article }) {
     <div className="vignetteBlog">
       <Link to="/ArticleDetail" onClick={handleClick}>
         <div>
-          <img
+          <div
+            style={{
+              width: "100%",
+              height: "200px",
+              backgroundSize: "cover",
+              backgroundImage: `url("${article.image}")`,
+            }}
             className="photoArticle"
-            src={`../src/assets/images/${article.image}`}
             alt={article.titre}
           />
         </div>
