@@ -46,15 +46,23 @@ class UserManager extends AbstractManager {
   }
 
   getTokenExists(tokenjwt) {
-    return this.connection.query(`SELECT * FROM user WHERE tokenpwd = ?`, [
-      tokenjwt,
-    ]);
+    return this.connection.query(
+      `SELECT id, prenom, nom, email, role, tokenpwd FROM user WHERE tokenpwd = ?`,
+      tokenjwt
+    );
   }
 
-  unsetToken(tokenjwt) {
+  unsetToken(id) {
     return this.connection.query(
-      `UPDATE ${UserManager.table} SET tokenpwd = null WHERE tokenpwd = ?`,
-      tokenjwt
+      `UPDATE ${UserManager.table} SET tokenpwd = '' WHERE id = ?`,
+      [id]
+    );
+  }
+
+  updatePassword(user) {
+    return this.connection.query(
+      `UPDATE ${UserManager.table} SET password = ? WHERE id = ?`,
+      [user.password, user.id]
     );
   }
 }

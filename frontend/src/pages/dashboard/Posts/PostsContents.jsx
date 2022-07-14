@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { BsTrash } from "react-icons/bs";
 import { GrAddCircle, GrUpdate } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 import api from "@services/api";
 import "../dashboard.css";
@@ -48,18 +49,14 @@ function PostsContent() {
               <tr>
                 <th scope="col">{article.titre}</th>
                 <th scope="col">date de création</th>
-                <th scope="col">
-                  <button
-                    className="update-btn"
-                    type="button"
-                    onClick={() => {}}
-                  >
-                    <GrUpdate size={20} />
-                  </button>
+                <th scope="col" className="icons-cell">
+                  <Link to="/admin/users">
+                    <GrUpdate />
+                  </Link>
                 </th>
-                <th scope="col">
+                <th scope="col" className="icons-cell">
                   <button
-                    className="delete-btn"
+                    className="dashboard-btn delete-btn"
                     type="button"
                     onClick={() => {
                       const confirmBox = window.confirm(

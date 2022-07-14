@@ -32,7 +32,6 @@ function Edit() {
    * La fonction inputTextHandler, permet de récupérer le texte introduit dans l'input.
    */
   const inputTextHandler = (e) => {
-    console.warn(e.target.value);
     setUser({
       ...user,
       [e.target.name]: e.target.value,
@@ -65,14 +64,10 @@ function Edit() {
 
         <label htmlFor="role">
           Rôle
-          <select htmlFor="role" onChange={inputTextHandler}>
+          <select htmlFor="role" onChange={inputTextHandler} name="role">
             <option value="">--Please choose an option--</option>
-            <option value="user" name="role">
-              user
-            </option>
-            <option value="admin" name="role">
-              admin
-            </option>
+            <option value="user">user</option>
+            <option value="admin">admin</option>
           </select>
         </label>
 
