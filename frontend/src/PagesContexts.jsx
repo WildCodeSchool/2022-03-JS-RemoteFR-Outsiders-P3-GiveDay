@@ -14,6 +14,7 @@ export function CurrentPagesContextProvider({ children }) {
   const [userIsConnected, setUserIsConnected] = useState(false);
   const [detail, setDetail] = useState([]);
   const [articles, setArticles] = useState([]);
+  const [postContent, setPostContent] = useState([]);
 
   return (
     <CurrentPagesContext.Provider
@@ -38,6 +39,8 @@ export function CurrentPagesContextProvider({ children }) {
         setDetail,
         articles,
         setArticles,
+        postContent,
+        setPostContent,
       }}
     >
       {children}

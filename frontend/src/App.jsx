@@ -110,6 +110,10 @@ function App() {
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/edit/:id" element={<Admin content="edit" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
+        <Route
+          path="/admin/createPost"
+          element={<Admin content="createPost" />}
+        />
         {/* A modifier quand l'éditeur de texte sera en ligne :  */}
         <Route path="/admin/new-article" element={<Admin content="users" />} />
         <Route path="/*" element={<Page404 />} />
