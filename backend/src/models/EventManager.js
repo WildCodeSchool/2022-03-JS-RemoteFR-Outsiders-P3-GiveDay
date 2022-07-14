@@ -22,6 +22,10 @@ class EventManager extends AbstractManager {
     );
   }
 
+  getEventUserId(id) {
+    return this.connection.query(`SELECT * FROM event WHERE user_id = ?`, [id]);
+  }
+
   // update(event) {
   //   return this.connection.query(
   //     `update ${UserManager.table} set prenom = ? where id = ?`,

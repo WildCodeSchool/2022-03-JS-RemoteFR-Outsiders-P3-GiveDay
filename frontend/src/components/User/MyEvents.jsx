@@ -40,7 +40,9 @@ function MyEvents({ hundleOpenMyEvents }) {
   ]);
   useEffect(() => {
     api
-      .get(`/api/users/${accountConnected.id}`, { withCredentials: true })
+      .get(`/api/users/${accountConnected.user.id}/events`, {
+        withCredentials: true,
+      })
       .then((res) => res.data)
       .then((data) => {
         if (data) {

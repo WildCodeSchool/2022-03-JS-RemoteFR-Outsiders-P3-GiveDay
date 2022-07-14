@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useState, useEffect } from "react";
 import { BsTrash } from "react-icons/bs";
 import { GrAddCircle, GrUpdate } from "react-icons/gr";
@@ -62,7 +63,7 @@ function PostsContent() {
                     type="button"
                     onClick={() => {
                       const confirmBox = window.confirm(
-                        "Etes-vous sûr de vouloir supprimer cet article?"
+                        "Etes-vous sûr de vouloir supprimer cet article ?"
                       );
                       if (confirmBox === true) {
                         handleDelete(article.id);

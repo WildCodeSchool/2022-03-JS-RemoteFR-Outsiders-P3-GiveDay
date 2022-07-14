@@ -166,7 +166,7 @@ CREATE TABLE `event` (
 
 LOCK TABLES `event` WRITE;
 /*!40000 ALTER TABLE `event` DISABLE KEYS */;
-INSERT INTO `event` VALUES (2,'Tom2022','Tom',6,'2022-09-20','14:00','17:00','maison','0585698755','papatom@gmail.com',0,0,3,4);
+INSERT INTO `event` VALUES (2,'Tom2022','Tom',6,'2022-09-20','14:00','17:00','maison','0585698755','papatom@gmail.com',0,0,3,4),(3,'Tom20221','Tom',6,'2022-09-20','14:00','17:00','maison','0585698755','papatom@gmail.com',0,0,3,9),(4,'Tom20222','Tom',6,'2022-09-20','14:00','17:00','maison','0585698755','papatom@gmail.com',0,0,3,9),(5,'Tom20223','Tom',6,'2022-09-20','14:00','17:00','maison','0585698755','papatom@gmail.com',0,0,3,9);
 /*!40000 ALTER TABLE `event` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,18 +208,24 @@ CREATE TABLE `user` (
   `email` varchar(180) NOT NULL,
   `password` varchar(255) NOT NULL,
   `role` varchar(80) NOT NULL,
+  `adresse` varchar(255) DEFAULT NULL,
+  `ville` varchar(255) DEFAULT NULL,
+  `telephone` varchar(255) DEFAULT NULL,
+  `codePostal` varchar(255) DEFAULT NULL,
+  `pays` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user`
 --
 
+
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (3,'olivier','pochic','olivier@gmail.com','Giveday2022!','user'),(4,'ali','belala','ali@gmail.com','Giveday2022!','user'),(5,'guillaume','calliez','guillaume@gmail.com','Giveday2022!','user'),(6,'val','val','val@gmail.com','$2a$10$IXQ/zWm4pAWhJHzDXTGK/OR9kWcYMEk9Aopem6F6iraqR.NEDTk2i','user'),(7,'antho','antho','antho@gmail.com','$2a$10$rOMfOWQxLZcK9XJdEMd3m.gCX.3D2zmwbKF6bzgYESWHdAAmzxAJm','user');
+INSERT INTO `user` VALUES (3,'olivier','pochic','olivier@gmail.com','Giveday2022!','user','','','','',''),(4,'ali','belala','ali@gmail.com','Giveday2022!','user','','','','',''),(5,'guillaume','calliez','guillaume@gmail.com','Giveday2022!','user','','','','',''),(6,'val','val','val@gmail.com','$2a$10$IXQ/zWm4pAWhJHzDXTGK/OR9kWcYMEk9Aopem6F6iraqR.NEDTk2i','user','','','','',''),(7,'antho','antho','antho@gmail.com','$2a$10$rOMfOWQxLZcK9XJdEMd3m.gCX.3D2zmwbKF6bzgYESWHdAAmzxAJm','user','','','','','');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
