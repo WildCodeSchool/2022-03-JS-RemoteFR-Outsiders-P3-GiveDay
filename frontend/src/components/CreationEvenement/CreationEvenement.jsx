@@ -26,7 +26,7 @@ function CreationEvenement() {
     telephone: "",
     mail: "",
     asso_id: "",
-    user_id: 3 /** VALEUR EN DUR POUR L INSTANT */,
+    user_id: 4 /** VALEUR EN DUR POUR L INSTANT */,
   });
 
   useEffect(() => {
@@ -78,6 +78,7 @@ function CreationEvenement() {
           className="giveForm"
           action="/api/route/evenement"
           method="post"
+          onSubmit={onSubmit}
         >
           {" "}
           {!isSubmit ? (
@@ -94,6 +95,7 @@ function CreationEvenement() {
                   name="mail"
                   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   placeholder="john.doe@email.fr"
+                  required
                 />
               </label>
               <label htmlFor="input_eve_age">
@@ -102,9 +104,11 @@ function CreationEvenement() {
                   className="inputForm"
                   id="input_eve_age"
                   onChange={handleChange}
+                  value={createEvent.age}
                   type="text"
                   name="age"
                   placeholder="8"
+                  required
                 />
               </label>
               <label htmlFor="input_eve_firstname">
@@ -116,6 +120,7 @@ function CreationEvenement() {
                   type="text"
                   name="prenom"
                   placeholder="Gabriel"
+                  required
                 />
               </label>
               <label htmlFor="input_eve_date">
@@ -126,6 +131,7 @@ function CreationEvenement() {
                   type="date"
                   name="date"
                   onChange={handleChange}
+                  required
                 />
               </label>
               <label htmlFor="input_eve_hour_start">
@@ -136,6 +142,7 @@ function CreationEvenement() {
                   type="time"
                   onChange={handleChange}
                   name="heure_de_debut"
+                  required
                 />
               </label>
               <label htmlFor="input_eve_hour_end">
@@ -146,6 +153,7 @@ function CreationEvenement() {
                   type="time"
                   onChange={handleChange}
                   name="heure_de_fin"
+                  required
                 />
               </label>
               <label htmlFor="input_eve_place">
@@ -157,6 +165,7 @@ function CreationEvenement() {
                   type="text"
                   name="lieu"
                   placeholder="Parc de la tête d'or, Lyon"
+                  required
                 />
               </label>
               <label htmlFor="input_eve_phone">
@@ -169,18 +178,24 @@ function CreationEvenement() {
                   name="telephone"
                   pattern="^(\+33 |0)[1-9]( \d\d){4}$"
                   placeholder="06 00 00 00 00"
+                  required
                 />
               </label>
               <label htmlFor="asso-select">
                 Pour l'association
-                <select name="asso_id" id="asso-select" onChange={handleChange}>
+                <select
+                  required
+                  name="asso_id"
+                  id="asso-select"
+                  onChange={handleChange}
+                >
+                  {" "}
                   <option value="">---</option>
-                  {asso &&
-                    asso.map((item) => (
-                      <option key={item.id} value={item.id}>
-                        {item.nom}
-                      </option>
-                    ))}
+                  {asso.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.nom}
+                    </option>
+                  ))}
                 </select>
               </label>
               <br />
@@ -190,7 +205,6 @@ function CreationEvenement() {
                   type="submit"
                   form="creationEvenement"
                   value="Submit"
-                  onClick={onSubmit}
                 >
                   🎉 Envoyer mes infos
                 </button>

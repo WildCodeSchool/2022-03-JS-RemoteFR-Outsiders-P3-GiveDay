@@ -47,8 +47,8 @@ router.post("/api/createEvent", EventController.add);
 router.get("/api/cadeaux", CadeauController.browse);
 router.get("/api/cadeaux/:id", CadeauController.read);
 // router.put("/api/cadeaux/:id", CadeauController.edit);
-router.post("/api/cadeaux", CadeauController.add);
-router.delete("/api/cadeaux/:id", CadeauController.delete);
+router.post("/api/cadeaux/add", CadeauController.add);
+router.delete("/api/cadeaux/delete/:id", CadeauController.delete);
 
 /**
  * @desc Article routes

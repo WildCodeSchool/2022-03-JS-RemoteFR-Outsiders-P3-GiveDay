@@ -10,6 +10,12 @@ class CadeauManager extends AbstractManager {
     );
   }
 
+  deleteEvent(id) {
+    return this.connection.query(
+      `delete from ${this.table} where event_id = ${id}`,
+      id
+    );
+  }
   // update(user) {
   //   return this.connection.query(
   //     `update ${UserManager.table} set prenom = ? where id = ?`,

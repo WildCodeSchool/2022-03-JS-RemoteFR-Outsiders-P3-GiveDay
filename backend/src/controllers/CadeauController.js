@@ -69,7 +69,7 @@ class CadeauController {
 
   static delete = (req, res) => {
     models.cadeau
-      .delete(req.params.id)
+      .deleteEvent(req.params.id)
       .then(() => {
         res.sendStatus(204);
       })

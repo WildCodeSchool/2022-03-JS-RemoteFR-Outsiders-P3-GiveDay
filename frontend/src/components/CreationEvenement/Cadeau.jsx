@@ -1,18 +1,15 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import api from "@services/api";
 import CurrentPagesContext from "../../PagesContexts";
 
 function Cadeau({ idEvent }) {
-  const cadeau = {
-    titre: "Formation développeur web",
-    url_site: "gregreg",
-    event_id: 1,
-  };
   const { cadeauxList, setcadeauxList } = useContext(CurrentPagesContext);
+  const [cadeau, setcadeau] = useState();
   const [inputText, setInputText] = useState({
     titre: "",
-    site_url: "",
+    url_site: "",
+    event_id: idEvent,
   });
 
   const handleChange = (e) => {
@@ -22,22 +19,41 @@ function Cadeau({ idEvent }) {
     });
   };
 
+  // ****** handleAdd ajoute un cadeau à chaque clicl dans la BDD, puis ajoute les cadeaux dans une liste côté front
   const handleAdd = () => {
-    setcadeauxList([...cadeauxList, { text: inputText, event_id: idEvent }]);
+    setcadeau({
+      titre: inputText.titre,
+      url_site: inputText.url_site,
+      event_id: idEvent,
+    });
+
+    setcadeauxList([
+      ...cadeauxList,
+      {
+        titre: inputText.titre,
+        url_site: inputText.url_site,
+      },
+    ]);
+
     setInputText({ titre: "", url_site: "" });
   };
 
-  const handleRemove = (e) => {
-    e.preventDefault();
-    setcadeauxList(
-      cadeauxList && cadeauxList.filter((gift) => gift.text.id !== inputText.id)
-    );
-  };
-
-  const handleCreateEvent = () => {
+  useEffect(() => {
     api
-      .post("api/cadeaux", cadeau)
+      .post("api/cadeaux/add", cadeau)
       .then((res) => console.warn(res.data))
+      .catch((err) => console.error(err));
+  }, [cadeau]);
+
+  //* ******* */ handleRemove supprime le panier de cadeau liés à un évènement côté front et dans la base de données
+  const handleRemove = () => {
+    api
+      .delete(`api/cadeaux/delete/${idEvent}`)
+      .then(() =>
+        setcadeauxList(
+          cadeauxList && cadeauxList.filter((gift) => gift.id !== inputText.id)
+        )
+      )
       .catch((err) => console.error(err));
   };
 
@@ -49,14 +65,11 @@ function Cadeau({ idEvent }) {
           cadeauxList.map((item) => (
             <>
               {" "}
-              <li key={item.text.id}>
-                {item.text.titre} :{" "}
-                <a href={item.text.site_url} target="_blank" rel="noreferrer">
+              <li key={item.id}>
+                {item.titre} :{" "}
+                <a href={item.url_site} target="_blank" rel="noreferrer">
                   Voir le lien du cadeau
                 </a>
-                <button type="button" className="remove" onClick={handleRemove}>
-                  ❌
-                </button>
               </li>
             </>
           ))}
@@ -72,21 +85,19 @@ function Cadeau({ idEvent }) {
           />
 
           <input
-            value={inputText.site_url}
+            value={inputText.url_site}
             type="text"
-            name="site_url"
+            name="url_site"
             placeholder="Lien"
             onChange={handleChange}
           />
         </div>
       </div>
-      <button
-        id="ajouterCadeau"
-        className="buttonStyle"
-        type="button"
-        onClick={handleAdd}
-      >
+      <button className="buttonStyle" type="button" onClick={handleAdd}>
         🎁 Ajouter un cadeau
+      </button>
+      <button type="button" className="buttonStyle" onClick={handleRemove}>
+        ❌ Vider mon panier cadeau
       </button>
       <p>
         Ta liste est complète? c'est parti tu peux maintenant valider et créer
@@ -97,7 +108,7 @@ function Cadeau({ idEvent }) {
         type="button"
         form="creationEvenement"
         value="Submit"
-        onClick={handleCreateEvent}
+        // onClick={handleCreateEvent}
       >
         🎉 Créer mon évènement
       </button>
