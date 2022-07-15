@@ -59,6 +59,7 @@ router.delete("/api/cadeaux/delete/:id", CadeauController.delete);
  */
 router.get("/api/articles", ArticleController.browse);
 router.get("/api/articles/:id", ArticleController.read);
+router.get("/Blog/articleDetail/:id", ArticleController.read);
 router.get("/api/tag", ArticleController.tag);
 router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);
@@ -70,10 +71,12 @@ router.delete("/api/article/delete/:id", ArticleController.delete);
  * @desc Reset Password Routes
  *
  * @api {get} /api/reset/isemailexists/:id   ------Entrer la description-----
- * @api {get} /api/resetpassword-change/:id  ------Entrer la description-----
+ * @api {get} /api/reset/checktoken/:id  ------Entrer la description-----
+  * @api {get} /api/reset/updatepassword/:id  ------Entrer la description-----
  */
 router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
-router.get("/api/resetpassword-change/:id", ResetController.compareToken);
+router.get("/api/reset/checktoken/:id", ResetController.isTokenExists);
+router.put("/api/reset/updatepassword/:id", ResetController.updatePassword);
 
 /**
  * @desc Users routes
