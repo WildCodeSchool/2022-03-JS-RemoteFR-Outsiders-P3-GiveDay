@@ -59,21 +59,7 @@ function Cadeau({ idEvent }) {
 
   return (
     <div id="gift-container">
-      <h1>Liste des cadeaux souhaités : </h1>
-      <ul>
-        {cadeauxList &&
-          cadeauxList.map((item) => (
-            <>
-              {" "}
-              <li key={item.id}>
-                {item.titre} :{" "}
-                <a href={item.url_site} target="_blank" rel="noreferrer">
-                  Voir le lien du cadeau
-                </a>
-              </li>
-            </>
-          ))}
-      </ul>{" "}
+      <h1>Mes souhaits de cadeaux : </h1>
       <div className="cadeau">
         <div className="inputs">
           <input
@@ -91,26 +77,43 @@ function Cadeau({ idEvent }) {
             placeholder="Lien"
             onChange={handleChange}
           />
-        </div>
+        </div>{" "}
+        <button
+          className="buttonStyle border"
+          type="button"
+          onClick={handleAdd}
+        >
+          🎁 Ajouter un cadeau
+        </button>
       </div>
-      <button className="buttonStyle" type="button" onClick={handleAdd}>
-        🎁 Ajouter un cadeau
-      </button>
-      <button type="button" className="buttonStyle" onClick={handleRemove}>
-        ❌ Vider mon panier cadeau
-      </button>
-      <p>
-        Ta liste est complète? c'est parti tu peux maintenant valider et créer
-        ton évènement
-      </p>
+      <ul>
+        {cadeauxList.map((item) => (
+          <div className="liste">
+            <li key={item.id}>
+              <a href={item.url_site} target="_blank" rel="noreferrer">
+                {item.titre}
+              </a>{" "}
+              🎁
+            </li>{" "}
+          </div>
+        ))}
+      </ul>{" "}
+      {cadeauxList.length > 0 ? (
+        <button type="button" className="buttonStyle" onClick={handleRemove}>
+          ❌ Vider mon panier cadeau
+        </button>
+      ) : null}
+      <h1>
+        Ta liste est complète? <br />
+        C'est parti ! <br /> Tu peux maintenant créer ta carte d'invitation 🐯
+      </h1>
       <button
         className="buttonStyle"
         type="button"
         form="creationEvenement"
         value="Submit"
-        // onClick={handleCreateEvent}
       >
-        🎉 Créer mon évènement
+        🎉 Créer ma carte d'invitation
       </button>
     </div>
   );

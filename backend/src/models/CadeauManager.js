@@ -16,6 +16,7 @@ class CadeauManager extends AbstractManager {
       id
     );
   }
+
   // update(user) {
   //   return this.connection.query(
   //     `update ${UserManager.table} set prenom = ? where id = ?`,

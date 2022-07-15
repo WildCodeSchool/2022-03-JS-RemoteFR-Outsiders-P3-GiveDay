@@ -41,11 +41,11 @@ router.post("/api/createEvent", EventController.add);
  * @desc Cadeau routes
  *
  * @api {post} /api/cadeaux
- * @api {delete}
- * @api {get}
+ * @api {delete} /api/cadeaux/delete/:id permet de supprimer les cadeaux liés à un évènement
+
  */
-router.get("/api/cadeaux", CadeauController.browse);
-router.get("/api/cadeaux/:id", CadeauController.read);
+// router.get("/api/cadeaux", CadeauController.browse);
+// router.get("/api/cadeaux/:id", CadeauController.read);
 // router.put("/api/cadeaux/:id", CadeauController.edit);
 router.post("/api/cadeaux/add", CadeauController.add);
 router.delete("/api/cadeaux/delete/:id", CadeauController.delete);

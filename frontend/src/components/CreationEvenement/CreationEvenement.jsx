@@ -75,7 +75,6 @@ function CreationEvenement() {
       <div className="eventFlex">
         <form
           id="creationEvenement"
-          className="giveForm"
           action="/api/route/evenement"
           method="post"
           onSubmit={onSubmit}
@@ -83,13 +82,11 @@ function CreationEvenement() {
           {" "}
           {!isSubmit ? (
             <>
-              <h1>Créez votre évènement</h1>
-              <p className="codeEvenement">CODE : {code} </p>
+              <h1>Les informations de mon évènement : </h1>
               <label htmlFor="input_eve_mail">
                 Email de l'organisateur
                 <input
-                  className="inputForm"
-                  id="input_eve_mail"
+                  className="form-control"
                   type="mail"
                   onChange={handleChange}
                   name="mail"
@@ -101,11 +98,9 @@ function CreationEvenement() {
               <label htmlFor="input_eve_age">
                 Age de la personne célébrée
                 <input
-                  className="inputForm"
-                  id="input_eve_age"
+                  className="form-control"
                   onChange={handleChange}
-                  value={createEvent.age}
-                  type="text"
+                  type="number"
                   name="age"
                   placeholder="8"
                   required
@@ -114,8 +109,7 @@ function CreationEvenement() {
               <label htmlFor="input_eve_firstname">
                 Prénom de la personne célébrée
                 <input
-                  className="inputForm"
-                  id="input_eve_firstname"
+                  className="form-control"
                   onChange={handleChange}
                   type="text"
                   name="prenom"
@@ -126,8 +120,7 @@ function CreationEvenement() {
               <label htmlFor="input_eve_date">
                 Date de l'évènement
                 <input
-                  id="input_eve_date"
-                  className="inputForm"
+                  className="form-control "
                   type="date"
                   name="date"
                   onChange={handleChange}
@@ -137,8 +130,7 @@ function CreationEvenement() {
               <label htmlFor="input_eve_hour_start">
                 Heure de début
                 <input
-                  id="input_eve_hour_start"
-                  className="inputForm"
+                  className="form-control "
                   type="time"
                   onChange={handleChange}
                   name="heure_de_debut"
@@ -148,8 +140,7 @@ function CreationEvenement() {
               <label htmlFor="input_eve_hour_end">
                 Heure de fin
                 <input
-                  id="input_eve_hour_end"
-                  className="inputForm"
+                  className="form-control "
                   type="time"
                   onChange={handleChange}
                   name="heure_de_fin"
@@ -159,8 +150,7 @@ function CreationEvenement() {
               <label htmlFor="input_eve_place">
                 Lieu du rendez-vous
                 <input
-                  id="input_eve_place"
-                  className="inputForm"
+                  className="form-control"
                   onChange={handleChange}
                   type="text"
                   name="lieu"
@@ -171,8 +161,7 @@ function CreationEvenement() {
               <label htmlFor="input_eve_phone">
                 N° Téléphone de l'organisateur
                 <input
-                  id="input_eve_phone"
-                  className="inputForm"
+                  className="form-control"
                   type="tel"
                   onChange={handleChange}
                   name="telephone"
@@ -183,12 +172,7 @@ function CreationEvenement() {
               </label>
               <label htmlFor="asso-select">
                 Pour l'association
-                <select
-                  required
-                  name="asso_id"
-                  id="asso-select"
-                  onChange={handleChange}
-                >
+                <select required name="asso_id" onChange={handleChange}>
                   {" "}
                   <option value="">---</option>
                   {asso.map((item) => (
@@ -199,6 +183,8 @@ function CreationEvenement() {
                 </select>
               </label>
               <br />
+              <p className="codeEvenement">CODE : {code} </p>
+              <h1>Tout est bon ?</h1>
               {userIsConnected ? (
                 <button
                   className="buttonStyle"
