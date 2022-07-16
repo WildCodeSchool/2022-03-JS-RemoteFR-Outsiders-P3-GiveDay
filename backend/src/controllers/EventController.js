@@ -13,6 +13,18 @@ class EventController {
       });
   };
 
+  static myEvents = (req, res) => {
+    models.event
+      .getEventUserId(req.params.id)
+      .then(([rows]) => {
+        res.send(rows);
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
+
   static read = (req, res) => {
     models.event
       .find(req.params.id)

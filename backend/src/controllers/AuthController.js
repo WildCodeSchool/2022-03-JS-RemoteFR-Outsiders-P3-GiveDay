@@ -12,10 +12,17 @@ class AuthController {
    */
   static async register(req, res) {
     try {
-      const { prenom, nom, email, password, role } = req.body;
+      const { prenom, nom, email, password, repeatPassword, role } = req.body;
+      if (password !== repeatPassword) {
+        return res.status(400).json({
+          status: 400,
+          message: "Password is not correct",
+        });
+      }
       const hash = await bcrypt.hash(password, 10);
       let validationErrors = null;
       const getEmail = await models.user.getUserByEmail(email);
+
       if (getEmail[0].length > 0) {
         return res.status(400).json({
           status: 400,
@@ -35,13 +42,24 @@ class AuthController {
           message: "INVALID DATA",
         });
       }
-
+      const token = jwt.sign(
+        {
+          id: getEmail[0].id,
+          email: getEmail[0].email,
+          role: getEmail[0].role,
+        },
+        process.env.SECRET_JWT,
+        { expiresIn: "1h" }
+      );
       models.user
         .insert({ prenom, nom, email, password: hash, role })
-        .then(([result]) => {
+        .then(([result]) => console.warn(result))
+        .then(async () => {
+          const getUser = await models.user.getUserByEmail(email);
           res
+            .cookie("user_giveday", token)
             .status(201)
-            .send({ message: "register user ok", id: result.insertId });
+            .send({ message: "register user ok", user: getUser[0][0] });
         })
         .catch((err) => {
           console.error(err);
@@ -99,6 +117,7 @@ class AuthController {
       res.cookie("user_giveday", token).status(200).json({
         status: "success",
         message: "User is logged",
+        user: user[0],
       });
     } catch (error) {
       res.status(400).json({

@@ -32,6 +32,7 @@ router.get("/api/auth/logout", AuthController.logout);
  * @api {post} /api/createEvent permet d'ajouter un évènement dans la base de données table event
  */
 router.get("/api/events", EventController.browse);
+router.get("/api/users/:id/events", EventController.myEvents);
 router.get("/api/events/:id", EventController.read);
 // router.put("/api/events/:id", EventController.edit);
 router.post("/api/createEvent", EventController.add);
