@@ -1,5 +1,5 @@
 .acceuilContainer {
-  display: grid;
+  /* display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 0.9fr 0.9fr 1.1fr;
   gap: 0px 0px;
@@ -7,60 +7,95 @@
   grid-template-areas:
     "CCM creation article2"
     "CCM rejoindre article1"
-    "Philan atelier news";
+    "Philan atelier news"; */
   height: 100rem;
   width: 90%;
   margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+.acceuilContainer > div > div {
+  margin: 0.5rem;
+  border-radius: 10px;
+}
+.acceuilContainer > div > h2 {
+  text-align: center;
+  font-family: aloja;
+  /* margin-top: 1rem; */
+  font-weight: initial;
+  text-decoration: none;
+  list-style: none;
+  color: black;
+  background-color: #f4f5f9c2;
 }
 
+.titleAloja {
+  text-align: center;
+  font-family: aloja;
+  /* margin-top: 1rem; */
+  font-weight: initial;
+  text-decoration: none;
+  list-style: none;
+  color: black;
+  background-color: #f4f5f9c2;
+}
+
+/*ligne 1*/
+.homeLigne1 {
+  display: flex;
+  width: 100%;
+}
 .CCM {
-  grid-area: CCM;
+  /* grid-area: CCM; */
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 0% 70% 50%;
+
   background-image: url("../../assets/images/animaux1.jpg");
+  width: 66%;
+  display: flex;
+  justify-content: center;
 }
-
-.Philan {
-  grid-area: Philan;
-  background-image: url("../../assets/images/enfant.png");
-  background-size: cover;
-  background-position: 60% 50%;
+.whiteContainer {
+  background-color: #f4f5f9f1;
+  width: 100%;
+  margin: 2rem;
+  padding: 1rem;
+  color: rgb(52 72 122);
+  font-size: 1.2rem;
+}
+.blog {
+  width: 33%;
+  background-image: url("../../assets/images/lapin-chapeau.jpg");
   background-repeat: no-repeat;
-  height: 60%;
+  background-size: cover;
+  background-position: 90% 70%;
 }
-
+/****fin ligne 1*****/
+/*...............ligne 2...........*/
+.homeLigne2 {
+  display: flex;
+  width: 100%;
+}
 .creation {
-  grid-area: creation;
+  /* grid-area: creation; */
   background-color: rgb(90, 148, 210);
-  background-image: url("../../assets/images/animaux1.jpg");
+  background-image: url("../../assets/images/zebre.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
+  width: 33%;
 }
-
 .rejoindre {
-  grid-area: rejoindre;
+  /* grid-area: rejoindre; */
   background-image: url("../../assets/images/zebre.jpg");
   background-size: cover;
   background-position: 90% 70%;
   background-repeat: no-repeat;
+  width: 33%;
 }
-
-.atelier {
-  grid-area: atelier;
-  background-color: rgb(255, 226, 0);
-  height: 60%;
-}
-
-.news {
-  grid-area: news;
-  background-color: rgb(231, 235, 234);
-  height: 60%;
-}
-
 .article1 {
-  grid-area: article1;
+  /* grid-area: article1; */
   background-color: rgb(236, 95, 93);
+  width: 33%;
 }
 .newVignette {
   display: flex;
@@ -92,93 +127,67 @@
   position: relative;
 }
 
-.article2 {
-  grid-area: article2;
-  background-color: rgb(255, 51, 51);
+/****fin ligne 2****/
+/*...............ligne 3...........*/
+.homeLigne3 {
+  display: flex;
+  width: 100%;
+  height: 50rem;
 }
-
-.acceuilContainer > div > h2 {
-  text-align: center;
-  font-family: aloja;
-  /* margin-top: 1rem; */
-  font-weight: initial;
-  text-decoration: none;
-  list-style: none;
-  color: black;
-  background-color: #f4f5f9c2;
+.Philan {
+  /* grid-area: Philan; */
+  background-image: url("../../assets/images/fille.jpg");
+  background-size: cover;
+  background-position: 10% 20%;
+  background-repeat: no-repeat;
+  height: 60%;
+  width: 33%;
 }
-
-.titleAloja {
-  text-align: center;
-  font-family: aloja;
-  /* margin-top: 1rem; */
-  font-weight: initial;
-  text-decoration: none;
-  list-style: none;
-  color: black;
-  background-color: #f4f5f9c2;
+.Philan > a > h3 {
+  margin-bottom: 3rem;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-div.acceuilContainer > div > p:nth-child(n) {
-  width: 98%;
+.Philan > a {
+  margin-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+.atelier {
+  /* grid-area: atelier; */
+  background-color: rgb(255, 226, 0);
+  height: 60%;
+  width: 33%;
+  background-image: url("../../assets/images/tigre-font-vert.jpg");
+  background-size: cover;
+  background-position: 60% 50%;
+  background-repeat: no-repeat;
+}
+.news {
+  /* grid-area: news; */
+  background-color: rgb(231, 235, 234);
+  height: 60%;
+  width: 33%;
+  display: flex;
+  flex-direction: column;
   margin: 10px;
-  height: 98%;
+  align-items: center;
 }
-div.acceuilContainer > div:nth-child(1) {
-  border: 3px solid;
-  border-radius: 7px;
+.news > form {
+  display: flex;
+  align-items: center;
 }
-div.acceuilContainer > div:nth-child(2) {
-  border: 3px solid;
-  border-radius: 7px;
+.prenomMail {
+  display: flex;
+  flex-direction: wrap;
 }
-div.acceuilContainer > div:nth-child(3) {
-  border: 3px solid;
-  border-radius: 7px;
-}
-div.acceuilContainer > div:nth-child(4) {
-  border: 3px solid;
-  border-radius: 7px;
-}
-div.acceuilContainer > div:nth-child(5) {
-  border: 3px solid;
-  border-radius: 7px;
-}
-div.acceuilContainer > div:nth-child(6) {
-  border: 3px solid;
-  border-radius: 7px;
-}
-div.acceuilContainer > div {
-  border: 3px solid;
-  border-radius: 7px;
-}
-div.acceuilContainer > div:nth-child(8) {
-  border: 3px solid;
-  border-radius: 7px;
-}
+/****fin ligne 3*****/
 
-.article1 > p:nth-child(n) {
-  width: 98%;
-  margin: 10px;
-  height: 98%;
-}
-.article2 > p:nth-child(n) {
-  width: 98%;
-  margin: 10px;
-  height: 98%;
-}
-
-#newsletter > div:nth-child(2) > p:nth-child(1) {
-  width: 98%;
-  margin: 10px;
-}
-#newsletter {
-  margin: 10px;
-  border-radius: 5px;
-}
-.acceuilContainer > div {
-  margin: 5px;
-}
 .news {
   display: flex;
   flex-direction: column;
@@ -188,19 +197,13 @@ div.acceuilContainer > div:nth-child(8) {
   display: flex;
   flex-direction: wrap;
 }
-.article1 {
-  margin-bottom: 3px;
-}
-.article2 {
-  margin-top: 3px;
-}
+
 .confianceFlex {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .confiance {
-  grid-area: blog;
   background-color: var(--color_1);
   margin-top: 10rem;
   margin-bottom: 10rem;

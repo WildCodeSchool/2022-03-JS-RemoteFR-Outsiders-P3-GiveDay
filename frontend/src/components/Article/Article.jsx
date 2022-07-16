@@ -23,7 +23,7 @@ function Article({ article }) {
         <div>
           <img
             className="photoArticle"
-            src={`../src/assets/images/${article.image}`}
+            src={`$/src/assets/images/${article.image}`}
             alt={article.titre}
           />
         </div>
