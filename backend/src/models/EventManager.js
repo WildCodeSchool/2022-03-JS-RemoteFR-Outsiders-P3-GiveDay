@@ -5,7 +5,7 @@ class EventManager extends AbstractManager {
 
   insert(event) {
     return this.connection.query(
-      `insert into ${EventManager.table} (code, prenom, age, date, heure_de_debut, heure_de_fin, lieu, telephone, mail, asso_event_id, user_id) values (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?)`,
+      `insert into ${EventManager.table} (code, prenom, age, date, heure_de_debut, heure_de_fin, lieu, telephone, mail, cagnotte_don_asso, cagnotte_somme_cadeau, asso_id, user_id) values (? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?, ?, ?)`,
       [
         event.code,
         event.prenom,
@@ -16,7 +16,9 @@ class EventManager extends AbstractManager {
         event.lieu,
         event.telephone,
         event.mail,
-        event.asso_event_id,
+        event.cagnotte_don_asso,
+        event.cagnotte_somme_cadeau,
+        event.asso_id,
         event.user_id,
       ]
     );
