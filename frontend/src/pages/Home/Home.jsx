@@ -81,7 +81,7 @@ function Home() {
       <div className="confianceFlex">
         <div className="confiance">
           <div className="divTitre">
-            <h3>ils nous font confiance</h3>
+            <h2>ils nous font confiance</h2>
           </div>
           <div>
             <p>
