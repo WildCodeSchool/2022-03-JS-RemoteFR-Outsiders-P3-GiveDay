@@ -16,11 +16,17 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
       .then((res) => res.data)
       .then((data) => {
         if (data) {
+          localStorage.setItem("user", JSON.stringify(data));
           setUserIsConnected(true);
+          setTimeout(() => {
+            window.location = "/";
+          }, 1000);
         }
       })
       .catch(setErrorLogin(true));
   };
+
+  console.warn(user);
   const handleChange = (e) => {
     setUser({
       ...user,

@@ -23,12 +23,12 @@ function UserConnected({ setUserIsConnected }) {
       .then((res) => {
         console.warn(res);
       })
+      .then(localStorage.removeItem("user"))
       .catch((err) => {
         console.warn(err);
       });
     setUserIsConnected(false);
   };
-
   return (
     <div className="loginContainer">
       <div className="buttonContainer">

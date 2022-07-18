@@ -1,20 +1,45 @@
 /* eslint-disable react/no-array-index-key */ /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import api from "@services/api";
 import "./user.css";
 import ViewUser from "./ViewUser";
+import CurrentPagesContext from "../../PagesContexts";
 
 function MyAccount({ hundleOpenMyAccount }) {
-  const [user, setUser] = useState({});
+  const { accountConnected } = useContext(CurrentPagesContext);
+  const [user, setUser] = useState({
+    id: accountConnected.user.id,
+    email: accountConnected.user.email,
+    nom: accountConnected.user.nom,
+    prenom: accountConnected.user.prenom,
+    role: accountConnected.user.role,
+    password: "",
+    repeatPassword: "",
+    adresse: accountConnected.user.adresse,
+    ville: accountConnected.user.ville,
+    telephone: accountConnected.user.telephone,
+    codePostal: accountConnected.user.codePostal,
+    pays: accountConnected.user.pays,
+  });
   const handlePutMyAccount = (event) => {
     event.preventDefault();
-    if (user.password === user.repeatPassword) {
+    if (
+      user.password === user.repeatPassword ||
+      user.password === "" ||
+      user.repeatPassword === ""
+    ) {
       api
-        .put("/api/users/:id", user, { withCredentials: true })
+        .put(`/api/users/update/${accountConnected.user.id}`, user, {
+          withCredentials: true,
+        })
         .then((res) => res.data)
         .then((data) => {
           if (data) {
             console.warn(data);
+            localStorage.setItem("user", JSON.stringify(data));
+            setTimeout(() => {
+              window.location = "/";
+            }, 1000);
           }
         });
     }
@@ -42,6 +67,7 @@ function MyAccount({ hundleOpenMyAccount }) {
               <label>
                 NOM
                 <input
+                  value={user.nom}
                   className="inputForm"
                   name="nom"
                   type="text"
@@ -51,18 +77,19 @@ function MyAccount({ hundleOpenMyAccount }) {
               <label>
                 Mail
                 <input
+                  value={user.email}
                   className="inputForm"
                   type="email"
                   name="email"
                   pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+[.]{1}[a-zA-Z]{2,}$"
-                  onChange={handleChange}
                 />
               </label>
               <label>
                 Adresse
                 <input
+                  value={user.adresse}
                   className="inputForm"
-                  name="nom"
+                  name="adresse"
                   type="adresse"
                   onChange={handleChange}
                 />
@@ -70,6 +97,7 @@ function MyAccount({ hundleOpenMyAccount }) {
               <label>
                 Ville
                 <input
+                  value={user.ville}
                   className="inputForm"
                   type="text"
                   name="ville"
@@ -79,11 +107,13 @@ function MyAccount({ hundleOpenMyAccount }) {
               <label>
                 Mot de passe
                 <input
+                  value={user.password}
                   className="inputForm"
                   type="password"
                   name="password"
                   pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
                   onChange={handleChange}
+                  autoComplete={false}
                 />
               </label>
             </div>
@@ -91,6 +121,7 @@ function MyAccount({ hundleOpenMyAccount }) {
               <label>
                 Prénom
                 <input
+                  value={user.prenom}
                   className="inputForm"
                   name="prenom"
                   type="name"
@@ -100,15 +131,17 @@ function MyAccount({ hundleOpenMyAccount }) {
               <label>
                 Téléphone
                 <input
+                  value={user.telephone}
                   className="inputForm"
                   type="text"
-                  name="Téléphone"
+                  name="telephone"
                   onChange={handleChange}
                 />
               </label>
               <label>
                 Code Postal
                 <input
+                  value={user.codePostal}
                   className="inputForm"
                   name="codePostal"
                   type="text"
@@ -118,6 +151,7 @@ function MyAccount({ hundleOpenMyAccount }) {
               <label>
                 Pays
                 <input
+                  value={user.pays}
                   className="inputForm"
                   type="text"
                   name="pays"
@@ -132,6 +166,7 @@ function MyAccount({ hundleOpenMyAccount }) {
                   name="repeatPassword"
                   pattern="^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\d]){1,})(?=(.*[\W]){1,})(?!.*\s).{8,}$"
                   onChange={handleChange}
+                  autoComplete="off"
                 />
                 <span className="detailsInput detailsInputMyAccount">
                   Votre mot de passe doit contenir au moins 8 caractères
