@@ -8,15 +8,32 @@ import CurrentPagesContext from "../../PagesContexts";
 
 function NewArticle({ article }) {
   const { setDetail } = useContext(CurrentPagesContext);
-
+  const {
+    setAcceuil,
+    setHistoire,
+    setAssociations,
+    setAtelierCarte,
+    setBlog,
+    setCreationEvenement,
+  } = useContext(CurrentPagesContext);
+  const goToBlog = () => {
+    setAcceuil(false);
+    setHistoire(false);
+    setAssociations(false);
+    setAtelierCarte(false);
+    setCreationEvenement(false);
+    setBlog(true);
+  };
   const handleClick = () => {
     api
       .get(`/api/articles/${article.id}`)
       .then((res) => res.data)
       .then((data) => {
         setDetail(data);
+        goToBlog();
       });
   };
+
   return (
     <div className="newVignette">
       <Link to="/ArticleDetail" onClick={handleClick}>
