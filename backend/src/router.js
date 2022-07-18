@@ -74,7 +74,7 @@ router.delete("/api/article/delete/:id", ArticleController.delete);
  *
  * @api {get} /api/reset/isemailexists/:id   ------Entrer la description-----
  * @api {get} /api/reset/checktoken/:id  ------Entrer la description-----
-  * @api {get} /api/reset/updatepassword/:id  ------Entrer la description-----
+ * @api {get} /api/reset/updatepassword/:id  ------Entrer la description-----
  */
 router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
 router.get("/api/reset/checktoken/:id", ResetController.isTokenExists);
@@ -105,6 +105,5 @@ router.get("/api/count", UserController.count);
 
 router.get("/api/asso", AssoController.browse);
 router.get("/api/asso/:id", AssoController.browse);
-
 
 module.exports = router;
