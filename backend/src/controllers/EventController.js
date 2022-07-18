@@ -54,6 +54,7 @@ class EventController {
       });
   };
 
+
   static async edit(req, res) {
     try {
       const { cagnotte_don_asso, cagnotte_somme_cadeau, id } = req.body;
@@ -95,17 +96,17 @@ class EventController {
       });
   };
 
-  static delete = (req, res) => {
-    models.event
-      .delete(req.params.id)
-      .then(() => {
-        res.sendStatus(204);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.sendStatus(500);
-      });
-  };
+  // static delete = (req, res) => {
+  //   models.event
+  //     .delete(req.params.id)
+  //     .then(() => {
+  //       res.sendStatus(204);
+  //     })
+  //     .catch((err) => {
+  //       console.error(err);
+  //       res.sendStatus(500);
+  //     });
+  // };
 }
 
 module.exports = EventController;

@@ -13,7 +13,7 @@ class AssoController {
         res.sendStatus(500);
       });
   };
-
+  
   static read = (req, res) => {
     models.asso
       .find(req.params.id)

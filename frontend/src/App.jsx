@@ -16,6 +16,7 @@ import FormForgotPassword from "@components/FormForgotPassword/FormForgotPasswor
 import FormChangePassword from "@components/FormChangePassword/FormChangePassword";
 import JointEvent from "@pages/JointEvent/JointEvent";
 import EventJointed from "@pages/JointEvent/EventJointed";
+import ArticleDetail from "@components/Article/ArticleDetail";
 
 import Page404 from "@pages/Page404/Page404";
 
@@ -32,7 +33,7 @@ function App() {
           }
         />
 
-        <Route path="/resetpassword-change/">
+        <Route path="/reset/password-change/">
           <Route path=":id" element={<FormChangePassword />} />
         </Route>
 
@@ -93,6 +94,7 @@ function App() {
             </div>
           }
         />
+
         <Route
           path="/Blog"
           element={
@@ -102,6 +104,15 @@ function App() {
           }
         />
         <Route
+          path="/ArticleDetail"
+          element={
+            <div className="containerContainWebsite">
+              <ArticleDetail />
+            </div>
+          }
+        />
+
+        <Route
           path="/AtelierCarte"
           element={
             <div className="containerContainWebsite">
@@ -109,12 +120,17 @@ function App() {
             </div>
           }
         />
+
         <Route path="/resetpassword-ask" element={<FormForgotPassword />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/edit/:id" element={<Admin content="edit" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
+        <Route
+          path="/admin/createPost"
+          element={<Admin content="createPost" />}
+        />
         {/* A modifier quand l'éditeur de texte sera en ligne :  */}
         <Route path="/admin/new-article" element={<Admin content="users" />} />
         <Route path="/*" element={<Page404 />} />

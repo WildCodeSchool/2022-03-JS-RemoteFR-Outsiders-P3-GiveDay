@@ -7,6 +7,9 @@
   flex-direction: row;
 }
 
+.adminContent{
+  width:100%;
+}
 ::-webkit-scrollbar {
   height: 20px;
 }
@@ -124,4 +127,53 @@
 
 #updateUserForm select {
   max-width: fit-content;
+}
+
+/*************Formulaire creation de posts ****************/
+.contentTable .editorInput {
+  padding: 5px;
+}
+.contentTable h4 {
+  margin-top: 1.5rem;
+}
+
+/************* Messages ****************/
+.form-ArticleSaved{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  margin : 5rem auto;
+}
+
+.form-ArticleSaved p{
+  text-align:center;
+  font-weight: 700;
+  font-size: 2.0rem;
+  color:green;
+}
+
+/*************Divers marges et paddings ****************/
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.mt-1 {
+  margin-bottom: 0.25rem;
+}
+.mb-2 {
+  margin-bottom: 0.8rem;
+}
+
+.mt-2 {
+  margin-bottom: 0.8rem;
+}
+
+.w-1 {
+  width: 300px;
+}
+.w-2 {
+  width: 400px;
+}
+.ms-auto {
+  margin: 1rem auto;
 }

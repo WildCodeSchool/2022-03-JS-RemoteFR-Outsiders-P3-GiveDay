@@ -214,8 +214,7 @@
     margin-top: 1rem;
   }
 }
-#MyUser,
-#MyEvent {
+#MyUser, #MyEvent {
   color: var(--color_light);
 }
 #MyUser .logoGiveday,
