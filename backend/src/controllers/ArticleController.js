@@ -101,21 +101,21 @@ class ArticleController {
   //     });
   // };
 
-  // static add = (req, res) => {
-  //   const article = req.body;
+  static add = (req, res) => {
+    const article = req.body;
 
-  //   // TODO validations (length, format...)
+    // TODO validations (length, format...)
 
-  //   models.article
-  //     .insert(article)
-  //     .then(([result]) => {
-  //       res.status(201).send({ ...article, id: result.insertId });
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //       res.sendStatus(500);
-  //     });
-  // };
+    models.article
+      .insert(article)
+      .then(([result]) => {
+        res.status(201).send({ ...article, id: result.insertId });
+      })
+      .catch((err) => {
+        console.error(err);
+        res.sendStatus(500);
+      });
+  };
 
   static delete = (req, res) => {
     models.article
