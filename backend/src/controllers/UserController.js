@@ -94,7 +94,7 @@ class UserController {
           role: getEmail[0].role,
         },
         process.env.SECRET_JWT,
-        { expiresIn: "1h" }
+        { expiresIn: "36h" }
       );
       const hash = await bcrypt.hash(password, 10);
       if (password.length > 0 && password === repeatPassword) {

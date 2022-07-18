@@ -26,12 +26,16 @@ class EventManager extends AbstractManager {
     return this.connection.query(`SELECT * FROM event WHERE user_id = ?`, [id]);
   }
 
-  // update(event) {
-  //   return this.connection.query(
-  //     `update ${UserManager.table} set prenom = ? where id = ?`,
-  //     [user.prenom, user.id]
-  //   );
-  // }
+  getEventCode(code) {
+    return this.connection.query(`SELECT * FROM event WHERE code = ?`, [code]);
+  }
+
+  update(event) {
+    return this.connection.query(
+      `update ${EventManager.table} set cagnotte_don_asso = ?, cagnotte_somme_cadeau = ?  where id = ?`,
+      [event.cagnotte_don_asso, event.cagnotte_somme_cadeau, event.id]
+    );
+  }
 }
 
 module.exports = EventManager;

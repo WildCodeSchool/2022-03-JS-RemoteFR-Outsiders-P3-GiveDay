@@ -40,7 +40,16 @@ function Home() {
           </Link>
         </div>
         <div className="rejoindre">
-          <h3 className="titleAloja">Rejoindre un evenement</h3>
+          <Link to="/JointEvent">
+            <h3 className="titleAloja">Rejoindre un evenement</h3>
+            <div>
+              <img
+                className="cartePablo"
+                src={invitation}
+                alt="invitation modèle"
+              />
+            </div>
+          </Link>
         </div>
         <div className="atelier">
           <Link to="/AtelierCarte">

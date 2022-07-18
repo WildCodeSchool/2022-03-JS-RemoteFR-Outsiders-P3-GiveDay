@@ -214,10 +214,12 @@
     margin-top: 1rem;
   }
 }
-#MyUser, #MyEvent {
+#MyUser,
+#MyEvent {
   color: var(--color_light);
 }
-#MyUser .logoGiveday, #MyEvent .logoGiveday {
+#MyUser .logoGiveday,
+#MyEvent .logoGiveday {
   height: 10rem;
   padding-bottom: 3rem;
 }
@@ -229,7 +231,6 @@
   flex-direction: column;
   padding-top: 2%;
   padding-bottom: 2%;
-
 }
 #MyEvent .eventSection1 {
   width: 65%;
@@ -242,41 +243,49 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
-#MyUser .eventSection1 .eventSection1Title, #MyEvent .eventSection1 .eventSection1Title  {
+#MyUser .eventSection1 .eventSection1Title,
+#MyEvent .eventSection1 .eventSection1Title {
   padding-left: 5%;
   padding-bottom: 3%;
   color: var(--color_2);
 }
-#MyUser .eventSection1Titles, #MyEvent .eventSection1Titles {
+#MyUser .eventSection1Titles,
+#MyEvent .eventSection1Titles {
   display: flex;
   flex-direction: row;
   padding-bottom: 2%;
 }
-#MyUser .eventSection1Titles h1, #MyEvent .eventSection1Titles h1 {
+#MyUser .eventSection1Titles h1,
+#MyEvent .eventSection1Titles h1 {
   flex: 1;
   text-align: center;
   color: var(--color_4);
   font-size: 1.25rem;
 }
-#MyUser .eventSection1Results, #MyEvent .eventSection1Results {
+#MyUser .eventSection1Results,
+#MyEvent .eventSection1Results {
   display: flex;
   flex-direction: row;
   padding-bottom: 0.5%;
 }
-#MyUser .eventSection1Results h1, #MyEvent .eventSection1Results h1  {
+#MyUser .eventSection1Results h1,
+#MyEvent .eventSection1Results h1 {
   flex: 1;
   text-align: center;
   font-size: 1.5rem;
   font-family: var(--font-big-text);
   font-weight: bold;
 }
-#MyUser .eventSection1Results .eventStatusEnCours, #MyEvent .eventSection1Results .eventStatusEnCours {
+#MyUser .eventSection1Results .eventStatusEnCours,
+#MyEvent .eventSection1Results .eventStatusEnCours {
   color: var(--color_5);
 }
-#MyUser .eventSection1Results .eventStatusTermine, #MyEvent .eventSection1Results .eventStatusTermine {
+#MyUser .eventSection1Results .eventStatusTermine,
+#MyEvent .eventSection1Results .eventStatusTermine {
   color: var(--color_1);
 }
-#MyUser .eventSection2, #MyEvent .eventSection2 {
+#MyUser .eventSection2,
+#MyEvent .eventSection2 {
   width: 30%;
   height: 80%;
   margin-right: 2.5%;
