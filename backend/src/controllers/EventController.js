@@ -54,7 +54,6 @@ class EventController {
       });
   };
 
-
   static async edit(req, res) {
     try {
       const { cagnotte_don_asso, cagnotte_somme_cadeau, id } = req.body;
