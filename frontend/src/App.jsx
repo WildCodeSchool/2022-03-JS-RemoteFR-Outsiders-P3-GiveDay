@@ -14,6 +14,8 @@ import AtelierCarte from "@components/AtelierCarte/AtelierCarte";
 import Blog from "@pages/blog/Blog";
 import FormForgotPassword from "@components/FormForgotPassword/FormForgotPassword";
 import FormChangePassword from "@components/FormChangePassword/FormChangePassword";
+import JointEvent from "@pages/JointEvent/JointEvent";
+import EventJointed from "@pages/JointEvent/EventJointed";
 import ArticleDetail from "@components/Article/ArticleDetail";
 
 import Page404 from "@pages/Page404/Page404";
@@ -68,7 +70,22 @@ function App() {
             </div>
           }
         />
-
+        <Route
+          path="/JointEvent"
+          element={
+            <div className="containerContainWebsite">
+              <JointEvent />
+            </div>
+          }
+        />
+        <Route
+          path="/EventJointed"
+          element={
+            <div className="containerContainWebsite">
+              <EventJointed />
+            </div>
+          }
+        />
         <Route
           path="/Philanthrokids"
           element={

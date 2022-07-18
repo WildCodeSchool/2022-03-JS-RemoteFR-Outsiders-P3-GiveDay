@@ -49,7 +49,7 @@ class AuthController {
           role: getEmail[0].role,
         },
         process.env.SECRET_JWT,
-        { expiresIn: "1h" }
+        { expiresIn: "36h" }
       );
       models.user
         .insert({ prenom, nom, email, password: hash, role })
@@ -111,7 +111,7 @@ class AuthController {
       const token = jwt.sign(
         { id: user[0].id, email: user[0].email, role: user[0].role },
         process.env.SECRET_JWT,
-        { expiresIn: "1h" }
+        { expiresIn: "36h" }
       );
 
       res.cookie("user_giveday", token).status(200).json({
