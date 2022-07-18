@@ -7,8 +7,8 @@
   flex-direction: row;
 }
 
-.adminContent{
-  width:100%;
+.adminContent {
+  width: 100%;
 }
 ::-webkit-scrollbar {
   height: 20px;
@@ -138,18 +138,18 @@
 }
 
 /************* Messages ****************/
-.form-ArticleSaved{
-  display:flex;
+.form-ArticleSaved {
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  margin : 5rem auto;
+  margin: 5rem auto;
 }
 
-.form-ArticleSaved p{
-  text-align:center;
+.form-ArticleSaved p {
+  text-align: center;
   font-weight: 700;
-  font-size: 2.0rem;
-  color:green;
+  font-size: 2rem;
+  color: green;
 }
 
 /*************Divers marges et paddings ****************/
