@@ -14,6 +14,11 @@
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+.vignetteBlog button {
+  border: 0;
+  background-color: transparent;
+  text-align: left;
+}
 .globalBlog {
   background-image: url("../../assets/images/enfant2.jpg");
   background-size: 30%;

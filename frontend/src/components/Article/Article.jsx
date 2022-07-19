@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import api from "@services/api";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Markup } from "interweave";
 import "./article.css";
 import "@components/Article/ArticleDetail";
@@ -9,18 +9,25 @@ import CurrentPagesContext from "../../PagesContexts";
 function Article({ article }) {
   const { setDetail } = useContext(CurrentPagesContext);
   const articleContent = article.texte;
+  const navigate = useNavigate();
   const handleClick = () => {
     api
       .get(`/api/articles/${article.id}`)
       .then((res) => res.data)
       .then((data) => {
         setDetail(data);
-      });
+        localStorage.setItem("articleChoose", JSON.stringify(data));
+      })
+      .then(
+        setTimeout(() => {
+          navigate("/ArticleDetail");
+        }, 1000)
+      );
   };
 
   return (
     <div className="vignetteBlog">
-      <Link to="/ArticleDetail" onClick={handleClick}>
+      <button type="button" onClick={handleClick}>
         <div>
           <div
             style={{
@@ -40,7 +47,7 @@ function Article({ article }) {
             <Markup content={articleContent} />
           </p>
         </div>
-      </Link>
+      </button>
     </div>
   );
 }
