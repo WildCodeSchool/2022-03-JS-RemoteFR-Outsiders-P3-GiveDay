@@ -26,9 +26,9 @@ function Newsletter() {
       method="post"
       onSubmit={sendNewsletterFollower}
     >
-      <p className="title">Suivez notre Newsletter !</p>
+      <h3 className="title">Suivez notre Newsletter !</h3>
       <label htmlFor="inputNewsletterFirstname">
-        Inscrivez votre nom...
+        {/* Inscrivez votre nom... */}
         <input
           className=""
           id="inputNewsletterFirstname"
@@ -39,7 +39,7 @@ function Newsletter() {
       </label>
 
       <label htmlFor="inputNewsletterEmail">
-        Inscrivez votre email...
+        {/* Inscrivez votre email... */}
         <input
           className=""
           id="inputNewsletterEmail"

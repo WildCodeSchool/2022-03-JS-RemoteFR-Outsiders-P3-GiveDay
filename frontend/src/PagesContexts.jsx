@@ -16,7 +16,8 @@ export function CurrentPagesContextProvider({ children }) {
   const [userIsConnected, setUserIsConnected] = useState(false);
   const [eventToJoint, setEventToJoint] = useState({});
   const [cadeauxList, setcadeauxList] = useState([]);
-  const [detail, setDetail] = useState([]);
+  const articleChoose = localStorage.getItem("articleChoose");
+  const [detail, setDetail] = useState(JSON.parse(articleChoose));
   const [articles, setArticles] = useState([]);
   const [postContent, setPostContent] = useState([]);
 
