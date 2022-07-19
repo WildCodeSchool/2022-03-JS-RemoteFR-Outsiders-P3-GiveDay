@@ -107,5 +107,4 @@ router.put("/api/admin/roleUpdate/:id", UserController.roleUpdate);
 router.get("/api/asso", AssoController.browse);
 router.get("/api/asso/:id", AssoController.read);
 
-
 module.exports = router;

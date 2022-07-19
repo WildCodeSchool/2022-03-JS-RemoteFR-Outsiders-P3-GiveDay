@@ -6,9 +6,7 @@ import Layout from "@components/Layout";
 import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import post2 from "../../assets/images/post2.gif";
-import blog2 from "../../assets/images/blog2.gif";
 import CurrentPagesContext from "../../PagesContexts";
-
 
 function Home() {
   const [arrayData, setarrayData] = useState([]);
@@ -92,13 +90,13 @@ function Home() {
         </div>
         <div className="homeLigne2">
           <div className="creation">
-             <Link to="/CreationEvenement" onClick={goToCreationEvenement}>
+            <Link to="/CreationEvenement" onClick={goToCreationEvenement}>
               <h3 className="titleAloja">Creer un evenement</h3>
             </Link>
           </div>
           <div className="rejoindre">
-          <Link to="/JointEvent" onClick={goOutHome}>
-            <h3 className="titleAloja">Rejoindre un evenement</h3>
+            <Link to="/JointEvent" onClick={goOutHome}>
+              <h3 className="titleAloja">Rejoindre un evenement</h3>
             </Link>
           </div>
           <div className="article1">
@@ -115,19 +113,18 @@ function Home() {
 
         <div className="homeLigne3">
           <div className="Philan">
-           <Link to="/Philanthrokids" onClick={goOutHome}>
+            <Link to="/Philanthrokids" onClick={goOutHome}>
               <h3 className="titleAloja">Philanthrokids</h3>
             </Link>
           </div>
           <div className="atelier">
-             <Link to="/AtelierCarte" onClick={goToAtelierCarte}>
+            <Link to="/AtelierCarte" onClick={goToAtelierCarte}>
               <h3 className="titleAloja">Atelier carte d'invitation</h3>
             </Link>
           </div>
           <div className="news">
             <Newsletter />
           </div>
-
         </div>
       </div>
       <div className="confianceFlex">
