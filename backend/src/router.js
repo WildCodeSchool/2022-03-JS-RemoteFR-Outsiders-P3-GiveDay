@@ -65,8 +65,8 @@ router.get("/Blog/articleDetail/:id", ArticleController.read);
 router.get("/api/tag", ArticleController.tag);
 router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);
-// router.put("/api/article/:id", ArticleController.edit);
-// router.post("/api/article", ArticleController.add);
+//router.put("/api/article/:id", ArticleController.edit);
+router.post("/api/article", ArticleController.add);
 router.delete("/api/article/delete/:id", ArticleController.delete);
 
 /**
@@ -74,7 +74,7 @@ router.delete("/api/article/delete/:id", ArticleController.delete);
  *
  * @api {get} /api/reset/isemailexists/:id   ------Entrer la description-----
  * @api {get} /api/reset/checktoken/:id  ------Entrer la description-----
-  * @api {get} /api/reset/updatepassword/:id  ------Entrer la description-----
+ * @api {get} /api/reset/updatepassword/:id  ------Entrer la description-----
  */
 router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
 router.get("/api/reset/checktoken/:id", ResetController.isTokenExists);
@@ -85,16 +85,18 @@ router.put("/api/reset/updatepassword/:id", ResetController.updatePassword);
  *
  * @api {get} /api/users Récupère tous les utilisateurs
  * @api {get} /api/users/:id Récupère un utilisateur
- * @api {put} /api/users/update/:id Update l'utilisateur (pour le moment juste le role)
+ * @api {put} /api/users/update/:id Update les infos de l'utilisateur (sur le compte privé de l'uilisateur)
  * @api {delete} /api/users/delete/:id Supprime un utilisateur de la base de données
  * @api {get} /api/users/count Récupère le nombre total d'utilisateurs
+ * @api {put} /api/users/roleUpdate/:id Update le role nom et prénom de l'utilisateur (sur le dashboard de l'admin)
  
  */
 router.get("/api/users", UserController.browse);
 router.get("/api/users/:id", UserController.read);
 router.put("/api/users/update/:id", UserController.edit);
 router.delete("/api/users/delete/:id", UserController.delete);
-router.get("/api/count", UserController.count);
+router.get("/api/admin/count", UserController.count);
+router.put("/api/admin/roleUpdate/:id", UserController.roleUpdate);
 
 /**
  * @desc Asso routes
@@ -104,7 +106,6 @@ router.get("/api/count", UserController.count);
  */
 
 router.get("/api/asso", AssoController.browse);
-router.get("/api/asso/:id", AssoController.browse);
-
+router.get("/api/asso/:id", AssoController.read);
 
 module.exports = router;

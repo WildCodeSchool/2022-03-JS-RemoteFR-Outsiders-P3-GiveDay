@@ -23,7 +23,7 @@ function Edit() {
   const submitUserHandler = (e) => {
     e.preventDefault();
     api
-      .put(`/api/users/update/${id}`, user, { withCredentials: true })
+      .put(`/api/admin/roleUpdate/${id}`, user, { withCredentials: true })
 
       .catch((err) => console.error(err));
   };
