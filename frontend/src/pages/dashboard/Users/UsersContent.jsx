@@ -24,7 +24,7 @@ function UsersContent() {
 
   useEffect(() => {
     api
-      .get(`/api/count`)
+      .get(`/api/admin/count`)
       .then((res) => setCount(res.data[0]))
       .catch((err) => console.error(err));
   }, [users]);

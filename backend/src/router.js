@@ -69,9 +69,11 @@ router.delete("/api/article/delete/:id", ArticleController.delete);
 /**
  * @desc Reset Password Routes
  *
+
  * @api {get} /api/reset/isemailexists/:id   pour s'assurer que le mail est dans la bdd
  * @api {get} /api/reset/checktoken/:id vérifie que le token dans le mail est le même que dans la bdd
  * @api {get} /api/reset/updatepassword/:id si lo token de la bdd et le mail sont identiques, mise à jour de mp
+
  */
 router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
 router.get("/api/reset/checktoken/:id", ResetController.isTokenExists);
@@ -82,16 +84,18 @@ router.put("/api/reset/updatepassword/:id", ResetController.updatePassword);
  *
  * @api {get} /api/users Récupère tous les utilisateurs
  * @api {get} /api/users/:id Récupère un utilisateur
- * @api {put} /api/users/update/:id Update l'utilisateur (pour le moment juste le role)
+ * @api {put} /api/users/update/:id Update les infos de l'utilisateur (sur le compte privé de l'uilisateur)
  * @api {delete} /api/users/delete/:id Supprime un utilisateur de la base de données
  * @api {get} /api/users/count Récupère le nombre total d'utilisateurs
+ * @api {put} /api/users/roleUpdate/:id Update le role nom et prénom de l'utilisateur (sur le dashboard de l'admin)
  
  */
 router.get("/api/users", UserController.browse);
 router.get("/api/users/:id", UserController.read);
 router.put("/api/users/update/:id", UserController.edit);
 router.delete("/api/users/delete/:id", UserController.delete);
-router.get("/api/count", UserController.count);
+router.get("/api/admin/count", UserController.count);
+router.put("/api/admin/roleUpdate/:id", UserController.roleUpdate);
 
 /**
  * @desc Asso routes
@@ -101,6 +105,7 @@ router.get("/api/count", UserController.count);
  */
 
 router.get("/api/asso", AssoController.browse);
-router.get("/api/asso/:id", AssoController.browse);
+router.get("/api/asso/:id", AssoController.read);
+
 
 module.exports = router;

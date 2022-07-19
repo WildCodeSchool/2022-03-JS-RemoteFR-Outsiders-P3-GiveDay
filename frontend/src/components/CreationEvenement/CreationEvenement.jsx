@@ -9,7 +9,7 @@ import api from "@services/api";
 import CurrentPagesContext from "../../PagesContexts";
 
 function CreationEvenement() {
-  const { userIsConnected } = useContext(CurrentPagesContext);
+  const { userIsConnected, accountConnected } = useContext(CurrentPagesContext);
   const [isSubmit, setIsSubmit] = useState(false);
   const [idEvent, setIdEvent] = useState();
 
@@ -26,7 +26,7 @@ function CreationEvenement() {
     telephone: "",
     mail: "",
     asso_id: "",
-    user_id: 4 /** VALEUR EN DUR POUR L INSTANT */,
+    user_id: accountConnected.user.id,
   });
 
   useEffect(() => {
