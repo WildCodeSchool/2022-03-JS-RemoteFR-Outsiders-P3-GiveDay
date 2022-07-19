@@ -28,27 +28,23 @@ router.get("/api/auth/logout", AuthController.logout);
  * @desc Events routes
  *
  * @api {get} /api/events permet de voir tous les évènements enregistrés dans la bdd
- * @api {get} /api/events/:id permet de récupérer les infos d'un évènement
+ * @api {get} /api/users/:id/events permet de récupérer les infos des évènements de l'user connected
+ * @api {get} /api/events/code/:code permet de récupérer les infos d'un évènement avec son code
+ * @api {put} /api/events/:id permet de modifier les infos d'un évènement avec son id (cagnottes)
  * @api {post} /api/createEvent permet d'ajouter un évènement dans la base de données table event
  */
 router.get("/api/events", EventController.browse);
 router.get("/api/users/:id/events", EventController.myEvents);
 router.get("/api/events/code/:code", EventController.jointEvent);
-router.get("/api/events/:id", EventController.read);
 router.put("/api/events/:id", EventController.edit);
 router.post("/api/createEvent", EventController.add);
-// router.delete("/api/events/:id", EventController.delete);
 
 /**
  * @desc Cadeau routes
  *
- * @api {post} /api/cadeaux
+ * @api {post} /api/cadeaux/add permet d'ajouter un cadeau à la bdd
  * @api {delete} /api/cadeaux/delete/:id permet de supprimer les cadeaux liés à un évènement
-
  */
-// router.get("/api/cadeaux", CadeauController.browse);
-// router.get("/api/cadeaux/:id", CadeauController.read);
-// router.put("/api/cadeaux/:id", CadeauController.edit);
 router.post("/api/cadeaux/add", CadeauController.add);
 router.delete("/api/cadeaux/delete/:id", CadeauController.delete);
 
@@ -73,9 +69,9 @@ router.delete("/api/article/delete/:id", ArticleController.delete);
 /**
  * @desc Reset Password Routes
  *
- * @api {get} /api/reset/isemailexists/:id   ------Entrer la description-----
- * @api {get} /api/reset/checktoken/:id  ------Entrer la description-----
- * @api {get} /api/reset/updatepassword/:id  ------Entrer la description-----
+ * @api {get} /api/reset/isemailexists/:id   pour s'assurer que le mail est dans la bdd
+ * @api {get} /api/reset/checktoken/:id vérifie que le token dans le mail est le même que dans la bdd
+ * @api {get} /api/reset/updatepassword/:id si lo token de la bdd et le mail sont identiques, mise à jour de mp
  */
 router.get("/api/reset/isemailexists/:id", ResetController.isEmailExists);
 router.get("/api/reset/checktoken/:id", ResetController.isTokenExists);
