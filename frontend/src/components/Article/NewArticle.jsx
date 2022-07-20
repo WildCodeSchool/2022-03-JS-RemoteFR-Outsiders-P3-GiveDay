@@ -37,10 +37,15 @@ function NewArticle({ article }) {
   return (
     <div className="newVignette">
       <Link to="/ArticleDetail" onClick={handleClick}>
-        <img
+        <div
           className="newImage"
-          src={`../src/assets/images/${article.image}`}
-          alt="plage"
+          style={{
+            width: "100%",
+            height: "200px",
+            backgroundSize: "cover",
+            backgroundImage: `url("${article.image}")`,
+          }}
+          alt={article.titre}
         />
         <h3 className="newTitle">{article.titre}</h3>
         <p className="newArticle">{article.date}</p>

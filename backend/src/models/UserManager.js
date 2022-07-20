@@ -63,7 +63,6 @@ class UserManager extends AbstractManager {
     return this.connection.query(
       `UPDATE ${UserManager.table} SET password = ? WHERE id = ?`,
       [user.password, user.id]
-
     );
   }
 
@@ -71,7 +70,6 @@ class UserManager extends AbstractManager {
     return this.connection.query(
       `update ${UserManager.table} set prenom = ?, nom= ?, role= ? where id = ?`,
       [user.prenom, user.nom, user.role, user.id]
-
     );
   }
 }
