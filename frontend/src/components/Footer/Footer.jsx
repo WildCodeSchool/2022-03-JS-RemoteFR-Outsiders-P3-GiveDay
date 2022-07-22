@@ -1,5 +1,11 @@
 import React from "react";
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaPaperPlane,
+  FaPenAlt,
+} from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./footer.css";
 
@@ -9,7 +15,7 @@ export default function Footer() {
       <ul className="social-links">
         <li className="conditions-link_items">
           <a href="https://www.giveday.fr/conditions_generales">
-            conditions generales
+            <FaPenAlt /> Conditions generales
           </a>
         </li>
 
@@ -45,8 +51,11 @@ export default function Footer() {
             Linked In
           </a>
         </li>
-
-        <Link to="/Contact">nous contacter</Link>
+        <li className="social-link_items">
+          <Link to="/Contact">
+            <FaPaperPlane /> Nous contacter
+          </Link>
+        </li>
       </ul>
     </footer>
   );
