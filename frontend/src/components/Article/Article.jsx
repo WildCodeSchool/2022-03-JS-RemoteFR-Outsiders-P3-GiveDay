@@ -1,39 +1,53 @@
 import React, { useContext } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
+import api from "@services/api";
+import { useNavigate } from "react-router-dom";
+import { Markup } from "interweave";
 import "./article.css";
 import "@components/Article/ArticleDetail";
 import CurrentPagesContext from "../../PagesContexts";
 
 function Article({ article }) {
   const { setDetail } = useContext(CurrentPagesContext);
-
+  const articleContent = article.texte;
+  const navigate = useNavigate();
   const handleClick = () => {
-    const articleSolo = `http://localhost:5000/api/articles/${article.id}`;
-    axios
-      .get(articleSolo)
+    api
+      .get(`/api/articles/${article.id}`)
       .then((res) => res.data)
       .then((data) => {
         setDetail(data);
-      });
+        localStorage.setItem("articleChoose", JSON.stringify(data));
+      })
+      .then(
+        setTimeout(() => {
+          navigate("/ArticleDetail");
+        }, 1000)
+      );
   };
 
   return (
     <div className="vignetteBlog">
-      <Link to="/ArticleDetail" onClick={handleClick}>
+      <button type="button" onClick={handleClick}>
         <div>
-          <img
+          <div
+            style={{
+              width: "100%",
+              height: "200px",
+              backgroundSize: "cover",
+              backgroundImage: `url("${article.image}")`,
+            }}
             className="photoArticle"
-            src={`../src/assets/images/${article.image}`}
             alt={article.titre}
           />
         </div>
         <div>
           <h3 className="titreArticle">{article.titre}</h3>
-          <p className="titreDate">{article.date}</p>
-          <p className="titreText">{article.texte}</p>
+          <p className="titreDate">{article.date.substring(0, 10)}</p>
+          <p className="titreText">
+            <Markup content={articleContent} />
+          </p>
         </div>
-      </Link>
+      </button>
     </div>
   );
 }

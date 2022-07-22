@@ -1,19 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import Cadeau from "@components/CreationEvenement/Cadeau";
-import axios from "axios";
 import Layout from "@components/Layout";
 import "../../pages/Home/home.css";
 import "../../App.css";
 import "../Nav/Nav.css";
+import api from "@services/api";
 import CurrentPagesContext from "../../PagesContexts";
 
 function CreationEvenement() {
-  const { userIsConnected } = useContext(CurrentPagesContext);
-  const [cadeauxList, setcadeauxList] = useState([]);
+  const { userIsConnected, accountConnected } = useContext(CurrentPagesContext);
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [idEvent, setIdEvent] = useState();
+
   const [code, setNewCode] = useState();
-  const [form, setform] = useState({
-    code: 2140 /** VALEUR EN DUR POUR L INSTANT attention valeur unique pour la bdd */,
+  const [asso, setAsso] = useState([]);
+  const [createEvent, setCreateEvent] = useState({
+    code: "",
     prenom: "",
     age: "",
     date: "",
@@ -22,29 +25,34 @@ function CreationEvenement() {
     lieu: "",
     telephone: "",
     mail: "",
-    asso_event_id: 1 /** VALEUR EN DUR POUR L INSTANT */,
-    user_id: 3 /** VALEUR EN DUR POUR L INSTANT */,
+    asso_id: "",
+    user_id: accountConnected.user.id,
   });
+
+  useEffect(() => {
+    api
+      .get("api/asso")
+      .then((res) => setAsso(res.data))
+      .catch((err) => console.error(err));
+  }, []);
+
   const handleChange = (e) => {
-    setform({
-      ...form,
+    setCreateEvent({
+      ...createEvent,
       [e.target.name]: e.target.value,
     });
   };
 
-  const onSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.target);
-    console.warn(Array.from(data.entries()));
-    if (userIsConnected) {
-      axios
-        .post("http://localhost:5000/api/event", form)
-        .then((res) => res.data);
-    }
-  };
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmit(!isSubmit);
 
-  const handleAdd = () => {
-    setcadeauxList(cadeauxList.concat(<Cadeau name="lego" />));
+    api
+      .post("api/createEvent", createEvent)
+      .then((res) => {
+        setIdEvent(res.data.id);
+      })
+      .catch((err) => console.error(err));
   };
 
   function genCode(firstname, len) {
@@ -55,169 +63,151 @@ function CreationEvenement() {
   }
 
   useEffect(() => {
-    const cd = genCode(form.prenom, 7);
-    form.code = cd;
-    if (form.prenom.length < 1) {
+    const cd = genCode(createEvent.prenom, 7);
+    createEvent.code = cd;
+    if (createEvent.prenom.length < 1) {
       setNewCode("");
     }
-  }, [form]);
+  }, [createEvent]);
 
   return (
     <Layout>
       <div className="eventFlex">
         <form
           id="creationEvenement"
-          className="giveForm"
           action="/api/route/evenement"
           method="post"
           onSubmit={onSubmit}
         >
-          <h1>Créez votre évènement</h1>
-          <p className="codeEvenement">CODE : {code} </p>
-          <label htmlFor="input_eve_mail">
-            Email de l'organisateur
-            <input
-              className="inputForm"
-              id="input_eve_mail"
-              type="mail"
-              onChange={handleChange}
-              name="mail"
-              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-              placeholder="john.doe@email.fr"
-            />
-          </label>
-
-          <label htmlFor="input_eve_age">
-            Age de la personne célébrée
-            <input
-              className="inputForm"
-              id="input_eve_age"
-              onChange={handleChange}
-              type="text"
-              name="age"
-              placeholder="8"
-            />
-          </label>
-
-          <label htmlFor="input_eve_firstname">
-            Prénom de la personne célébrée
-            <input
-              className="inputForm"
-              id="input_eve_firstname"
-              onChange={handleChange}
-              type="text"
-              name="prenom"
-              placeholder="Gabriel"
-            />
-          </label>
-
-          <label htmlFor="input_eve_date">
-            Date de l'évènement
-            <input
-              id="input_eve_date"
-              className="inputForm"
-              type="date"
-              name="date"
-              onChange={handleChange}
-              value={new Date()}
-              min={new Date()}
-            />
-          </label>
-
-          <label htmlFor="input_eve_hour_start">
-            Heure de début
-            <input
-              id="input_eve_hour_start"
-              className="inputForm"
-              type="time"
-              onChange={handleChange}
-              name="heure_de_debut"
-              min="09:00"
-              max="22:00"
-            />
-          </label>
-
-          <label htmlFor="input_eve_hour_end">
-            Heure de fin
-            <input
-              id="input_eve_hour_end"
-              className="inputForm"
-              type="time"
-              onChange={handleChange}
-              name="heure_de_fin"
-              min="11:00"
-              max="00:00"
-            />
-          </label>
-          <label htmlFor="input_eve_place">
-            Lieu du rendez-vous
-            <input
-              id="input_eve_place"
-              className="inputForm"
-              onChange={handleChange}
-              type="text"
-              name="lieu"
-              placeholder="Parc de la tête d'or, Lyon"
-            />
-          </label>
-
-          <label htmlFor="input_eve_phone">
-            N° Téléphone de l'organisateur
-            <input
-              id="input_eve_phone"
-              className="inputForm"
-              type="tel"
-              onChange={handleChange}
-              name="telephone"
-              pattern="^(\+33 |0)[1-9]( \d\d){4}$"
-              placeholder="06 00 00 00 00"
-            />
-          </label>
-
-          <label htmlFor="asso-select">
-            Pour l'association
-            <select name="associations" id="asso-select">
-              <option value="0">--Choisir un association--</option>
-              <option value="1">Pâte Blanche</option>
-              <option value="2">Rejoué</option>
-              <option value="3">Terre de Milpa</option>
-            </select>
-          </label>
-
-          <span className="title">LISTE DES CADEAUX SOUHAITES</span>
-          <div className="cadeauxList">
-            <Cadeau name="lego" />
-            {cadeauxList}
-          </div>
-
-          <button
-            id="ajouterCadeau"
-            className="buttonStyle"
-            type="button"
-            onClick={handleAdd}
-          >
-            🎁 Ajouter un cadeau
-          </button>
-          <br />
-          {userIsConnected ? (
-            <button
-              className="buttonStyle"
-              type="submit"
-              form="creationEvenement"
-              value="Submit"
-            >
-              🎉 Créer l'évènement
-            </button>
+          {" "}
+          {!isSubmit ? (
+            <>
+              <h1>Les informations de mon évènement : </h1>
+              <label htmlFor="input_eve_mail">
+                Email de l'organisateur
+                <input
+                  className="form-control"
+                  type="mail"
+                  onChange={handleChange}
+                  name="mail"
+                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  placeholder="john.doe@email.fr"
+                  required
+                />
+              </label>
+              <label htmlFor="input_eve_age">
+                Age de la personne célébrée
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  type="number"
+                  name="age"
+                  placeholder="8"
+                  required
+                />
+              </label>
+              <label htmlFor="input_eve_firstname">
+                Prénom de la personne célébrée
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  type="text"
+                  name="prenom"
+                  placeholder="Gabriel"
+                  required
+                />
+              </label>
+              <label htmlFor="input_eve_date">
+                Date de l'évènement
+                <input
+                  className="form-control "
+                  type="date"
+                  name="date"
+                  onChange={handleChange}
+                  required
+                />
+              </label>
+              <label htmlFor="input_eve_hour_start">
+                Heure de début
+                <input
+                  className="form-control "
+                  type="time"
+                  onChange={handleChange}
+                  name="heure_de_debut"
+                  required
+                />
+              </label>
+              <label htmlFor="input_eve_hour_end">
+                Heure de fin
+                <input
+                  className="form-control "
+                  type="time"
+                  onChange={handleChange}
+                  name="heure_de_fin"
+                  required
+                />
+              </label>
+              <label htmlFor="input_eve_place">
+                Lieu du rendez-vous
+                <input
+                  className="form-control"
+                  onChange={handleChange}
+                  type="text"
+                  name="lieu"
+                  placeholder="Parc de la tête d'or, Lyon"
+                  required
+                />
+              </label>
+              <label htmlFor="input_eve_phone">
+                N° Téléphone de l'organisateur
+                <input
+                  className="form-control"
+                  type="tel"
+                  onChange={handleChange}
+                  name="telephone"
+                  pattern="^(\+33 |0)[1-9]( \d\d){4}$"
+                  placeholder="06 00 00 00 00"
+                  required
+                />
+              </label>
+              <label htmlFor="asso-select">
+                Pour l'association
+                <select required name="asso_id" onChange={handleChange}>
+                  {" "}
+                  <option value="">---</option>
+                  {asso.map((item) => (
+                    <option key={item.id} value={item.id}>
+                      {item.nom}
+                    </option>
+                  ))}
+                </select>
+              </label>
+              <br />
+              <p className="codeEvenement">CODE : {code} </p>
+              <h1>Tout est bon ?</h1>
+              {userIsConnected ? (
+                <button
+                  className="buttonStyle"
+                  type="submit"
+                  form="creationEvenement"
+                  value="Submit"
+                >
+                  🎉 Envoyer mes infos
+                </button>
+              ) : (
+                <button
+                  className="buttonStyle notConnected"
+                  type="button"
+                  value="Submit"
+                >
+                  Connexion requise
+                </button>
+              )}
+              <br />{" "}
+            </>
           ) : (
-            <button
-              className="buttonStyle notConnected"
-              type="button"
-              value="Submit"
-            >
-              Connexion requise
-            </button>
+            <Cadeau idEvent={idEvent} />
           )}
-          <br />
         </form>
       </div>
     </Layout>

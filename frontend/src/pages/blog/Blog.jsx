@@ -19,9 +19,8 @@ function Blog() {
    * Lors du chargement du component, nous allons récupérer toutes nos catégories.
    */
   useEffect(() => {
-    const tags = `/api/tag`;
     api
-      .get(tags)
+      .get(`/api/tag`)
       .then((res) => res.data)
       .then((data) => {
         setCategories(data);
@@ -41,9 +40,8 @@ function Blog() {
    * si celui ci change, alors nous relançons notre axios pour récupérer nos articles.
    */
   useEffect(() => {
-    const getArticles = `/api/tag/${choiceCategorie}`;
     api
-      .get(getArticles)
+      .get(`/api/tag/${choiceCategorie}`)
       .then((res) => {
         setArticles(res.data);
       })
@@ -58,7 +56,7 @@ function Blog() {
 
           <div className="searchTag">
             <h3>Catégorie:</h3>
-            <select onChange={handlechange}>
+            <select onChange={handlechange} className="buttonStyle">
               <option value={0}>Tous les articles</option>
               {/** Ici, nous affichons toutes nos catégories, reçu via l'API  */}
               {categories.map((categorie) => (
@@ -68,7 +66,6 @@ function Blog() {
               ))}
             </select>
           </div>
-          {/* <SelectTag setArrayTag={setArrayTag} arrayTag={arrayTag}/> */}
         </div>
         {articles.map((article) => (
           <Article key={article.id} article={article} />

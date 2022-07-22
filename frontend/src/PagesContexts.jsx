@@ -4,6 +4,8 @@ import React, { createContext, useState } from "react";
 const CurrentPagesContext = createContext();
 
 export function CurrentPagesContextProvider({ children }) {
+  const user = localStorage.getItem("user");
+  const [accountConnected, setAccountConnected] = useState(JSON.parse(user));
   const [accueil, setAcceuil] = useState(true);
   const [histoire, setHistoire] = useState(false);
   const [associations, setAssociations] = useState(false);
@@ -12,8 +14,12 @@ export function CurrentPagesContextProvider({ children }) {
   const [creationEvenement, setCreationEvenement] = useState(false);
   const [isOpenJeCree, setIsOpenJeCree] = useState(false);
   const [userIsConnected, setUserIsConnected] = useState(false);
-  const [detail, setDetail] = useState([]);
+  const [eventToJoint, setEventToJoint] = useState({});
+  const [cadeauxList, setcadeauxList] = useState([]);
+  const articleChoose = localStorage.getItem("articleChoose");
+  const [detail, setDetail] = useState(JSON.parse(articleChoose));
   const [articles, setArticles] = useState([]);
+  const [postContent, setPostContent] = useState([]);
 
   return (
     <CurrentPagesContext.Provider
@@ -34,10 +40,18 @@ export function CurrentPagesContextProvider({ children }) {
         setIsOpenJeCree,
         userIsConnected,
         setUserIsConnected,
+        accountConnected,
+        setAccountConnected,
+        eventToJoint,
+        setEventToJoint,
+        cadeauxList,
+        setcadeauxList,
         detail,
         setDetail,
         articles,
         setArticles,
+        postContent,
+        setPostContent,
       }}
     >
       {children}

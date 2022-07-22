@@ -1,10 +1,12 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import api from "@services/api";
 import "./user.css";
 import ViewUser from "./ViewUser";
+import CurrentPagesContext from "../../PagesContexts";
 
 function MyEvents({ hundleOpenMyEvents }) {
+  const { accountConnected } = useContext(CurrentPagesContext);
   const today = new Date();
   const TodayDate = `${today.getFullYear()}-${
     today.getMonth() + 1
@@ -38,7 +40,9 @@ function MyEvents({ hundleOpenMyEvents }) {
   ]);
   useEffect(() => {
     api
-      .get("/api/users/:id", { withCredentials: true })
+      .get(`/api/users/${accountConnected.user.id}/events`, {
+        withCredentials: true,
+      })
       .then((res) => res.data)
       .then((data) => {
         if (data) {
@@ -46,9 +50,9 @@ function MyEvents({ hundleOpenMyEvents }) {
         }
       });
   }, []);
-
+  console.warn(userEvents);
   return (
-    <div className="formContainer" id="MyUser">
+    <div className="formContainer" id="MyEvent">
       <button
         type="button"
         className="exitFormContainer"
@@ -61,17 +65,23 @@ function MyEvents({ hundleOpenMyEvents }) {
         <div className="eventSection1Titles">
           <h1>Date</h1>
           <h1>Organisateur</h1>
+          <h1>Cagnotte cadeau</h1>
+          <h1>Cagnotte Asso</h1>
+          <h1>Code</h1>
           <h1>Status</h1>
         </div>
         {userEvents.map((OneEvent, index) => (
           <div key={index} className="eventSection1Results">
             <h1>{OneEvent.date}</h1>
-            <h1>{OneEvent.organisateur}</h1>
+            <h1>{OneEvent.prenom}</h1>
+            <h1>{OneEvent.cagnotte_somme_cadeau}</h1>
+            <h1>{OneEvent.cagnotte_don_asso}</h1>
+            <h1>{OneEvent.code}</h1>
             <h1
               className={
                 setStatusEvent(OneEvent.date) === "En cours"
                   ? "eventStatusEnCours"
-                  : "eventStatusTerminé"
+                  : "eventStatusTermine"
               }
             >
               {setStatusEvent(OneEvent.date)}

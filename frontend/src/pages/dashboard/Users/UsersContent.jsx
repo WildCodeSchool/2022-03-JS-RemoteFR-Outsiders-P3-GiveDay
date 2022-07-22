@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../dashboard.css";
@@ -23,7 +24,7 @@ function UsersContent() {
 
   useEffect(() => {
     api
-      .get(`/api/count`)
+      .get(`/api/admin/count`)
       .then((res) => setCount(res.data[0]))
       .catch((err) => console.error(err));
   }, [users]);

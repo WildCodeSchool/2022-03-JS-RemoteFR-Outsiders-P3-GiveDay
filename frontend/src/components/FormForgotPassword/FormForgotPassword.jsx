@@ -4,6 +4,7 @@ import api from "@services/api";
 
 function FormForgotPassword() {
   const [email, setEmail] = useState("");
+  const [isAuthorized, setIsAuthorized] = useState("enterEmail");
 
   const handleChange = (e) => {
     setEmail(e.target.value);
@@ -11,44 +12,59 @@ function FormForgotPassword() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.warn("lancement d'axios...");
     api
       .get(`/api/reset/isemailexists/${email}`, { withCredentials: true })
       .then((res) => res.data)
       .then((data) => {
         if (data) {
-          console.warn(data);
+          setIsAuthorized("messageReceived");
         }
       });
   };
 
-  return (
-    <form
-      className="form-reset-password-email"
-      name="form-reset-password-email"
-      onSubmit={handleSubmit}
-    >
-      <div className="form-group">
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-        <label htmlFor="emailInput">Demande de nouveau mot de passe</label>
+  if (isAuthorized === "enterEmail") {
+    return (
+      <form
+        className="form-reset-password-email"
+        name="form-reset-password-email"
+        onSubmit={handleSubmit}
+      >
+        <div className="form-group">
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+          <label htmlFor="emailInput">Demande de nouveau mot de passe</label>
+          <input
+            type="email"
+            name="email"
+            className="form-control"
+            id="emailInput"
+            aria-describedby="emailHelp"
+            placeholder="Entrez votre email"
+            value={email}
+            onChange={handleChange}
+          />
+        </div>
         <input
-          type="email"
-          name="email"
-          className="form-control"
-          id="emailInput"
-          aria-describedby="emailHelp"
-          placeholder="Entrez votre email"
-          value={email}
-          onChange={handleChange}
+          type="submit"
+          className="btn btn-primary"
+          value="Demander un nouveau mot de passe"
         />
-      </div>
-      <input
-        type="submit"
-        className="btn btn-primary"
-        value="Demander un nouveau mot de passe"
-      />
-    </form>
-  );
+      </form>
+    );
+  }
+  if (isAuthorized === "messageReceived") {
+    return (
+      <form
+        className="form-reset-password-email"
+        name="form-reset-password-email"
+        onSubmit={handleSubmit}
+      >
+        <div className="form-group">
+          {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+          <p className="message">Vous allez recevoir un lien par mail</p>
+        </div>
+      </form>
+    );
+  }
 }
 
 export default FormForgotPassword;

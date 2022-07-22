@@ -1,29 +1,41 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import Layout from "@components/Layout";
+import { Markup } from "interweave";
 
 import CurrentPagesContext from "../../PagesContexts";
 
 function ArticleDetail() {
   const { detail } = useContext(CurrentPagesContext);
-
+  const articleContent = detail.texte;
   return (
     <Layout>
-      <div className="vignetteBlog">
-        <p>coucou</p>
-        <div>
+      <div className="gloArticle">
+        <div className="BlocPhotoArticle">
           <img
-            className="photoArticle"
-            src={`../src/assets/images/${detail.image}`}
+            className="PhotoPrincipal"
+            src={detail.image}
             alt={detail.titre}
           />
         </div>
-        <div>
-          <h3 className="titreArticle">{detail.titre}</h3>
-          <p className="titreDate">{detail.date}</p>
-          <p className="titreText">{detail.texte}</p>
+        <div className="titreAndDate">
+          <h3 className="detailTitre">{detail.titre}</h3>
+          <p className="detailDate">{detail.date}</p>
+        </div>
+        <div className="articleDetail">
+          <article className="detailText">
+            <Markup content={articleContent} />
+          </article>
+        </div>
+
+        <div className="ButtonArticle">
+          <Link to="/Blog">
+            <button type="button" className="buttonStyle">
+              Retour aux articles
+            </button>
+          </Link>
         </div>
       </div>
-      {/* <ArticleDetail key={article.id} article={article} /> */}
     </Layout>
   );
 }
