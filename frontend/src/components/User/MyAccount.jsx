@@ -2,6 +2,7 @@
 import React, { useState, useContext } from "react";
 import api from "@services/api";
 import "./user.css";
+import Swal from "sweetalert2";
 import ViewUser from "./ViewUser";
 import CurrentPagesContext from "../../PagesContexts";
 
@@ -23,11 +24,19 @@ function MyAccount({ hundleOpenMyAccount }) {
   });
   const handlePutMyAccount = (event) => {
     event.preventDefault();
+
     if (
       user.password === user.repeatPassword ||
       user.password === "" ||
       user.repeatPassword === ""
     ) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Vous informations ont été modifiées",
+        showConfirmButton: false,
+        timer: 1500,
+      });
       api
         .put(`/api/users/update/${accountConnected.user.id}`, user, {
           withCredentials: true,
@@ -37,6 +46,7 @@ function MyAccount({ hundleOpenMyAccount }) {
           if (data) {
             console.warn(data);
             localStorage.setItem("user", JSON.stringify(data));
+
             setTimeout(() => {
               window.location = "/";
             }, 1000);

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import api from "@services/api";
 import { Link } from "react-router-dom";
 import "./user.css";
+import Swal from "sweetalert2";
 
 function Login({ hundleOpenLogin, setUserIsConnected }) {
   const [errorLogin, setErrorLogin] = useState(false);
@@ -12,6 +13,13 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
   });
   const handleLogin = (event) => {
     event.preventDefault();
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Vous êtes connecté !",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     api
       .post("/api/auth/login", user, { withCredentials: true })
       .then((res) => res.data)
