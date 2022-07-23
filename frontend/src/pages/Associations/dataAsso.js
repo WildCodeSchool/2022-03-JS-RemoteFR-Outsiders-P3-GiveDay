@@ -1,38 +1,48 @@
 // imports LOGO ASSOS
-import logoPateBlanche from "../../assets/imgAsso/logo-pate-blanche.png";
-import logoTerreDeMilpa from "../../assets/imgAsso/logo-terre-de-milpa2.png";
-import logorejoue from "../../assets/imgAsso/logo-rejoue.png";
+import logoNineLives from "../../assets/imgAsso/logoNineLives.webp";
+import logoIkigai from "../../assets/imgAsso/logoIkigai.png";
+import logoRejoue from "../../assets/imgAsso/logoRejoue.png";
+import logoReves from "../../assets/imgAsso/logoReves.jpeg";
 
 // imports PHOTOS ASSOS
-import pictChat from "../../assets/imgAsso/chat.jpg";
-import pictJouet from "../../assets/imgAsso/jouet.jpg";
-import pictPotager from "../../assets/imgAsso/potager.jpg";
+import pictIkigai from "../../assets/imgAsso/pictIkigai.png";
+import pictRejoue from "../../assets/imgAsso/pictRejoue.png";
+import pictNineLives from "../../assets/imgAsso/pictNineLives.png";
+import pictReves from "../../assets/imgAsso/pictReves.png";
 
 export const dataAsso = [
   {
-    nom: "Pâte Blanche",
-    logo: logoPateBlanche,
-    photo: pictChat,
+    nom: "IKIGAÏ",
+    logo: logoIkigai,
+    photo: pictIkigai,
     description:
-      "Adoptez un chat... sauvez deux vies! Patte Blanche est une association gérée par des amoureux des chats qui n’avaient qu’une seule envie : aider, protéger, et défendre nos amis les animaux..C’est ainsi que par un matin ensoleillé d’octobre 2017, cette association de protection animale fût officiellement créée ! L'association s'est donné comme objectif d'accueillir et placer les chats (et parfois mêmes des lapinous !) venant des portées non désirées afin d'assurer leur bien être. Tous les minous vivent au sein de familles d’accueil sélectionnées par leurs soins qui se chargent de les chérir en attendant de trouver LA famille idéale. Nous sommes ravis de pouvoir collaborer prochainement avec eux, c'est une association qui démarre, et qui a besoin de soutien afin d’élargir leur champ d'action ! On imagine déjà une super collaboration non seulement comme association à soutenir mais aussi dans la création de contenu sur la cause animale !",
-    url: "https://www.patteblanche-asso.fr/",
+      "Ikigaï accompagne les enfants avec autisme et autres troubles du neuro-développement sur le chemin de l'école et de la socialisation. Cette belle association imagine et expérimente des solutions, en réponse aux besoins exprimés par les familles. Ikigai signifie «joie de vivre» et «raison d'être». Cette philosophie japonaise invite chacun, dès son plus jeune âge, à chercher ce qui le rend heureux, donne du sens à sa vie et lui permet de trouver sa place 💙.",
+    url: "https://www.association-ikigai.org/",
   },
   {
     nom: "Rejoué",
-    logo: logorejoue,
-    photo: pictJouet,
+    logo: logoRejoue,
+    photo: pictRejoue,
     description:
-      "Des jouets d’occasion et de qualité, c’est possible ! Rejoué n'a pas hésite à nous suivre en tant que partenaire. Ils sont directement touchés par la surconsommation de jouets : Ils collectent jusqu’à 55 tonnes de jouets par an rien qu'en Ile de France ! Malheureusement tous ces jouets ne peuvent pas être revalorisés. Vous pouvez imaginer donc la quantité de déchets que cela produise :-( Une partie des jouets revalorisés est acheminée à leur boutique, une autre est distribuée dans des hôpitaux, écoles, etc... Mais reJoué a une autre mission : elle porte aussi un chantier d’insertion, et donne de l’employabilité par une stabilité sociale, un travail en équipe, une reprise de confiance en soi, des formations, des découvertes métiers... Bref on adore et on adhère ! ",
-
+      "L’association Rejoué donne une seconde vie aux jouets grâce au travail de femmes et d’hommes accompagné·es vers l’emploi durable et l’inclusion sociale. Les jouets, jeux et livres sont collectés principalement auprès des citoyens ou au sein des entreprises. Ils sont ensuite triés selon les normes de sécurité, testés, complétés et nettoyés écologiquement puis vendus à petits prix (50 % du neuf) aux professionnel·les de l’enfance, aux familles ou offerts à des enfants qui en ont besoin grâce au soutien d’entreprises partenaires. Ce travail minutieux est réalisé par des personnes rencontrant des difficultés sociales et professionnelles particulières à qui nous proposons un emploi et un accompagnement socioprofessionnel adapté. Chaque salarié·e lors de son passage chez Rejoué acquiert des compétences transférables, construit son projet professionnel, réalise des formations et stages et est accompagné·e sur la résolution de ses problématiques sociales. Implantée depuis plus de 10 ans en Ile de France, l’association a rénové en 2021 plus de 66 000 jouets, accompagné 63 personnes  dont 64% de femmes et offert des cadeaux dans le cadre d’opération de solidarité à plus de 9 300 enfants.",
     url: "https://rejoue.asso.fr/",
   },
   {
-    nom: "Terre de Milpa",
-    logo: logoTerreDeMilpa,
-    photo: pictPotager,
+    nom: "Nine Lives",
+    logo: logoNineLives,
+    photo: pictNineLives,
     description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. ",
+      "Cette belle association recueille des animaux abandonnés, non désirés, délaissés, trouvés, provenant de fourrières, ...pour ensuite les placer en famille d'accueil pour quelques semaines ou quelques mois, le temps qu'ils soient à jour sanitairement, ou le temps qu'ils soient suffisamment sociables pour être adoptés. Après les soigner, les identifier, les vacciner, les stériliser, les sociabiliser parfois quand il s'agit de chatons ou de chats craintifs, ils pourront enfin s'intégrer dans leur future famille ! Enfin, l’association se lance à la recherche d’une famille d'adoption qui leur convienne, en prêtant une attention toute particulière à leur futur environnement. On adoreeee !",
 
-    url: "https://www.terredemilpa.fr/",
+    url: "https://ninelives.fr/",
+  },
+  {
+    nom: "Associations Rêves",
+    logo: logoReves,
+    photo: pictReves,
+    description:
+      "Rêves est une association qui a pour mission d’exaucer le Rêve des enfants et adolescents très gravement malades. Leur offrir une parenthèse enchantée pour oublier la maladie… tel est le but de l’association. Plus que tout autre, les enfants très gravement malades ont besoin de Rêver à des projets qui les stimulent et leur donnent la force de se battre contre la maladie. En réalisant leurs vœux les plus fous, l’association leur permet de s’évader du quotidien et de vivre des expériences inoubliables qui les aident à reprendre confiance en l’avenir !",
+
+    url: "https://www.reves.fr/",
   },
 ];
