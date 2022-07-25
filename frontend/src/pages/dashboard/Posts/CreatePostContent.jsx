@@ -14,6 +14,7 @@ export default function CreatePostContent() {
     date: "",
     texte: "",
     image: "",
+    tag: {},
   };
 
   const handleTitre = (e) => {
@@ -34,6 +35,7 @@ export default function CreatePostContent() {
     article.image = e.target.value;
   };
 
+  // const handleToggle = (e) => {};
   const log = () => {
     if (editorRef.current) {
       // console.warn(editorRef.current.getContent());
@@ -91,6 +93,114 @@ export default function CreatePostContent() {
         placeholder="Copiez-collez une URL"
         onChange={handleIamgeURL}
       />
+
+      <h4>Choisir un tag</h4>
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Anniversaire{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Fête
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Enfants{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Ados{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Santé{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Consommation responsable{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Cadeaux{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Environnement{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+
+      <div className="form-check form-switch">
+        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+          Animaux{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
+      <div className="form-check form-switch">
+        <label
+          className="form-check-label"
+          type="text"
+          htmlFor="flexSwitchCheckDefault"
+        >
+          Education{" "}
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="flexSwitchCheckDefault"
+          />
+        </label>
+      </div>
 
       <h4 className="mt-2">Saisissez un article</h4>
       <Editor
