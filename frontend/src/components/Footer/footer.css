@@ -11,7 +11,6 @@
   border-radius: 0px 0px 25px 25px;
 }
 
-
 ul.social-links {
   display: flex;
   list-style: none;
@@ -32,11 +31,10 @@ ul.social-links > li {
   margin-right: 2rem;
 }
 
-ul.social-links > li > a{
-  font-size:1.1rem;
-  color:black;
+ul.social-links > li > a {
+  font-size: 1.1rem;
+  color: black;
 }
-
 
 #give-footer li.social-link_items > a > svg {
   margin-right: 10px;
@@ -53,8 +51,8 @@ ul.social-links > li > a{
     align-items: center;
   }
 
-  ul.social-links li{
-    margin-bottom:1rem;
+  ul.social-links li {
+    margin-bottom: 1rem;
   }
 
   #give-footer {

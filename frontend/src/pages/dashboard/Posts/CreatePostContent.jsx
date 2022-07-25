@@ -1,6 +1,7 @@
 import React, { useContext, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
+import Swal from "sweetalert2";
 import api from "../../../services/api";
 import CurrentPagesContext from "../../../PagesContexts";
 import "../dashboard.css";
@@ -39,6 +40,13 @@ export default function CreatePostContent() {
       // console.warn(editorRef.current.getContent());
       article.texte = editorRef.current.getContent();
       console.warn({ article });
+      Swal.fire({
+        position: "bottom-end",
+        icon: "success",
+        title: "Article ajouté !",
+        showConfirmButton: false,
+        timer: 1700,
+      });
       api
         .post(`/api/article`, article)
         .then((res) => res.data)
@@ -69,13 +77,13 @@ export default function CreatePostContent() {
   }
   return (
     <div className="contentTable">
-      <div className="head-h2-btn">
+      <div className="head-h2">
         <h2>Créer un article</h2>{" "}
       </div>
       <h4>Entrez un titre pour l'article</h4>
 
       <input
-        className="mb-1 editorInput"
+        className="editorInput"
         name="titrePost"
         type="text"
         placeholder="Entrez le titre de l'article"
@@ -85,7 +93,7 @@ export default function CreatePostContent() {
       <h4>Choisissez une image (url)</h4>
 
       <input
-        className="mb-1 editorInput"
+        className="editorInput"
         name="ImageURL"
         type="text"
         placeholder="Copiez-collez une URL"
@@ -93,6 +101,7 @@ export default function CreatePostContent() {
       />
 
       <h4 className="mt-2">Saisissez un article</h4>
+
       <Editor
         apiKey="70gb2ple3n4s75w5vqwai5zisk0z4ya4dt96kxgbpvtx0qd1"
         onInit={(evt, editor) => {
