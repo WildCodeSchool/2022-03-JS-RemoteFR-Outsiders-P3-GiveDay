@@ -1,13 +1,21 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "./contact.css";
+import Layout from "@components/Layout";
+import Swal from "sweetalert2";
 
 function Contact() {
   const form = useRef();
 
   const sendEmail = (e) => {
     e.preventDefault();
-
+    Swal.fire({
+      position: "bottom-end",
+      icon: "success",
+      title: "Message envoyé!",
+      showConfirmButton: false,
+      timer: 1700,
+    });
     emailjs
       .sendForm(
         "service_bgu7oxk",
@@ -26,31 +34,47 @@ function Contact() {
   };
 
   return (
-    <div id="contactContainer">
-      <form
-        action="/api/route/contact"
-        method="post"
-        onSubmit={sendEmail}
-        ref={form}
-      >
-        <h1>Prenez contact avec nous !</h1>
-        <input type="text" name="name" placeholder="Nom et prénom" required />
+    <Layout>
+      <div id="contactContainer">
+        <form onSubmit={sendEmail} ref={form}>
+          <h1>Prenez contact avec Giveday !</h1>
+          <label htmlFor="form">
+            Prénom et nom :
+            <input
+              type="text"
+              name="name"
+              placeholder="Omer Simpson"
+              required
+            />
+          </label>
 
-        <input type="email" name="email" placeholder="adresse mail" required />
+          <label htmlFor="form">
+            Email :
+            <input
+              type="email"
+              name="email"
+              placeholder="omer@simpson.fr"
+              required
+            />
+          </label>
 
-        <textarea
-          type="message"
-          row="12"
-          name="message"
-          placeholder="Votre message"
-          required
-        />
+          <label htmlFor="form">
+            Message :
+            <textarea
+              type="msg"
+              row="14"
+              name="message"
+              placeholder="Votre message ici..."
+              required
+            />
+          </label>
 
-        <button className="buttonStyle" type="submit">
-          Envoyer le message
-        </button>
-      </form>
-    </div>
+          <button className="buttonStyle btn-contact" type="submit">
+            Envoyer
+          </button>
+        </form>
+      </div>
+    </Layout>
   );
 }
 

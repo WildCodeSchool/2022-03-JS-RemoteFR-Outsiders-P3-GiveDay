@@ -14,9 +14,10 @@ export default function Footer() {
     <footer id="give-footer">
       <ul className="social-links">
         <li className="conditions-link_items">
-          <a href="https://www.giveday.fr/conditions_generales">
-            <FaPenAlt /> Conditions generales
-          </a>
+          <Link to="/conditionsGenerales">
+            {" "}
+            <FaPenAlt size={20} /> Conditions générales
+          </Link>
         </li>
 
         <li className="social-link_items">
@@ -25,8 +26,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <FaFacebook />
-            Facebook
+            <FaFacebook size={30} /> Facebook
           </a>
         </li>
 
@@ -36,7 +36,7 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <FaInstagram />
+            <FaInstagram size={30} />
             Instagram
           </a>
         </li>
@@ -47,13 +47,13 @@ export default function Footer() {
             target="_blank"
             rel="noreferrer"
           >
-            <FaLinkedin />
+            <FaLinkedin size={30} />
             Linked In
           </a>
         </li>
         <li className="social-link_items">
           <Link to="/Contact">
-            <FaPaperPlane /> Nous contacter
+            <FaPaperPlane size={22} /> Nous contacter
           </Link>
         </li>
       </ul>
