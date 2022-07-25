@@ -1,8 +1,9 @@
 /* eslint-disable no-alert */
 import React, { useState, useEffect } from "react";
 import { BsTrash } from "react-icons/bs";
-import { GrAddCircle, GrUpdate } from "react-icons/gr";
+import { GrUpdate } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 import api from "@services/api";
 import "../dashboard.css";
@@ -28,19 +29,20 @@ function PostsContent() {
 
   return (
     <div className="contentTable table-responsive">
-      <div className="head-h2-btn">
+      <div className="head-h2">
         <h2>Tous les articles du blog</h2>
-        <button type="button" className="btn-add">
-          <GrAddCircle size={40} />
-        </button>
       </div>
       <table className="table table-responsive-sm table-striped table-light table-bordered table-hover ">
         <thead className="table-dark">
           <tr>
             <th scope="col">Titre</th>
             <th scope="col">Date de création</th>
-            <th scope="col">Modifier</th>
-            <th scope="col">Supprimer</th>
+            <th scope="col" className="btn-column">
+              Modifier
+            </th>
+            <th scope="col" className="btn-column">
+              Supprimer
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -59,12 +61,22 @@ function PostsContent() {
                     className="dashboard-btn delete-btn"
                     type="button"
                     onClick={() => {
-                      const confirmBox = window.confirm(
-                        "Etes-vous sûr de vouloir supprimer cet article ?"
-                      );
-                      if (confirmBox === true) {
-                        handleDelete(article.id);
-                      }
+                      Swal.fire({
+                        title:
+                          "Etes-vous sûr de vouloir supprimer cet article?",
+                        text: "Cette action sera irréversible",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#6fceb4",
+                        cancelButtonColor: "#ec5f5d",
+                        confirmButtonText: "Oui, supprimer",
+                        cancelButtonText: "Annuler",
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                          Swal.fire("L'article a bien été supprimé.");
+                          handleDelete(article.id);
+                        }
+                      });
                     }}
                   >
                     <BsTrash size={20} />

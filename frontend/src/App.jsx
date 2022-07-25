@@ -123,7 +123,7 @@ function App() {
 
         <Route path="/resetpassword-ask" element={<FormForgotPassword />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/admin" element={<Admin />} />
+        <Route path="/admin" element={<Admin content="accueil" />} />
         <Route path="/admin/users" element={<Admin content="users" />} />
         <Route path="/admin/edit/:id" element={<Admin content="edit" />} />
         <Route path="/admin/posts" element={<Admin content="posts" />} />
