@@ -83,7 +83,7 @@ body::before {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url("../assets/images/backgroud.jpg");
+  background-image: url("/frontend/src/assets/images/fontBackgroud.jpg");
   z-index: -1;
   background-size: cover;
   -moz-filter: blur(15px);
