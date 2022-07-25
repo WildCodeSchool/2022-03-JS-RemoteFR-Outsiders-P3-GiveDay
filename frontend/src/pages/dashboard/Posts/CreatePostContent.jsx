@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 import api from "../../../services/api";
@@ -9,17 +9,22 @@ export default function CreatePostContent() {
   const editorRef = useRef(null);
   const { setPostContent } = useContext(CurrentPagesContext);
   const [alert, setAlert] = useState();
+  const [tags, setTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState({});
   const article = {
     titre: "",
     date: "",
     texte: "",
     image: "",
-    tag: {},
   };
 
   const handleTitre = (e) => {
     article.titre = e.target.value;
   };
+
+  useEffect(() => {
+    api.get(`api/tag`).then((res) => setTags(res.data));
+  }, []);
 
   const setToday = () => {
     let today = "";
@@ -35,19 +40,38 @@ export default function CreatePostContent() {
     article.image = e.target.value;
   };
 
-  // const handleToggle = (e) => {};
+  const handleChangeToggle = (e) => {
+    setSelectedTags({ ...selectedTags, [e.target.name]: e.target.checked });
+    console.warn(e.target.name);
+    console.warn(e.target.checked);
+  };
+  console.warn(selectedTags);
+  // const handleChangeToggle = (e) => {
+  //   const newTags = [...tags];
+  //   newTags.name = e.target.name;
+  //   newTags.checked = e.target.value;
+  //   console.log(newTags);
+  // };
+
+  // console.log(tags);
+
   const log = () => {
     if (editorRef.current) {
       // console.warn(editorRef.current.getContent());
+      // 1 - on definit article : date / image / tag / texte / titre
+      // 2 - Nous avons en retour du POST avec l'ID de l'article et il faut faire un GET de l'id du TAG
+      // 3 - POST les id dans has_tag
+
       article.texte = editorRef.current.getContent();
-      console.warn({ article });
+
       api
-        .post(`/api/article`, article)
+        .post(`/api/article/add`, article)
         .then((res) => res.data)
         .then((data) => {
           console.warn(data);
           setPostContent(data);
           setAlert("ArticleSaved");
+          return data;
         });
     }
   };
@@ -95,112 +119,21 @@ export default function CreatePostContent() {
       />
 
       <h4>Choisir un tag</h4>
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Anniversaire{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Fête
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Enfants{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Ados{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Santé{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Consommation responsable{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
 
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Cadeaux{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Environnement{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
-
-      <div className="form-check form-switch">
-        <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
-          Animaux{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
-      <div className="form-check form-switch">
-        <label
-          className="form-check-label"
-          type="text"
-          htmlFor="flexSwitchCheckDefault"
-        >
-          Education{" "}
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="flexSwitchCheckDefault"
-          />
-        </label>
-      </div>
+      {tags.map((tag) => (
+        <div className="form-check form-switch" key={tag.id}>
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+            {tag.tag}{" "}
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexSwitchCheckDefault"
+              onChange={handleChangeToggle}
+              name={tag.tag}
+            />
+          </label>
+        </div>
+      ))}
 
       <h4 className="mt-2">Saisissez un article</h4>
       <Editor
