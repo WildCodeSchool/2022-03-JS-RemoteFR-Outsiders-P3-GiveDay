@@ -1,7 +1,9 @@
+/*eslint-disable */
 import React from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import "./newsletter.css";
 import emailjs from "@emailjs/browser";
-
+/* eslint-enable */
 const sendNewsletterFollower = (e) => {
   e.preventDefault();
 
@@ -59,6 +61,13 @@ function Newsletter() {
         >
           ...Et suivez nous !
         </button>
+        <Player
+          src="https://assets1.lottiefiles.com/packages/lf20_bbtx2wfm.json"
+          className="player"
+          loop
+          autoplay
+          style={{ width: "50%", marginBottom: "-3rem", marginTop: "-2rem" }}
+        />
       </div>
     </form>
   );

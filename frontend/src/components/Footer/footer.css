@@ -9,6 +9,7 @@
   border-bottom: 0.2rem solid var(--color_1);
   background-color: var(--color_1);
   border-radius: 0px 0px 25px 25px;
+  padding: 3rem;
 }
 
 ul.social-links {

@@ -1,4 +1,6 @@
+/*eslint-disable */
 import React, { useContext, useState, useEffect } from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import "./home.css";
 import { Link } from "react-router-dom";
 import api from "@services/api";
@@ -7,7 +9,7 @@ import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import post2 from "../../assets/images/post2.gif";
 import CurrentPagesContext from "../../PagesContexts";
-
+/* eslint-enable */
 function Home() {
   const [arrayData, setarrayData] = useState([]);
   const {
@@ -85,6 +87,12 @@ function Home() {
           <div className="blog">
             <Link to="/Blog" onClick={goToBlog}>
               <h3 className="titleAloja">Blog</h3>
+              <Player
+                src="https://assets9.lottiefiles.com/packages/lf20_yddgsjaa.json"
+                className="player"
+                loop
+                autoplay
+              />
             </Link>
           </div>
         </div>
@@ -92,11 +100,25 @@ function Home() {
           <div className="creation">
             <Link to="/CreationEvenement" onClick={goToCreationEvenement}>
               <h3 className="titleAloja">Creer un evenement</h3>
+              <Player
+                src="https://assets10.lottiefiles.com/packages/lf20_qwomkttk.json"
+                className="player"
+                loop
+                autoplay
+                style={{ width: "70%" }}
+              />
             </Link>
           </div>
           <div className="rejoindre">
             <Link to="/JointEvent" onClick={goOutHome}>
               <h3 className="titleAloja">Rejoindre un evenement</h3>
+              <Player
+                src="https://assets3.lottiefiles.com/packages/lf20_ky24lkyk.json"
+                className="player"
+                loop
+                autoplay
+                style={{ width: "60%" }}
+              />
             </Link>
           </div>
           <div className="article1">
@@ -134,13 +156,11 @@ function Home() {
           </div>
           <div>
             <p>
-              is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book. It has survived not
-              only five centuries, but also the leap into electronic
-              typesetting, remaining essentially unchanged. It was popularised
-              in the 1960s with the release of{" "}
+              Avec nos associations partenaires nous partageons une philosophie
+              : l'enfance sera toujours le plus fort atout de la société pour
+              changer les choses qui ne vont pas ! Nous sommes à leurs côtés
+              pour imaginer les plus belles collaborations, veux-tu les
+              connaitre et devenir un héros en les soutenant aussi ?
             </p>
           </div>
           <div className="globalCercle">
@@ -156,8 +176,6 @@ function Home() {
           </div>
         </div>
       </div>
-      {/* <Eventback />
-      <Userback /> */}
     </Layout>
   );
 }
