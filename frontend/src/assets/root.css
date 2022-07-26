@@ -91,6 +91,7 @@ body::before {
   -ms-filter: blur(15px);
   filter: blur(15px);
   transform: scale(1.2, 1.2);
+  background-position: 20%;
 }
 #root {
   display: flex;

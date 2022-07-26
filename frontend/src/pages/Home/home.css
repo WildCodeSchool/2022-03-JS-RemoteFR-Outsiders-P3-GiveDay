@@ -8,11 +8,12 @@
     "CCM creation article2"
     "CCM rejoindre article1"
     "Philan atelier news"; */
-  height: 100rem;
+  /* height: 100rem; */
   width: 90%;
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
+  height: max-content;
 }
 .acceuilContainer > div > div {
   margin: 0.5rem;
@@ -81,8 +82,7 @@
 }
 .creation {
   /* grid-area: creation; */
-  background-color: rgb(90, 148, 210);
-  background-image: url("../../assets/images/zebre.jpg");
+  background-color: #eb4b4b;
   background-repeat: no-repeat;
   background-size: 100%;
   width: 33%;
@@ -135,19 +135,19 @@
 .homeLigne3 {
   display: flex;
   width: 100%;
-  height: 50rem;
+  /* height: 50rem; */
 }
 .Philan {
   /* grid-area: Philan; */
   background-image: url("../../assets/images/fille.jpg");
   background-size: cover;
-  background-position: 10% 20%;
+  background-position: 10% 0%;
   background-repeat: no-repeat;
-  height: 60%;
+  height: 100%;
   width: 33%;
 }
 .Philan > a > h3 {
-  margin-bottom: 3rem;
+  margin-bottom: rem;
   width: 100%;
   height: 3rem;
   display: flex;
@@ -158,13 +158,20 @@
   margin-bottom: 3rem;
   width: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  height: 100%;
+}
+.atelier > a {
+  margin-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
   height: 100%;
 }
 .atelier {
   /* grid-area: atelier; */
-  background-color: rgb(255, 226, 0);
-  height: 60%;
+  background-color: rgb(0, 180, 175);
+  height: 100%;
   width: 33%;
   background-image: url("../../assets/images/tigre-font-vert.jpg");
   background-size: cover;
@@ -196,6 +203,9 @@
   display: flex;
   flex-direction: column;
   margin: 10px;
+  height: 100%;
+  background-color: rgb(248, 192, 0);
+  height: 100%;
 }
 .prenomMail {
   display: flex;
@@ -206,6 +216,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: max-content;
+  margin: 8rem 3rem 8rem 3rem;
 }
 .confiance {
   background-color: var(--color_4);
@@ -225,7 +237,6 @@
 }
 .confiance > div > p {
   text-align: center;
-  margin: 2rem;
   padding: 2rem;
   font-weight: bold;
 }
@@ -237,18 +248,19 @@
   border: 2px solid rgba(0, 0, 0, 1);
   border-radius: 50%;
   margin: 1rem;
+  padding: 0rem 2rem 0rem 2rem;
 }
 .globalCercle {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 4rem;
+  margin: 1rem 0rem 3rem 0rem;
 }
 .cartePablo {
   width: 63%;
   transform: rotate(25deg);
-  margin: 4rem;
+  margin: 3rem;
 }
 .postGif {
   width: 30%;
@@ -278,6 +290,7 @@
   .acceuilContainer > div > div {
     width: 100%;
     margin: 1rem 0rem 1rem 0rem;
+    height: max-content;
   }
   .homeLigne1 {
     display: flex;
@@ -307,5 +320,21 @@
     flex-wrap: wrap;
     margin: 1rem;
     width: 90%;
+  }
+  .atelier {
+    height: 10rem;
+  }
+  .confiance > div > p {
+    text-align: center;
+    margin: 0.5rem;
+    padding: 1rem;
+    font-weight: bold;
+  }
+  .confianceFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    margin: 3rem 0rem 3rem 0rem;
   }
 }
