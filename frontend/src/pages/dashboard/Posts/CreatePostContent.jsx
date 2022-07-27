@@ -40,6 +40,11 @@ export default function CreatePostContent() {
     article.image = e.target.value;
   };
 
+  // Appliquer des tags à un article :
+  // 1 - on définit article : date / image / tag / texte / titre
+  // 2 - Nous avons en retour du POST avec l'ID de l'article et il faut faire un GET de l'id du TAG
+  // 3 - POST les id dans has_tag
+  // Cette fonction n'est pas encore fonctionnelle ***** A AMELIORER
   const handleChangeToggle = (e) => {
     setSelectedTags({ ...selectedTags, [e.target.name]: e.target.checked });
     console.warn(e.target.name);
@@ -58,9 +63,6 @@ export default function CreatePostContent() {
   const log = () => {
     if (editorRef.current) {
       // console.warn(editorRef.current.getContent());
-      // 1 - on definit article : date / image / tag / texte / titre
-      // 2 - Nous avons en retour du POST avec l'ID de l'article et il faut faire un GET de l'id du TAG
-      // 3 - POST les id dans has_tag
 
       article.texte = editorRef.current.getContent();
 
