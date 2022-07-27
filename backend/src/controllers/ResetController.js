@@ -2,20 +2,6 @@ require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 const models = require("../models");
-/*
- * email : giveday@propod.net
- * utilisateur : giveday@propod.net
- * password : [^U.QW9=KFNZ
- * smtp : palette.o2switch.net
- * port : 465
- */
-
-// 0 - Generer un token (30)
-// 1 - enregistrer le token dans la table user
-// 2 - envoi d'un mail avec le lien pour modifier le mdp avec un token valide
-// exemple : http://localhost:5000/reset-password?token=elsm46eRc...
-// 3 - on clique sur le lien : un controller avec la route reset-password
-// 4 - On affiche la page de changement de password...
 
 /* Function : génère un token de longeur définie */
 const generateRandomString = (myLength) => {
