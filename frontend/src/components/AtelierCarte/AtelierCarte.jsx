@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable new-cap */
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
 import "./atelierCarte.css";
@@ -15,20 +15,27 @@ import template4 from "@assets/images/template4.png";
 import template4black from "@assets/images/template4black.png";
 import View from "./View";
 import MesInfos from "./MesInfos";
+import CurrentPagesContext from "../../PagesContexts";
 
 function AtelierCarte() {
+  const { createEvent, setCreateEvent } = useContext(CurrentPagesContext);
+  const { asso } = useContext(CurrentPagesContext);
   const [cardContain, setCardContain] = useState({
-    name: "Emma",
-    place: "Chez ma mami",
-    address: "5 rue de la liberté, 69003 LYON",
-    date: "5 juin 2022",
-    time: "18h00",
-    mobile: "06 00 00 00 00",
-    email: "mailmail.@mail.fr",
-    asso: "ex: Rêves",
+    name: createEvent.prenom ? createEvent.prenom : "Emma",
+    place: createEvent.lieu ? createEvent.lieu : "Chez ma mami",
+    address: createEvent.adress
+      ? createEvent.adress
+      : "5 rue de la liberté, 69003 LYON",
+    date: createEvent.date ? createEvent.date : "5 juin 2022",
+    time: createEvent.heure_de_debut ? createEvent.heure_de_debut : "18h00",
+    mobile: createEvent.telephone ? createEvent.telephone : "06 00 00 00 00",
+    email: createEvent.mail ? createEvent.mail : "mailmail.@mail.fr",
+    asso: createEvent.asso_id ? asso[createEvent.asso_id].nom : "ex: Rêves",
   });
+
+  console.warn(asso);
   const [eventCode, setEventCode] = useState({
-    code: "PASENCOREDECODE",
+    code: createEvent.code ? createEvent.code : "PASENCOREDECODE",
   });
   const [templateOn, setTemplateOn] = useState([template1]);
   const GoTemplate1 = () => {

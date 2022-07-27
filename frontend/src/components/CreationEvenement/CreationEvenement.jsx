@@ -9,33 +9,14 @@ import api from "@services/api";
 import CurrentPagesContext from "../../PagesContexts";
 
 function CreationEvenement() {
-  const { userIsConnected, accountConnected } = useContext(CurrentPagesContext);
+  const { userIsConnected } = useContext(CurrentPagesContext);
+  const { createEvent, setCreateEvent } = useContext(CurrentPagesContext);
+  const { asso, setAsso } = useContext(CurrentPagesContext);
   const [isSubmit, setIsSubmit] = useState(false);
   const [idEvent, setIdEvent] = useState();
 
   const [code, setNewCode] = useState();
-  const [asso, setAsso] = useState([]);
 
-  const isConnected = () => {
-    if (accountConnected) {
-      return accountConnected.user.id;
-    }
-    return "user is not connected";
-  };
-
-  const [createEvent, setCreateEvent] = useState({
-    code: "",
-    prenom: "",
-    age: "",
-    date: "",
-    heure_de_debut: "",
-    heure_de_fin: "",
-    lieu: "",
-    telephone: "",
-    mail: "",
-    asso_id: "",
-    user_id: isConnected(),
-  });
   useEffect(() => {
     api
       .get("api/asso")
