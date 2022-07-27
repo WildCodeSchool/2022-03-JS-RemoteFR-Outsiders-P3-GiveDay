@@ -8,8 +8,8 @@ import Swal from "sweetalert2";
 function Login({ hundleOpenLogin, setUserIsConnected }) {
   const [errorLogin, setErrorLogin] = useState(false);
   const [user, setUser] = useState({
-    email: "doe@gmail.com",
-    password: "Giveday2022?",
+    email: "",
+    password: "",
   });
   const handleLogin = (event) => {
     event.preventDefault();
@@ -21,9 +21,11 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
         if (data) {
           localStorage.setItem("user", JSON.stringify(data));
           setUserIsConnected(true);
-          setTimeout(() => {
+          /* Je commente cette partie pour un essai de l'authentification via le token
+         setTimeout(() => {
             window.location.reload();
-          }, 1000);
+          }, 1000); */
+          hundleOpenLogin();
           Swal.fire({
             position: "top-end",
             icon: "success",
@@ -33,7 +35,10 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
           });
         }
       })
-      .catch(setErrorLogin(true));
+      .catch((err) => {
+        console.error(err);
+        setErrorLogin(true);
+      });
   };
 
   console.warn(user);
