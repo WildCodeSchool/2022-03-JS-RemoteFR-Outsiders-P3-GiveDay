@@ -10,8 +10,6 @@ const {
   AssoController,
 } = require("./controllers");
 
-const authMiddleware = require("./middleware/authMiddleware");
-
 const router = express.Router();
 
 /**
@@ -23,7 +21,7 @@ const router = express.Router();
  */
 
 router.post("/api/auth/register", AuthController.register);
-router.post("/api/auth/login", authMiddleware, AuthController.login);
+router.post("/api/auth/login", AuthController.login);
 router.get("/api/auth/logout", AuthController.logout);
 
 /**
