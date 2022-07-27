@@ -2,21 +2,8 @@ require("dotenv").config();
 const bcrypt = require("bcryptjs");
 const nodemailer = require("nodemailer");
 const models = require("../models");
-/*
- * email : giveday@propod.net
- * utilisateur : giveday@propod.net
- * password : [^U.QW9=KFNZ
- * smtp : palette.o2switch.net
- * port : 465
- */
 
-// 0 - Generer un token (30)
-// 1 - enregistrer le token dans la table user
-// 2 - envoi d'un mail avec le lien pour modifier le mdp avec un token valide
-// exemple : http://localhost:5000/reset-password?token=elsm46eRc...
-// 3 - on clique sur le lien : un controller avec la route reset-password
-// 4 - On affiche la page de changement de password...
-
+/* Function : génère un token de longeur définie */
 const generateRandomString = (myLength) => {
   const chars =
     "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890";
@@ -28,7 +15,9 @@ const generateRandomString = (myLength) => {
   return randomString;
 };
 
+/* CLASSE : Controle de l'envoi du token par mail */
 class ResetController {
+  /* FUNCTION : Check existance du token dans la BDD */
   static isTokenExists = (req, res) => {
     models.user
       .getTokenExists(req.params.id)
@@ -41,6 +30,7 @@ class ResetController {
       });
   };
 
+  /* FUNCTION : Check existance du mail dans la BDD */
   static isEmailExists = (req, res) => {
     models.user
       .getUserByEmail(req.params.id)
@@ -59,8 +49,10 @@ class ResetController {
         }
       })
       .then((data) => {
+        /* FUNCTION : si le mail existe envoi le token par mail */
         console.warn("Fonction sendMail :");
         console.warn(data);
+        /* FUNCTION : Envoi du mail (attention aux identifiants de connection smtp) */
         async function main() {
           const transporter = nodemailer.createTransport({
             host: process.env.MAIL_HOST,
@@ -89,6 +81,7 @@ class ResetController {
       });
   };
 
+  /* FUNCTION : update du password dans la BDD puis efface le token de la base */
   static updatePassword = async (req, res) => {
     const hash = await bcrypt.hash(req.body.newPassword, 10);
     models.user
