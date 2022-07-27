@@ -89,8 +89,8 @@ function Cadeau({ idEvent }) {
       </div>
       <ul>
         {cadeauxList.map((item) => (
-          <div className="liste">
-            <li key={item.id}>
+          <div className="liste" key={item.id}>
+            <li>
               <a href={item.url_site} target="_blank" rel="noreferrer">
                 {item.titre}
               </a>{" "}
