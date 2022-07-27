@@ -26,7 +26,7 @@ export default function CreatePostContent() {
     let today = "";
     today += `${new Date().getFullYear()}-`;
     today += `${new Date().getMonth() + 1}-`;
-    today += new Date().getDate();
+    today += new Date().getDate() + 1;
     article.date = today;
   };
 
