@@ -1,7 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from "react";
+import React, { useContext } from "react";
+import CurrentPagesContext from "../../PagesContexts";
 
 function MesInfos({ cardContain, setCardContain, printDocument }) {
+  const { createEvent } = useContext(CurrentPagesContext);
+  const { asso } = useContext(CurrentPagesContext);
+
   const handleChange = (e) => {
     e.preventDefault();
     setCardContain({
@@ -22,6 +26,7 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             onChange={handleChange}
             maxLength="10"
             required
+            placeholder={createEvent.prenom ? createEvent.prenom : undefined}
           />
         </label>
         <label>
@@ -32,6 +37,7 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             name="place"
             onChange={handleChange}
             required
+            placeholder={createEvent.lieu ? createEvent.lieu : undefined}
           />
         </label>
         <label>
@@ -42,6 +48,7 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             name="address"
             onChange={handleChange}
             required
+            placeholder={createEvent.adress ? createEvent.adress : undefined}
           />
         </label>
         <label>
@@ -52,6 +59,7 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             name="date"
             onChange={handleChange}
             required
+            placeholder={createEvent.date ? createEvent.date : undefined}
           />
         </label>
         <label>
@@ -62,6 +70,11 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             name="time"
             onChange={handleChange}
             required
+            placeholder={
+              createEvent.heure_de_debut
+                ? createEvent.heure_de_debut
+                : undefined
+            }
           />
         </label>
         <label>
@@ -72,6 +85,9 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             name="mobile"
             onChange={handleChange}
             required
+            placeholder={
+              createEvent.telephone ? createEvent.telephone : undefined
+            }
           />
         </label>
         <label>
@@ -82,6 +98,7 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             name="email"
             onChange={handleChange}
             required
+            placeholder={createEvent.mail ? createEvent.mail : undefined}
           />
         </label>
         <label>
@@ -92,14 +109,17 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             name="asso"
             onChange={handleChange}
             required
+            placeholder={
+              createEvent.asso_id ? asso[createEvent.asso_id].nom : undefined
+            }
           />
         </label>
         <br />
-        <input
+        {/* <input
           type="button"
           value="Remplissage Auto"
           className="buttonStyle save"
-        />
+        /> */}
         <br />
         <input
           type="button"

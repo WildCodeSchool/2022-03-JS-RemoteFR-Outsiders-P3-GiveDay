@@ -111,9 +111,6 @@
   margin-top: 1rem;
 }
 
-.atelierContainerSubSection1-3 h1 {
-}
-
 .atelierContainerSubSection1-3 button {
   border-radius: var(--border-radius);
   width: calc(100% / 4);
@@ -263,10 +260,10 @@
   text-align: center;
 }
 
-#formContainer .inputForm:invalid {
+/* #formContainer .inputForm:invalid {
   border: 1px solid var(--color_5);
   color: var(--color_5);
-}
+} */
 
 #formContainer .inputForm:hover {
   opacity: 50%;
