@@ -1,4 +1,6 @@
+/*eslint-disable */
 import React, { useContext, useState, useEffect } from "react";
+import { Player } from "@lottiefiles/react-lottie-player";
 import "./home.css";
 import { Link } from "react-router-dom";
 import api from "@services/api";
@@ -7,7 +9,7 @@ import NewArticle from "@components/Article/NewArticle";
 import Newsletter from "../../components/Newsletter/Newsletter";
 import post2 from "../../assets/images/post2.gif";
 import CurrentPagesContext from "../../PagesContexts";
-
+/* eslint-enable */
 function Home() {
   const [arrayData, setarrayData] = useState([]);
   const {
@@ -79,12 +81,18 @@ function Home() {
                 Profite d'une cagnotte cadeau et partage l’expérience du don a
                 une association avec tes proches !
               </p>
-              <h3>Comment ça marche ?</h3>
+              <h3 className="ccmPink">Comment ça marche ?</h3>
             </div>
           </div>
           <div className="blog">
             <Link to="/Blog" onClick={goToBlog}>
               <h3 className="titleAloja">Blog</h3>
+              <Player
+                src="https://assets9.lottiefiles.com/packages/lf20_yddgsjaa.json"
+                className="player"
+                loop
+                autoplay
+              />
             </Link>
           </div>
         </div>
@@ -92,11 +100,25 @@ function Home() {
           <div className="creation">
             <Link to="/CreationEvenement" onClick={goToCreationEvenement}>
               <h3 className="titleAloja">Creer un evenement</h3>
+              <Player
+                src="https://assets10.lottiefiles.com/packages/lf20_qwomkttk.json"
+                className="player"
+                loop
+                autoplay
+                style={{ width: "70%" }}
+              />
             </Link>
           </div>
           <div className="rejoindre">
             <Link to="/JointEvent" onClick={goOutHome}>
               <h3 className="titleAloja">Rejoindre un evenement</h3>
+              <Player
+                src="https://assets3.lottiefiles.com/packages/lf20_ky24lkyk.json"
+                className="player"
+                loop
+                autoplay
+                style={{ width: "60%" }}
+              />
             </Link>
           </div>
           <div className="article1">
@@ -134,30 +156,65 @@ function Home() {
           </div>
           <div>
             <p>
-              is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since
-              the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book. It has survived not
-              only five centuries, but also the leap into electronic
-              typesetting, remaining essentially unchanged. It was popularised
-              in the 1960s with the release of{" "}
+              Avec nos associations partenaires nous partageons une philosophie
+              : l'enfance sera toujours le plus fort atout de la société pour
+              changer les choses qui ne vont pas ! Nous sommes à leurs côtés
+              pour imaginer les plus belles collaborations, veux-tu les
+              connaitre et devenir un héros en les soutenant aussi ?
             </p>
           </div>
           <div className="globalCercle">
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
+            <a href="https://empow-her.com/">
+              <div className="gloLien">
+                <div className="cerclePartenaire1" />
+                <p>Empow'Her</p>
+              </div>
+            </a>
+            <a href="https://www.latitudes.cc/">
+              <div className="gloLien">
+                <div className="cerclePartenaire2" />
+                <p>Latitudes</p>
+              </div>
+            </a>
+            <a href="https://www.lyonstartup.com/">
+              <div className="gloLien">
+                <div className="cerclePartenaire3" />
+                <p>Lyon startup</p>
+              </div>
+            </a>
+            <a href="https://makesense.org/">
+              <div className="gloLien">
+                <div className="cerclePartenaire4" />
+                <p>Makesense</p>
+              </div>
+            </a>
+            <a href="https://www.wildcodeschool.com">
+              <div className="gloLien">
+                <div className="cerclePartenaire5" />
+                <p>Wild code school</p>
+              </div>
+            </a>
+            <a href="https://madcats.fr/">
+              <div className="gloLien">
+                <div className="cerclePartenaire6" />
+                <p>Madcats</p>
+              </div>
+            </a>
+            <a href="https://www.recyclivre.com/">
+              <div className="gloLien">
+                <div className="cerclePartenaire7" />
+                <p>Recyclivre</p>
+              </div>
+            </a>
+            <a href="https://www.anciela.info/">
+              <div className="gloLien">
+                <div className="cerclePartenaire8" />
+                <p>Anciela</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
-      {/* <Eventback />
-      <Userback /> */}
     </Layout>
   );
 }

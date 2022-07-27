@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import api from "@services/api";
+import Swal from "sweetalert2";
 
 function Edit() {
   const { id } = useParams();
@@ -21,6 +22,13 @@ function Edit() {
    * La fonction submitUserHandler, permet de de mettre à jour les données de l'utilisateur.
    */
   const submitUserHandler = (e) => {
+    Swal.fire({
+      position: "bottom-end",
+      icon: "success",
+      title: "Utilisateur modifié !",
+      showConfirmButton: false,
+      timer: 1700,
+    });
     e.preventDefault();
     api
       .put(`/api/admin/roleUpdate/${id}`, user, { withCredentials: true })
@@ -65,7 +73,7 @@ function Edit() {
         <label htmlFor="role">
           Rôle
           <select htmlFor="role" onChange={inputTextHandler} name="role">
-            <option value="">--Please choose an option--</option>
+            <option value="">--Choisir un rôle--</option>
             <option value="user">user</option>
             <option value="admin">admin</option>
           </select>

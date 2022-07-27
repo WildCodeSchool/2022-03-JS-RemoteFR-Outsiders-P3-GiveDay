@@ -10,6 +10,7 @@
   padding: 1rem;
   gap: 0.5rem;
   border-radius: 10px;
+  height: max-content;
 }
 
 #formNewsletter h3 {
@@ -29,7 +30,7 @@
 #formNewsletter textarea,
 #formNewsletter select {
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   float: right;
   border: none;
   border-radius: 3px;
@@ -58,4 +59,7 @@
 }
 .nouSuivre {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

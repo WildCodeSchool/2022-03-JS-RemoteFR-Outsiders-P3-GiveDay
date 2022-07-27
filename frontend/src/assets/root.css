@@ -30,6 +30,7 @@
   --font-size-h1: 3.5rem;
   --font-size-h2: 2.2rem;
   --font-size-h3: 1.5rem;
+  --font-size-h4: 1.3rem;
   --font-size-p: 1.4rem;
   --border-radius: 5px;
   --font-logo: aloja;
@@ -78,11 +79,11 @@ a {
 }
 
 body::before {
+  background-image: url("./images/fontBackgroud.jpg");
   content: "";
   position: fixed;
   width: 100%;
   height: 100%;
-  background-image: url("../assets/images/backgroud.jpg");
   z-index: -1;
   background-size: cover;
   -moz-filter: blur(15px);
@@ -90,6 +91,7 @@ body::before {
   -ms-filter: blur(15px);
   filter: blur(15px);
   transform: scale(1.2, 1.2);
+  background-position: 20%;
 }
 #root {
   display: flex;

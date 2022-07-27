@@ -4,11 +4,12 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: auto;
+  min-height: 6rem;
   border-top: 0.2rem solid var(--color_1);
   border-bottom: 0.2rem solid var(--color_1);
   background-color: var(--color_1);
   border-radius: 0px 0px 25px 25px;
+  padding: 3rem;
 }
 
 ul.social-links {
@@ -17,6 +18,7 @@ ul.social-links {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  gap: 1rem;
   width: 100%;
   height: auto;
   color: var(--color_dark);
@@ -34,6 +36,13 @@ ul.social-links > li {
 ul.social-links > li > a {
   font-size: 1.1rem;
   color: black;
+
+}
+ul.social-links > li > a:hover {
+  padding: 1rem;
+  border: 1px solid black;
+  border-radius: 3.5rem;
+
 }
 
 #give-footer li.social-link_items > a > svg {

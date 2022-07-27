@@ -6,6 +6,7 @@ import { GrUpdate } from "react-icons/gr";
 import { BsTrash } from "react-icons/bs";
 import { FcSearch } from "react-icons/fc";
 import api from "@services/api";
+import Swal from "sweetalert2";
 
 function UsersContent() {
   const [users, setUsers] = useState("");
@@ -51,7 +52,7 @@ function UsersContent() {
 
   return (
     <div className="contentTable table-responsive">
-      <div className="head-h2-btn">
+      <div className="head-h2">
         <h2>Utilisateurs</h2>{" "}
       </div>
       <h4>Le site Giveday compte {count.count} utilisateurs</h4>
@@ -79,10 +80,12 @@ function UsersContent() {
             <th scope="col" className="role-column">
               Rôle
             </th>
-            <th scope="col" className="modify-role-column">
+            <th scope="col" className="btn-column">
               Modifier rôle
             </th>
-            <th scope="col">Supprimer</th>
+            <th scope="col" className="btn-column">
+              Supprimer
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -111,12 +114,22 @@ function UsersContent() {
                       className="dashboard-btn delete-btn"
                       type="button"
                       onClick={() => {
-                        const confirmBox = window.confirm(
-                          "Etes-vous sûr de vouloir supprimer cet utilisateur?"
-                        );
-                        if (confirmBox === true) {
-                          handleDelete(user.id);
-                        }
+                        Swal.fire({
+                          title:
+                            "Etes-vous sûr de vouloir supprimer cet utilisateur?",
+                          text: "Cette action sera irréversible",
+                          icon: "warning",
+                          showCancelButton: true,
+                          confirmButtonColor: "#6fceb4",
+                          cancelButtonColor: "#ec5f5d",
+                          confirmButtonText: "Oui, supprimer",
+                          cancelButtonText: "Annuler",
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            Swal.fire("L'utilisateur' a bien été supprimé.");
+                            handleDelete(user.id);
+                          }
+                        });
                       }}
                     >
                       <BsTrash size={22} />

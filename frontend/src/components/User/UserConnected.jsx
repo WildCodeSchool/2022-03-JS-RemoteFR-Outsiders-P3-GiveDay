@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import MyAccount from "@components/User/MyAccount";
 import MyEvents from "@components/User/MyEvents";
 import "./user.css";
+import Swal from "sweetalert2";
 import api from "@services/api";
 
 function UserConnected({ setUserIsConnected }) {
@@ -18,6 +19,13 @@ function UserConnected({ setUserIsConnected }) {
   };
 
   const handleLogout = () => {
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Vous êtes déconnecté !",
+      showConfirmButton: false,
+      timer: 1500,
+    });
     api
       .get("/api/auth/logout")
       .then((res) => {

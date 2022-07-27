@@ -1,4 +1,4 @@
-/*$$$$$$$$$$$$$$$$$$$ Page ADMIN $$$$$$$$$$$$$$*/
+/*$$$$$$$$$$$$$$$$$$$ Page ADMIN - Admin.jsx $$$$$$$$$$$$$$*/
 .adminPage {
   min-width: fit-content;
   min-height: 100vh;
@@ -13,13 +13,16 @@
 ::-webkit-scrollbar {
   height: 20px;
 }
-/*$$$$$$$$$$$$$$$$$$$ Navigation $$$$$$$$$$$$$$*/
+
+.contentTable h4 {
+  font-size: var(--font-size-h4);
+}
+/*$$$$$$$$$$$$$$$$$$$ Navigation - Admin.jsx $$$$$$$$$$$$$$*/
 #adminNav {
   background-color: rgb(27, 27, 27);
   color: #eee;
   display: flex;
   flex-direction: column;
-  display: block;
 }
 
 #adminNav > ul {
@@ -34,9 +37,10 @@
   text-align: center;
   color: #eee;
   display: block;
+  cursor: pointer;
 }
 
-/* mouse over link */
+/* mouse hover link */
 #adminNav a:hover {
   background-color: #eee;
   color: #333;
@@ -48,19 +52,12 @@
   background-color: var(--color_2);
 }
 
-/*$$$$$$$$$$$$$$$$$$$ Container Utilisateur $$$$$$$$$$$$$$*/
-/********* Titre + button "ajouter user"***********/
-.head-h2-btn {
+/*$$$$$$$$$$$$$$$$$$$ Container Utilisateur UsersContent.jsx $$$$$$$$$$$$$$*/
+/********* Titre ***********/
+.head-h2 {
   display: flex;
-  /* justify-content: space-between; */
   gap: 2rem;
   margin-bottom: 3rem;
-}
-
-.btn-add {
-  margin-top: 3.5rem;
-  background-color: transparent;
-  border: none;
 }
 
 /******** Tableau affichage utilisateurs **********/
@@ -70,13 +67,13 @@
   margin: 0;
 }
 .contentTable {
-  padding-left: 4rem;
+  padding: 0 4rem;
   display: flex;
   flex-direction: column;
 }
+
 .dashboard-btn {
   border: none;
-  font-weight: 900;
   background-color: transparent;
 }
 
@@ -84,19 +81,13 @@
   color: var(--color_2);
 }
 
-.valid-cancel {
-  display: flex;
-  width: 8rem;
-  justify-content: center;
-  gap: 2rem;
-}
-
 .role-column {
   width: 7rem;
 }
 
-.modify-role-column {
+.btn-column {
   width: 9rem;
+  text-align: center;
 }
 
 .icons-cell {
@@ -123,6 +114,7 @@
 #updateUserForm label {
   display: flex;
   flex-direction: column;
+  max-width: 14rem;
 }
 
 #updateUserForm select {
@@ -132,9 +124,8 @@
 /*************Formulaire creation de posts ****************/
 .contentTable .editorInput {
   padding: 5px;
-}
-.contentTable h4 {
-  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 50rem;
 }
 
 /************* Messages ****************/
