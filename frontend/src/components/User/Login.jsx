@@ -28,7 +28,7 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
           localStorage.setItem("user", JSON.stringify(data));
           setUserIsConnected(true);
           setTimeout(() => {
-            window.location = "/";
+            window.location.reload();
           }, 1000);
         }
       })
