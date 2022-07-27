@@ -89,8 +89,8 @@ function Cadeau({ idEvent }) {
       </div>
       <ul>
         {cadeauxList.map((item) => (
-          <div className="liste">
-            <li key={item.id}>
+          <div className="liste" key={item.id}>
+            <li>
               <a href={item.url_site} target="_blank" rel="noreferrer">
                 {item.titre}
               </a>{" "}
@@ -109,7 +109,7 @@ function Cadeau({ idEvent }) {
         C'est parti ! <br /> Tu peux maintenant créer ta carte d'invitation 🐯
       </h1>
       {/* link carte */}
-       <Link to="/AtelierCarte">
+      <Link to="/AtelierCarte">
         <button
           className="buttonStyle"
           type="button"
