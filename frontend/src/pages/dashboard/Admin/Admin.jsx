@@ -8,10 +8,12 @@ import AccueilContent from "./AccueilContent";
 import Edit from "../Users/Edit";
 import "../dashboard.css";
 
+// ******** Page admin du Dashboard, accessible seulement à un utilisateur qui a le rôle "admin" *********
+
 function Admin({ content }) {
   // eslint-disable-next-line no-unused-vars
-  const { accountConnected, setAccountConnected } =
-    useContext(CurrentPagesContext);
+
+  const { accountConnected } = useContext(CurrentPagesContext);
   console.warn({ accountConnected });
 
   if (accountConnected.user.role === "admin") {

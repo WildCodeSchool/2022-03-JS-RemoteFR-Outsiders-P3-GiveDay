@@ -23,6 +23,9 @@ function UsersContent() {
       .catch((err) => console.error(err));
   }, []);
 
+  /**
+   * Le nombre d'utilisateurs s'actualise à chaque fois qu'un utilisateur est supprimé ou ajouté.
+   */
   useEffect(() => {
     api
       .get(`/api/admin/count`)
@@ -31,7 +34,7 @@ function UsersContent() {
   }, [users]);
 
   /**
-   * La fonction handleChange, permet de récupérer le texte introduit dans l'input et de le passer en minuscule.
+   * La fonction handleChange, permet de récupérer le texte introduit dans l'input et de le passer en minuscule; et de le stocker dans la variable searchValue
    */
   const handleChange = (event) => {
     const search = event.target.value.toLowerCase();

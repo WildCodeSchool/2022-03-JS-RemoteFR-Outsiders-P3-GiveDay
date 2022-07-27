@@ -11,6 +11,7 @@ import "../dashboard.css";
 function PostsContent() {
   const [articles, setArticles] = useState("");
 
+  // useEffect qui récupère tous les articles de la BDD
   useEffect(() => {
     api
       .get(`/api/articles`)
@@ -18,6 +19,7 @@ function PostsContent() {
       .catch((err) => console.error(err));
   }, []);
 
+  // handleDelete permet de supprimer un article côté front et dans la BDD
   const handleDelete = (articleId) => {
     api
       .delete(`/api/article/delete/${articleId}`)
@@ -50,7 +52,7 @@ function PostsContent() {
             articles.map((article) => (
               <tr>
                 <th scope="col">{article.titre}</th>
-                <th scope="col">date de création</th>
+                <th scope="col">{article.date}</th>
                 <th scope="col" className="icons-cell">
                   <Link to="/admin/users">
                     <GrUpdate />

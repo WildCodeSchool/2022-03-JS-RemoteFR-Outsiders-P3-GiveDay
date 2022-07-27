@@ -10,7 +10,9 @@ function Edit() {
     nom: "",
     role: "",
   });
-
+  /**
+   * UseEffect, permet de récupérer les utilisateurs de la BDD
+   */
   useEffect(() => {
     api
       .get(`/api/users/${id}`)
@@ -19,7 +21,7 @@ function Edit() {
   }, [id]);
 
   /**
-   * La fonction submitUserHandler, permet de de mettre à jour les données de l'utilisateur.
+   * La fonction submitUserHandler, permet de de mettre à jour les données de l'utilisateur ( ici nom, prénom et rôle)
    */
   const submitUserHandler = (e) => {
     Swal.fire({
@@ -37,7 +39,7 @@ function Edit() {
   };
 
   /**
-   * La fonction inputTextHandler, permet de récupérer le texte introduit dans l'input.
+   * La fonction inputTextHandler, permet de récupérer le texte introduit dans l'input et de le stocker dans la variable user.
    */
   const inputTextHandler = (e) => {
     setUser({
