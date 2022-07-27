@@ -55,7 +55,7 @@ export default function CreatePostContent() {
     console.warn(e.target.name);
     console.warn(e.target.checked);
   };
-  
+
   console.warn(selectedTags);
   /* FUNCTION : soumet le formulaire du Post */
   const log = () => {
