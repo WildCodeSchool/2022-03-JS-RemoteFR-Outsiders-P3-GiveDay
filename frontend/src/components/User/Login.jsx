@@ -22,7 +22,7 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
           localStorage.setItem("user", JSON.stringify(data));
           setUserIsConnected(true);
           setTimeout(() => {
-            window.location = "/";
+            window.location.reload();
           }, 1000);
           Swal.fire({
             position: "top-end",
