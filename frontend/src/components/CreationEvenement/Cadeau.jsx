@@ -108,7 +108,8 @@ function Cadeau({ idEvent }) {
         Ta liste est complète? <br />
         C'est parti ! <br /> Tu peux maintenant créer ta carte d'invitation 🐯
       </h1>
-      <Link to="/AtelierCarte">
+      {/* link carte */}
+       <Link to="/AtelierCarte">
         <button
           className="buttonStyle"
           type="button"
