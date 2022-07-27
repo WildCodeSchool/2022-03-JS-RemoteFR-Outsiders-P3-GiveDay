@@ -15,6 +15,14 @@ function CreationEvenement() {
 
   const [code, setNewCode] = useState();
   const [asso, setAsso] = useState([]);
+
+  const isConnected = () => {
+    if (accountConnected) {
+      return accountConnected.user.id;
+    }
+    return "user is not connected";
+  };
+
   const [createEvent, setCreateEvent] = useState({
     code: "",
     prenom: "",
@@ -26,9 +34,8 @@ function CreationEvenement() {
     telephone: "",
     mail: "",
     asso_id: "",
-    user_id: accountConnected.user.id,
+    user_id: isConnected(),
   });
-
   useEffect(() => {
     api
       .get("api/asso")
