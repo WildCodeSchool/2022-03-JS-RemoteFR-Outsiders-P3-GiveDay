@@ -8,6 +8,7 @@ import CurrentPagesContext from "../../PagesContexts";
 
 function JointEvent() {
   const { setEventToJoint } = useContext(CurrentPagesContext);
+  // console.warn(eventToJoint);
   const [eventCode, setEventCode] = useState("");
   const handleChange = (e) => {
     e.preventDefault();
@@ -21,7 +22,11 @@ function JointEvent() {
     e.preventDefault();
     api
       .get(`/api/events/code/${eventCode.eventCode}`, { withCredentials: true })
-      .then((res) => setEventToJoint(res.data[0]))
+      .then((res) => {
+        setEventToJoint(res.data[0]);
+
+        localStorage.setItem("eventToJointLocal", JSON.stringify(res.data[0]));
+      })
       .then(
         setTimeout(() => {
           navigate("/EventJointed");
@@ -33,7 +38,7 @@ function JointEvent() {
       <div id="jointEventContainer">
         <form className="form" onSubmit={goToEventJointed}>
           <label>
-            Code ?
+            Pour joindre un événement veuillez indiquer le code
             <input
               className="inputForm jointEventInput"
               type="text"
@@ -45,7 +50,7 @@ function JointEvent() {
           <br />
           <input
             type="submit"
-            value="M'inscrire à l'événement"
+            value="Joindre l'événement"
             className="buttonStyle jointEventButton"
           />
         </form>
