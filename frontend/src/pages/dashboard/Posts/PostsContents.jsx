@@ -16,7 +16,7 @@ function PostsContent() {
       .get(`/api/articles`)
       .then((res) => setArticles(res.data.map((e) => e)))
       .catch((err) => console.error(err));
-  }, []);
+  }, [articles]);
 
   const handleDelete = (articleId) => {
     api
