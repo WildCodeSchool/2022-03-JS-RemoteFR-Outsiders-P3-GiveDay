@@ -45,10 +45,10 @@ function PostsContent() {
         </thead>
         <tbody>
           {articles &&
-            articles.map((article) => (
+            articles.reverse().map((article) => (
               <tr>
                 <th scope="col">{article.titre}</th>
-                <th scope="col">date de création</th>
+                <th scope="col">{article.date.substring(0, 10)}</th>
                 <th scope="col" className="icons-cell">
                   <Link to="/admin/users">
                     <GrUpdate />
