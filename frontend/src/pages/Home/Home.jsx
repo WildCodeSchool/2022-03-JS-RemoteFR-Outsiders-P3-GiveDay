@@ -81,7 +81,7 @@ function Home() {
                 Profite d'une cagnotte cadeau et partage l’expérience du don a
                 une association avec tes proches !
               </p>
-              <h3>Comment ça marche ?</h3>
+              <h3 className="ccmPink">Comment ça marche ?</h3>
             </div>
           </div>
           <div className="blog">
@@ -164,15 +164,54 @@ function Home() {
             </p>
           </div>
           <div className="globalCercle">
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
-            <div className="cerclePartenaire" />
+            <a href="https://empow-her.com/">
+              <div className="gloLien">
+                <div className="cerclePartenaire1" />
+                <p>Empow'Her</p>
+              </div>
+            </a>
+            <a href="https://www.latitudes.cc/">
+              <div className="gloLien">
+                <div className="cerclePartenaire2" />
+                <p>Latitudes</p>
+              </div>
+            </a>
+            <a href="https://www.lyonstartup.com/">
+              <div className="gloLien">
+                <div className="cerclePartenaire3" />
+                <p>Lyon startup</p>
+              </div>
+            </a>
+            <a href="https://makesense.org/">
+              <div className="gloLien">
+                <div className="cerclePartenaire4" />
+                <p>Makesense</p>
+              </div>
+            </a>
+            <a href="https://www.wildcodeschool.com">
+              <div className="gloLien">
+                <div className="cerclePartenaire5" />
+                <p>Wild code school</p>
+              </div>
+            </a>
+            <a href="https://madcats.fr/">
+              <div className="gloLien">
+                <div className="cerclePartenaire6" />
+                <p>Madcats</p>
+              </div>
+            </a>
+            <a href="https://www.recyclivre.com/">
+              <div className="gloLien">
+                <div className="cerclePartenaire7" />
+                <p>Recyclivre</p>
+              </div>
+            </a>
+            <a href="https://www.anciela.info/">
+              <div className="gloLien">
+                <div className="cerclePartenaire8" />
+                <p>Anciela</p>
+              </div>
+            </a>
           </div>
         </div>
       </div>
