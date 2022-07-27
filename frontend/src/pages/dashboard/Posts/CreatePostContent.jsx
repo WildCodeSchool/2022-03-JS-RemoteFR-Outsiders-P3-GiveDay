@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { Editor } from "@tinymce/tinymce-react";
 import Swal from "sweetalert2";
@@ -10,6 +10,8 @@ export default function CreatePostContent() {
   const editorRef = useRef(null);
   const { setPostContent } = useContext(CurrentPagesContext);
   const [alert, setAlert] = useState();
+  const [tags, setTags] = useState([]);
+  const [selectedTags, setSelectedTags] = useState({});
   const article = {
     titre: "",
     date: "",
@@ -20,6 +22,10 @@ export default function CreatePostContent() {
   const handleTitre = (e) => {
     article.titre = e.target.value;
   };
+
+  useEffect(() => {
+    api.get(`api/tag`).then((res) => setTags(res.data));
+  }, []);
 
   const setToday = () => {
     let today = "";
@@ -35,10 +41,24 @@ export default function CreatePostContent() {
     article.image = e.target.value;
   };
 
+  // ***** A AMELIORER   ****** L'ajout des tags n'est pas encore fonctionnel
+  // Appliquer des tags à un article :
+  // 1 - on définit article : date / image / tag / texte / titre
+  // 2 - Nous avons en retour du POST avec l'ID de l'article et il faut faire un GET de l'id du TAG
+  // 3 - POST les id dans has_tag
+  const handleChangeToggle = (e) => {
+    setSelectedTags({ ...selectedTags, [e.target.name]: e.target.checked });
+    console.warn(e.target.name);
+    console.warn(e.target.checked);
+  };
+  console.warn(selectedTags);
+
   const log = () => {
     if (editorRef.current) {
       // console.warn(editorRef.current.getContent());
+
       article.texte = editorRef.current.getContent();
+
       console.warn({ article });
       Swal.fire({
         position: "bottom-end",
@@ -47,13 +67,15 @@ export default function CreatePostContent() {
         showConfirmButton: false,
         timer: 1700,
       });
+
       api
-        .post(`/api/article`, article)
+        .post(`/api/article/add`, article)
         .then((res) => res.data)
         .then((data) => {
           console.warn(data);
           setPostContent(data);
           setAlert("ArticleSaved");
+          return data;
         });
     }
   };
@@ -99,6 +121,23 @@ export default function CreatePostContent() {
         placeholder="Copiez-collez une URL"
         onChange={handleIamgeURL}
       />
+
+      <h4>Choisissez des tagadd comms</h4>
+
+      {tags.map((tag) => (
+        <div className="form-check form-switch" key={tag.id}>
+          <label className="form-check-label" htmlFor="flexSwitchCheckDefault">
+            {tag.tag}{" "}
+            <input
+              className="form-check-input"
+              type="checkbox"
+              id="flexSwitchCheckDefault"
+              onChange={handleChangeToggle}
+              name={tag.tag}
+            />
+          </label>
+        </div>
+      ))}
 
       <h4 className="mt-2">Saisissez un article</h4>
 

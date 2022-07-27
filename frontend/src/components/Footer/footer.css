@@ -36,11 +36,13 @@ ul.social-links > li {
 ul.social-links > li > a {
   font-size: 1.1rem;
   color: black;
+
 }
 ul.social-links > li > a:hover {
   padding: 1rem;
   border: 1px solid black;
   border-radius: 3.5rem;
+
 }
 
 #give-footer li.social-link_items > a > svg {
