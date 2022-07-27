@@ -63,7 +63,7 @@ router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);
 // router.put("/api/article/:id", ArticleController.edit);
 
-router.post("/api/article", ArticleController.add);
+router.post("/api/article/add", ArticleController.add);
 router.delete("/api/article/delete/:id", ArticleController.delete);
 
 /**
