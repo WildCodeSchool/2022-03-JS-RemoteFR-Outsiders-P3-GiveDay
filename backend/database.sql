@@ -120,7 +120,7 @@ CREATE TABLE `asso` (
 --
 
 LOCK TABLES `asso` WRITE;
-INSERT INTO `asso` VALUES (1,'Ikigaï',NULL,NULL,NULL,NULL,NULL),(2,'Rejoué',NULL,NULL,NULL,NULL,NULL),(3,'Nine Lives',NULL,NULL,NULL,NULL,NULL),(4,'Associations Rêves',NULL,NULL,NULL,NULL,NULL);
+INSERT INTO `asso` VALUES (1,'Ikigaï',NULL,NULL,NULL,NULL,NULL),(2,'Rejoué',NULL,NULL,NULL,NULL,NULL),(3,'Nine Lives',NULL,NULL,NULL,NULL,NULL),(4,'Association Rêves',NULL,NULL,NULL,NULL,NULL);
 UNLOCK TABLES;
 --
 -- Table structure for table `event`
