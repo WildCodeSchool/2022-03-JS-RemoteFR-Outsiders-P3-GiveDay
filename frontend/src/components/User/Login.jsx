@@ -13,13 +13,7 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
   });
   const handleLogin = (event) => {
     event.preventDefault();
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Vous êtes connecté !",
-      showConfirmButton: false,
-      timer: 1500,
-    });
+
     api
       .post("/api/auth/login", user, { withCredentials: true })
       .then((res) => res.data)
@@ -30,6 +24,13 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
           setTimeout(() => {
             window.location = "/";
           }, 1000);
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Vous êtes connecté !",
+            showConfirmButton: false,
+            timer: 1500,
+          });
         }
       })
       .catch(setErrorLogin(true));

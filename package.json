@@ -19,6 +19,7 @@
     "husky": "^7.0.0"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.4.7",
     "i": "^0.3.7",
     "npm": "^8.13.2"
   }

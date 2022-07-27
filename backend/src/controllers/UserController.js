@@ -56,8 +56,6 @@ class UserController {
           message: "Email already exist",
         });
       }
-      console.warn(getEmail[0][0].password);
-      console.warn(password);
       if (password.length > 0 && password !== repeatPassword) {
         return res.status(400).json({
           status: 400,

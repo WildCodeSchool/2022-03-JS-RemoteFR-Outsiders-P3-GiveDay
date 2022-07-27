@@ -20,24 +20,7 @@ function MyEvents({ hundleOpenMyEvents }) {
     }
     return null;
   };
-  const [userEvents, setUserEvents] = useState([
-    { date: "2022-7-5", organisateur: "Joan", status: "" },
-    { date: "2022-7-8", organisateur: "Alex", status: "" },
-    { date: "2022-7-5", organisateur: "Ana", status: "" },
-    { date: "2022-7-5", organisateur: "Loaja", status: "" },
-    { date: "2022-7-5", organisateur: "Joan", status: "" },
-    { date: "2022-7-5", organisateur: "Alex", status: "" },
-    { date: "2022-7-5", organisateur: "Ana", status: "" },
-    { date: "2022-7-8", organisateur: "Loaja", status: "" },
-    { date: "2022-7-5", organisateur: "Joan", status: "" },
-    { date: "2022-7-5", organisateur: "Alex", status: "" },
-    { date: "2022-7-5", organisateur: "Ana", status: "" },
-    { date: "2022-7-5", organisateur: "Loaja", status: "" },
-    { date: "2022-7-5", organisateur: "Joan", status: "" },
-    { date: "2022-7-5", organisateur: "Alex", status: "" },
-    { date: "2022-7-8", organisateur: "Ana", status: "" },
-    { date: "2022-7-5", organisateur: "Loaja", status: "" },
-  ]);
+  const [userEvents, setUserEvents] = useState([]);
   useEffect(() => {
     api
       .get(`/api/users/${accountConnected.user.id}/events`, {
@@ -50,7 +33,6 @@ function MyEvents({ hundleOpenMyEvents }) {
         }
       });
   }, []);
-  console.warn(userEvents);
   return (
     <div className="formContainer" id="MyEvent">
       <button

@@ -8,15 +8,17 @@
     "CCM creation article2"
     "CCM rejoindre article1"
     "Philan atelier news"; */
-  height: 100rem;
+  /* height: 100rem; */
   width: 90%;
   margin-top: 3rem;
   display: flex;
   flex-direction: column;
+  height: max-content;
 }
 .acceuilContainer > div > div {
   margin: 0.5rem;
   border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .acceuilContainer > div > h2 {
   text-align: center;
@@ -29,7 +31,9 @@
   background-color: #f4f5f9c2;
   padding: 2rem;
 }
-
+.ccmPink {
+  color: var(--color_2);
+}
 .titleAloja {
   text-align: center;
   font-family: aloja;
@@ -64,6 +68,7 @@
   padding: 1rem;
   color: rgb(52 72 122);
   font-size: 1.2rem;
+  font-weight: bold;
 }
 .blog {
   width: 33%;
@@ -81,8 +86,7 @@
 }
 .creation {
   /* grid-area: creation; */
-  background-color: rgb(90, 148, 210);
-  background-image: url("../../assets/images/zebre.jpg");
+  background-color: #eb4b4b;
   background-repeat: no-repeat;
   background-size: 100%;
   width: 33%;
@@ -135,19 +139,19 @@
 .homeLigne3 {
   display: flex;
   width: 100%;
-  height: 50rem;
+  /* height: 50rem; */
 }
 .Philan {
   /* grid-area: Philan; */
   background-image: url("../../assets/images/fille.jpg");
   background-size: cover;
-  background-position: 10% 20%;
+  background-position: 10% 0%;
   background-repeat: no-repeat;
-  height: 60%;
+  height: 100%;
   width: 33%;
 }
 .Philan > a > h3 {
-  margin-bottom: 3rem;
+  margin-bottom: rem;
   width: 100%;
   height: 3rem;
   display: flex;
@@ -158,18 +162,33 @@
   margin-bottom: 3rem;
   width: 100%;
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  height: 100%;
+}
+.atelier > a {
+  margin-bottom: 3rem;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
   height: 100%;
 }
 .atelier {
   /* grid-area: atelier; */
-  background-color: rgb(255, 226, 0);
-  height: 60%;
+  background-color: rgb(0, 180, 175);
+  height: 100%;
   width: 33%;
   background-image: url("../../assets/images/tigre-font-vert.jpg");
   background-size: cover;
   background-position: 60% 50%;
   background-repeat: no-repeat;
+}
+.atelier > a > h3 {
+  margin-bottom: rem;
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .news {
   /* grid-area: news; */
@@ -196,6 +215,9 @@
   display: flex;
   flex-direction: column;
   margin: 10px;
+  height: 100%;
+  background-color: rgb(248, 192, 0);
+  height: 100%;
 }
 .prenomMail {
   display: flex;
@@ -206,6 +228,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  height: max-content;
+  margin: 8rem 3rem 8rem 3rem;
 }
 .confiance {
   background-color: var(--color_4);
@@ -217,6 +241,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .divTitre > h2 {
   text-align: center;
@@ -225,31 +250,104 @@
 }
 .confiance > div > p {
   text-align: center;
-  margin: 2rem;
   padding: 2rem;
   font-weight: bold;
 }
-.cerclePartenaire {
+
+.cerclePartenaire1 {
   height: 5rem;
   width: 5rem;
-  background-image: url(../../assets/images/enfant.png);
+  background-image: url(../../assets/images/empowher.jpg);
   background-size: cover;
-  border: 2px solid rgba(0, 0, 0, 1);
+  /* border: 1px solid rgba(0, 0, 0, 1); */
   border-radius: 50%;
   margin: 1rem;
 }
+.cerclePartenaire2 {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/latitudes.jpg);
+  background-size: cover;
+  /* border: 2px solid rgba(0, 0, 0, 1); */
+  border-radius: 50%;
+  margin: 1rem;
+}
+.cerclePartenaire3 {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/logo-lyon-startup.jpg);
+  background-size: cover;
+  /* border: 2px solid rgba(0, 0, 0, 1); */
+  border-radius: 50%;
+  margin: 1rem;
+}
+.cerclePartenaire4 {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/makesense.jpg);
+  background-size: cover;
+  /* border: 2px solid rgba(0, 0, 0, 1); */
+  border-radius: 50%;
+  margin: 1rem;
+}
+.cerclePartenaire5 {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/wild-code-school.jpg);
+  background-size: cover;
+  /* border: 2px solid rgba(0, 0, 0, 1); */
+  border-radius: 50%;
+  margin: 1rem;
+}
+.cerclePartenaire6 {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/madcats.jpg);
+  background-size: cover;
+  /* border: 2px solid rgba(0, 0, 0, 1); */
+  border-radius: 50%;
+  margin: 1rem;
+}
+.cerclePartenaire7 {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/RecycLivre.jpg);
+  background-size: cover;
+  /* border: 2px solid rgba(0, 0, 0, 1); */
+  border-radius: 50%;
+  margin: 1rem;
+}
+.cerclePartenaire8 {
+  height: 5rem;
+  width: 5rem;
+  background-image: url(../../assets/images/anciela.jpg);
+  background-size: cover;
+  /* border: 2px solid rgba(0, 0, 0, 1); */
+  border-radius: 50%;
+  margin: 1rem;
+}
+.gloLien {
+  text-align: center;
+  color: var(--color_light);
+}
+.gloLien > p {
+  text-decoration: none;
+  list-style: none;
+  font-size: 0.9rem;
+}
+
 .globalCercle {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 4rem;
+  margin: 1rem 0rem 3rem 0rem;
 }
-.cartePablo {
-  width: 63%;
-  transform: rotate(25deg);
-  margin: 4rem;
+
+.globalCercle > a {
+  margin: 1rem;
 }
+
 .postGif {
   width: 30%;
   transform: rotate(25deg);
@@ -291,15 +389,80 @@
     display: flex;
     flex-direction: column;
   }
-  .cerclePartenaire {
+  .Philan {
+    height: 25rem;
+  }
+  .atelier {
+    height: 25rem;
+  }
+  .news {
+    height: 25rem;
+  }
+  .cerclePartenaire1 {
     height: 5rem;
     width: 5rem;
-    background-image: url(../../assets/images/enfant.png);
+    background-image: url(../../assets/images/empowher.jpg);
     background-size: cover;
-    border: 2px solid rgba(0, 0, 0, 1);
     border-radius: 50%;
     margin: 1rem;
   }
+  .cerclePartenaire2 {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/latitudes.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+  .cerclePartenaire3 {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/logo-lyon-startup.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+  .cerclePartenaire4 {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/makesense.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+  .cerclePartenaire5 {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/wild-code-school.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+  .cerclePartenaire6 {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/madcats.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+  .cerclePartenaire7 {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/RecycLivre.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+  .cerclePartenaire8 {
+    height: 5rem;
+    width: 5rem;
+    background-image: url(../../assets/images/anciela.jpg);
+    background-size: cover;
+    border-radius: 50%;
+    margin: 1rem;
+  }
+
   .globalCercle {
     display: flex;
     align-items: center;
@@ -307,5 +470,21 @@
     flex-wrap: wrap;
     margin: 1rem;
     width: 90%;
+  }
+  .atelier {
+    height: 19rem;
+  }
+  .confiance > div > p {
+    text-align: center;
+    margin: 0.5rem;
+    padding: 1rem;
+    font-weight: bold;
+  }
+  .confianceFlex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    margin: 3rem 0rem 3rem 0rem;
   }
 }

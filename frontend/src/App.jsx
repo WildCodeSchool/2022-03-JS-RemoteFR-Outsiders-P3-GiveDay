@@ -17,6 +17,7 @@ import FormChangePassword from "@components/FormChangePassword/FormChangePasswor
 import JointEvent from "@pages/JointEvent/JointEvent";
 import EventJointed from "@pages/JointEvent/EventJointed";
 import ArticleDetail from "@components/Article/ArticleDetail";
+import ConditionsGenerales from "@components/Footer/ConditionsGenerales";
 
 import Page404 from "@pages/Page404/Page404";
 
@@ -117,6 +118,15 @@ function App() {
           element={
             <div className="containerContainWebsite">
               <AtelierCarte />
+            </div>
+          }
+        />
+
+        <Route
+          path="/conditionsGenerales"
+          element={
+            <div className="containerContainWebsite">
+              <ConditionsGenerales />
             </div>
           }
         />

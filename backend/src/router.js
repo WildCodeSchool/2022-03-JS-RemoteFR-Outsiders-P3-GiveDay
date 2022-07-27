@@ -43,9 +43,11 @@ router.post("/api/createEvent", EventController.add);
  * @desc Cadeau routes
  *
  * @api {post} /api/cadeaux/add permet d'ajouter un cadeau à la bdd
+ * @api {get} /api/cadeaux/event/:id permet de récuperer la liste des cadeaux d'un event
  * @api {delete} /api/cadeaux/delete/:id permet de supprimer les cadeaux liés à un évènement
  */
 router.post("/api/cadeaux/add", CadeauController.add);
+router.get("/api/cadeaux/event/:id", CadeauController.getList);
 router.delete("/api/cadeaux/delete/:id", CadeauController.delete);
 
 /**
@@ -63,7 +65,7 @@ router.get("/api/tag/:id", ArticleController.readTag);
 router.get("/api/new-article", ArticleController.newArticle);
 // router.put("/api/article/:id", ArticleController.edit);
 
-router.post("/api/article", ArticleController.add);
+router.post("/api/article/add", ArticleController.add);
 router.delete("/api/article/delete/:id", ArticleController.delete);
 
 /**

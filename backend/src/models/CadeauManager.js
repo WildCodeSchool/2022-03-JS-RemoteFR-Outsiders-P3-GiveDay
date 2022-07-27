@@ -17,6 +17,13 @@ class CadeauManager extends AbstractManager {
     );
   }
 
+  getListCadeau(id) {
+    return this.connection.query(
+      `SELECT * FROM event INNER JOIN cadeau ON cadeau.event_id = event.id WHERE cadeau.event_id = ?`,
+      [id]
+    );
+  }
+
   // update(user) {
   //   return this.connection.query(
   //     `update ${UserManager.table} set prenom = ? where id = ?`,
