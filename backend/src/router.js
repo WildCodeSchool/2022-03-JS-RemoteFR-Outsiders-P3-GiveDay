@@ -10,6 +10,8 @@ const {
   AssoController,
 } = require("./controllers");
 
+const authMiddleware = require("./middleware/authMiddleware");
+
 const router = express.Router();
 
 /**
@@ -21,7 +23,7 @@ const router = express.Router();
  */
 
 router.post("/api/auth/register", AuthController.register);
-router.post("/api/auth/login", AuthController.login);
+router.post("/api/auth/login", authMiddleware, AuthController.login);
 router.get("/api/auth/logout", AuthController.logout);
 
 /**
@@ -90,7 +92,7 @@ router.put("/api/reset/updatepassword/:id", ResetController.updatePassword);
  * @api {delete} /api/users/delete/:id Supprime un utilisateur de la base de données
  * @api {get} /api/users/count Récupère le nombre total d'utilisateurs
  * @api {put} /api/users/roleUpdate/:id Update le role nom et prénom de l'utilisateur (sur le dashboard de l'admin)
- 
+
  */
 router.get("/api/users", UserController.browse);
 router.get("/api/users/:id", UserController.read);
