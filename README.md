@@ -1,6 +1,6 @@
 ![alt text](./frontend/src/assets/images/logo2Givedaymini.png)
 
-## La Plateforme généreuse des tout petits
+## La plateforme généreuse des tout petits
 
 </br>
 Le projet consiste à développer le prototype d’une application web qui a pour objectif d’optimiser l’organisation d’évènements pour enfants.
@@ -10,11 +10,11 @@ Sur le site :
 - un utilisateur "organisateur" peut créer un évènement en ajoutant ses informations puis créer une carte d'invitation.
 - un utilisateur "invité" pourra consulter la liste des cadeaux souhaités et participer à une cagnotte.
 
-Giveday souhaite sensibliser les enfants aux projets solidaires. Lors de la création d'un évènement, l'enfant "organisateur" choisi une association à soutenir, une partie de la cagnotte sera alors reversée à l'association.
+Giveday souhaite sensibliser les enfants aux projets solidaires. Lors de la création d'un évènement, l'enfant "organisateur" choisit une association à soutenir, une partie de la cagnotte sera alors reversée à l'association.
 </br>
 L’application propose également un blog pour suivre des actualités/projets solidaires.
 </br>
-L'application dispose d'un dasboard administrateur pour gérer les utilisateurs et les articles du blog.
+L'application dispose d'un dashboard administrateur pour gérer les utilisateurs et les articles du blog.
 </br>
 
 ## Les outils

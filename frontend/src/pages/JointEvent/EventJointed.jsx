@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useState, useContext, useEffect } from "react";
 import "./jointEvent.css";
@@ -7,8 +8,15 @@ import Layout from "@components/Layout";
 import CurrentPagesContext from "../../PagesContexts";
 
 function EventJointed() {
-  const { eventToJoint } = useContext(CurrentPagesContext);
-  const [cagnottes, setCagnottes] = useState({ id: eventToJoint.id });
+  const { eventToJoint, setEventToJoint } = useContext(CurrentPagesContext);
+  const [cagnottes, setCagnottes] = useState(
+    !eventToJoint ||
+      eventToJoint === null ||
+      eventToJoint === undefined ||
+      eventToJoint.id === "erreur154"
+      ? { id: "erreur154" }
+      : { id: eventToJoint.id }
+  );
   const [assoChoose, setAssoChoose] = useState({});
   const [listCadeau, setListCadeau] = useState([]);
   const handleChange = (e) => {
@@ -17,7 +25,16 @@ function EventJointed() {
       [e.target.name]: parseInt(e.target.value, 10),
     });
   };
+
   useEffect(() => {
+    if (
+      !eventToJoint ||
+      eventToJoint === null ||
+      eventToJoint === undefined ||
+      eventToJoint.id === "erreur154"
+    ) {
+      return setEventToJoint({ asso_id: "erreur154", id: "erreur154" });
+    }
     api
       .get(`/api/asso/${eventToJoint.asso_id}`, { withCredentials: true })
       .then((res) => {
@@ -25,6 +42,14 @@ function EventJointed() {
       });
   }, []);
   useEffect(() => {
+    if (
+      !eventToJoint ||
+      eventToJoint === null ||
+      eventToJoint === undefined ||
+      eventToJoint.id === "erreur154"
+    ) {
+      return setEventToJoint({ asso_id: "erreur154", id: "erreur154" });
+    }
     api
       .get(`/api/cadeaux/event/${eventToJoint.id}`, { withCredentials: true })
       .then((res) => {
@@ -45,6 +70,23 @@ function EventJointed() {
         }, 1000)
       );
   };
+  if (
+    !eventToJoint ||
+    eventToJoint === null ||
+    eventToJoint === undefined ||
+    eventToJoint.id === "erreur154"
+  ) {
+    return (
+      <Layout>
+        <div id="eventJointed">
+          <section className="eventJointedSection1">
+            Événement non trouvé
+          </section>
+        </div>
+      </Layout>
+    );
+  }
+
   return (
     <Layout>
       <div id="eventJointed">
@@ -77,7 +119,9 @@ function EventJointed() {
                 return (
                   <div key={cadeau.id} className="cadeauDiv">
                     <p>{cadeau.titre}</p>
-                    <a href={cadeau.url_site}>+info</a>
+                    <a href={cadeau.url_site} target="_blank" rel="noreferrer">
+                      +info
+                    </a>
                   </div>
                 );
               })}
@@ -86,7 +130,7 @@ function EventJointed() {
         </section>
         <section className="eventJointedSection2">
           <form className="form" onSubmit={addCagnottes}>
-            <p>Combien souhaites tu apporter ?</p>
+            <p id="combien">Combien souhaites tu apporter ?</p>
             <div className="divCagnottes">
               <div>
                 <label className="label">
@@ -119,12 +163,9 @@ function EventJointed() {
                 </label>
               </div>
             </div>
-            <input type="submit" value="Valider" className="buttonStyle" />
-            {/* {errorLogin ? (
-          <span className="errorLogin">
-            Opps ! il y a un problème avec votre compte
-          </span>
-        ) : null} */}
+            <button type="button" className="buttonStyle valid">
+              Valider{" "}
+            </button>
           </form>
         </section>
       </div>

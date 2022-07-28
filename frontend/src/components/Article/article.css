@@ -133,6 +133,11 @@
   display: flex;
   justify-content: center;
 }
+.newVignette > button:nth-child(1) {
+  background: transparent;
+  border: 0;
+}
+
 @media screen and (max-width: 980px) {
   .globalBlog {
     display: flex;

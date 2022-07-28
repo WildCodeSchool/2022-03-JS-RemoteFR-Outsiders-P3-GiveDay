@@ -67,7 +67,7 @@ function Blog() {
             </select>
           </div>
         </div>
-        {articles.map((article) => (
+        {articles.reverse().map((article) => (
           <Article key={article.id} article={article} />
         ))}
       </div>
