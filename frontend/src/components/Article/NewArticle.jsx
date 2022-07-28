@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import api from "@services/api";
 import "./article.css";
 import "../../pages/Home/home.css";
@@ -7,6 +7,7 @@ import "@components/Article/ArticleDetail";
 import CurrentPagesContext from "../../PagesContexts";
 
 function NewArticle({ article }) {
+  const navigate = useNavigate();
   const { setDetail } = useContext(CurrentPagesContext);
   const {
     setAcceuil,
@@ -24,6 +25,7 @@ function NewArticle({ article }) {
     setCreationEvenement(false);
     setBlog(true);
   };
+
   const handleClick = () => {
     api
       .get(`/api/articles/${article.id}`)
@@ -31,12 +33,18 @@ function NewArticle({ article }) {
       .then((data) => {
         setDetail(data);
         goToBlog();
-      });
+        localStorage.setItem("articleChoose", JSON.stringify(data));
+      })
+      .then(
+        setTimeout(() => {
+          navigate("/ArticleDetail");
+        }, 500)
+      );
   };
 
   return (
     <div className="newVignette">
-      <Link to="/ArticleDetail" onClick={handleClick}>
+      <button type="button" to="/ArticleDetail" onClick={handleClick}>
         <div
           className="newImage"
           style={{
@@ -50,7 +58,7 @@ function NewArticle({ article }) {
         <h3 className="newTitle">{article.titre}</h3>
         <p className="newArticle">{article.date.substring(0, 10)}</p>
         {/* <p className="newDescript">{article.texte}</p> */}
-      </Link>
+      </button>
     </div>
   );
 }
