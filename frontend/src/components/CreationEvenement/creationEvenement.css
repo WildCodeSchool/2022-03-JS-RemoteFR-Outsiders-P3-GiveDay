@@ -119,6 +119,17 @@ p.codeEvenement {
   font-size: 1.2rem;
   color: var(--color_dark);
 }
+#gift-container h1 {
+  color: var(--color_1);
+  font-family: var(--font-titre_small-text);
+}
+#gift-container h3 {
+  text-align: center;
+  color: var(--color_4);
+  font-size: 1.2rem;
+  font-family: var(--font-titre_small-text);
+  padding: 2rem;
+}
 
 #gift-container .liste:hover {
   background-color: var(--color_1);
@@ -146,6 +157,11 @@ div.cadeau .liste-cadeau {
 #gift-container .remove {
   border: none;
   background: none;
+}
+
+#btn-createCard {
+  min-height: 4rem;
+  min-width: 20rem;
 }
 
 @media screen and (max-width: 800px) {

@@ -30,11 +30,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 10rem 0;
+  padding: 5rem 0;
+  background-color: #ffe10016;
 }
 #eventJointed .eventJointedSection1 {
   display: flex;
   flex-direction: column;
+  padding: 0 9rem;
 }
 #eventJointed .eventJointedSection1-1 {
   display: flex;
@@ -116,4 +118,11 @@
 #eventJointed .inputForm {
   border: 1px solid var(--color_4);
   width: 50%;
+}
+#combien {
+  color: var(--color_4);
+  font-size: 1.5rem;
+}
+.valid:hover {
+  border: 2px solid var(--color_4);
 }
