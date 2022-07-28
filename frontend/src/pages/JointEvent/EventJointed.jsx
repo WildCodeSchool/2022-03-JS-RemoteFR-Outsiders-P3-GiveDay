@@ -77,7 +77,9 @@ function EventJointed() {
                 return (
                   <div key={cadeau.id} className="cadeauDiv">
                     <p>{cadeau.titre}</p>
-                    <a href={cadeau.url_site}>+info</a>
+                    <a href={cadeau.url_site} target="_blank" rel="noreferrer">
+                      +info
+                    </a>
                   </div>
                 );
               })}
@@ -86,7 +88,7 @@ function EventJointed() {
         </section>
         <section className="eventJointedSection2">
           <form className="form" onSubmit={addCagnottes}>
-            <p>Combien souhaites tu apporter ?</p>
+            <p id="combien">Combien souhaites tu apporter ?</p>
             <div className="divCagnottes">
               <div>
                 <label className="label">
@@ -119,12 +121,9 @@ function EventJointed() {
                 </label>
               </div>
             </div>
-            <input type="submit" value="Valider" className="buttonStyle" />
-            {/* {errorLogin ? (
-          <span className="errorLogin">
-            Opps ! il y a un problème avec votre compte
-          </span>
-        ) : null} */}
+            <button type="button" className="buttonStyle valid">
+              Valider{" "}
+            </button>
           </form>
         </section>
       </div>
