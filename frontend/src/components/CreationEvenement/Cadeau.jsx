@@ -104,14 +104,16 @@ function Cadeau({ idEvent }) {
           ❌ Vider mon panier cadeau
         </button>
       ) : null}
-      <h1>
-        Ta liste est complète? <br />
-        C'est parti ! <br /> Tu peux maintenant créer ta carte d'invitation 🐯
-      </h1>
+      <h3>
+        Ta liste est complète? <br /> <br />
+        C'est parti ! <br /> <br /> Tu peux maintenant créer ta carte
+        d'invitation 🐯
+      </h3>
       {/* link carte */}
       <Link to="/AtelierCarte">
         <button
-          className="buttonStyle"
+          id="btn-createCard"
+          className="buttonStyle "
           type="button"
           form="creationEvenement"
           value="Submit"
