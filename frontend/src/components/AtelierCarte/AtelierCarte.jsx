@@ -30,7 +30,7 @@ function AtelierCarte() {
     time: createEvent.heure_de_debut ? createEvent.heure_de_debut : "18h00",
     mobile: createEvent.telephone ? createEvent.telephone : "06 00 00 00 00",
     email: createEvent.mail ? createEvent.mail : "mailmail.@mail.fr",
-    asso: createEvent.asso_id ? asso[createEvent.asso_id].nom : "ex: Rêves",
+    // asso: createEvent.asso_id ? asso[createEvent.asso_id].nom : "ex: Rêves",
   });
 
   console.warn(asso);

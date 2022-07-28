@@ -4,7 +4,7 @@ import CurrentPagesContext from "../../PagesContexts";
 
 function MesInfos({ cardContain, setCardContain, printDocument }) {
   const { createEvent } = useContext(CurrentPagesContext);
-  const { asso } = useContext(CurrentPagesContext);
+  // const { asso } = useContext(CurrentPagesContext);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -109,9 +109,9 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             name="asso"
             onChange={handleChange}
             required
-            placeholder={
-              createEvent.asso_id ? asso[createEvent.asso_id].nom : undefined
-            }
+            // placeholder={
+            //   createEvent.asso_id ? asso[createEvent.asso_id].nom : undefined
+            // }
           />
         </label>
         <br />
