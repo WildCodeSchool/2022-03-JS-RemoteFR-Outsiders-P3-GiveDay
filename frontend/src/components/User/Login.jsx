@@ -8,8 +8,8 @@ import Swal from "sweetalert2";
 function Login({ hundleOpenLogin, setUserIsConnected }) {
   const [errorLogin, setErrorLogin] = useState(false);
   const [user, setUser] = useState({
-    email: "doe@gmail.com",
-    password: "Giveday2022?",
+    email: "",
+    password: "",
   });
   const handleLogin = (event) => {
     event.preventDefault();
@@ -35,8 +35,6 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
       })
       .catch(setErrorLogin(true));
   };
-
-  console.warn(user);
   const handleChange = (e) => {
     setUser({
       ...user,
