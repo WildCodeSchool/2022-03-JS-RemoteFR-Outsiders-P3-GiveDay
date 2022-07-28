@@ -2,8 +2,16 @@
 import React, { createContext, useState } from "react";
 
 const CurrentPagesContext = createContext();
+/*eslint-disable */
 
 export function CurrentPagesContextProvider({ children }) {
+  const isConnected = () => {
+    if (accountConnected) {
+      return accountConnected.user.id;
+    }
+    return "user is not connected";
+  };
+
   const user = localStorage.getItem("user");
   const [accountConnected, setAccountConnected] = useState(JSON.parse(user));
   const [accueil, setAcceuil] = useState(true);
@@ -23,10 +31,28 @@ export function CurrentPagesContextProvider({ children }) {
   const [detail, setDetail] = useState(JSON.parse(articleChoose));
   const [articles, setArticles] = useState([]);
   const [postContent, setPostContent] = useState([]);
+  const [asso, setAsso] = useState([]);
+  const [createEvent, setCreateEvent] = useState({
+    code: "",
+    prenom: "",
+    age: "",
+    date: "",
+    heure_de_debut: "",
+    heure_de_fin: "",
+    lieu: "",
+    telephone: "",
+    mail: "",
+    asso_id: "",
+    user_id: isConnected(),
+  });
 
   return (
     <CurrentPagesContext.Provider
       value={{
+        asso,
+        setAsso,
+        createEvent,
+        setCreateEvent,
         accueil,
         setAcceuil,
         histoire,
@@ -61,5 +87,5 @@ export function CurrentPagesContextProvider({ children }) {
     </CurrentPagesContext.Provider>
   );
 }
-
+/* eslint-enable */
 export default CurrentPagesContext;

@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "@components/CreationEvenement/creationEvenement.css";
 import api from "@services/api";
+import { Link } from "react-router-dom";
 import CurrentPagesContext from "../../PagesContexts";
 
 function Cadeau({ idEvent }) {
@@ -88,8 +89,8 @@ function Cadeau({ idEvent }) {
       </div>
       <ul>
         {cadeauxList.map((item) => (
-          <div className="liste">
-            <li key={item.id}>
+          <div className="liste" key={item.id}>
+            <li>
               <a href={item.url_site} target="_blank" rel="noreferrer">
                 {item.titre}
               </a>{" "}
@@ -107,14 +108,17 @@ function Cadeau({ idEvent }) {
         Ta liste est complète? <br />
         C'est parti ! <br /> Tu peux maintenant créer ta carte d'invitation 🐯
       </h1>
-      <button
-        className="buttonStyle"
-        type="button"
-        form="creationEvenement"
-        value="Submit"
-      >
-        🎉 Créer ma carte d'invitation
-      </button>
+      {/* link carte */}
+      <Link to="/AtelierCarte">
+        <button
+          className="buttonStyle"
+          type="button"
+          form="creationEvenement"
+          value="Submit"
+        >
+          🎉 Créer ma carte d'invitation
+        </button>
+      </Link>
     </div>
   );
 }

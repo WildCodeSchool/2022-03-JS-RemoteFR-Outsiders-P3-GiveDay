@@ -48,7 +48,7 @@ function NewArticle({ article }) {
           alt={article.titre}
         />
         <h3 className="newTitle">{article.titre}</h3>
-        <p className="newArticle">{article.date}</p>
+        <p className="newArticle">{article.date.substring(0, 10)}</p>
         {/* <p className="newDescript">{article.texte}</p> */}
       </Link>
     </div>

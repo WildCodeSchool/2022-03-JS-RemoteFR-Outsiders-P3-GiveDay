@@ -32,6 +32,12 @@ function UserConnected({ setUserIsConnected }) {
         console.warn(res);
       })
       .then(localStorage.removeItem("user"))
+      .then(localStorage.removeItem("eventToJointLocal"))
+      .then(
+        setTimeout(() => {
+          window.location = "/";
+        }, 1000)
+      )
       .catch((err) => {
         console.warn(err);
       });
