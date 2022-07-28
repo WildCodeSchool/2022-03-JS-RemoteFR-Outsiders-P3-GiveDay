@@ -87,14 +87,29 @@ export default function CreatePostContent() {
     return (
       <form className="form-ArticleSaved" name="form-reset-password-email">
         <p className="confirmation">Votre article a été enregistré !</p>
+        <Link to="/admin/createPost" className="btn btn-primary ms-auto w-2">
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={() => {
+              setAlert(!alert);
+            }}
+          >
+            Ajouter un nouvel article
+          </button>
+        </Link>
         <Link to="/admin/posts" className="btn btn-primary ms-auto w-2">
           <button className="btn btn-primary" type="button">
             Retourner au gestionnaire de posts
           </button>
         </Link>
-        <Link to="/blog" className="btn btn-primary ms-auto w-2">
+        <Link
+          to="/blog"
+          className="btn btn-primary ms-auto w-2"
+          target="_blank"
+        >
           <button className="btn btn-primary" type="button">
-            Retourner aux articles en ligne
+            Afficher le blog sur Giveday
           </button>
         </Link>
       </form>
@@ -127,7 +142,7 @@ export default function CreatePostContent() {
         onChange={handleIamgeURL}
       />
 
-      <h4>Choisissez des tagadd comms</h4>
+      <h4>Choisissez les tags</h4>
 
       {tags.map((tag) => (
         <div className="form-check form-switch" key={tag.id}>
