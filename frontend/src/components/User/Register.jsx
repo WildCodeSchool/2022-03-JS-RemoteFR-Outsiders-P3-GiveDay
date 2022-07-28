@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import api from "@services/api";
 import "./user.css";
+import Swal from "sweetalert2";
 
 function Register({ hundleOpenNewAccount, setUserIsConnected }) {
   const [user, setUser] = useState({
@@ -17,9 +18,18 @@ function Register({ hundleOpenNewAccount, setUserIsConnected }) {
           if (data) {
             localStorage.setItem("user", JSON.stringify(data));
             setUserIsConnected(true);
-            setTimeout(() => {
-              window.location = "/";
-            }, 1000);
+            /* Je commente cette partie pour un essai de l'authentification via le token
+           setTimeout(() => {
+              window.location.reload();
+            }, 1000); */
+            hundleOpenNewAccount();
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Vôtre compte a bien été créé !",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }
         });
     }

@@ -164,49 +164,49 @@ function Home() {
             </p>
           </div>
           <div className="globalCercle">
-            <a href="https://empow-her.com/">
+            <a href="https://empow-her.com/" target=" _blank">
               <div className="gloLien">
                 <div className="cerclePartenaire1" />
                 <p>Empow'Her</p>
               </div>
             </a>
-            <a href="https://www.latitudes.cc/">
+            <a href="https://www.latitudes.cc/" target=" _blank">
               <div className="gloLien">
                 <div className="cerclePartenaire2" />
                 <p>Latitudes</p>
               </div>
             </a>
-            <a href="https://www.lyonstartup.com/">
+            <a href="https://www.lyonstartup.com/" target=" _blank">
               <div className="gloLien">
                 <div className="cerclePartenaire3" />
                 <p>Lyon startup</p>
               </div>
             </a>
-            <a href="https://makesense.org/">
+            <a href="https://makesense.org/" target=" _blank">
               <div className="gloLien">
                 <div className="cerclePartenaire4" />
                 <p>Makesense</p>
               </div>
             </a>
-            <a href="https://www.wildcodeschool.com">
+            <a href="https://www.wildcodeschool.com" target=" _blank">
               <div className="gloLien">
                 <div className="cerclePartenaire5" />
                 <p>Wild code school</p>
               </div>
             </a>
-            <a href="https://madcats.fr/">
+            <a href="https://madcats.fr/" target=" _blank">
               <div className="gloLien">
                 <div className="cerclePartenaire6" />
                 <p>Madcats</p>
               </div>
             </a>
-            <a href="https://www.recyclivre.com/">
+            <a href="https://www.recyclivre.com/" target=" _blank">
               <div className="gloLien">
                 <div className="cerclePartenaire7" />
                 <p>Recyclivre</p>
               </div>
             </a>
-            <a href="https://www.anciela.info/">
+            <a href="https://www.anciela.info/" target=" _blank">
               <div className="gloLien">
                 <div className="cerclePartenaire8" />
                 <p>Anciela</p>

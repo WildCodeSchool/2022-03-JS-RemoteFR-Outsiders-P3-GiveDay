@@ -36,7 +36,7 @@ function Newsletter() {
           id="inputNewsletterFirstname"
           type="text"
           name="firstname"
-          placeholder="prénom"
+          placeholder="NOM Prénom"
         />
       </label>
 
