@@ -24,14 +24,21 @@ function JointEvent() {
       .get(`/api/events/code/${eventCode.eventCode}`, { withCredentials: true })
       .then((res) => {
         setEventToJoint(res.data[0]);
-
-        localStorage.setItem("eventToJointLocal", JSON.stringify(res.data[0]));
+        if (res.data[0]) {
+          localStorage.setItem(
+            "eventToJointLocal",
+            JSON.stringify(res.data[0])
+          );
+        }
       })
       .then(
         setTimeout(() => {
           navigate("/EventJointed");
         }, 1000)
-      );
+      )
+      .catch((err) => {
+        console.warn(err);
+      });
   };
   return (
     <Layout>
