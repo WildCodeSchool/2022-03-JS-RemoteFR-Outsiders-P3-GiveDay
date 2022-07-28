@@ -42,20 +42,23 @@ class AuthController {
           message: "INVALID DATA",
         });
       }
-      const token = jwt.sign(
-        {
-          id: getEmail[0].id,
-          email: getEmail[0].email,
-          role: getEmail[0].role,
-        },
-        process.env.SECRET_JWT,
-        { expiresIn: "36h" }
-      );
+
+      console.warn({ getEmail });
+
       models.user
         .insert({ prenom, nom, email, password: hash, role })
         .then(([result]) => console.warn(result))
         .then(async () => {
           const getUser = await models.user.getUserByEmail(email);
+          const token = jwt.sign(
+            {
+              id: getUser[0][0].id,
+              email: getUser[0][0].email,
+              role: getUser[0][0].role,
+            },
+            process.env.SECRET_JWT,
+            { expiresIn: "36h" }
+          );
           res
             .cookie("user_giveday", token)
             .status(201)
@@ -82,6 +85,7 @@ class AuthController {
     try {
       const { email, password } = req.body;
       const [user] = await models.user.getUserByEmail(email);
+      console.warn(user);
       /**
        * const [user] = await models.user.getUserByEmail(email);
        *
@@ -120,6 +124,7 @@ class AuthController {
         user: user[0],
       });
     } catch (error) {
+      console.error(error);
       res.status(400).json({
         message: error.message,
       });

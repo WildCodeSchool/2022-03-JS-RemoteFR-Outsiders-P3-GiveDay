@@ -43,9 +43,11 @@ router.post("/api/createEvent", EventController.add);
  * @desc Cadeau routes
  *
  * @api {post} /api/cadeaux/add permet d'ajouter un cadeau à la bdd
+ * @api {get} /api/cadeaux/event/:id permet de récuperer la liste des cadeaux d'un event
  * @api {delete} /api/cadeaux/delete/:id permet de supprimer les cadeaux liés à un évènement
  */
 router.post("/api/cadeaux/add", CadeauController.add);
+router.get("/api/cadeaux/event/:id", CadeauController.getList);
 router.delete("/api/cadeaux/delete/:id", CadeauController.delete);
 
 /**
@@ -88,7 +90,7 @@ router.put("/api/reset/updatepassword/:id", ResetController.updatePassword);
  * @api {delete} /api/users/delete/:id Supprime un utilisateur de la base de données
  * @api {get} /api/users/count Récupère le nombre total d'utilisateurs
  * @api {put} /api/users/roleUpdate/:id Update le role nom et prénom de l'utilisateur (sur le dashboard de l'admin)
- 
+
  */
 router.get("/api/users", UserController.browse);
 router.get("/api/users/:id", UserController.read);

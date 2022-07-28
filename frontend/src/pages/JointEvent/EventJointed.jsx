@@ -10,19 +10,7 @@ function EventJointed() {
   const { eventToJoint } = useContext(CurrentPagesContext);
   const [cagnottes, setCagnottes] = useState({ id: eventToJoint.id });
   const [assoChoose, setAssoChoose] = useState({});
-  const today = new Date();
-  const TodayDate = `${today.getFullYear()}-${
-    today.getMonth() + 1
-  }-${today.getDate()}`;
-  const setStatusEvent = (item) => {
-    if (item >= TodayDate) {
-      return "Terminé";
-    }
-    if (item < TodayDate) {
-      return "En cours";
-    }
-    return null;
-  };
+  const [listCadeau, setListCadeau] = useState([]);
   const handleChange = (e) => {
     setCagnottes({
       ...cagnottes,
@@ -32,7 +20,16 @@ function EventJointed() {
   useEffect(() => {
     api
       .get(`/api/asso/${eventToJoint.asso_id}`, { withCredentials: true })
-      .then((res) => setAssoChoose(res.data[0]));
+      .then((res) => {
+        setAssoChoose(res.data);
+      });
+  }, []);
+  useEffect(() => {
+    api
+      .get(`/api/cadeaux/event/${eventToJoint.id}`, { withCredentials: true })
+      .then((res) => {
+        setListCadeau(res.data);
+      });
   }, []);
   const navigate = useNavigate();
   const addCagnottes = (e) => {
@@ -48,61 +45,80 @@ function EventJointed() {
         }, 1000)
       );
   };
-
-  console.warn(cagnottes);
-  console.warn(eventToJoint);
   return (
     <Layout>
       <div id="eventJointed">
         <section className="eventJointedSection1">
-          <h1 className="eventJointedSection1Title">Mes événements</h1>
-          <div className="eventJointedSection1Titles">
-            <h1>Date</h1>
-            <h1>Organisateur</h1>
-            <h1>Cagnotte cadeau</h1>
-            <h1>Cagnotte Asso</h1>
-            <h1>Code</h1>
-            <h1>Status</h1>
-          </div>
-          <div key={eventToJoint.id} className="eventJointedSection1Results">
-            <h1>{eventToJoint.date}</h1>
-            <h1>{eventToJoint.prenom}</h1>
-            <h1>{eventToJoint.cagnotte_somme_cadeau}</h1>
-            <h1>{eventToJoint.cagnotte_don_asso}</h1>
-            <h1>{eventToJoint.code}</h1>
-            <h1
-              className={
-                setStatusEvent(eventToJoint.date) === "En cours"
-                  ? "eventJointedStatusEnCours"
-                  : "eventJointedStatusTermine"
-              }
-            >
-              {setStatusEvent(eventToJoint.date)}
-            </h1>
+          <h1 className="eventJointedSection1Title">
+            Bientôt l'anniversaire de {eventToJoint.prenom} !
+          </h1>
+          <div className="eventJointedSection1-1">
+            <div className="eventJointedSection1Titles">
+              <h1>
+                L'anniversaire de {eventToJoint.prenom} arrive à grand pas.{" "}
+                <br />
+                N'oublies pas que nous nous retrouverons le {
+                  eventToJoint.date
+                }{" "}
+                à {eventToJoint.heure_de_debut} ici : <br />
+                <br /> <br /> {eventToJoint.lieu} <br />
+                <br />
+                <br />
+              </h1>
+              <h1>
+                {eventToJoint.prenom} fête ses {eventToJoint.age} ans et
+                souhaite partager ce jour avec l'association {assoChoose.nom}.{" "}
+                <br />
+                Pour ceci on a créé 2 cagnottes, une pour lui acheter un cadeau
+                et une pour faire un don à {assoChoose.nom}
+              </h1>
+              <h1>Voici la liste de cadeaux de {eventToJoint.prenom}</h1>
+              {listCadeau.map((cadeau) => {
+                return (
+                  <div key={cadeau.id} className="cadeauDiv">
+                    <p>{cadeau.titre}</p>
+                    <a href={cadeau.url_site}>+info</a>
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
-        <section className="eventJointedSection1">
+        <section className="eventJointedSection2">
           <form className="form" onSubmit={addCagnottes}>
-            <label>
-              Cangotte pour {assoChoose.nom}
-              <input
-                className="inputForm"
-                type="number"
-                name="cagnotte_don_asso"
-                onChange={handleChange}
-                maxLength="6"
-              />
-            </label>
-            <label>
-              Cangotte pour {eventToJoint.prenom}
-              <input
-                className="inputForm"
-                type="number"
-                name="cagnotte_somme_cadeau"
-                onChange={handleChange}
-                maxLength="6"
-              />
-            </label>
+            <p>Combien souhaites tu apporter ?</p>
+            <div className="divCagnottes">
+              <div>
+                <label className="label">
+                  Cagnotte pour {assoChoose.nom}
+                  <div className="labelDiv">
+                    <input
+                      className="inputForm"
+                      type="number"
+                      name="cagnotte_don_asso"
+                      onChange={handleChange}
+                      maxLength="6"
+                    />
+                    <p>€</p>
+                  </div>
+                </label>
+              </div>
+              <div>
+                <label className="label">
+                  Cagnotte pour {eventToJoint.prenom}
+                  <div className="labelDiv">
+                    <input
+                      className="inputForm"
+                      type="number"
+                      name="cagnotte_somme_cadeau"
+                      onChange={handleChange}
+                      maxLength="6"
+                    />
+                    <p>€</p>
+                  </div>
+                </label>
+              </div>
+            </div>
             <input type="submit" value="Valider" className="buttonStyle" />
             {/* {errorLogin ? (
           <span className="errorLogin">

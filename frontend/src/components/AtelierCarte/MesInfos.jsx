@@ -11,6 +11,7 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
     }
     return "";
   };
+
   const handleChange = (e) => {
     e.preventDefault();
     setCardContain({
@@ -115,6 +116,7 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             onChange={handleChange}
             required
             placeholder={assoResult()}
+
           />
         </label>
         <br />

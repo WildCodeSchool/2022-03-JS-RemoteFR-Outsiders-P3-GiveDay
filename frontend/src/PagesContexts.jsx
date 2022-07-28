@@ -22,7 +22,10 @@ export function CurrentPagesContextProvider({ children }) {
   const [creationEvenement, setCreationEvenement] = useState(false);
   const [isOpenJeCree, setIsOpenJeCree] = useState(false);
   const [userIsConnected, setUserIsConnected] = useState(false);
-  const [eventToJoint, setEventToJoint] = useState({});
+  const eventToJointLocal = localStorage.getItem("eventToJointLocal");
+  const [eventToJoint, setEventToJoint] = useState(
+    JSON.parse(eventToJointLocal)
+  );
   const [cadeauxList, setcadeauxList] = useState([]);
   const articleChoose = localStorage.getItem("articleChoose");
   const [detail, setDetail] = useState(JSON.parse(articleChoose));

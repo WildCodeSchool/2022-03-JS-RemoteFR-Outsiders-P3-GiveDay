@@ -6,6 +6,7 @@ import api from "../../../services/api";
 import CurrentPagesContext from "../../../PagesContexts";
 import "../dashboard.css";
 
+/* COMPOSANT : Création de Post */
 export default function CreatePostContent() {
   const editorRef = useRef(null);
   const { setPostContent } = useContext(CurrentPagesContext);
@@ -19,6 +20,7 @@ export default function CreatePostContent() {
     image: "",
   };
 
+  /* FUNCTION controllée : enregistrement du Titre du Post */
   const handleTitre = (e) => {
     article.titre = e.target.value;
   };
@@ -27,6 +29,7 @@ export default function CreatePostContent() {
     api.get(`api/tag`).then((res) => setTags(res.data));
   }, []);
 
+  /* FUNCTION : génère la date du jour au format : YYYY-MM-DD */
   const setToday = () => {
     let today = "";
     today += `${new Date().getFullYear()}-`;
@@ -34,9 +37,10 @@ export default function CreatePostContent() {
     today += new Date().getDate();
     article.date = today;
   };
-
+  /* FUNCTION : Lance la génération de la date */
   setToday();
 
+  /* FUNCTION controllée : enregistrement de l'URL de image principale du Post */
   const handleIamgeURL = (e) => {
     article.image = e.target.value;
   };
@@ -51,12 +55,11 @@ export default function CreatePostContent() {
     console.warn(e.target.name);
     console.warn(e.target.checked);
   };
-  console.warn(selectedTags);
 
+  console.warn(selectedTags);
+  /* FUNCTION : soumet le formulaire du Post */
   const log = () => {
     if (editorRef.current) {
-      // console.warn(editorRef.current.getContent());
-
       article.texte = editorRef.current.getContent();
 
       console.warn({ article });
@@ -79,7 +82,7 @@ export default function CreatePostContent() {
         });
     }
   };
-
+  /* RENDU : Si enregistrement article validé : affiche une boite modale de redirection au choix */
   if (alert === "ArticleSaved") {
     return (
       <form className="form-ArticleSaved" name="form-reset-password-email">
@@ -97,6 +100,8 @@ export default function CreatePostContent() {
       </form>
     );
   }
+
+  /* RENDU : Sinon affiche l'éditeur de Post */
   return (
     <div className="contentTable">
       <div className="head-h2">
@@ -140,7 +145,7 @@ export default function CreatePostContent() {
       ))}
 
       <h4 className="mt-2">Saisissez un article</h4>
-
+      {/* COMPOSANT : Editeur TinyMCE avec clé API et paramètre de configuration */}
       <Editor
         apiKey="70gb2ple3n4s75w5vqwai5zisk0z4ya4dt96kxgbpvtx0qd1"
         onInit={(evt, editor) => {
