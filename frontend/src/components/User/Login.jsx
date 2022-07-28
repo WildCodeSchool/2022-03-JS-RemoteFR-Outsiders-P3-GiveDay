@@ -40,8 +40,6 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
         setErrorLogin(true);
       });
   };
-
-  console.warn(user);
   const handleChange = (e) => {
     setUser({
       ...user,
