@@ -24,7 +24,7 @@ function Register({ hundleOpenNewAccount, setUserIsConnected }) {
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: "Vôtre compte a bien été créé !",
+              title: "Votre compte a bien été créé !",
               showConfirmButton: false,
               timer: 1500,
             });
