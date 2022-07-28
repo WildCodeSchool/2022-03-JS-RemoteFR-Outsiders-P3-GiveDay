@@ -18,8 +18,15 @@ import MesInfos from "./MesInfos";
 import CurrentPagesContext from "../../PagesContexts";
 
 function AtelierCarte() {
-  const { createEvent, setCreateEvent } = useContext(CurrentPagesContext);
   const { asso } = useContext(CurrentPagesContext);
+  const { createEvent } = useContext(CurrentPagesContext);
+  const assoResult = () => {
+    if (createEvent.asso_id !== "") {
+      return asso[createEvent.asso_id - 1].nom;
+    }
+    return "ex Rêve";
+  };
+
   const [cardContain, setCardContain] = useState({
     name: createEvent.prenom ? createEvent.prenom : "Emma",
     place: createEvent.lieu ? createEvent.lieu : "Chez ma mami",
@@ -30,10 +37,10 @@ function AtelierCarte() {
     time: createEvent.heure_de_debut ? createEvent.heure_de_debut : "18h00",
     mobile: createEvent.telephone ? createEvent.telephone : "06 00 00 00 00",
     email: createEvent.mail ? createEvent.mail : "mailmail.@mail.fr",
-    // asso: createEvent.asso_id ? asso[createEvent.asso_id].nom : "ex: Rêves",
+    asso: assoResult(),
+
   });
 
-  console.warn(asso);
   const [eventCode, setEventCode] = useState({
     code: createEvent.code ? createEvent.code : "PASENCOREDECODE",
   });
