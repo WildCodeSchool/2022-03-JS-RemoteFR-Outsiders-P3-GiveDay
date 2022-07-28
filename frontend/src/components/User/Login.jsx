@@ -21,11 +21,9 @@ function Login({ hundleOpenLogin, setUserIsConnected }) {
         if (data) {
           localStorage.setItem("user", JSON.stringify(data));
           setUserIsConnected(true);
-          /* Je commente cette partie pour un essai de l'authentification via le token
-         setTimeout(() => {
+          setTimeout(() => {
             window.location.reload();
-          }, 1000); */
-          hundleOpenLogin();
+          }, 1000);
           Swal.fire({
             position: "top-end",
             icon: "success",
