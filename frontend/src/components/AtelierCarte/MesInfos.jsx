@@ -116,7 +116,6 @@ function MesInfos({ cardContain, setCardContain, printDocument }) {
             onChange={handleChange}
             required
             placeholder={assoResult()}
-
           />
         </label>
         <br />
