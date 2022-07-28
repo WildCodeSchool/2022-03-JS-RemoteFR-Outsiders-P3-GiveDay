@@ -38,7 +38,6 @@ function AtelierCarte() {
     mobile: createEvent.telephone ? createEvent.telephone : "06 00 00 00 00",
     email: createEvent.mail ? createEvent.mail : "mailmail.@mail.fr",
     asso: assoResult(),
-
   });
 
   const [eventCode, setEventCode] = useState({

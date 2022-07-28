@@ -19,9 +19,11 @@
 }
 #jointEventContainer .jointEventInput {
   margin-top: 1rem;
+  width: 100%;
 }
 #jointEventContainer .jointEventButton {
-  width: 30%;
+  width: 80%;
+  margin: 0 20%;
 }
 #eventJointed {
   display: flex;

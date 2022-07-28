@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import api from "@services/api";
 import "./user.css";
+import Swal from "sweetalert2";
 
 function Register({ hundleOpenNewAccount, setUserIsConnected }) {
   const [user, setUser] = useState({
@@ -18,8 +19,15 @@ function Register({ hundleOpenNewAccount, setUserIsConnected }) {
             localStorage.setItem("user", JSON.stringify(data));
             setUserIsConnected(true);
             setTimeout(() => {
-              window.location = "/";
+              window.location.reload();
             }, 1000);
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Votre compte a bien été créé !",
+              showConfirmButton: false,
+              timer: 1500,
+            });
           }
         });
     }
