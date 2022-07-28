@@ -3,7 +3,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 90vh;
+  background-image: url("../../../src/assets/images/cercle-animaux.jpg");
+  background-size: cover;
+  background-position: 10%;
+  width: 100%;
 }
 #jointEventContainer .form {
   color: var(--color_2);
@@ -61,6 +65,11 @@
   color: var(--color_4);
   margin-bottom: 3rem;
   text-align: center;
+}
+#jointEventContainer > .form {
+  background-color: rgba(249, 252, 255, 0.753);
+  padding: 2rem;
+  width: 40%;
 }
 #eventJointed .cadeauDiv {
   min-width: 23rem;
