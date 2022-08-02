@@ -4,6 +4,8 @@ import "./contact.css";
 import Layout from "@components/Layout";
 import Swal from "sweetalert2";
 
+// Le formulaire de contact est crée avec EmailJs (voir readMe dans dossier Contact): https://www.emailjs.com/docs/examples/reactjs/
+
 function Contact() {
   const form = useRef();
 
@@ -18,10 +20,10 @@ function Contact() {
     });
     emailjs
       .sendForm(
-        "service_bgu7oxk",
-        "template_fnzqw3n",
+        "service_mxv2zpm",
+        "template_2byincj",
         form.current,
-        "5NZVBYk7GV2tzzM0L"
+        "eMIwx5WV73b950X_2"
       )
       .then(
         (result) => {
